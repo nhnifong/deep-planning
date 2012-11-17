@@ -1,0 +1,27 @@
+Are cyclic chains of cause-and-effect automatically discoverable and fixable in software engineering?
+
+Can stacked neural autoencoders help discover system structure?
+
+Can cyclic problems be algorithmically removed from systems while preserving their overall purpose?
+
+Can stacked denoising autoencoders be applied to goal seeking behavior? Can they be applied to design?
+
+Cyclic problems are short term solutions that ultimately make the conditions they are trying to alleviate worse in the long run.
+
+Generalize the idea of short vs. long term solutions to a predicted utility curve and propose an algorithm for ranking solutions.
+
+figure out how to preform that ranking with neural networks.
+
+The mixture of expectations and sensations is the defining feature of perception. Can an algorithm with this at it's core simultaneously predict the utility curve of a solution over time, as well as it's certainty curve.
+
+Simulations of a system may show that the payoff of an action will rise and fall with time. As mortals, and because the near future can be known more precisely than the distant future, we weight short term solutions more highly than long-term solutions. More generally we prefer payoffs solutions in a exponentially decaying amount of time. For example, an average person might say that $100 given to them one week from now is worth about the same amount subjectively as  $110 in two weeks.
+
+One would be tempted to maximize the area under the curve of predicted utility, but where should the cutoff be? The current limits of one's predictive power might suggest a natural cutoff.
+
+Also, sometimes a temporary solution is needed to make possible a more permanent one.
+
+The whole of science might be classified as a temporary solution. Let us stop focusing on our immediate needs such as food and shelter, educate ourselves while we live on reserves, and then become wealthy by technology and live in plenty.
+
+If temporary solutions are sometimes good, we need a way to estimate the data past which we no longer need it to work. Or more generally, the falloff curve that measures how needed a solution is over time. Often these are determined by a larger plan. For example, another solution will take over when this one is planned to become obsolete, or a resource that this solutions depends on is non-renewable.
+
+The plan-making engine still has to deal with arbitrary ends, but simply simulation out to the heat death at the end of the universe with exponentially decreasing resolution does not require a surprisingly large number of iterations.
