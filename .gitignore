@@ -1,2 +1,5 @@
 *~
 *.pyc
+*.log
+*.synctex.gz
+build
