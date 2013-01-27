@@ -1,0 +1,132 @@
+\documentclass[12pt]{report}
+%% \usepackage[bbgreekl]{mathbbol}
+\usepackage{psu-thesis}
+%% \usepackage[T1]{fontenc}
+%% \usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%% \usepackage{txfonts}
+%% \usepackage{pxfonts}
+%% \usepackage{eulervm}
+\usepackage{lmodern}
+\usepackage[backref]{hyperref}
+\usepackage[sort&compress,square,comma,numbers,longnamesfirst]{natbib}
+\usepackage{semantic}
+\usepackage[hang]{caption}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{stmaryrd}
+
+\newcommand{\KYA}[1]{\textcolor{blue}{#1 -- Ki Yung}}
+\newcommand{\TS}[1]{\textcolor{red}{#1 -- Tim}}
+
+%% http://www.latex-community.org/forum/viewtopic.php?f=37&t=6637
+
+%% \usepackage{blindtext}
+%% %% http://www.latex-community.org/forum/viewtopic.php?f=48&t=6262
+%% %% http://www.phil.cam.ac.uk/teaching_staff/Smith/logicmatters/l4llogiciansnew.html
+%% \DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+%% \DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+%% \DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+
+\newcommand{\cf}[0]{{cf.}}
+\newcommand{\eg}[0]{{e.g.}}
+\newcommand{\ie}[0]{{i.e.}}
+\newcommand{\aka}[0]{{a.k.a.}}
+%% \newcommand{\wrt}[0]{{w.r.t.}}
+
+\renewcommand{\l}{\lambda}
+\newcommand{\bbl}{\boldsymbol\lambda}
+\renewcommand{\L}{\Lambda}
+
+\newcommand{\dom}{\mathop{\mathrm{dom}}}
+%% \newcommand{\ran}{\mathop{\mathrm{ran}}}
+\newcommand{\FV}{\mathop{\mathrm{FV}}}
+
+\newcommand{\F}[0]{{\ensuremath{\mathsf{\uppercase{F}}}}}
+\newcommand{\Fw}[0]{{\ensuremath{\mathsf{\uppercase{F}}_{\!\omega}}}}
+\newcommand{\Fi}[0]{{\ensuremath{\mathsf{\uppercase{F}}_{\lowercase{i}}}}}
+\newcommand{\Fixw}[0]{{\ensuremath{\mathsf{\uppercase{F}\lowercase{ix}}_{\omega}}}}
+\newcommand{\Fixi}[0]{{\ensuremath{\mathsf{\uppercase{F}\lowercase{ix}}_{\lowercase{i}}}}}
+
+\newcommand{\SN}[0]{\mathsf{SN}}
+\newcommand{\SAT}[0]{\mathsf{SAT}}
+
+\newcommand{\In}{\ensuremath{\mathsf{In}}}
+\newcommand{\MIt}{\ensuremath{\mathsf{MIt}}}
+\newcommand{\MPr}{\ensuremath{\mathsf{MPr}}}
+\newcommand{\MsfIt}{\ensuremath{\mathsf{MsfIt}}}
+\newcommand{\McvIt}{\ensuremath{\mathsf{McvIt}}}
+\newcommand{\McvPr}{\ensuremath{\mathsf{McvPr}}}
+
+\newcommand{\rulename}[1]{{\small\sc #1}}
+
+%% \mathlig{:.}{\,\text{:}\,} %%% for compact layout of the colon for (\(x:A).t)
+\mathlig{[|}{\llbracket} %% since semantic defines |[ as \llbracket :(
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+\numberwithin{lemma}{section}
+\numberwithin{corollary}{section}
+
+\begin{document}
+\title{How to Write Theses \\ With Two Line Titles}
+\titleline{How to Write Theses With Two Line Titles}
+
+\author{Ki Yung Ahn}
+\principaladviser{Tim Sheard}{\ }
+\firstreader{James Hook}
+\secondreader{Mark P. Jones}
+\thirdreader{Andrew Tolmach}
+\graduaterepresentative{Douglas V. Hall}
+\departmenthead{Aragorn TODO Dept Head}
+\grantdate{June}{30}{5012}
+
+%%%% %% case (PAPER DISSERTATION)
+%%%% \abstractpage
+%%%%     Your abstract goes here...
+%%%% \titlep
+%%%% \prefatory
+%%%% \dedication
+%%%%     I dedicate this thesis to...
+%%%% \prefacesection{Acknowledgments}
+%%%%     I would like to thank...
+%% case (ELECTRONIC DISSERTATION)
+\titlep
+\prefatory
+\prefacesection{Abstract}
+    Your abstract goes here...
+\prefacesection{Dedication}
+    I dedicate this thesis to...
+\prefacesection{Acknowledgments}
+    I would like to thank...
+%%%% %% esac
+
+\afterpreface
+\body
+
+\include{intro}   %% Introduction                          {ch:intro}
+\include{poly}    %% Polymorphic type systems              {ch:poly}
+\include{mendler} %% Mendler-style recursion schemes       {ch:mendler}
+\include{fi}      %% System Fi                             {ch:fi}
+\include{fixi}    %% System Fixi                           {ch:fixi}
+\include{nax}     %% The Nax language                      {ch:nax}
+\include{casestd} %% Case studies                          {ch:casestd}
+\include{relwork} %% Related work                          {ch:relwork}
+\include{futwork} %% Future work                           {ch:futwork}
+\include{concl}   %% Conclusion                            {ch:concl}
+
+\bibliographystyle{plainnat}
+\bibliography{main}
+
+\appendix
+\chapter{A Long Proof}
+\chapter{A Source Code}
+
+\end{document}
+
+

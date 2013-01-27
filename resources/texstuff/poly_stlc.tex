@@ -1,0 +1,567 @@
+\section{The simply-typed lambda calculus}\label{sec:stlc}
+\begin{figure}
+\begin{singlespace}
+\begin{minipage}{.46\textwidth}
+	\begin{center}Church-style\end{center}
+\def\baselinestretch{0}
+\small
+\begin{align*}
+\textbf{term syntax} \\
+t,s ::= &~ x           & \text{variable}    \\
+      | &~ \l(x:A) . t & \text{abstraction} \\
+      | &~ t ~ s       & \text{application} \\
+\\
+\textbf{type syntax} \\
+A,B ::= &~ A -> B  & \text{arrow type} \\
+      | &~ \iota   & \text{ground type}   \\
+\end{align*}
+\[ \textbf{typing context} \]\vspace*{-1em}
+\begin{align*}\quad
+\Gamma ::= &~ \cdot \\
+	 | &~ \Gamma, x:A \quad (x\notin \dom(\Gamma)) \\
+\end{align*}
+\[ \textbf{typing rules}
+	\qquad \framebox{$\Gamma |- t : A$} \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc Var]{x:A \in \Gamma}{\Gamma |- x:A} \\
+& \inference[\sc Abs]{\Gamma,x:A |- t : B}
+		     {\Gamma |- \l(x:A).t : A -> B} \\
+& \inference[\sc App]{\Gamma |- t : A -> B & \Gamma |- s : A}
+		     {\Gamma |- t~s : B} \\
+\end{align*}
+\[ \textbf{reduction rules}
+	\quad \framebox{$t --> t'$} \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc RedBeta]{}{(\l(x:A).t)~s --> t[s/x]} \\
+& \inference[\sc RedAbs]{t --> t'}{\l(x:A).t --> \l(x:A).t'} \\
+& \inference[\sc RedApp1]{t --> t'}{t~s --> t'~s} \\
+& \inference[\sc RedApp2]{s --> s'}{t~s --> t~s'} \\
+\end{align*}
+\end{minipage}
+\begin{minipage}{.46\textwidth}
+	\begin{center}Curry-style\end{center}
+\def\baselinestretch{0}
+\small
+\begin{align*}
+\textbf{term syntax} \\
+t,s ::= &~ x           \\
+      | &~ \l x    . t \\
+      | &~ t ~ s       \\
+\\
+\textbf{type syntax} \\
+A,B ::= &~ A -> B \\
+      | &~ \iota  \\
+\end{align*}
+\[ \textbf{typing context} \]\vspace*{-1em}
+\begin{align*}\quad
+\Gamma ::= &~ \cdot \\
+	 | &~ \Gamma, x:A \quad (x\notin \dom(\Gamma)) \\
+\end{align*}
+\[ \textbf{typing rules}
+	\qquad \framebox{$\Gamma |- t : A$} \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc Var]{x:A \in \Gamma}{\Gamma |- x:A} \\
+& \inference[\sc Abs]{\Gamma,x:A |- t : B}
+		     {\Gamma |- \l x   .t : A -> B} \\
+& \inference[\sc App]{\Gamma |- t : A -> B & \Gamma |- s : A}
+		     {\Gamma |- t~s : B} \\
+\end{align*}
+\[ \textbf{reduction rules}
+	\quad \framebox{$t --> t'$} \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc RedBeta]{}{(\l x   .t)~s --> t[s/x]} \\
+& \inference[\sc RedAbs]{t --> t'}{\l x   .t --> \l x   .t'} \\
+& \inference[\sc RedApp1]{t --> t'}{t~s --> t'~s} \\
+& \inference[\sc RedApp2]{s --> s'}{t~s --> t~s'} \\
+\end{align*}
+\end{minipage}
+~\\
+\caption{Simply-typed lambda calculus in Church style and Curry style}
+\label{fig:stlc}
+\end{singlespace}
+\end{figure}
+We illustrate two styles of the simply-typed lambda calculus (STLC)
+in Figure \ref{fig:stlc}. The left column of the figure describes
+the Church-style STLC and the right column describes the Curry-style STLC.
+
+A term can be either a variable, an abstraction (\aka\ lambda term), or
+an application. The distinction between the two style comes from whether
+the abstraction has type annotation in the term syntax. Abstractions in
+Church style have the form $\lambda(x:A).t$ with type annotation $A$ on
+the variable $x$ bound in $t$. Abstractions in Curry style have the form
+$\lambda x.t$ without any type annotation. The differences in typing rules
+and reduction rules between the two styles follow from this distinction
+in the term syntax.
+
+A type can be either an arrow type or a ground type.
+The type syntax is exactly the same in both styles.
+There should be no questions regarding arrow types as they are types for
+functions. For instance, abstractions have arrow types. We need some
+ground types in order to populate the types, as a base case for
+the inductive definition of types. Otherwise, if there were no ground types,
+we would not have any types\footnote{If we allow infinite types, then it is
+	possible to populate types without ground types. There exist exotic
+	lambda calculi with infinite types, but rather uncommon.}
+%% Then, such version of STLC will be very uninteresting since there cannot
+%% be any well-typed terms because there are no types to begin with.
+Here, I choose to include only the most simple ground type $\iota$,
+which also known as the void type. Note that there exist any closed term of
+type $\iota$. The only way to construct terms of type $\iota$ is when we
+have a bound variable known to have type $\iota$ in the typing context.
+Having just the void type as a ground type is enough for my purpose of
+motivating the discussions for the polymorphic type systems, without
+complicating the term syntax of the STLC.
+
+When people use STLC to model a programming language (with simple types),
+they usually provide richer set of ground types other than the void type
+(\eg, unit, boolean, natural numbers). In such versions of STLC, whose
+type syntax is extended with richer set of ground types, they also need to
+extend the term syntax by providing normal terms (or, constants) for
+those ground types (\eg, \textsf{true} and \textsf{false} for booleans) and
+eliminators (\eg, if-then-else expression for booleans) that can examine
+the normal terms. Later on, we shall see that polymorphic type systems
+such as System \F\ (\S\ref{sec:f}) and \Fw (\S\ref{sec:fw}) are expressive
+enough to encode those ground types without introducing them as primitive
+constructs of the calculi.
+
+Typing rules are the rules to derive (or prove) typing judgments.
+A typing judgment $\Gamma |- t : A$ means that the term $t$ has type $A$
+under the typing context $\Gamma$. We say $t$ is well-typed
+(or, $t$ is a well-typed term) under $\Gamma$ when we can derive (or prove)
+a typing judgment $\Gamma |- t : A$ for some $A$ according to the typing rules.
+There are three typing rules --
+one typing rule for each item of the term syntax.
+Therefore, the typing rules of the STLC are syntax directed in both styles.
+That is, there is always only one rule to choose for the typing derivation
+by examining the shape of the term.
+ 
+The reduction rules in Figure \ref{fig:stlc} describes the $\beta$-reduction
+for the STLC. The \rulename{RedBeta} rule describes the key concept
+the $\beta$-reduction on the $\beta$-redex. A $\beta$-redex is an application
+of an abstraction to another term. The other three rules describe the idea
+that a redex may appear in subterms although the term itself is not a redex.
+The reduction rules of the STLC are virtually the same as the reduction rules
+of the $\beta$-reduction the untyped lambda calculus. Note that reduction rules
+are not deterministic. There is no preferred order when there are more than one
+redex in a term. For instance, when there are redexes in both $t$ and $s$
+in the application $t s$, one may apply any of the two rules \rulename{RedApp1}
+and \rulename{RedApp2}.
+
+\paragraph{}
+We first discuss two important properties of the STLC
+(subject reduction and strong normalization), which hold
+in both Curry style and Church style (\S\ref{sec:stlc:srsn}).
+Then, we discuss distinctive characteristics of each style
+(\S\ref{sec:stlc:church},\S\ref{sec:stlc:curry}).
+Finally, we motivate the discussion of polymorphic type systems
+by reviewing the limitations of the STLC (\S\ref{sec:stlc:topoly}).
+
+\subsection{Subject reduction and strong normalization}\label{sec:stlc:srsn}
+We discuss two important properties of the STLC, which holds in both
+Church style and Curry style -- \emph{subject reduction} (\aka\
+\emph{type preservation}) and \emph{strong normalization}.
+
+\paragraph{Subject reduction} is a property that reduction preserves type,
+as stated below:
+\begin{theorem}[subject reduction]
+	$\inference{\Gamma |- t : A  & t --> t'}{\Gamma |- t' : A}$
+\end{theorem}
+That is, when a well-typed term takes a reduction step, then the reduce term
+also has the same type. We can prove subject reduction (\aka\ type preservation)
+by induction on the derivation of the reduction rules.
+The only interesting case is the \rulename{RedBeta} rule. Proof for all
+the other rules are simply done by applying the induction hypothesis.
+Proof for the \rulename{RedBeta} rule amounts to proving the substitution lemma:
+\begin{lemma}[substitution]
+$ \inference{\Gamma,x:A |- t : B  & \Gamma |- s : A}{\Gamma |- t[s/x] : B} $
+\end{lemma}
+Proof of the substitution lemma is a straightforward induction on
+the derivation of the typing judgement.
+
+When people use STLC to model a programming language,
+they usually consider another property called \emph{progress},
+which states that well-typed terms are either values or
+able to take an evaluation step. An evaluation is a reduction strategy
+(\ie, certain subset of the reduction relation), which is often deterministic.
+Values are terms that meet certain syntactic criteria, which is intended not
+to take further evaluation steps. In such a setting, type safety means
+subject reduction together with progress. However, in a calculus considering
+reductions to normal terms, rather than evaluations to values, type safety is
+no more than subject reduction since normal terms are irreducible by definition.
+
+\paragraph{Strong normalization} is another important property of the STLC,
+when we intend to consider terms of the STLC as a proof of a propositional logic
+by the Curry-Howard correspondence. The proof strategy we present here is
+to define the set of strongly normalizing terms, which may or may not be
+well typed, and show that all well-typed terms belong to this set.
+We shall continue the discussion on strong normalization using
+the Curry-style term syntax, but this proof strategy also works well
+for the Church-style STLC\footnote{This proof strategy generalizes well
+	to more complicated systems such as System \F, System \Fw, and
+	even for dependently-typed calculi, such as
+	the Calculus of Constructions\cite{Geuvers94}.}.
+In fact, this strategy originates from Girard's strong normalization proof
+for System \F\ using reducibility candidates \cite{Gir71}, and later rephrased
+using Tait's saturated sets \cite{Tait75}. In particular, I adopt
+the notations from the work of \citet{AbeMat04}, which includes
+a strong normalization proof for an extension of \Fw\ using saturated sets.
+The strong normalization proofs for System \F\ (\S\ref{sec:f}) and
+\Fw\ (\S\ref{sec:fw}) in this chapter, and also for System \Fi\
+(Chapter \ref{ch:fi}) and \Fixi\ (Chapter \ref{ch:fixi}) in later chapters,
+are also based on the same strategy using saturated sets, with gradually
+increasing complexity for the interpretation of types in each of those systems.
+
+A straightforward inductive definition of $\SN$,
+the set of strongly normalizing terms, would be:
+\[
+\inference{s_1,\ldots,s_n\in\SN}{x~s_1~\cdots~s_n \in \SN}
+\qquad
+\inference{t \in \SN}{\l x.t \in \SN}
+\qquad
+\inference{t' \in \SN & t --> t'}{t \in \SN}
+\]
+That is, variables and applications of a variable to a strongly normalizing term
+are in $\SN$, abstractions are in $\SN$ when their bodies are in $\SN$,
+and terms that reduce to $\SN$ are also in $\SN$. Relying on the fact that
+normal order reduction (\ie, reduce the outermost leftmost redex first) always
+leads to a normal form if a normal form exists, we can alter the last rule of
+the inductive definition above more syntactically, yet defining the same set
+$\SN$, as follows:
+\[
+\inference{s_1,\ldots,s_n\in\SN}{x~s_1~\cdots~s_n \in \SN}
+\quad
+\inference{t \in \SN}{\l x.t \in \SN}
+\quad
+\inference{t[s/x]~s_1~\cdots~s_n\in \SN & s\in\SN}
+	{(\lambda x.t)~s~s_1~\cdots~s_n \in \SN}
+\]
+
+A set $\mathcal{A}$ is saturated when it is closed under adding
+strongly normalizing neutral terms and strongly normalizing weak head expansion:
+\[
+\inference{s_1,\ldots,s_n\in\SN}{x~s_1~\cdots~s_n \in \mathcal{A}}
+\qquad\qquad\qquad\qquad\quad
+\inference{t[s/x]~s_1~\cdots~s_n\in \mathcal{A} & s\in\SN}
+	  {(\l x.t)~s~s_1~\cdots~s_n \in \mathcal{A}}
+\]
+We can easily observe that $\SN$ is a saturated set by definition
+since we can get the first and last part of the inductive definition for $\SN$
+when $\mathcal{A}=\SN$. We can define an arrow operator over saturated sets
+(or, saturated-set arrow) as follows:
+\[ \mathcal{A} -> \mathcal{B} = \{ t \in \SN \mid t~s \in \mathcal{B} ~\text{for all}~ s \in \mathcal{A} \} \]
+It is known that $\mathcal{A} -> \mathcal{B}$ is saturated
+when both $\mathcal{A}$ and $\mathcal{B}$ are saturated.
+
+\begin{figure}
+\begin{singlespace}
+\begin{description}
+\item[Interpretation of types] as saturated sets of normalizing terms:
+\begin{align*}
+[| \iota  |] &= \bot \qquad\qquad (\text{the minimal saturated set}) \\
+[| A -> B |] &= [| A |] -> [| B |]
+\end{align*}
+
+\item[Interpretation of typing contexts] as sets of valuations ($\rho$):
+\[ [| \Gamma |] =
+	\{\; \rho\,\in\,\dom(\Gamma) -> \SN ~\mid~
+             \rho(x) \in [|\Gamma(x)|] ~\text{for all}~x\in\dom(\Gamma) \;\}
+\]
+
+\item[Interpretation of terms] as terms themselves whose free variables are
+	substituted according to the given valuation ($\rho$):
+\begin{align*}
+[|x|]_\rho      &= \rho(x) \\
+[|\l x.t|]_\rho &= \l x.[|t|]_\rho  \qquad (x\notin\dom(\rho)) \\
+[|t~s|]_\rho    &= [|t|]_\rho~[|s|]_\rho
+\end{align*}
+\end{description}
+\caption[Interpretation of STLC for proving strong normalization]
+	{Interpretation of types, typing contexts, and terms of STLC
+         for the proof of strong normalization}
+\label{fig:interpSTLC}
+\end{singlespace}
+\vspace*{.5em}\hrule
+\end{figure}
+
+We interpret types as saturated subsets (\ie, subsets that are saturated) of
+$\SN$ as in Figure \ref{fig:interpSTLC}. We interpret the void type as
+the minimal saturated set ($\bot$), which is saturated from the empty set.
+We choose the symbol $\bot$ since saturated sets form a complete lattice
+under the subset relation as the partial order. We may denote $\SN$ as $\top$
+since it is the maximal element of the lattice. Note that $\bot$,
+or $[|\iota|]$, does not include any abstraction since $\iota$ is
+not a type of a function. Arrow types ($A -> B$) are interpreted as
+the saturated-set arrow over the interpretations of the domain type
+and the range type ($[|A|] -> [|B|]$).
+
+We interpret a typing context ($\Gamma$) as a set of valuations ($\rho$).
+For every variable binding in the typing context ($x:A \in \Gamma$),
+a valuation should map the variable ($x$) to a term that belongs to
+the interpretation of its desried type ($[|A|]$). That is, if
+$x : A \in \Gamma$ then any $\rho \in [|\Gamma|]$ should satisfy
+that $\rho(x) \in [|A|]$.
+
+The Proof of strong normalization amounts to proving the following theorem:
+\begin{theorem}[soundness of typing]
+$ \inference{\Gamma|- t:A & \rho \in [|\Gamma|]}{[|t|]_\rho \in [|A|]} $
+\end{theorem}
+\begin{proof}
+We prove by induction on the typing derivation ($\Gamma|- t:A$).
+\paragraph{}
+For variables, it is trivial to show that
+$ \inference{\Gamma |- x:A & \rho \in [|\Gamma|]}{[|x|]_\rho \in [|A|]} $.
+
+Due to the \rulename{Var} rule, we know that $x:A \in \Gamma$.
+So, $[|x|]_\rho =\rho(x)\in[|\Gamma(x)|] = [|A|]$.
+
+\paragraph{}
+For abstractions, we need to show that
+$ \inference{\Gamma |- \l x.t : A -> B & \rho \in [|\Gamma|]}
+	     {[|\l x.t|]_\rho \in [|A -> B|]} $.
+
+Since $[|\l x.t|]_\rho = \l x.[|t|]_\rho$ and
+$[|A -> B|] = \{ t\in \SN \mid t~s\in[|B|]~\text{for all}~s\in[|A|] \}$,
+what we need to show is equivalent to the following:
+\[ \inference{\Gamma |- \l x.t : A -> B & \rho \in [|\Gamma|]}
+	     {\l x.[|t|]_\rho \in
+		\{ t\in \SN \mid t~s\in[|B|] ~\text{for all}~ s\in[|A|] \} }
+\]
+By induction, we know that:
+$ \inference{\Gamma,x:A |- t : B & \rho' \in [|\Gamma,x:A|]}
+	     {[|t|]_{\rho'} \in [|B|]} $.
+
+Since this holds for all $\rho' \in [|\Gamma,x:A|]$, it also holds
+for particular $\rho' = \rho[x \mapsto s]$ for any $s \in [|A|]$.
+So, $[|t|]_{\rho[x\mapsto s]} = ([|t|]_\rho)[s/x]\in[|B|]$ for any $s\in[|A|]$.
+Since saturated sets are closed under normalizing weak head expansion,
+$(\l x.[|t|]_\rho)~s \in[|B|]$ for any $s\in[|A|]$.
+Therefore, $\l x.[|t|]_\rho$ is obviously in the very set,
+which we wanted it to be in (\ie,
+$\l x.[|t|]_\rho\in\{t\in \SN \mid t~s\in[|B|] ~\text{for all}~ s\in[|A|]\}$).
+
+\paragraph{}
+For applications, we need to show that
+$ \inference{\Gamma |- t~s : B & \rho\in[|\Gamma|]}{[|t~s|]_\rho \in [|B|]} $.
+
+By induction we know that
+$
+\inference{\Gamma |- t : A -> B & \rho\in[|\Gamma|]}{[|t|]_\rho \in [|A -> B|]}
+\qquad
+\inference{\Gamma |- s : A & \rho\in[|\Gamma|]}{[|s|]_\rho \in [|A|]}
+$.
+
+Then, it is straightforward to see that $[|t~s|]_\rho\in[|B|]$
+by definition of $[|A -> B|]$.\\
+\end{proof}
+
+\begin{corollary}[strong normalization]
+	$\inference{\Gamma |- t : A}{t \in \SN}$
+\end{corollary}
+Once we have proved the soundness of typing with respect to interpretation,
+it is easy to see that STLC is strongly normalizing by giving a trivial
+interpretation such that $\rho(x) = x$ for all $x\in\dom(\Gamma)$. Note that
+$[|t|]_\rho = t \in [|A|] \subset \SN$ under the trivial interpretation.
+
+
+
+\subsection{Characteristics of the Church-style STLC}\label{sec:stlc:church}
+In Church style, the variable ($x$) in an abstraction
+($\l(x:A).t$) has a type annotation ($A$). Intuitively, we may think of
+the abstraction ($\l(x:A).t$) as a function that expects an argument of
+the type ($A$) specified by the type annotation.
+
+There are some interesting properties that hold in Church style,
+but not in Curry style. Here, we discuss two of them:
+\begin{itemize}
+\item \emph{Uniqueness of typing}
+$\qquad\inference{\Gamma |- t : A & \Gamma |- t : A'}{A = A'} $
+
+\item \emph{Type equivalence between well-typed $\beta$-equivalent terms}
+\begin{align*}
+& \inference{t =_{\beta} t' & \Gamma |- t : A & \Gamma |- t' : A'}{A = A'} \\
+& \text{where $=_{\beta}$ is the reflexive symmetric transitive closure of $-->$.}
+\end{align*}
+\end{itemize}
+
+\emph{Uniqueness of typing}, described in the first item above,
+holds in the Church-style STLC.  More specifically, given
+a well-formed typing context $\Gamma$ and a term $t$ as input,
+if the term is well typed, that is, $\Gamma |- t : A$ for some type $A$,
+then that $A$ is the unique such type. We can prove this by induction on
+the derivation of the typing judgment.
+For variables, it trivially holds since the variables appearing in
+the typing contexts are unique.
+For abstractions, we use induction on the derivation.
+To use the induction hypothesis we should make sure that
+the typing context ($\Gamma,x:A$) and the term $t$ of the premise
+is uniquely determined. It is easy to see that they are uniquely determined
+since all the peaces appearing in the input (\ie, the typing context and
+the term) of the premise (in particular, $\Gamma$, $A$, and $t$) are
+part of the input (in particular the term $\l(x:A).t$) of the conclusion.
+Therefore, by induction hypothesis, $B$ is uniquely determined, and,
+as a consequence, $A -> B$ is uniquely determined.
+For applications, it is easy to show by induction for each of the premise.
+This proof describes the essence of the type reconstruction algorithm for
+the Church-style STLC.
+
+
+Proving \emph{type equivalence between well-typed $\beta$-equivalent terms},
+described in the second item above, amounts to proving \emph{type equivalence
+between terms before and after well-typed $\beta$-reducion
+(or, $\beta$-expanion)},
+described below:
+\begin{align}
+\inference{t --> t' & \Gamma |- t : A & \Gamma |- t' : A'}{A = A'}
+	\label{eqn:welltypedarrow}
+\end{align}
+That is, when a well-typed term ($t$) reduces to
+another well-typed term ($t'$) in single step ($t --> t'$),
+the types of those two terms are identical ($A=A'$).
+Since the claim above is symmetric, we can also say: when a well-typed term
+($t'$) expands to another well-typed term ($t$) in single step ($t' <-- t$),
+the types of those two terms are identical ($A'=A$).
+Let us break down the claim (\ref{eqn:welltypedarrow}) above into two parts:
+\[
+\inference{t --> t' & \Gamma |- t : A}
+          {\Gamma |- t' : A' ~~\text{implies}\quad A = A'} \qquad
+	\begin{smallmatrix}
+		\text{type equivalence between terms} \\
+  		\text{before and after well-typed $\beta$-reduction}
+	\end{smallmatrix}
+\]
+\[
+\inference{t --> t' & \Gamma |- t' : A'}
+          {\Gamma |- t : A \quad\text{implies}\quad A = A'} \qquad
+	\begin{smallmatrix}
+		\text{type equivalence between terms} \\
+  		\text{before and after well-typed $\beta$-expansion}
+	\end{smallmatrix}
+\]~\vspace*{-3em}\\
+
+We know that the former (type equivalence between terms before and after
+well-typed $\beta$-reduction) holds because we already know of
+a stronger property, subject reduction, which we discussed earlier
+(repeated below) that it is one of the properties that commonly hold
+in both Church style and Curry style.
+\begin{align*}
+\inference{\Gamma |- t : A  & t --> t'}{\Gamma |- t' : A}
+ &\qquad \text{subject reduction, or type preservation}
+\end{align*}
+
+\begin{figure}
+\begin{singlespace}
+\begin{tabular}{lp{7cm}}
+$t <-- (\l(x:\iota).x)~t$ &
+relying on the property of the void type
+that $\iota$ is not inhabited by any term
+\\ ~ \\
+$t <-- (\l(x:\iota -> \iota).t)~(\l(x:\iota).x~x)$ &
+without relying on the property of $\iota$ : \par
+apply a constant function to an already ill-typed term (self application)
+\end{tabular}
+\end{singlespace}
+\caption{Examples of $\beta$-expansions to ill-typed terms}
+\label{ill-typed_expand}
+\hrule
+\end{figure}
+
+So, what is interesting about the Church style STLC, in contrast to
+the Curry-style STLC, is the latter part of the claim that terms before and
+after well-typed $\beta$-expansion must always be of same type. Unlike
+the former part of the claim on $\beta$-reduction, where reduced term
+is always well-typed (corollary of subject reduction), we really need
+the condition that expanded term is well-typed ($\Gamma |- t : A$).
+This is because a well-typed term can be expanded to a ill-typed term.
+In fact, we can always expand any well-typed term to ill-typed terms
+(see Figure \ref{ill-typed_expand}).
+
+The proof of the claim (\ref{eqn:welltypedarrow}) is very simple.
+Recall that we want to show that $A = A'$,
+assuming $t --> t'$, $\Gamma |- t : A$ and $\Gamma |- t' : A'$.
+We can prove it by using \emph{subject reduction} and
+\emph{uniqueness of typing} as follows:
+\[ \inference[(\emph{uniqueness of typing})]
+	{ \inference[(\emph{subject reduction})\!\!\!]
+		{t --> t' & \Gamma |- t : A}
+		{\Gamma |- t' : A \phantom{a_f}} 
+	& \Gamma |- t' : A' }
+	{ A = A' }
+\]
+
+\subsection{Characteristics of the Curry-style STLC}\label{sec:stlc:curry}
+In Curry style, there is no annotation on the variable in an abstraction.
+Since the variable binding in the abstraction is no longer fixed to
+a specific type, \emph{uniqueness of typing} does not hold,
+unlike in Church style. For instance, the identity function ($\l x.x$)
+could have one of any type that has of the form $A -> A$, such as:
+\begin{quote}\vspace*{-1em}
+\begin{singlespace}
+$\Gamma |- \l x.x : \iota -> \iota$ \\
+$\Gamma |- \l x.x : (\iota -> \iota) -> (\iota -> \iota)$ \\
+$\Gamma |- \l x.x : (\iota -> (\iota -> \iota)) -> (\iota -> (\iota -> \iota))$ \\
+$\Gamma |- \l x.x : ((\iota -> \iota) -> \iota) -> ((\iota -> \iota) -> \iota)$ \\
+$\Gamma |- \l x.x : ((\iota -> \iota) -> (\iota -> \iota)) -> ((\iota -> \iota) -> (\iota -> \iota))$ \\
+$~~~~ \vdots $
+\end{singlespace}
+\end{quote}
+So, we read the typing judgment $\Gamma |- t : A$ in Curry style as
+\begin{quote}
+$t$ \emph{can have type} $A$ under the typing context $\Gamma$,
+\end{quote}
+unlike in Church style where we read the typing judgment as
+\begin{quote}
+$t$ \emph{has the type} $A$ under the typing context $\Gamma$.
+\end{quote}
+However, we do not consider the Curry-style STLC to be
+a polymorphic type system since the typing for a variable
+under a well-formed context is still unique. That is,
+\[ \inference{\Gamma |- x : A & \Gamma |- x : A'}{A = A'} \]
+
+Type equivalence between terms before and after well-typed $\beta$-reduction
+(or $\beta$-expansion) does not hold either, unlike in Church style.
+This is expected since uniqueness of typing does not hold in Curry style.
+Even when a well-typed term reduces to another well-typed term, they may be
+given different types.\footnote{Subject reduction still holds for
+the Curry-style STLC since we can choose to give the same type to
+the reduced term as the type before the reduction.}
+Consider the reduction $(\l x'.x')(\l x.x) --> \l x.x$.
+We can give different types to the term before the reduction and the
+term after the reduction. For example,
+\[\setpremisesend{.1em} 
+\inference[\sc App]
+ {
+   \inference[\sc Lam]
+     { \inference[\sc Var]
+         {x' : \iota -> \iota ~\in~ \cdot, x' : \iota -> \iota}
+         {\cdot,x' : \iota -> \iota |- x': \iota -> \iota}
+     }
+     {\cdot |- \l x'.x' : (\iota -> \iota) -> (\iota -> \iota)}
+ &
+   \inference[\sc Lam]
+     {\inference[\sc Var]{x:\iota ~\in~ \cdot,x:\iota}
+                         {\cdot,x:\iota |- x:\iota} \phantom{x'}}
+     {\cdot |- \l x.x : \iota -> \iota \phantom{(x')}}
+ }
+ {\cdot |- (\l x'.x')(\l x.x) : \iota -> \iota}
+\]
+\[\qquad\qquad\qquad\quad
+\inference[\sc Lam]
+  {\inference[\sc Var]{x:\iota->\iota ~\in~ \cdot,x:\iota->\iota}
+                      {\cdot,x:\iota->\iota |- x:\iota->\iota} }
+  {\cdot |- \l x.x : (\iota -> \iota) -> (\iota -> \iota)}
+\]
+
+%% does the set of possible types get larger after reduction even when
+%% the only ground type is the void type? I am not sure. So, I won't
+%% elaborate on this.
+
+\paragraph{}
+\KYA{TODO there should be a story on type inference and principal types
+	to motivate the HM type system}
+
+\subsection{Motivations for polymorphic type systems}\label{sec:stlc:topoly}
+TODO

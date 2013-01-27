@@ -1,0 +1,155 @@
+\chapter{Introduction}\label{ch:intro}
+In my dissertation, I will contribute to answering the question
+``how does one build a seamless system where programmers
+can both write (functional) programs
+and formally reason about those programs.''
+I will introduce the motivation for pursuing such a system
+in \S\ref{sec:motive},
+and I will also discuss foundational work upon which
+the approach developed in my thesis is based.
+
+
+\section{Motivation} \label{sec:motiv}
+
+\section{Thesis}
+In my dissertation, I will contribute to answering the question
+``how does one build a seamless system where programmers
+can both write (functional) programs
+and formally reason about those programs.'' In Chapter \ref{ch:relwork},
+I will introduce the motivation for pursuing such a system.
+I will discuss other approaches to building such a system,
+and I will also discuss foundational work upon which
+the approach developed in my thesis is based.
+The following is my thesis statement, which summarizes my
+approach:
+\begin{quote}
+A language equipped with \emph{term indexed types} and
+\emph{Mendler-style recursion combinators} can be 
+(1) a basis for \emph{sound and consistent logic}
+suitable for reasoning about properties of (functional) programs
+and also
+(2) a basis for a \emph{simple and expressive programming language}
+suitable for writing the (functional) programs to be reasoned about.
+\end{quote}
+
+I believe such an approach is promising because, under the design I will
+promote, both the logic and the programming language share many
+common features. Amongst those features are the two design concepts
+of indexed types and Mendler-style recursion combinators.
+
+\emph{Term indexed types} are types indexed by terms. The concept of
+term indexed types can be informally understood by contrasting the traditional
+(non-indexed) polymorphic list type (\textsf{List} $a$) and a length indexed
+(and also polymorphic) list type (\textsf{Vec} $a$ $n$). The polymorphic list
+type (\textsf{List} $a$) is parametrized by a type variable ($a:*$), which can
+be instantiated to any type. Example instantiations include \textsf{List Nat},
+\textsf{List Bool}, and \textsf{List} (\textsf{List Nat}).
+
+A length indexed list type (\textsf{Vec} $a$ $n$) is not only parametrized by
+a type variable ($a:*$) but also indexed by a term variable ($n:\textsf{Nat}$),
+which can be instantiated to a natural number term. Example instantiations
+include \textsf{Vec Int} 3, and \textsf{Vec Bool} $(2+3)$. Types like
+\textsf{Vec} are called term indexed types since their type constructors
+(\eg, \textsf{Vec}) expect term arguments (\eg, $3$, $(2+3)$). 
+With term indexed types, we can express many fine-grained properties of
+programs (\eg, reversing a length indexed list preserves its length).
+
+\emph{Mendler-style recursion combinators} are principled recursion schemes,
+which are used as induction principles in the logic, and recursion operators
+in the programming language. There exist many families of Mendler-style
+recursion combinators. Each member of a family performs the same kind of
+operation, but is specialized to work over type constructors with
+a particular kind. The primitive recursion combinator family was first
+discovered by Mendler \cite{Mendler87}. Since that time, several other
+kind-dependant families \cite{vene00phd,AbeMatUus03,AhnShe11} have been
+discovered to be both expressive and useful.
+
+Mendler-style recursion combinators do have counterparts in the conventional
+(sometime called the Squiggol) style. The conventional style combinators are
+more widely known and used. But, Mendler-style combinators have several
+advantages when compared to conventional style combinators. Mendler-style
+recursion combinators have uniform representation over both non-indexed types
+and term indexed types, and some families of the Mendler-style recursion
+combinators are normalizing for non-positive recursive types as well as
+positive recursive types. Detailed discussion on the Mendler-style recursion
+combinators can be found in Chapter \ref{ch:mendler}.
+
+Throughout my dissertation, I will support my thesis by designing a series of
+language systems of increasing complexity. The goal is that each system can be
+used as a \emph{sound} and \emph{consistent} logic, and each system can be
+extended to a \emph{simple} and \emph{expressive} (functional) programming
+language. Usually, an increase in complexity, leads to a more complete
+extension from logic to programming language. Some programming language features
+will never be found in a sound logic, and the increase in complexity is designed
+to cleanly separate the boundary between the logic and programming language.
+
+The approach I will use is two layered. I will develop an underlying calculus,
+and a surface language, which are closely related to each other. I call the
+underlying typed lambda calculus System \Fi. It captures the essence of a sound
+and consistent logic in the presence of term indexed types. At the same time,
+I am designing a simple and expressive language called Nax, whose semantics
+is closely related to \Fi\ (in fact, it was designed to be defined in terms of \Fi), but whose
+features are restricted in order to make its use more appealing to programmers
+than the underlying \Fi\ calculus.
+
+By ``\emph{sound}'', I mean the type soundness of typed lambda calculi
+in the usual sense. By ``\emph{consistent}'', I mean not all types are
+inhabited by a term. Using the Curry-Howard correspondence, types are
+interpreted as propositions, and terms of those types, are interpreted as
+proofs of those propositions. Thus, it is in fact the usual sense of
+logical consistency -- not all propositions are provable. Since consistency
+requires normalization, System \Fi, the language to be developed for the sound
+and consistent logic, is indeed a normalizing typed lambda calculus. I will
+discuss the features of \Fi\ in detail in Chapter \ref{ch:fi}. Then, in my
+dissertation, I will gradually extend \Fi\ to a more expressive calculi \Fixi\
+in order to support the Mendler-style combinators of the primitive recursion
+family. The features of \Fixi\ are also outlined in Chapters \ref{ch:fi}
+and Chapter \ref{ch:fixi}.
+
+By ``\emph{simple}'', I mean that writing programs in the surface language
+should require no more complication than writing similar programs in one of
+the widely used typed functional programming languages (\eg, Haskell, ML).
+In particular, the Nax language we have designed so far, conservatively
+extends Hindley-Milner type inference to term indexed types. That is,
+all the functional programs involving regular (non-indexed) datatypes, 
+whose types are inferable in a Hindley-Milner type system, will need
+no additional type annotation to infer their types in Nax. For programs
+with richer type structure, involving term indexed types, Nax will require
+a small amount of type annotation, in predictable syntactic positions,
+which will be required by the language syntax.
+
+By ``\emph{expressive}'', I mean we can write a wide range of examples in Nax.
+Since Nax is equipped with Mendler-style recursion combinators, we can write
+many useful programs over values with both term indexed types and
+negative recursive types, as well as over values with non-indexed types and
+positive recursive types. I will discuss the details of Nax
+in Chapter \ref{ch:nax}.
+
+However, we cannot express all the programs in Nax. For example,
+non-terminating programs using general recursion are not expressible since
+Nax is a normalizing language. We know that Nax is normalizing, because
+by design, it will be embeddable into \Fi, which is known to be normalizing.
+In other words, Nax programs always terminate and can be interpreted logically.
+To extend Nax to a Turing complete programming language, we would need to
+extend the language with constructs that cannot be interpreted logically,
+such as general recursion. When we add such constructs, and if we still wish
+to reason logically about the program properties within the language system,
+the type system of the language will need to be extended to keep track of
+which parts of a program can be interpreted logically and which parts cannot.
+There are other possible extensions to Nax that may not necessarily introduce
+non-logical fragments but will make Nax more convenient to program in (\eg,
+polymorphism at the kind level, as well as the type level, and exceptions).
+I will discuss such possible further extensions to Nax
+in Chapter \ref{ch:futwork}.
+
+
+
+\section{TODO}
+discussion of the role of type systems
+( logics and reasoning systems
+, typed programming lanaguages
+, the curry howard correspondence
+)
+
+\section{TODO}
+recursive types and induction
