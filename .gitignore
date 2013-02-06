@@ -3,3 +3,5 @@
 *.log
 *.synctex.gz
 build
+*.blend1
+*.blend2
