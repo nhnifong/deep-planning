@@ -25,7 +25,7 @@ Where $s$ is a non-linearity such as the sigmoid. The latent representation $\ma
 \[
 \mathbf z = s(\mathbf W'\mathbf y + \mathbf b')
 \]
-$\mathbf z$ should be seen as a prediction, or {\it reconstruction}, of  $\mathbf x$ given the code  $\mathbf y$. The parameters of this model ($\mathbf W$, $\mathbf W'$, $\mathbf b$, and $\mathbf b'$) are optimized such that the average reconstruction error is minimized.
+$\mathbf z$ should be seen as a prediction, or {\it reconstruction}, of  $\mathbf x$ given the code  $\mathbf y$. The parameters of this model ($\mathbf W$, $\mathbf W'$, $\mathbf b$, and $\mathbf b'$) are optimized such that the average reconstruction error is minimized\cite{Bengio09}.
 
 Show figure to explain autoencoder.
 
@@ -35,7 +35,7 @@ If there is one linear hidden layer (the code) and the mean squared error criter
 
 Explain the necessity of sparsity using the notion of data compression. Cite the evidence that the brain uses sparse representations. 
 
-The auto-encoder alone is not sufficient to be the basis of a deep architecture because it has a tendency towards over-fitting. The denoising autoencoder (dA) is an extension of a classical autoencoder introduced as a building block for deep networks in [Vincent08].  It attempts to re-construct a corrupted version of the input. The error in $\mathbf z$ is still compared against the un-corrupted input. The stochastic corruption process consists in randomly setting some of the inputs (as many as half of them) to zero. Hence the denoising auto-encoder is trying to predict the corrupted (i.e. missing) values from the uncorrupted (i.e., non-missing) values, for randomly selected subsets of missing patterns. This modification allows the dA to generalize well and produces compounding benefits when the dA's are stacked into a deep network. Hinton(google tech talk 3) suggests that the stochastic timing of the action potentials observed in neurons is a similar feature evolved to alleviate this problem of over-fitting.
+The auto-encoder alone is not sufficient to be the basis of a deep architecture because it has a tendency towards over-fitting. The denoising autoencoder (dA) is an extension of a classical autoencoder introduced specifically as a building block for deep networks\cite{Vincint08}.  It attempts to re-construct a corrupted version of the input. The error in $\mathbf z$ is still compared against the un-corrupted input. The stochastic corruption process consists in randomly setting some of the inputs (as many as half of them) to zero. Hence the denoising auto-encoder is trying to predict the corrupted (i.e. missing) values from the uncorrupted (i.e., non-missing) values, for randomly selected subsets of missing patterns. This modification allows the dA to generalize well and produces compounding benefits when the dA's are stacked into a deep network\cite{Hinton06}. Hinton(google tech talk 3) suggests that the stochastic timing of the action potentials observed in neurons is a similar feature evolved to alleviate this problem of over-fitting.
 
 \section{0.1 Stacked de-noising autoencoders}
 \label{Stacked de-noising autoencoders}
@@ -63,50 +63,49 @@ Tell the story of Hinton's grad student who kept adding another layer, and cite 
 
 Cite Hinton's work on images, video, sound, and mocap.
 
-The largest experiment so far with an SdA, by Google, was able to learn feature detectors for the human face, and a cat, among other things, by training on 10 millions images taken from youtube videos. They used 9 levels of autoencoders. Some other tweaks were used as well, such as local contrast normalization (which basically saves them a level) and Max pooling, a standard procedure in machine vision. They trained the network for three days on a cluster with computing power in the neighborhood of 1 Peta FLOP. This image broke out on reddit with the title "first machine forms concept on it's own". While that's an oversimplification, and it's not the first, it is essentially what Google set out to do.
+The largest experiment so far with an SdA, by Google, was able to learn feature detectors for the human face, and a cat, among other things, by training on 10 millions images taken from youtube videos\cite{Le12}. They used 9 levels of autoencoders. Some other tweaks were used as well, such as local contrast normalization (which basically saves them a level) and Max pooling, a standard procedure in machine vision. They trained the network for three days on a cluster with computing power in the neighborhood of 1 PFLOP. This image broke out on reddit with the title "first machine forms concept on it's own". While that's an oversimplification, and it's not the first, it is essentially what Google set out to do.
 
-This appears to be a white white male human face, and the fact that it was selected by the researches probably reflects their own bias, and does not preclude that the SdA also arrived at codes for black, female, child, elderly, or non-human faces. Although that may not be as efficient as a code which can represent all faces as the sum of a pale white genderless face and some hair and color and eyes. 9 levels up in the hierarchy the categories are very abstract. 
+This appears to be a white white male human face, and the fact that it was selected by the researches probably reflects their own bias, and does not preclude that the SdA also arrived at codes for black, female, child, elderly, or non-human faces. Although that may not be as efficient as a code which can represent all faces as the sum of a pale white genderless face and some hair and color and eyes. 9 levels up in the hierarchy the categories are very abstract, so this is at least plausible.
 
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[height=1.6in,width=1.6in]{gman}
-\caption{A representation of the face detection feature learned by Google's SdA. This image is generated by computing the input that would maximally activate the hidden node in the top layer that has come to represent faces. The SdA was trained on 10 million 200x200 images from youtube.}
+\caption{A representation of the face detection feature learned by Google's SdA. This image is generated by computing the input that would maximally activate the hidden node in the top layer that has come to represent faces. The SdA was trained on 10 million 200x200 images from youtube\cite{Le12}.}
 \end{center}
 \end{figure}
 
 
 
-Training neural networks is an easy process to paralellize and distribute across many computers. However, all the extra training that occurs in an SdA requires even more computer power than usual. The de-noising step is essentially just a supersampling step to create more training examples, and adds an order of magnitude or two to the training time. For this reason, and because of falling costs, the latest developments in SdAs have been run on GPUs. Nvidia's CUDA shader language combined with a top of the line GPU (or several) affords 10 to 1000 fold increases in speed for applications which are very paralellizable. Using Python and Theano, a binding to the GPU accelerated linear algebra library LAPACK on Ubuntu, and a single Nvidia GTX 570 capable of 1405 GFLOPS, I was able to achieve about 20x increase in speed on a simple SdA pre-training operation on the MINST dataset, over a quad-core Intel i5-2500k CPU at 4.5 Ghz, measured to be capable of only 59 GFLOPS.
+Training neural networks is an easy process to paralellize and distribute across many computers. However, all the extra training that occurs in an SdA requires even more computer power than usual. The de-noising step is essentially just a supersampling step to create more training examples, and adds an order of magnitude or two to the training time. For this reason, and because of falling costs, the latest developments in SdAs have been run on GPUs. Nvidia's CUDA shader language combined with a top of the line GPU (or several) affords 10 to 1000 fold increases in speed for applications which are very paralellizable. Using Python and Theano\cite{Bergstra10}, a binding to the GPU accelerated linear algebra library LAPACK on Ubuntu, and a single Nvidia GTX 570 capable of 1405 GFLOPS, I was able to achieve about 20x increase in speed on a simple SdA pre-training operation on the MINST dataset, over a quad-core Intel i5-2500k CPU at 4.5 Ghz, measured to be capable of only 59 GFLOPS.
 
 \section{1.1 Applications of SdAs to planning tasks}
 \label{Applications of SdAs to planning tasks}
 
 Find some examples of this
 
+The essence of planning is the attainment of a goal through a series of intermediate steps which do not necessarily lead directly toward that goal\cite{Baker95}. 
+
 \section{2.0 Plausibility of SdA's as a model of the mammalian neocortex}
 \label{Plausibility of SdA's as a model of the mammalian neocortex}
 
-The primate visual cortex is one of the best understood brain regions in the animal kingdom. We know that it is composed of several levels, each more abstract than the one below it. The cortical columns in V1 are sensitive to a small receptive field of light coming in from the lateral genticulate cortex. They are each slightly sensitive to certain angles and colors more than others. V2, which has connections drawing from V1 and other areas, has cells that are sensitive to mildly complex shapes somewhat invariant to translation, rotation, and scale, and will detect these shapes within a slightly larger receptive field. This gradual increase in abstraction continues as you move up the chain of levels, until you have neurons that are sensitive to something invariant like "person" or "thing moving towards me at an alarming speed"
+The primate visual cortex is one of the best understood brain regions in the animal kingdom. We know that it is composed of several levels, each more abstract than the one before it. The cortical columns in V1 are sensitive to a small receptive field of light coming in from the lateral genticulate cortex, which in turn receives information from the optic nerve. They are each slightly sensitive to certain angles and colors more than others. V2, which has connections drawing from V1 and other areas, has cells that are sensitive to mildly complex shapes somewhat invariant to translation, rotation, and scale, and will detect these shapes within a slightly larger receptive field. This gradual increase in abstraction continues as you move up the chain of levels, until you have neurons that are sensitive to something invariant like "person" or "thing moving towards me at an alarming speed"
 
-The average number of neurons in the adult human primary visual cortex, in each hemisphere, has been estimated at around 140 million. http://www.ncbi.nlm.nih.gov/pubmed/7840422
-
-Cite the case of autoencoders which were trained to see performing well on hearing tasks, and how this plasticity is also a feature of the cortex.
 The SdA method is evolving with functionality and performance in mind, and not explicitly to mimic the cortex, but we find that it has many of the same strengths and weaknesses. One such strength is it's plasticity. An SdA pre-trained to see video, performed better at a hearing task after fine-tuning, than a randomly initialized network fine-tuned in the same way. This is presumably because sound and video share some macro-statistical properties, such as having a high kurtosis.
 
-An SdA also goes through different phases of learning that resemble the phases in a person's maturation. We know that plasticity in the brain decreases over time, and at about 30, the brain changes over to a new mode (except in pregnant women) where it begins to fine tune existing connections and grows almost no new connections in the cortex.
+An SdA also goes through different phases of learning that resemble the phases in a person's maturation. We know that plasticity in the brain decreases over time, and at about 30, the brain changes over to a new mode where it begins to fine tune existing connections and grows almost no new connections in the cortex.
 
 \section{2.1 Philosophical points}
 \label{Philosophical points}
 
-Describe how the levels in the SdA are levels of abstraction, and possibility, and utility, of having a root at the top of this tree.
+The levels in the SdA are levels of abstraction. What are the implications of a possible root at the top of this tree?
 
 Perception is like nested stack of expectations, specific expectations of the near future based on a deluge of sensory data, and a smaller collection of abstract expectations of the medium range future based on a shower of specific, short-range expectations and some more sensory data. Recurse until lost.
 
 Does this tree have a root? is there some "most abstract representation" of our sensory experience that we can expect in the indefinitely long run, that decodes to the specifics that we will in fact observe from this point on? I think that this very theory is a candidate. But that's not as important as it sounds. What any abstract expectation actually predicts depends on the more specific models below it, and the sensory data yet to be observed.  "This too shall pass" would make a perfectly good root for our tree, if giving it that role didn't actually turn it into a paradox. A root here is really not more important than a leaf.
 
-Let me re-iterate. I am operating on the assumtion for this project, that perception and planning are both part of the same process. The model of sensory data is influenced by three main factors. The accurcy, the sparsity, and the desirability, or pleasurableness to the creature. In the case of a game this last factor would be the points or wins/losses experienced by the player. The player percieves the state of the game and the state of it's own recent actions, and expects a likely, sparse, and desirable scenario next, and then is made to take any actions it expected of itself which are legal in the rules of the game. It may not be the most brilliant way to play a game, but I think It would at least perform OK at Puerto Rico, a game about economic growth.
+Let me re-iterate. I am operating on the assumption for this project, that perception and planning are both part of the same process, so the most abstract representations are joint models of sensory experience and action. The model of sensory data is influenced by three main factors. The accuracy, the sparsity, and the desirability, or pleasurableness to the creature. At all levels, the representations which jointly satisfy these three metrics come to dominate. In the case of a game this last factor would be the points or wins/losses experienced by the player. The player perceives the state of the game and the state of it's own recent actions, and expects a likely, sparse, and desirable scenario next, and then is made to take any actions it expected of itself which are legal in the rules of the game. It may not be the most brilliant way to play a game, but I think It would at least perform OK at Puerto Rico, a game about economic growth.
 
-Jeff hawkins said in 2004, "Neural networks were a genuine improvement of the AI approach because their architecture is based, though very loosely, on real nervous systems...But as the neural network pehenomennon exploded on the scene, it mostly settled on the class of ultrasimple models that didn't meet any of [his criteria for biological plausibility]. Most neural networks consisted of a small number of neurons connected in three rows...I thought the field would qucikly move on to more realistic networks, but it didn't. Because these simple neural networks were able to do interesting things, research seemed to stop there for years."
+Jeff Hawkins said in 2004, Neural networks were a genuine improvement of the AI approach because their architecture is based, though very loosely, on real nervous systems...But as the neural network phenomenon exploded on the scene, it mostly settled on the class of ultra-simple models that didn't meet any of [his criteria for biological plausibility]. Most neural networks consisted of a small number of neurons connected in three rows...I thought the field would quickly move on to more realistic networks, but it didn't. Because these simple neural networks were able to do interesting things, research seemed to stop there for years. \cite{Hawkins04}
 
 \section{3.0 Expected performance of SdA vs. dA on the competitive growth game, Puerto Rico}
 \label{Expected performance of SdA vs. dA on the competitive growth game, Puerto Rico}
@@ -123,16 +122,14 @@ The rules of the board game, Puerto Rico, with a minor variation proposed by it'
 
 Why was Puerto Rico chosen?
 * It is a complex problem of competitive growth relevant to today's global economy (even though it's about 17th century imperial colonialism, the problems are still systemically relevant )
-* The greediest move is not always the best move. The greediest move can often help ones opponents quite a bit. Choosing a way of life, and sticking to it is a good strategy, thus a compound plan is needed, with strategic choices at multiple levels of abstraction.
+* The greediest move is not always the best move. The greediest move often promotes an indecisive strategy that can be easily beaten by a player dedicated to a plan. Choosing a way of life, and sticking to it is a good strategy, thus a compound plan is needed, with strategic choices at multiple levels of abstraction.
 * Additionally, the most sustainable strategy is not the best either, because the game does eventually end, and there is an implicit transition in the middle of the game when players switch to unsustainable exploitation of existing infrastructure. 
 * Puerto rico has some randomness in it's initial configuration, but the state transition function is deterministic. 
 * The end conditions can be straightforwardly extended for longer games.
-* the setup can be straightforwardly generalized to arbitrarily many players. Both of these extensions may be needed to make the game more difficult if the SDA masters it too easily, And to create a game for which the brute force approach is unfeasible.
+* the setup can be straightforwardly generalized to arbitrarily many players. Both of these extensions may be needed to make the game more difficult if the SDA masters it too easily, And to create a game for which the brute force approach is infeasible.
 
 \section{3.2 Implementation of SdA-based decider}
 \label{Implementation of SdA-based decider}
-
-I am operating on the assumption that perception and planning are both part of the same process. The model of sensory data is influenced by three main factors. The accuracy, the sparsity, and the desirability. In the case of a game this last factor would be the points or wins/losses experienced by the player. The player perceives the state of the game and the state of it's own recent actions, and expects a likely, sparse, and desirable scenario next, and then is made to take any actions it expected of itself which are legal in the rules of the game. It may not be the most brilliant way to play a game, but I think It would at least perform OK at Puerto Rico, and it is interesting for it's behavioral similarity to humans.
 
 \section{4.0 Performance of SdA-based player against dA player and various other opponents}
 \label{Performance of SdA-based player against dA player and various other opponents}
@@ -150,13 +147,30 @@ SdA vs. online players who think they are playing a human. (definitely don't hav
 
 
 \begin{thebibliography}{99}
-\bibitem{lamport} Lamport, L., {\it LaTeX : A Documentation
- Preparation System User's Guide and Reference Manual}, Addison-Wesley 
- Pub Co., 2nd edition, August 1994.
+
+\bibitem{Baker95} S. C. Baker, R. D. Rogers, A. M. Owen, C. D. Frith, R. J. Dolan, R. S. J. Frackowiak, T. W. Robbins. Neural systems engaged by planning: a PET study of the Tower of London task. Neuropsychologia,Vol. 34, No. 6, pp. 515-526, 1996
+ 
+\bibitem{Bengio07} Bengio, P. Lamblin, D. Popovici and H. Larochelle, Greedy Layer-Wise Training of Deep Networks, in Advances in Neural Information Processing Systems 19 (NIPS‘06), pages 153-160, MIT Press 2007.
+ 
+\bibitem{Bengio09} Bengio, Learning deep architectures for AI, Foundations and Trends in Machine Learning 1(2) pages 1-127.
+
+\bibitem{Hawkins04} Jeff Hawkins and Sandra Blakeslee. On Intelligence. Times Books, 2004.
+
+\bibitem{Hinton06} G.E. Hinton and R.R. Salakhutdinov, Reducing the Dimensionality of Data with Neural Networks, Science, 28 July 2006, Vol. 313. no. 5786, pp. 504 - 507.
+
+\bibitem{Hinton07} G.E. Hinton, S. Osindero, and Y. Teh, “A fast learning algorithm for deep belief nets”, Neural Computation, vol 18, 2006
+
+\bibitem{Bergstra10} J. Bergstra, O. Breuleux, F. Bastien, P. Lamblin, R. Pascanu, G. Desjardins, J. Turian, D. Warde-Farley and Y. Bengio. “Theano: A CPU and GPU Math Expression Compiler”. Proceedings of the Python for Scientific Computing Conference (SciPy) 2010. June 30 - July 3, Austin, TX
+
+\bibitem{Le12} Quoc Le, Marc'Aurelio Ranzato, Rajat Monga, Matthieu Devin, Kai Chen, Greg Corrado, Jeff Dean, Andrew Ng. Building high-level features using large scale unsupervised learning. International Conference in Machine Learning, 2012.
+
+\bibitem{Ranzato06} Marc’Aurelio Ranzato, Christopher Poultney, Sumit Chopra, and Yann LeCun. Efficient Learning of Sparse Representations with an Energy-Based Model. Advances in Neural Information Processing Systems, 2006.
+
+\bibitem{Seyfarth01}  Seyfarth, Andreas, Puerto Rico Rulebook. Rio Grande Games, 2001
+
+\bibitem{Vincint08} Vincent, H. Larochelle Y. Bengio and P.A. Manzagol, Extracting and Composing Robust Features with Denoising Autoencoders, Proceedings of the Twenty-fifth International Conference on Machine Learning (ICML‘08), pages 1096 - 1103, ACM, 2008.
+ 
 \end{thebibliography}
-
-
-% Stop your text
 \end{document}
 
 
