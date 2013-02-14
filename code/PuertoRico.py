@@ -1,4 +1,5 @@
 from random import randint, choice, shuffle
+from copy import copy,deepcopy
 
 resourceOrder = ['empty','indigo','corn','sugar','coffee','tobacco','quarry']
 roleCardOrder = ['settler','mayor','builder','craftsman','trader','captain','prospector']
@@ -99,7 +100,8 @@ class PlayerMat:
         self.doubloons = 0
         self.isGoverner = False
         # zero is empty. is this is the number of plantation tiles of each type you have
-        self.plantationTiles = ResourceCollection(capacity=12, exclusive=None)
+        self.plantationTiles = # Like a resource collection but the tiles can be occupied or not
+        self.buildingTiles = # Like the above, but can have partially occupied spaces, cannot have more than one of each building, and some building take two spaces.
         self.colonistsInSanJuan = 0
 
 
@@ -167,7 +169,8 @@ class Gamestate:
 
         self.round = 0
         self.turnInRound = 0
-        self.roleInProgress = None
+        self.turnInRole = 0
+        self.roleInProgress = None # or the index of one of the rolecards
 
 class Move:
     """A data structure fully defining a move"""
@@ -181,7 +184,7 @@ class Move:
         # for settler, players must indicate the type of tile they want
         self.takeTileType = 0
         # special privlige of mayor
-        self.takeOneFromColonistSupply = True
+        # self.takeOneFromColonistSupply = True #assumed
         # during the mayor phase, players must indicate which of the circles on their mat they will leave empty, if they cannot fill them all with colonists.
         # thankfully a player can only have one of each type of building, so this is specified with one bit for each possible circle a player could have.
         # False means empty. It is not legal to specify more circles filled than you can actually fill, or to specify that any colonists remain unused.
@@ -208,13 +211,54 @@ class Move:
         self.smallWarehouseGood = 2
         self.largeWarehouseGoods = [3,4]
         # hacienda owners may choose to take a face down planation tile on his of the settler phase
-        self.haciendaExtraTile = True
+        #self.haciendaExtraTile = True #assumed
         # Hospice owners may take a colonist --in the settler phase-- from the supply and put it on the tile they choose in this turn. 
-        self.hospiceColonist = True
+        #self.hospiceColonist = True #hospice owners are assumed to take this privige when they can.
         # University - same as hospice, but wiht buildings.
-        self.universityColonist = True
+        #self.universityColonist = True #assumed
         # Wharf owners may use their own ship if they want to
-        self.useWharfShip = True
+        #self.useWharfShip = True #assumed
+
+def nextGamestate(gamestate,move):
+    gs = deepcopy(gamestate)
+    player = gs.playerMats[gs.cp]
+    if gs.roleInProgress is None:
+        assert gs.turnInRole == 0
+        assert gs.roleCards[move.roleCardIndex].faceup
+        # set the new role to the one chosen by the player
+        gs.roleInProgress = move.roleCardIndex
+        # Give the doubloons on the card to the player
+        gs.cp.doubloons += gs.roleCards[gs.roleInProgress].doubloons
+        gs.roleCards[gs.roleInProgress].doubloons = 0
+        gs.roleCards[gs.roleInProgress].faceup = False
+    role = gs.roleCards[gs.roleInProgress]
+    
+    if role.kind == 'settler':
+        if move.takeTileType == resourceOrder['quarry']: # quarries can only be taken on certain conditions
+            assert any([ gs.turnInRole == 0, # either the player is the one who chose the settler card
+                         player.buildingTiles.typeOccupied('construction hut') >= 1, # or the player has an occupied construction hut
+                       ])
+            assert # the player has room for another plantation
+            assert # there is a plantation of that type available 
+            
+            # hospice owners are assumed to take their privlige.
+            if player.buildingTiles.typeOccupied('hospice') >= 1:
+                pass # newly placed plantation will be occupied with a colonist from the supply
+
+            # if there are any plantations left to choose
+            # and the next player has not already chosen one this role
+            # and the next player has room for one
+            # increment the cp to the next player who can choose
+            # if there are no more players who can choose,
+            # set the turn in role to 0 and increment the turn in round,
+            # set the role in progress to none
+            # draw new plantation tiles.
+        elif move.takeTileType == resourceOrder['mayor']:
+            # 
+
+    gs.turnInRole += 1
+
+    return gamestate
 
 
 def initialState(numPlayers):
@@ -225,19 +269,18 @@ def islegal(gamestate, move):
     
     # is selected role card valid or relevant?
     if gamestate.roleInProgress is None:
+        if not self.playerMats[self.cp].isGoverner:
+            return False
         try:
             card = gamestate.roleCards[ move.roleCardIndex ]
         except IndexError, ValueError:
             return False
         if not card.faceup:
             return False
-
-    
-
+    else:
+        role = gamestate.rolecards[gamestate.roleInProgress]
+        #role.kind.....
     return True
-
-def nextGamestate(gamestate,move):
-    return gamestate
 
 def checkwin(gamestate):
     pass
