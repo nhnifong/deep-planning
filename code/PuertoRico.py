@@ -36,6 +36,9 @@ buildingTypes = {
    21:{'name':'customs house', 'circles':1, 'vpoints':4, 'cost':10, 'size':2, 'qnum':4, 'init':1, 'vio':1 },
    22:{'name':'city hall', 'circles':1, 'vpoints':4, 'cost':10, 'size':2, 'qnum':4, 'init':1, 'vio':1 }
 }
+buildingIndex = {}
+for k,v in buildingTypes:
+    buildingIndex[v['name']] = k
 numSlots = sum([buildingTypes[b]['circles'] for b in range(23)])
 
 class ResourceCollection:
@@ -94,17 +97,80 @@ class ResourceCollection:
         self.remove(what)
         return what
 
+class PlantationArea:
+    def __inti__(self):
+        self.capacity = 12
+        self.blocks = {}
+        self.colonists = {}
+        for i in range(1,7):
+            self.blocks[i] = 0
+            self.colonists[i] = 0
+
+    def can_add(self,plant):
+        if type(plant)==str:
+            plant = resourceOrder[plant]
+        if self.capacity < 1:
+            return False
+        return True
+
+    def add(self,plant,withColonist=False):
+        if type(plant)==str:
+            plant = resourceOrder[plant]
+        self.blocks[plant] += 1
+        self.capacity -= 1
+        if withColonist:
+            self.colonists[plant] += 1
+
+    def typeOccupied(self, plant):
+        if type(plant)==str:
+            plant = buildingIndex[building]
+        return self.colonists[plant]
+
+class BuildingArea:
+    def __init__(self):
+        self.capacity = 12
+        self.blocks = {}
+        self.colonists = {}
+        for k in buildingTypes.keys():
+            self.blocks[k] = 0
+            self.colonists = 0
+        
+
+    def can_add(self,building):
+        if type(building)==str:
+            building = buildingIndex[building]
+        # we don't already have one of this type
+        if self.blocks[building] != 0:
+            return False
+        # we have room for it
+        if self.capacity < buildingTypes[building]['size']:
+            return False
+        return True
+
+    def add(self,building,withColonist=False):
+        if type(building)==str:
+            building = buildingIndex[building]
+        self.blocks[building] = 1
+        self.capacity -= buildingTypes[building]['size']
+        if withColonist:
+            self.colonists[building]+=1
+
+    def typeOccupied(self,building):
+        if type(building)==str:
+            building = buildingIndex[building]
+        return self.colonists[building]
+
 class PlayerMat:
     def __init__(self):
         self.victoryPoints = 0
         self.doubloons = 0
         self.isGoverner = False
         # zero is empty. is this is the number of plantation tiles of each type you have
-        self.plantationTiles = # Like a resource collection but the tiles can be occupied or not
-        self.buildingTiles = # Like the above, but can have partially occupied spaces, cannot have more than one of each building, and some building take two spaces.
+        self.plantationTiles = PlantationArea()# Like a resource collection but the tiles can be occupied or not
+        self.buildingTiles = BuildingArea() # Like the above, but can have partially occupied spaces,
+                                            # cannot have more than one of each building, and some building take two spaces.
         self.colonistsInSanJuan = 0
-
-
+    
 class RoleCard:
     def __init_-(self, kind)
         if type(kind) == str:
@@ -238,13 +304,26 @@ def nextGamestate(gamestate,move):
             assert any([ gs.turnInRole == 0, # either the player is the one who chose the settler card
                          player.buildingTiles.typeOccupied('construction hut') >= 1, # or the player has an occupied construction hut
                        ])
-            assert # the player has room for another plantation
-            assert # there is a plantation of that type available 
+        assert player.plantationTiles.can_add(move.takeTileType) # the player has room for another plantation
+        assert gs.knownTiles.can_remove(move.takeTileType) # there is a plantation of that type available 
+        
+        add = False
+        # hospice owners are assumed to take their privlige.
+        if player.buildingTiles.typeOccupied('hospice') >= 1:
+            # newly placed plantation will be occupied with a colonist from the supply
+            if gs.freeColonists > 0:
+                add = True
+        player.plantationTiles.add(move.takeTileType,add)
+        
+        if player.plantationTiles.can_add(1):
+            player.plantationTiles.add( gs.hiddenTiles.remove_random() )
+        
+        # who is the next player who can choose a plantation, if any?
+        contestant = gs.cp
+        can_choose_a_plantation = True
+        while can_choose_a_plantation:
+            contestant = (gs.cp + 1) % gs.numPlayers
             
-            # hospice owners are assumed to take their privlige.
-            if player.buildingTiles.typeOccupied('hospice') >= 1:
-                pass # newly placed plantation will be occupied with a colonist from the supply
-
             # if there are any plantations left to choose
             # and the next player has not already chosen one this role
             # and the next player has room for one
@@ -253,7 +332,7 @@ def nextGamestate(gamestate,move):
             # set the turn in role to 0 and increment the turn in round,
             # set the role in progress to none
             # draw new plantation tiles.
-        elif move.takeTileType == resourceOrder['mayor']:
+    elif move.takeTileType == resourceOrder['mayor']:
             # 
 
     gs.turnInRole += 1
