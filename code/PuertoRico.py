@@ -53,19 +53,23 @@ class ResourceCollection:
             self.d[0] = capacity
         self.exclusive = exclusive
 
-    def can_add(self, res, amount):
-        if type(res) == str:
-            res = resourceOrder.index(res)
-        if self.capacity is not None:
-            if self.d[0] < amount:
-                return False # wont fit
-        if self.exclusive:
-            # determine if we associate with a type, and which it is.
-            for i in range(1,7):
-                if self.d[i] > 0:
-                    if res != i:
-                        return False
-        return True
+    def can_add(self, res=None, amount=1):
+    	if res==None:
+    		# interpreted as can_add_any
+    		return self.capacity >= 1
+    	else:
+			if type(res) == str:
+				res = resourceOrder.index(res)
+			if self.capacity is not None:
+				if self.d[0] < amount:
+					return False # wont fit
+			if self.exclusive:
+				# determine if we associate with a type, and which it is.
+				for i in range(1,7):
+					if self.d[i] > 0:
+						if res != i:
+							return False
+			return True
 
     def add(self, res, amount):
         if type(res) == str:
@@ -75,11 +79,17 @@ class ResourceCollection:
             if self.capacity is not None:
                 self.d[0] -= amount
 
-    def can_remove(self, res, amount):
-        if type(res) == str:
-            res = resourceOrder.index(res)
-        if self.d[res] >= amount:
-            return true
+    def can_remove(self, res=None, amount=1):
+    	if res==None:
+    		# interpreted as can_remove_random
+    		return sum([self.d[k] for k in range(1,7)]) >= 1
+    	else:
+			if type(res) == str:
+				res = resourceOrder.index(res)
+			if self.d[res] >= amount:
+				return True
+			else:
+				return False
 
     def remove(self, res, amount):
         if type(res) == str:
@@ -106,9 +116,9 @@ class PlantationArea:
             self.blocks[i] = 0
             self.colonists[i] = 0
 
-    def can_add(self,plant):
-        if type(plant)==str:
-            plant = resourceOrder[plant]
+    def can_add(self,plant=None):
+        #if type(plant)==str:
+        #    plant = resourceOrder[plant]
         if self.capacity < 1:
             return False
         return True
@@ -136,7 +146,7 @@ class BuildingArea:
             self.colonists = 0
         
 
-    def can_add(self,building):
+    def can_add(self,building=None):
         if type(building)==str:
             building = buildingIndex[building]
         # we don't already have one of this type
@@ -263,15 +273,15 @@ class Move:
         # craftsman's special privlige: which type of good he will produce as his extra good [0|1|2|3|4|5]
         # zero indicates the craftsman chooses not to use the privlige
         self.craftsmanGood = 1
-        # trader's special privlige: recieve extra doubloon
+        # trader's special privilege: recieve extra doubloon
         self.traderPriv = True
         self.whichTradeGood = 1
-        # captian's special privlige: take an extra victory point
+        # captian's special privilege: take an extra victory point
         self.captainPriv = True
         # player must indicate which type of good they will attempt to ship. If they can't ship that type, it's not a legal move
         # they will never be asked what to ship if they cannot ship anything, their turn will be skipped.
         self.shipgood = 1 
-        # at the end of the captian's phase, each player may store one barrel. if you don't have anything to store, you won't be asked.
+        # at the end of the captain's phase, each player may store one barrel. if you don't have anything to store, you won't be asked.
         self.storeGood = 1
         # special building privs
         self.smallWarehouseGood = 2
@@ -315,27 +325,44 @@ def nextGamestate(gamestate,move):
                 add = True
         player.plantationTiles.add(move.takeTileType,add)
         
-        if player.plantationTiles.can_add(1):
+        if player.plantationTiles.can_add():
             player.plantationTiles.add( gs.hiddenTiles.remove_random() )
         
         # who is the next player who can choose a plantation, if any?
         contestant = gs.cp
-        can_choose_a_plantation = True
-        while can_choose_a_plantation:
+        elligible = False
+        endRole = False
+        while not elligible:
             contestant = (gs.cp + 1) % gs.numPlayers
-            
+            if contestant == gs.cp:
+            	endRole = True
+            	break
+            # if the next player has room for one
+            elligible = gs.playerMats[contestant].plantationTiles.can_add()
             # if there are any plantations left to choose
-            # and the next player has not already chosen one this role
-            # and the next player has room for one
-            # increment the cp to the next player who can choose
-            # if there are no more players who can choose,
-            # set the turn in role to 0 and increment the turn in round,
-            # set the role in progress to none
-            # draw new plantation tiles.
+            elligible &= gs.knownTiles.can_remove()
+            
+        if not endRole:
+			# set the cp to the contestant
+			gs.cp = contestant
+			gs.turnInRole += 1
+		else:
+			# there are no more players who can choose,
+			# set the turn in role to 0 and increment the turn in round,
+			# set the role in progress to none
+			# draw new plantation tiles.
+			gs.turnInRole = 0
+			gs.turnInRound += 1
+			gs.roleInProgress = None
+			gs.knownTiles.clear()
+			for i in range(gs.numPlayers + 1):
+				if gs.hiddenTiles.can_remove()
+				gs.knownTiles.add( gs.hiddenTiles.remove_random() )
+			
     elif move.takeTileType == resourceOrder['mayor']:
             # 
 
-    gs.turnInRole += 1
+    
 
     return gamestate
 
