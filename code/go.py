@@ -1,6 +1,5 @@
 from __future__ import division
 from copy import copy, deepcopy
-from hashlib import md5
 import sys
 from pprint import pprint
 from random import randint
@@ -26,6 +25,17 @@ class State:
 		self.prevmove = None
 		self.prevnumcap = 0 # number of stones captured on previous move
 		self.captures = {-1:0, 1:0}
+		
+	def fromPerspective(self, perspective):
+		s = deepcopy(self)
+		for i in range(s.size):
+			for j in range(s.size):
+				s.board[i][j] *= -1
+		s.cp *= -1
+		d = s.captures[-1]
+		s.captures[-1] = s.captures[1]
+		s.captures[1] = d
+		return s
 		
 	def serialize(self, perspective):
 		bb = itertools.chain(*(deepcopy(self.board)))
@@ -102,7 +112,7 @@ def nextGameState(gamestate,move):
 						for cx,cy in c_stones:
 							gs.board[cx][cy] = 0
 							singlecap = (cx,cy)
-		gs.captures[gs.cp] + numCaptured
+		gs.captures[gs.cp] += numCaptured
 				
 		# if the suicide rule is checked first, then the ko rule can be checked in the following way:
 		# One may not capture just one stone, if that stone was played on the previous move, and that move also captured just one stone.
@@ -145,21 +155,38 @@ def findGroups(board, loc, size):
 		else:
 			checked.add((x,y))
 	return (color, frozenset(stones), frozenset(liberties))
+	
+def scoreGame(gs):
+	
+	return scores,winner
 
 if __name__ == "__main__":
 	begin = State(19)
 	pprint(begin.board)
+	moo = "(;GM[1]FF[4]AP[qGo:1.5.4]ST[1]\nSZ[19]HA[0]KM[5.5]PW[White]PB[Black]\n\n"
 	while True:
 		try:
 			
 			cho = (randint(0,18), randint(0,18))
 			begin = nextGameState(begin,cho)
-			print ''
-			print repr(cho)
-			print '' 
-			pprint(begin.board)
+			#print ''
+			#print repr(cho)
+			#print '' 
+			#pprint(begin.board)
+			bw = {-1:'B',1:'W'}
+			alpha = 'abcdefghijklmnopqrstuvwxyz'
+			moo+= ";%s[%s%s]" % (bw[begin.cp], alpha[cho[0]], alpha[cho[1]])
 		except IllegalMove:
 			pass
+		except KeyboardInterrupt:
+			pprint(begin)
+			moo += "\n)"
+			print "writing gameout.sgf"
+			fo = open('gameout.sgf','w')
+			pprint(begin.captures)
+			fo.write(moo)
+			fo.close()
+			sys.exit(0)
 
 
 
