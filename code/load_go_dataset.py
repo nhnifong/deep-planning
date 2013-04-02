@@ -138,12 +138,25 @@ def merge_chunks(data_dir, output_file_size=536870912, test_ratio=0.2):
             chunks.remove(minchunk)
             print "A chunk was finished and removed. %i remain" % (len(chunks))
 
-    
+def load_data(dataset="/media/foundation/GoMoves/randomized/"):
+    def shared_dataset(data_xy, borrow=True):
+        data_x, data_y = data_xy
+        shared_x = theano.shared(numpy.asarray(data_x,
+                                               dtype=theano.config.floatX),
+                                 borrow=borrow)
+        shared_y = theano.shared(numpy.asarray(data_y,
+                                               dtype=theano.config.floatX),
+                                 borrow=borrow)
+        return shared_x, T.cast(shared_y, 'int32')
 
 
+    test_set_x, test_set_y = shared_dataset(test_set)
+    valid_set_x, valid_set_y = shared_dataset(valid_set)
+    train_set_x, train_set_y = shared_dataset(train_set)
 
-
-
+    rval = [(train_set_x, train_set_y), (valid_set_x, valid_set_y),
+            (test_set_x, test_set_y)]
+    return rval
 
 
 
@@ -152,4 +165,4 @@ if __name__ == "__main__":
     #randomize_chunks( '/media/foundation/GoMoves/sorted',
     #                  '/media/foundation/GoMoves/randomized')
     
-    merge_chunks('/media/foundation/GoMoves/randomized')
+    #merge_chunks('/media/foundation/GoMoves/randomized')
