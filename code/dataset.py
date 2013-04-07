@@ -6,7 +6,7 @@ import numpy
 
 other = {'w':'b','b':'w'}
 
-def read_all_zips(data_dir):
+def read_all_zips(data_dir,prefix):
     meg = []
     nn = 0
     for zipfilename in os.listdir( data_dir ):
@@ -22,8 +22,8 @@ def read_all_zips(data_dir):
                 try:
                     moves = process_sgf( sgf_src )
                     meg.extend(moves)
-                    if len(meg) >= 10000:
-                    	foutname = "../data/moves/batch-%i.np" % nn
+                    if len(meg) >= 100000:
+                    	foutname = "../data/moves/%s-%i.np" % (prefix, nn)
                     	print "Writing %i new records to %s" % (len(meg), foutname)
                     	fout = open(foutname, 'wb')
                     	numpy.array(meg).tofile(fout)
@@ -33,6 +33,13 @@ def read_all_zips(data_dir):
                 except StandardError as e:
                     #print str(e)
                     continue
+        foutname = "../data/moves/%s-%i.np" % (prefix, nn)
+        print "Writing %i new records to %s" % (len(meg), foutname)
+        fout = open(foutname, 'wb')
+        numpy.array(meg).tofile(fout)
+        fout.close()
+        
+
 
 def process_sgf(sgf_src):
     moves = []
@@ -107,7 +114,7 @@ def make_training_example(board, game, move_number, who_just_moved, tot_moves, l
     return pts
             
 if __name__ == "__main__":
-    read_all_zips("../data/sgf")
+    read_all_zips(sys.argv[1],sys.argv[2])
 
 
 
