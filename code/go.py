@@ -157,7 +157,13 @@ def findGroups(board, loc, size):
 	return (color, frozenset(stones), frozenset(liberties))
 	
 def scoreGame(gs):
+	scores = copy(gs.captures)
+	# remove dead
 	
+	# count territory that is totally surrounded by one color
+	
+	
+	winner = scores
 	return scores,winner
 
 if __name__ == "__main__":

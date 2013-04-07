@@ -12,6 +12,11 @@
 
 \begin{document}         
 % Start your text
+
+\section{Abstract}
+\label{Abstract}
+Stacked de-noising auto-encoders (SdAs) have shows excellent performance on machine perception tasks. In this paper I test the algorithm on a planning task, the game of Go. If it performs better than a flat network, then I believe that it lends strength to the hypothesis that SdAs are a good model of how the neocortex learns. The neocortex has a uniform structure throughout, yet it has high plasticity and performs perception, motor-control, and high-level planning with seemingly the same mechanism. I use one possible unification of the process of perception and control to make an SdA play Go. I train the network to form a hierarchical model of a dataset of several thousand completed go games, and I interpret it's expectations as plans. The network preferentially remembers games from the perspective of the winning player. This is based on the hypothesis that the self-serving bias observed in psychology is an artifact of the unification of perception and control.
+
 \section{Introduction}
 \label{Introduction}
 
@@ -27,7 +32,7 @@ Where $s$ is a non-linearity such as the sigmoid. The latent representation $\ma
 \]
 $\mathbf z$ should be seen as a prediction, or {\it reconstruction}, of  $\mathbf x$ given the code  $\mathbf y$. The parameters of this model ($\mathbf W$, $\mathbf W'$, $\mathbf b$, and $\mathbf b'$) are optimized such that the average reconstruction error is minimized\cite{Bengio09}.
 
-Show figure to explain autoencoder.
+Show figure to explain
 
 The aim of the autoencoder to learn the code $\mathbf y$ a distributed representation that captures the coordinates along the main factors of variation in the data (similarly to how principal component analysis (PCA) captures the main factors of variation in the data). Because $\mathbf y$ is viewed as a lossy compression of $\mathbf x$, it cannot be a good compression (with small loss) for all $\mathbf x$, so learning drives it to be one that is a good compression in particular for training examples, and hopefully for others as well, but not for arbitrary inputs. That is the sense in which an auto-encoder generalizes: it gives low reconstruction error to test examples from the same distribution as the training examples, but generally high reconstruction error to uniformly chosen configurations of the input vector.
 
@@ -39,7 +44,7 @@ The auto-encoder alone is not sufficient to be the basis of a deep architecture 
 
 \section{0.1 Stacked de-noising autoencoders}
 \label{Stacked de-noising autoencoders}
-Stacked denoising autoencoders, abbreviated SdA to differentiate them from other learning algorithms with that acronym, are not just neural networks with additional hidden layers, but a structure with individual levels of simple three-layer denoising autoencoders. First, a single denoising autoencoder is trained on the data. It's hidden layer converges on a sparse distributed representation of the training set. This essentially replaces the step where a researcher would have to design a collection of good features. Then, a second denoising autoencoder is trained to reconstruct corrupted versions of the activation of the hidden layer of the first dA for the collection of training examples. (the first level does not learn during this time). After a sufficient number of levels have been added, the encoders and decoders from each level are assembled into one long network and fine-tuned using back-propagation.
+Stacked denoising autoencoders, abbreviated SdA to differentiate them from other learning algorithms with that acronym, are not just neural networks with additional hidden layers, but a structure with individual levels of simple three-layer denoising autoencoders. First, a single denoising autoencoder is trained on the data. It's hidden layer converges on a sparse distributed representation of the training set. This essentially replaces the step where a researcher would have to design a collection of good features. Then, a second denoising autoencoder is trained to reconstruct corrupted versions of the activation of the hidden layer of the first dA for the collection of training examples. (the first level does not learn during this time). After a sufficient number of levels have been added, if the network is to be used for classification, the encoders and decoders from each level are assembled into one long network and fine-tuned using back-propagation.
 
 \begin{figure}[htb]
 \begin{center}
@@ -110,23 +115,20 @@ Jeff Hawkins said in 2004, Neural networks were a genuine improvement of the AI 
 \section{3.0 Expected performance of SdA vs. dA on the competitive growth game, Puerto Rico}
 \label{Expected performance of SdA vs. dA on the competitive growth game, Puerto Rico}
 
-I have no dataset of good gamestate and moves available to train from, so that precludes the possibility of a controlled experiment where the SdA and the dA are both trained on the same data. But I can pit the algorithms against eachother, and count how many wins each strategy gets. 
+An experiment where an single de-noising auto-encoder is trained on the full dataset, and a stacked denoising auto-encoder of 4 levels is trained on the same dataset is used to compare the effectiveness of more layers.
 
-I can also pit the algorithms against a simple greedy approach which always chooses the option that leads to the most points on the next turn, obviously, I'd expect them to beat it. 
+I can make the algorithms compete against eachother or against a simple greedy algorithm that simulates all possible moves forward with all available computing power.
 
-\section{3.1 Implementation of Puerto Rico}
-\label{Implementation of Puerto Rico}
+\section{3.1 Implementation of Go Engine}
+\label{Implementation of Go Engine}
 
-The rules of the board game, Puerto Rico, with a minor variation proposed by it's author Andreas Seyfarth to balance the game, were encoded in Python 2.7. The implementation was strictly functional, though Python is not a strictly functional language. It was chosen for it's rapid prototyping and bug-repellant qualities. There is a data structure to represent the game state, and a data structure to represent a move. There are functions to take a move, and a gamestate, and produce the next game state. 
+A standard go engine is a computer program which can speak the go protocol and decide on moves from game states. Through a bit of wrapper code, it connects to a go server like KGS or a local game arbitration software where it plays games against humans or other go engines.
 
 
-Why was Puerto Rico chosen?
-* It is a complex problem of competitive growth relevant to today's global economy (even though it's about 17th century imperial colonialism, the problems are still systemically relevant )
-* The greediest move is not always the best move. The greediest move often promotes an indecisive strategy that can be easily beaten by a player dedicated to a plan. Choosing a way of life, and sticking to it is a good strategy, thus a compound plan is needed, with strategic choices at multiple levels of abstraction.
-* Additionally, the most sustainable strategy is not the best either, because the game does eventually end, and there is an implicit transition in the middle of the game when players switch to unsustainable exploitation of existing infrastructure. 
-* Puerto rico has some randomness in it's initial configuration, but the state transition function is deterministic. 
-* The end conditions can be straightforwardly extended for longer games.
-* the setup can be straightforwardly generalized to arbitrarily many players. Both of these extensions may be needed to make the game more difficult if the SDA masters it too easily, And to create a game for which the brute force approach is infeasible.
+Why was Go chosen?
+* it is a difficult game for computers, with a huge branching factor. This ensures that brute force is infeasible and rules out the possibility of it being used in-whole or in-part.
+* Go requires planning at different scales of time and space. Sometimes sacrifice is strategic.
+* Neither a purely greedy or purely sustainable outlook is as good as a balance between the two.
 
 \section{3.2 Implementation of SdA-based decider}
 \label{Implementation of SdA-based decider}
