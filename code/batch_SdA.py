@@ -334,16 +334,13 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
                 print "saving pretrained_SdA.pickle"
                 cPickle.dump(sda, open('pretrained_SdA.pickle', 'wb'))
 
-    print "Pretraining took %0.2f seconds" (time.clock() - start_time)
+    print "Pretraining took %0.2f seconds" % (time.clock() - start_time)
 
 
-def fine():
-
-
-
-    ########################
-    # FINETUNING THE MODEL #
-    ########################
+def fine(model_filepath):
+    """
+    Fine tune the model
+    """
 
     # get the training, validation and testing function for the model
     print '... getting the finetuning functions'
