@@ -1,0 +1,12 @@
+playoff: demo
+
+gnugo-l1 v gnugo-l2 (50/50 games)
+board size: 9   komi: 7.5
+           wins              black         white       avg cpu
+gnugo-l1     24 48.00%       7  28.00%     17 68.00%      0.50
+gnugo-l2     26 52.00%       8  32.00%     18 72.00%      0.59
+                             15 30.00%     35 70.00%
+
+player gnugo-l1: GNU Go:3.8
+player gnugo-l2: GNU Go:3.8
+

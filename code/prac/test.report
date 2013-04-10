@@ -1,0 +1,12 @@
+playoff: test
+
+gnugo-l1 v test_play (50/50 games)
+board size: 9   komi: 7.5
+            wins               black          white        forfeits avg cpu
+gnugo-l1      50 100.00%       25 100.00%     25 100.00%          0    0.37
+test_play      0   0.00%       0    0.00%     0    0.00%          4    0.03
+                               25  50.00%     25  50.00%
+
+player gnugo-l1: GNU Go:3.8
+player test_play: GTP stateful player
+
