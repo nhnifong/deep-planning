@@ -1,0 +1,50 @@
+   0_00 gnugo-l1 beat test_play B+R
+   0_01 gnugo-l1 beat test_play W+R
+   0_02 gnugo-l1 beat test_play B+R
+   0_03 gnugo-l1 beat test_play W+R
+   0_04 gnugo-l1 beat test_play B+R
+   0_05 gnugo-l1 beat test_play W+R
+   0_06 gnugo-l1 beat test_play B+R
+   0_07 gnugo-l1 beat test_play W+R
+   0_08 gnugo-l1 beat test_play B+R
+   0_09 gnugo-l1 beat test_play W+R
+   0_10 gnugo-l1 beat test_play B+R
+   0_11 gnugo-l1 beat test_play W+R
+   0_12 gnugo-l1 beat test_play B+R
+   0_13 gnugo-l1 beat test_play W+R
+   0_14 gnugo-l1 beat test_play B+R
+   0_15 gnugo-l1 beat test_play W+R
+   0_16 gnugo-l1 beat test_play B+R
+   0_17 gnugo-l1 beat test_play W+R
+   0_18 gnugo-l1 beat test_play B+R
+   0_19 gnugo-l1 beat test_play W+R
+   0_20 gnugo-l1 beat test_play B+F (forfeit: gnugo-l1 claims move g8 is illegal)
+   0_21 gnugo-l1 beat test_play W+R
+   0_22 gnugo-l1 beat test_play B+R
+   0_23 gnugo-l1 beat test_play W+R
+   0_24 gnugo-l1 beat test_play B+R
+   0_25 gnugo-l1 beat test_play W+F (forfeit: gnugo-l1 claims move c4 is illegal)
+   0_26 gnugo-l1 beat test_play B+R
+   0_27 gnugo-l1 beat test_play W+R
+   0_28 gnugo-l1 beat test_play B+R
+   0_29 gnugo-l1 beat test_play W+R
+   0_30 gnugo-l1 beat test_play B+R
+   0_31 gnugo-l1 beat test_play W+R
+   0_32 gnugo-l1 beat test_play B+R
+   0_33 gnugo-l1 beat test_play W+R
+   0_34 gnugo-l1 beat test_play B+R
+   0_35 gnugo-l1 beat test_play W+R
+   0_36 gnugo-l1 beat test_play B+R
+   0_37 gnugo-l1 beat test_play W+R
+   0_38 gnugo-l1 beat test_play B+R
+   0_39 gnugo-l1 beat test_play W+R
+   0_40 gnugo-l1 beat test_play B+R
+   0_41 gnugo-l1 beat test_play W+R
+   0_42 gnugo-l1 beat test_play B+F (forfeit: gnugo-l1 claims move d5 is illegal)
+   0_43 gnugo-l1 beat test_play W+R
+   0_44 gnugo-l1 beat test_play B+R
+   0_45 gnugo-l1 beat test_play W+R
+   0_46 gnugo-l1 beat test_play B+R
+   0_47 gnugo-l1 beat test_play W+R
+   0_48 gnugo-l1 beat test_play B+R
+   0_49 gnugo-l1 beat test_play W+F (forfeit: gnugo-l1 claims move e4 is illegal)

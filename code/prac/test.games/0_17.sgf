@@ -1,0 +1,20 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: test
+Game id 0_17
+Date 2013-04-08 14:18
+Result gnugo-l1 beat test_play W+R
+test_play cpu time: 0.04s
+gnugo-l1 cpu time: 0.44s
+Black test_play GTP stateful player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-08]EV[test]GM[1]GN[test 0_17]KM[7.5]PB[GTP stateful player]
+PW[GNU Go:3.8]RE[W+R]SZ[9];B[id]C[chosen at random from 81 choices];W[ee];B[fg]
+C[chosen at random from 79 choices];W[dg];B[bf]
+C[chosen at random from 77 choices];W[ce];B[gg]
+C[chosen at random from 75 choices];W[ec];B[fa]
+C[chosen at random from 73 choices];W[fc];B[if]
+C[chosen at random from 71 choices];W[gb];B[ge]
+C[chosen at random from 69 choices];W[eh];B[ac]
+C[chosen at random from 67 choices];W[be];B[cf]
+C[chosen at random from 65 choices];W[ae];B[gf]
+C[chosen at random from 63 choices];C[gnugo-l1 beat test_play W+R]W[cc])

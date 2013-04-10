@@ -1,0 +1,41 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: test
+Game id 0_25
+Date 2013-04-08 14:18
+Result gnugo-l1 beat test_play W+F (forfeit: gnugo-l1 claims move c4 is illegal)
+test_play cpu time: 0.05s
+gnugo-l1 cpu time: 0.90s
+Black test_play GTP stateful player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-08]EV[test]GM[1]GN[test 0_25]KM[7.5]PB[GTP stateful player]
+PW[GNU Go:3.8]RE[W+F]SZ[9];B[gc]C[chosen at random from 81 choices];W[ee];B[bb]
+C[chosen at random from 79 choices];W[ge];B[da]
+C[chosen at random from 77 choices];W[df];B[hi]
+C[chosen at random from 75 choices];W[gg];B[hd]
+C[chosen at random from 73 choices];W[hh];B[ai]
+C[chosen at random from 71 choices];W[gi];B[db]
+C[chosen at random from 69 choices];W[cd];B[ec]
+C[chosen at random from 67 choices];W[bc];B[dc]
+C[chosen at random from 65 choices];W[he];B[de]
+C[chosen at random from 63 choices];W[dd];B[ea]
+C[chosen at random from 61 choices];W[ab];B[bh]
+C[chosen at random from 59 choices];W[bf];B[hg]
+C[chosen at random from 57 choices];W[hf];B[gb]
+C[chosen at random from 55 choices];W[cc];B[ad]
+C[chosen at random from 53 choices];W[ac];B[bi]
+C[chosen at random from 51 choices];W[dh];B[gf]
+C[chosen at random from 49 choices];W[cb];B[ga]
+C[chosen at random from 47 choices];W[fd];B[ig]
+C[chosen at random from 45 choices];W[ih];B[fa]
+C[chosen at random from 43 choices];W[gd];B[ei]
+C[chosen at random from 41 choices];W[di];B[if]
+C[chosen at random from 39 choices];W[hc];B[be]
+C[chosen at random from 37 choices];W[hb];B[eg]
+C[chosen at random from 35 choices];W[eh];B[ae]
+C[chosen at random from 33 choices];W[bg];B[id]
+C[chosen at random from 31 choices];W[dg];B[gh]
+C[chosen at random from 29 choices];W[fh];B[cg]
+C[chosen at random from 28 choices];W[ch];B[bd]
+C[chosen at random from 26 choices];
+C[gnugo-l1 beat test_play W+F (forfeit: gnugo-l1 claims move c4 is illegal)]
+W[ce])

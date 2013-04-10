@@ -1,0 +1,14 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: demo
+Game id 0_36
+Date 2013-04-08 14:01
+Result gnugo-l2 beat gnugo-l1 W+0.5
+gnugo-l1 cpu time: 0.45s
+gnugo-l2 cpu time: 0.55s
+Black gnugo-l1 GNU Go:3.8
+White gnugo-l2 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-08]EV[demo]GM[1]GN[demo 0_36]KM[7.5]PB[GNU Go:3.8]
+PW[GNU Go:3.8]RE[W+0.5]SZ[9];B[ee];W[cf];B[dg];W[cc];B[cg];W[fc];B[bf];W[gg];
+B[ge];W[gd];B[hf];W[fd];B[fe];W[hd];B[hg];W[bd];B[ce];W[be];B[af];W[he];B[cd];
+W[dd];B[de];W[ed];B[ie];W[id];B[if];W[gf];B[hh];W[bc];B[ae];W[ad];B[tt];
+C[gnugo-l2 beat gnugo-l1 W+0.5]W[tt])
