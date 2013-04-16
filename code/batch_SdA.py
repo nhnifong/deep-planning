@@ -180,6 +180,14 @@ class SdA(object):
                              givens={self.x: train_set_x[batch_begin:batch_end]})
         return fn
 
+    def reconstruct(inx):
+        res = inx[:]
+        for layer in dA_layers:
+            res = layer.get_hidden_values(res)
+        for layer in reversed(dA_layers):
+            res = layer.get_reconstructed_input(res)
+        return res.eval()
+
     def build_finetune_functions(self, datasets, batch_size, learning_rate):
         '''Generates a function `train` that implements one step of
         finetuning, a function `validate` that computes the error on
