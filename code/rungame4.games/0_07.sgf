@@ -1,0 +1,15 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame4
+Game id 0_07
+Date 2013-04-17 00:48
+Result gnugo-l1 beat sda_play W+F (forfeit: gnugo-l1 claims move c6 is illegal)
+sda_play cpu time: 3.61s
+gnugo-l1 cpu time: 0.70s
+Black sda_play Trained SdA Player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-17]EV[rungame4]GM[1]GN[rungame4 0_07]KM[7.5]
+PB[Trained SdA Player]PW[GNU Go:3.8]RE[W+F]SZ[19];B[nq];W[dd];B[nc];W[dq];B[qq]
+;W[hp];B[dc];W[cc];B[qc];W[ec];B[qf];W[do];B[cp];W[dp];B[cd];W[ce];B[qn];W[bn];
+B[cn];W[co];B[cq];W[cr];B[pm];W[dn];B[kq];
+C[gnugo-l1 beat sda_play W+F (forfeit: gnugo-l1 claims move c6 is illegal)]
+W[cm])

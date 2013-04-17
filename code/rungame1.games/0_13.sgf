@@ -1,0 +1,22 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame1
+Game id 0_13
+Date 2013-04-16 15:33
+Result gnugo-l1 beat sda_play W+R
+sda_play cpu time: 0.03s
+gnugo-l1 cpu time: 0.52s
+Black sda_play GTP stateful player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-16]EV[rungame1]GM[1]GN[rungame1 0_13]KM[7.5]
+PB[GTP stateful player]PW[GNU Go:3.8]RE[W+R]SZ[9];B[dc]
+C[chosen at random from 81 choices];W[ce];B[gd]
+C[chosen at random from 79 choices];W[gf];B[bi]
+C[chosen at random from 77 choices];W[bg];B[ie]
+C[chosen at random from 75 choices];W[ef];B[ad]
+C[chosen at random from 73 choices];W[cd];B[cg]
+C[chosen at random from 71 choices];W[bf];B[cf]
+C[chosen at random from 69 choices];W[ch];B[hd]
+C[chosen at random from 67 choices];W[cc];B[hh]
+C[chosen at random from 65 choices];W[db];B[id]
+C[chosen at random from 63 choices];W[fh];B[hc]
+C[chosen at random from 61 choices];C[gnugo-l1 beat sda_play W+R]W[ec])

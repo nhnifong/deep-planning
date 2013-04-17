@@ -1,0 +1,202 @@
+run started at 2013-04-16 15:42 with max_games None
+starting game 0_00: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_00
+forfeit: gnugo-l1 claims move d4 is illegal
+starting game 0_01: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_01
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_02: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_02
+forfeit: gnugo-l1 claims move h3 is illegal
+starting game 0_03: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_03
+forfeit: gnugo-l1 claims move k7 is illegal
+starting game 0_04: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_04
+forfeit: gnugo-l1 claims move r17 is illegal
+starting game 0_05: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_05
+forfeit: gnugo-l1 claims move f17 is illegal
+starting game 0_06: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_06
+forfeit: gnugo-l1 claims move c4 is illegal
+starting game 0_07: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_07
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_08: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_08
+forfeit: gnugo-l1 claims move d13 is illegal
+starting game 0_09: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_09
+forfeit: gnugo-l1 claims move f3 is illegal
+starting game 0_10: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_10
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_11: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_11
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_12: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_12
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_13: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_13
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_14: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_14
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_15: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_15
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_16: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_16
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_17: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_17
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_18: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_18
+forfeit: gnugo-l1 claims move r17 is illegal
+starting game 0_19: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_19
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_20: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_20
+forfeit: gnugo-l1 claims move r14 is illegal
+starting game 0_21: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_21
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_22: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_22
+forfeit: gnugo-l1 claims move c17 is illegal
+starting game 0_23: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_23
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_24: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_24
+forfeit: gnugo-l1 claims move r4 is illegal
+starting game 0_25: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_25
+forfeit: gnugo-l1 claims move f17 is illegal
+starting game 0_26: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_26
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_27: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_27
+forfeit: gnugo-l1 claims move f17 is illegal
+starting game 0_28: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_28
+forfeit: gnugo-l1 claims move o8 is illegal
+starting game 0_29: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_29
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_30: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_30
+forfeit: gnugo-l1 claims move c17 is illegal
+starting game 0_31: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_31
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_32: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_32
+forfeit: gnugo-l1 claims move r17 is illegal
+starting game 0_33: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_33
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_34: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_34
+forfeit: gnugo-l1 claims move g4 is illegal
+starting game 0_35: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_35
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_36: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_36
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_37: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_37
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_38: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_38
+forfeit: gnugo-l1 claims move o16 is illegal
+starting game 0_39: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_39
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_40: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_40
+forfeit: gnugo-l1 claims move q13 is illegal
+starting game 0_41: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_41
+forfeit: gnugo-l1 claims move f17 is illegal
+starting game 0_42: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_42
+forfeit: gnugo-l1 claims move c16 is illegal
+starting game 0_43: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_43
+forfeit: gnugo-l1 claims move d17 is illegal
+starting game 0_44: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_44
+forfeit: gnugo-l1 claims move n16 is illegal
+starting game 0_45: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_45
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_46: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_46
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_47: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_47
+forfeit: gnugo-l1 claims move r16 is illegal
+starting game 0_48: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_48
+forfeit: gnugo-l1 claims move g4 is illegal
+starting game 0_49: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_49
+forfeit: gnugo-l1 claims move d17 is illegal
+run finished at 2013-04-16 15:51

@@ -1,0 +1,21 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame3
+Game id 0_38
+Date 2013-04-16 15:49
+Result gnugo-l1 beat sda_play B+F (forfeit: gnugo-l1 claims move o16 is illegal)
+gnugo-l1 cpu time: 16.45s
+sda_play cpu time: 8.74s
+Black gnugo-l1 GNU Go:3.8
+White sda_play GTP stateful player]
+CA[UTF-8]DT[2013-04-16]EV[rungame3]GM[1]GN[rungame3 0_38]KM[7.5]PB[GNU Go:3.8]
+PW[GTP stateful player]RE[B+F]SZ[19];B[jj];W[nq];B[dd];W[qp];B[cp];W[pq];B[dl];
+W[fq];B[hq];W[cq];B[dq];W[fc];B[fr];W[qd];B[eq];W[gp];B[oc];W[cf];B[pe];W[qe];
+B[pf];W[mq];B[ee];W[dm];B[qf];W[cr];B[bp];W[jp];B[re];W[jc];B[rc];W[nd];B[fd];
+W[pd];B[od];W[pc];B[pb];W[dr];B[er];W[cc];B[em];W[hp];B[ec];W[qo];B[df];W[ql];
+B[dg];W[np];B[cg];W[fo];B[bd];W[qh];B[eo];W[or];B[hl];W[bf];B[cd];W[jd];B[gc];
+W[lp];B[if];W[db];B[bc];W[be];B[bg];W[fe];B[ff];W[ek];B[gm];W[jm];B[lj];W[qr];
+B[nj];W[hd];B[mm];W[oh];B[lg];W[de];B[ke];W[br];B[fn];W[qm];B[nc];W[oq];B[pj];
+W[bb];B[pi];W[nf];B[ph];W[ii];B[hg];W[ck];B[dk];W[gh];B[cj];W[ol];B[hh];W[ji];
+B[hj];W[ie];B[ng];W[ij];B[ik];W[ip];B[nl];W[fk];B[hi];W[mi];B[ki];W[pr];B[ne];
+W[mg];B[mj];W[pl];B[rk];W[id];B[nh];W[kl];B[iq];W[kc];B[md]
+C[gnugo-l1 beat sda_play B+F (forfeit: gnugo-l1 claims move o16 is illegal)])

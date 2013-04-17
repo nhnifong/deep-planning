@@ -1,6 +1,7 @@
 from __future__ import division
 import sys, os
 from gomill import sgf, sgf_moves
+
 from zipfile import ZipFile
 import numpy
 
@@ -91,7 +92,7 @@ def make_training_example(board, game, move_number, who_just_moved, tot_moves, l
         pass
     try:
         herow,hecol = lastmove[other[who_just_moved]]
-        pts[herow*19+hecol] = 0.0
+        pts[herow*19+hecol] = 1.0
     except KeyError:
         pass
     

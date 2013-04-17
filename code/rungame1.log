@@ -1,0 +1,33 @@
+run started at 2013-04-16 15:33 with max_games None
+starting game 0_00: gnugo-l1 (b) vs sda_play (w)
+response from game 0_00
+starting game 0_01: sda_play (b) vs gnugo-l1 (w)
+response from game 0_01
+starting game 0_02: gnugo-l1 (b) vs sda_play (w)
+response from game 0_02
+starting game 0_03: sda_play (b) vs gnugo-l1 (w)
+response from game 0_03
+starting game 0_04: gnugo-l1 (b) vs sda_play (w)
+response from game 0_04
+starting game 0_05: sda_play (b) vs gnugo-l1 (w)
+response from game 0_05
+forfeit: gnugo-l1 claims move d6 is illegal
+starting game 0_06: gnugo-l1 (b) vs sda_play (w)
+response from game 0_06
+starting game 0_07: sda_play (b) vs gnugo-l1 (w)
+response from game 0_07
+starting game 0_08: gnugo-l1 (b) vs sda_play (w)
+response from game 0_08
+starting game 0_09: sda_play (b) vs gnugo-l1 (w)
+response from game 0_09
+starting game 0_10: gnugo-l1 (b) vs sda_play (w)
+response from game 0_10
+starting game 0_11: sda_play (b) vs gnugo-l1 (w)
+response from game 0_11
+starting game 0_12: gnugo-l1 (b) vs sda_play (w)
+response from game 0_12
+starting game 0_13: sda_play (b) vs gnugo-l1 (w)
+response from game 0_13
+starting game 0_14: gnugo-l1 (b) vs sda_play (w)
+run interrupted at 2013-04-16 15:33
+games in progress were: 0_14

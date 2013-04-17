@@ -1,0 +1,13 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame1
+Game id 0_04
+Date 2013-04-16 15:33
+Result gnugo-l1 beat sda_play B+R
+gnugo-l1 cpu time: 0.05s
+sda_play cpu time: 0.02s
+Black gnugo-l1 GNU Go:3.8
+White sda_play GTP stateful player]
+CA[UTF-8]DT[2013-04-16]EV[rungame1]GM[1]GN[rungame1 0_04]KM[7.5]PB[GNU Go:3.8]
+PW[GTP stateful player]RE[B+R]SZ[9];B[ee];C[chosen at random from 80 choices]
+W[fb];B[gf];C[chosen at random from 78 choices]W[db];B[cf]
+C[gnugo-l1 beat sda_play B+R])

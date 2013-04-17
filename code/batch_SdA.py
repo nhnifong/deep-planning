@@ -180,11 +180,11 @@ class SdA(object):
                              givens={self.x: train_set_x[batch_begin:batch_end]})
         return fn
 
-    def reconstruct(inx):
+    def reconstruct(self, inx):
         res = inx[:]
-        for layer in dA_layers:
+        for layer in self.dA_layers:
             res = layer.get_hidden_values(res)
-        for layer in reversed(dA_layers):
+        for layer in reversed(self.dA_layers):
             res = layer.get_reconstructed_input(res)
         return res.eval()
 
