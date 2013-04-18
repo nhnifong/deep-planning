@@ -36,6 +36,8 @@ def read_npy_chunk(filename, start_row, num_rows):
         the entire array (note that the entire array is never
         loaded into memory by this function).
     """
+    print "Attempting to read chunk from %s" % filename
+    print "start: %i, rows: %i" % (start_row, num_rows)
     assert start_row >= 0 and num_rows > 0
     with open(filename, 'rb') as fhandle:
         major, minor = numpy.lib.format.read_magic(fhandle)

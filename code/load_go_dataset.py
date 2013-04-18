@@ -9,6 +9,7 @@ from partialload import *
 def mh(x):
     return smhasher.murmur3_x86_128(str(x))
 
+
 def randomize_chunks(data_dir, output_dir):
     """ uses the a nicely random hash and external merge sort to randomize the dataset while
         staying in memory and divide it into training / test / validation sets and storing
@@ -16,19 +17,20 @@ def randomize_chunks(data_dir, output_dir):
         
         Expects output_dir to contain the subdirs train, test, valid
     """
-    shapes = eval(open(os.path.join(data_dir, 'shapes')).read())
-    shapes = sorted(shapes.items(),key=lambda k: k[0])
+    print "Randomizing chunks"
+    #shapes = eval(open(os.path.join(data_dir, 'shapes')).read())
+    #shapes = sorted(shapes.items(),key=lambda k: k[0])
 
     offset = 0
     counter = 0
     
     outshapes = open(os.path.join(output_dir, 'temp', 'shapes'), 'w')
-
-    for fname,shape in shapes:
+    
+    for fname in os.listdir(data_dir):
         fpath = os.path.join(data_dir, fname)
-        print fpath
+        print "Loading "+fpath
         nn = numpy.fromfile(fpath)
-        nn.shape = shape
+        nn.shape = (nn.shape[0]//363,363)
         nn = nn.astype(numpy.float16)
         indices = [x-offset for x in sorted(range(offset, offset+len(nn)), key=mh)]
         offset += len(nn)
@@ -42,7 +44,7 @@ def randomize_chunks(data_dir, output_dir):
     outshapes.close()
 
 def merge_chunks(data_dir, output_file_size=536870912, test_ratio=0.2):
-
+    print "Merging Chunks"
     class Chunk:
         def __init__(self, fname, size, offset):
             self.fname = fname
@@ -162,7 +164,7 @@ def load_data(dataset="/media/foundation/GoMoves/randomized/"):
 
 
 if __name__ == "__main__":
-    #randomize_chunks( '/media/foundation/GoMoves/sorted',
-    #                  '/media/foundation/GoMoves/randomized')
+    #randomize_chunks( '/media/foundation/GoMoves/foreal/sorted',
+    #                  '/media/foundation/GoMoves/foreal/randomized')
     
-    #merge_chunks('/media/foundation/GoMoves/randomized')
+    merge_chunks('/media/foundation/GoMoves/foreal/randomized')

@@ -4,10 +4,13 @@ from gomill import sgf, sgf_moves
 
 from zipfile import ZipFile
 import numpy
-
+"""
+Example use
+python dataset.py ../data/moves2/ ../data/sgf1 0
+"""
 other = {'w':'b','b':'w'}
 
-def read_all_zips(data_dir,prefix):
+def read_all_zips(outdir,data_dir,prefix):
     meg = []
     nn = 0
     for zipfilename in os.listdir( data_dir ):
@@ -24,7 +27,7 @@ def read_all_zips(data_dir,prefix):
                     moves = process_sgf( sgf_src )
                     meg.extend(moves)
                     if len(meg) >= 100000:
-                    	foutname = "../data/moves/%s-%i.np" % (prefix, nn)
+                    	foutname = os.path.join(outdir,"%s-%i.np" % (prefix, nn))
                     	print "Writing %i new records to %s" % (len(meg), foutname)
                     	fout = open(foutname, 'wb')
                     	numpy.array(meg).tofile(fout)
@@ -34,7 +37,7 @@ def read_all_zips(data_dir,prefix):
                 except StandardError as e:
                     #print str(e)
                     continue
-        foutname = "../data/moves/%s-%i.np" % (prefix, nn)
+        foutname = os.path.join(outdir,"%s-%i.np" % (prefix, nn))
         print "Writing %i new records to %s" % (len(meg), foutname)
         fout = open(foutname, 'wb')
         numpy.array(meg).tofile(fout)
@@ -115,7 +118,7 @@ def make_training_example(board, game, move_number, who_just_moved, tot_moves, l
     return pts
             
 if __name__ == "__main__":
-    read_all_zips(sys.argv[1],sys.argv[2])
+    read_all_zips(sys.argv[1],sys.argv[2],sys.argv[3])
 
 
 
