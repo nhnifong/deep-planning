@@ -1,0 +1,15 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame2
+Game id 0_03
+Date 2013-04-16 15:35
+Result gnugo-l1 beat sda_play W+F (forfeit: gnugo-l1 claims move f3 is illegal)
+sda_play cpu time: 3.46s
+gnugo-l1 cpu time: 0.44s
+Black sda_play GTP stateful player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-16]EV[rungame2]GM[1]GN[rungame2 0_03]KM[7.5]
+PB[GTP stateful player]PW[GNU Go:3.8]RE[W+F]SZ[9];B[cg];W[fc];B[gf];W[eg];B[dc]
+;W[gd];B[fg];W[fh];B[cf];W[ef];B[ch];W[fe];B[hf];W[gg];B[ca];W[dd];B[ea];W[cc];
+B[cd];W[bc];B[bg];W[ce];B[dh];
+C[gnugo-l1 beat sda_play W+F (forfeit: gnugo-l1 claims move f3 is illegal)]
+W[ff])

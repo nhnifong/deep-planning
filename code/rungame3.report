@@ -1,0 +1,12 @@
+playoff: rungame3
+
+gnugo-l1 v sda_play (50/50 games)
+board size: 19   komi: 7.5
+           wins               black          white        forfeits avg cpu
+gnugo-l1     50 100.00%       25 100.00%     25 100.00%          0    5.31
+sda_play      0   0.00%       0    0.00%     0    0.00%         50    5.27
+                              25  50.00%     25  50.00%
+
+player gnugo-l1: GNU Go:3.8
+player sda_play: GTP stateful player
+

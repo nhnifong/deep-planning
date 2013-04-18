@@ -1,0 +1,41 @@
+(;FF[4]AP[gomill:0.7.4]
+C[Event: rungame4
+Game id 0_17
+Date 2013-04-17 01:05
+Result gnugo-l1 beat sda_play W+378.5
+sda_play cpu time: 23.83s
+gnugo-l1 cpu time: 37.52s
+Black sda_play Trained SdA Player
+White gnugo-l1 GNU Go:3.8]
+CA[UTF-8]DT[2013-04-17]EV[rungame4]GM[1]GN[rungame4 0_17]KM[7.5]
+PB[Trained SdA Player]PW[GNU Go:3.8]RE[W+378.5]SZ[19];B[nq];W[dd];B[nc];W[cp];
+B[qq];W[dl];B[dc];W[ec];B[qc];W[cc];B[qf];W[ep];B[cd];W[ce];B[qn];W[iq];B[dq];
+W[dp];B[pm];W[eq];B[cn];W[id];B[kq];W[kd];B[md];W[lf];B[cq];W[er];B[jm];W[bq];
+B[gc];W[ge];B[gp];W[hb];B[jc];W[kc];B[nb];W[mh];B[pb];W[gr];B[di];W[nj];B[hf];
+W[jb];B[pg];W[nl];B[qb];W[pj];B[cg];W[nn];B[rb];W[he];B[cb];W[bd];B[cf];W[oo];
+B[dg];W[if];B[ll];W[lj];B[dh];W[gf];B[eb];W[fb];B[co];W[cj];B[rf];W[bl];B[jq];
+W[ip];B[dj];W[ci];B[on];W[nm];B[nh];W[mi];B[hq];W[hr];B[ne];W[fl];B[ok];W[oj];
+B[ng];W[dk];B[hh];W[bo];B[gh];W[no];B[hc];W[ic];B[mm];W[fo];B[ki];W[nk];B[rr];
+W[po];B[ld];W[qo];B[kn];W[ql];B[ro];W[rp];B[ri];W[kh];B[fn];W[gn];B[rn];W[qp];
+B[nf];W[oq];B[rg];W[pr];B[mf];W[ko];B[jl];W[lo];B[jk];W[rm];B[lp];W[mp];B[of];
+W[kj];B[rk];W[pk];B[kk];W[rl];B[hk];W[hi];B[ol];W[le];B[bm];W[bn];B[ck];W[cl];
+B[hp];W[io];B[bp];W[ji];B[gm];W[gi];B[gg];W[fm];B[mb];W[ih];B[ob];W[hg];B[bc];
+W[db];B[df];W[km];B[ei];W[jn];B[qg];W[fh];B[fe];W[fg];B[gh];W[lm];B[hh];W[sk];
+B[qr];W[pq];B[br];W[ap];B[hl];W[ml];B[hn];W[rj];B[kr];W[mq];B[ek];W[fk];B[jd];
+W[qi];B[ir];W[fj];B[mr];W[go];B[gj];W[ho];B[ik];W[im];B[lr];W[js];B[gb];W[ga];
+B[ib];W[rh];B[jr];W[nr];B[jo];W[jp];B[lg];W[mg];B[lh];W[sg];B[da];W[ea];B[lb];
+W[sf];B[om];W[pn];B[kl];W[hm];B[ks];W[re];B[je];W[kb];B[kg];W[ke];B[eh];W[fc];
+B[qs];W[rq];B[bk];W[qe];B[kf];W[pe];B[rs];W[sr];B[sj];W[qk];B[ls];W[ns];B[na];
+W[la];B[jg];W[ph];B[sc];W[lc];B[sp];W[rd];B[mc];W[od];B[ms];W[np];B[jf];W[hd];
+B[li];W[ni];B[an];W[cm];B[ha];W[jh];B[sh];W[si];B[ar];W[cr];B[cs];W[dr];B[cq];
+W[ka];B[gk];W[ln];B[sn];W[oh];B[ao];W[bp];B[ad];W[ae];B[sl];W[rc];B[pa];W[ig];
+B[oi];W[qh];B[ba];W[ab];B[ra];W[ie];B[jc];W[jd];B[ki];W[li];B[lh];W[pf];B[kg];
+W[og];B[qf];W[sd];B[pg];W[sb];B[rf];W[qg];B[lg];W[sc];B[jg];W[oc];B[je];W[oe];
+B[dm];W[do];B[ij];W[gl];B[jf];W[me];B[il];W[nd];B[nh];W[pc];B[nf];W[qd];B[ng];
+W[ma];B[ne];W[sa];B[mf];W[gg];B[hh];W[gh];B[dn];W[em];B[be];W[ag];B[qa];W[cd];
+B[bf];W[bh];B[hs];W[gs];B[hb];W[bb];B[am];W[al];B[bm];W[am];B[an];W[ao];B[sq];
+W[qm];B[ii];W[lk];B[is];W[kp];B[js];W[lq];B[kq];W[kr];B[jq];W[jr];B[kq];W[jq];
+B[ir];W[is];B[mr];W[lr];B[ks];W[ls];B[gd];W[ee];B[bg];W[ej];B[aj];W[ah];B[fi];
+W[ef];B[aq];W[ff];B[aa];W[ca];B[ba];W[ac];B[ps];W[ad];B[sm];W[af];B[mj];W[tt];
+B[ss];W[tt];B[es];W[tt];B[so];W[tt];B[ds];W[tt];B[sr];W[tt];B[os];W[tt];B[bs];
+W[tt];B[as];W[tt];B[ak];W[tt];B[tt]C[gnugo-l1 beat sda_play W+378.5])
