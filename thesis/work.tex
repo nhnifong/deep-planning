@@ -114,17 +114,19 @@ Let me re-iterate. I am operating on the assumption for this project, that perce
 
 Jeff Hawkins said in 2004, Neural networks were a genuine improvement of the AI approach because their architecture is based, though very loosely, on real nervous systems...But as the neural network phenomenon exploded on the scene, it mostly settled on the class of ultra-simple models that didn't meet any of [his criteria for biological plausibility]. Most neural networks consisted of a small number of neurons connected in three rows...I thought the field would quickly move on to more realistic networks, but it didn't. Because these simple neural networks were able to do interesting things, research seemed to stop there for years. \cite{Hawkins04}
 
-\section{3.0 Expected performance of SdA vs. dA}
+\section{3.0 Expected performance of SdA vs greedy approach}
 \label{Expected performance of SdA vs. dA}
 
-An experiment where an single de-noising auto-encoder is trained on the full dataset, and a stacked denoising auto-encoder of 4 levels is trained on the same dataset is used to compare the effectiveness of more layers.
+The SdA's layered heirarchy of abstraction could theorhetically allow it to outperform the greedy approach, if the problem space is decomposable into abstract levels, which from play experince, I belive it is. The situations in which a greedy approach would fail to an agorithm that has more high-level concerns besides points gained on the next turn are ones in which sacrefice is useful or more commonly, ones in which delayed capture of a group would leave open the opportunity for additional enemy mistakes, and therefore, more captures.
 
-simple greedy hill climbing approach
+A simple greedy hill climbing go engine was used as a control opponent (SimpleGo 0.1.X). It always makes the move which would maximize it's relative capture point gain on the next turn, and if that cannot be improved, maximises it's relative advantage in total liberties.
 
 \section{3.1 Implementation of Go Engine}
 \label{Implementation of Go Engine}
 
 A standard go engine is a computer program which can speak the go protocol and decide on moves from game states. Through a bit of wrapper code, it connects to a go server like KGS or a local game arbitration software where it plays games against humans or other go engines.
+
+
 
 
 Why was Go chosen?
