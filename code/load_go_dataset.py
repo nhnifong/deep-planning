@@ -120,6 +120,8 @@ def merge_chunks(data_dir, output_file_size=536870912, test_ratio=0.2):
                 print "Saving %s..." % self.outfiles[self.file_index][0]
                 numpy.save(self.outfiles[self.file_index][0], self.outarray)
                 self.file_index += 1
+                if self.file_index > len(self.outfiles):
+                    return
                 self.record_index = 0
                 # begin next out array
                 self.outarray = numpy.zeros(shape=(self.outfiles[self.file_index][1],363), dtype=numpy.float16)
@@ -139,32 +141,14 @@ def merge_chunks(data_dir, output_file_size=536870912, test_ratio=0.2):
         if minchunk.nexthash is None:
             chunks.remove(minchunk)
             print "A chunk was finished and removed. %i remain" % (len(chunks))
+    om.write_next(numpy.zeros(363))
 
-def load_data(dataset="/media/foundation/GoMoves/randomized/"):
-    def shared_dataset(data_xy, borrow=True):
-        data_x, data_y = data_xy
-        shared_x = theano.shared(numpy.asarray(data_x,
-                                               dtype=theano.config.floatX),
-                                 borrow=borrow)
-        shared_y = theano.shared(numpy.asarray(data_y,
-                                               dtype=theano.config.floatX),
-                                 borrow=borrow)
-        return shared_x, T.cast(shared_y, 'int32')
-
-
-    test_set_x, test_set_y = shared_dataset(test_set)
-    valid_set_x, valid_set_y = shared_dataset(valid_set)
-    train_set_x, train_set_y = shared_dataset(train_set)
-
-    rval = [(train_set_x, train_set_y), (valid_set_x, valid_set_y),
-            (test_set_x, test_set_y)]
-    return rval
 
 
 
 
 if __name__ == "__main__":
-    #randomize_chunks( '/media/foundation/GoMoves/foreal/sorted',
-    #                  '/media/foundation/GoMoves/foreal/randomized')
+    randomize_chunks( '/media/foundation/GoMoves/winners/sorted',
+                      '/media/foundation/GoMoves/winners/randomized')
     
-    merge_chunks('/media/foundation/GoMoves/foreal/randomized')
+    merge_chunks('/media/foundation/GoMoves/winners/randomized')

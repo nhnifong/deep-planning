@@ -6,7 +6,7 @@ from zipfile import ZipFile
 import numpy
 """
 Example use
-python dataset.py ../data/moves2/ ../data/sgf1 0
+python dataset.py ../data/moves/ ../data/sgf1 0
 """
 other = {'w':'b','b':'w'}
 
@@ -70,7 +70,8 @@ def process_sgf(sgf_src):
             board.play(row, col, colour)
             mn += 1
             x = make_training_example(board, sgf_game, mn, colour, len(plays), lastmove)
-            moves.append(x)
+            if x != None:
+                moves.append(x)
         except ValueError:
             raise StandardError("illegal move in sgf file")
     return moves
@@ -115,6 +116,8 @@ def make_training_example(board, game, move_number, who_just_moved, tot_moves, l
     pts[362] = reward # ultimate normalized reward for black
     
     #print reward,winner
+    if reward < 0.75:
+        return None
     return pts
             
 if __name__ == "__main__":

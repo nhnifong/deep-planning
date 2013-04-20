@@ -262,9 +262,9 @@ class SdA(object):
         return train_fn, valid_score, test_score
 
 
-def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
-             pretrain_lr=0.001, training_epochs=2000,
-             batch_size=1):
+def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
+             pretrain_lr=0.001, training_epochs=1000,
+             batch_size=1000):
     """
     Demonstrates how to train and test a stochastic denoising autoencoder.
 
@@ -284,7 +284,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
     :param n_iter: maximal number of iterations ot run the optimizer
 
     """
-    data_dir = "/media/foundation/GoMoves/foreal/randomized/"
+    data_dir = "/media/foundation/GoMoves/winners/randomized/"
 
     # numpy random generator seed
     numpy_rng = numpy.random.RandomState(89677)
@@ -297,7 +297,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
               n_outs = sizes[-1])
 
     start_time = time.clock()
-    corruption_levels = [.1, .2, .3]
+    corruption_levels = [.1, .2, .3, .4, .5]
 
     for ley in xrange(sda.n_layers):
         print "Training dA layer %i. size: %i. corruption: %0.1f" % (ley, sizes[ley+1], corruption_levels[ley])
@@ -327,7 +327,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
                 costs = []
                 print "pre-training..."
                 for batch_index in xrange(n_train_batches):
-                    pretrain_lr = numpy.array(0.001*(2**(2*train_x[batch_index][362]-1)), dtype=numpy.float32)
+                    #pretrain_lr = numpy.array(0.001*(2**(2*train_x[batch_index][362]-1)), dtype=numpy.float32)
                     cost = pretraining_fn(index = batch_index,
                                           corruption = corruption_levels[ley],
                                           lr = pretrain_lr)
@@ -340,8 +340,8 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=15,
                 del num_datapoints
                 gc.collect()
                 
-                print "saving foreal_SdA.pickle"
-                cPickle.dump(sda, open('foreal_SdA.pickle', 'wb'))
+                print "saving winners_SdA.pickle"
+                cPickle.dump(sda, open('winners_SdA.pickle', 'wb'))
 
     print "Pretraining took %0.2f seconds" % (time.clock() - start_time)
 
