@@ -275,8 +275,8 @@ class SdA(object):
 
 
 def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
-             pretrain_lr=0.001, training_epochs=1000,
-             batch_size=1000):
+             pretrain_lr=0.0015, training_epochs=1000,
+             batch_size=50):
     """
     Demonstrates how to train and test a stochastic denoising autoencoder.
 
@@ -319,10 +319,10 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
 
             for fname in os.listdir(os.path.join(data_dir,'train')):
                 fpath = os.path.join(data_dir,'train',fname)
-                print "Reading %s from disk" % fpath
+                #print "Reading %s from disk" % fpath
                 train_x = numpy.load(fpath)
                 num_datapoints = train_x.shape[0]
-                print "Loading %s to GPU" % fname
+                #print "Loading %s to GPU" % fname
                 shared_x = theano.shared(numpy.asarray(train_x, dtype=theano.config.floatX), borrow=True)
                 
                 # this casts the data to 32 bit floats which causes each batch to take up exactly one Gb.
@@ -337,7 +337,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
         
                 # go through the training set
                 costs = []
-                print "pre-training..."
+                #print "pre-training..."
                 for batch_index in xrange(n_train_batches):
                     #pretrain_lr = numpy.array(0.001*(2**(2*train_x[batch_index][362]-1)), dtype=numpy.float32)
                     cost = pretraining_fn(index = batch_index,
@@ -352,7 +352,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
                 del num_datapoints
                 gc.collect()
                 
-                print "saving winners_SdA.pickle"
+                #print "saving winners_SdA.pickle"
                 cPickle.dump(sda, open('winners_SdA.pickle', 'wb'))
 
     print "Pretraining took %0.2f seconds" % (time.clock() - start_time)
