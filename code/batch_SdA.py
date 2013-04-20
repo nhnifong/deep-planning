@@ -188,6 +188,18 @@ class SdA(object):
             res = layer.get_reconstructed_input(res)
         return res.eval()
 
+    def hidden_ideals(self):
+        results = []
+        # stupid oversight
+        top_layer_size = self.dA_layers[-1].n_hidden
+        for k in xrange(top_layer_size):
+            res = numpy.zeros(top_layer_size)
+            res[k] = 1.0
+            for layer in reversed(self.dA_layers):
+                res = layer.get_reconstructed_input(res)
+            results.append(res.eval())
+        return results
+
     def build_finetune_functions(self, datasets, batch_size, learning_rate):
         '''Generates a function `train` that implements one step of
         finetuning, a function `validate` that computes the error on
@@ -293,13 +305,13 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
     print 'Building SdA with random weights'
     print repr(sizes)
     sda = SdA(numpy_rng=numpy_rng, n_ins = sizes[0],
-              hidden_layers_sizes = sizes[1:-1],
+              hidden_layers_sizes = sizes[1:],
               n_outs = sizes[-1])
 
     start_time = time.clock()
     corruption_levels = [.1, .2, .3, .4, .5]
 
-    for ley in xrange(sda.n_layers):
+    for ley in xrange(sda.n_layers): # BEEP
         print "Training dA layer %i. size: %i. corruption: %0.1f" % (ley, sizes[ley+1], corruption_levels[ley])
     
         for epoch in xrange(pretraining_epochs):
