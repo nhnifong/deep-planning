@@ -15,7 +15,7 @@ class Player(object):
     """Player for use with gtp_state."""
 
     def __init__(self):
-        self.sda = cPickle.load(open('pretrained_SdA.pickle'))
+        self.sda = cPickle.load(open(sys.argv[1]))
         self.logfile = open('sda_player.log','a')
     
     def log(self,m):
