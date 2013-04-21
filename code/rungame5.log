@@ -1,0 +1,156 @@
+run started at 2013-04-20 13:20 with max_games None
+starting game 0_00: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_00
+starting game 0_01: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_01
+starting game 0_02: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_02
+starting game 0_03: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_03
+starting game 0_04: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_04
+starting game 0_05: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_05
+starting game 0_06: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_06
+starting game 0_07: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_07
+starting game 0_08: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_08
+starting game 0_09: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_09
+starting game 0_10: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_10
+starting game 0_11: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_11
+starting game 0_12: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_12
+starting game 0_13: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_13
+starting game 0_14: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_14
+starting game 0_15: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_15
+starting game 0_16: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_16
+starting game 0_17: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_17
+starting game 0_18: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_18
+starting game 0_19: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_19
+starting game 0_20: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_20
+starting game 0_21: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_21
+starting game 0_22: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_22
+starting game 0_23: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_23
+starting game 0_24: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_24
+starting game 0_25: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_25
+starting game 0_26: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_26
+starting game 0_27: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_27
+starting game 0_28: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_28
+starting game 0_29: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+INFO (theano.gof.compilelock): Waiting for existing lock by process '28486' (I am process '2430')
+INFO (theano.gof.compilelock): To manually release the lock, delete /home/nhnifong/.theano/compiledir_Linux-3.2.0-33-generic-pae-i686-with-Ubuntu-12.04-precise-i686-2.7.3/lock_dir
+response from game 0_29
+starting game 0_30: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_30
+starting game 0_31: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+INFO (theano.gof.compilelock): Waiting for existing lock by unknown process (I am process '2752')
+INFO (theano.gof.compilelock): To manually release the lock, delete /home/nhnifong/.theano/compiledir_Linux-3.2.0-33-generic-pae-i686-with-Ubuntu-12.04-precise-i686-2.7.3/lock_dir
+response from game 0_31
+starting game 0_32: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_32
+starting game 0_33: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_33
+starting game 0_34: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_34
+starting game 0_35: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_35
+starting game 0_36: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_36
+starting game 0_37: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_37
+starting game 0_38: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_38
+starting game 0_39: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_39
+starting game 0_40: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_40
+starting game 0_41: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_41
+starting game 0_42: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_42
+starting game 0_43: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_43
+starting game 0_44: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_44
+starting game 0_45: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_45
+starting game 0_46: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_46
+starting game 0_47: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_47
+starting game 0_48: gnugo-l1 (b) vs sda_play (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_48
+starting game 0_49: sda_play (b) vs gnugo-l1 (w)
+Using gpu device 0: GeForce GTX 570
+response from game 0_49
+run finished at 2013-04-20 14:00
