@@ -1,28 +1,28 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{report}
+\usepackage{titlesec}
+\usepackage{setspace}
 \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
-\topmargin -1.5cm        % read Lamport p.163
-\oddsidemargin -0.04cm   % read Lamport p.163
-\evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
-\textwidth 16.59cm
-\textheight 21.94cm 
+\usepackage[left=1.5in,top=1in,right=1in,bottom=1in]{geometry}
+\textwidth 6in
+\textheight 9in
 %\pagestyle{empty}       % Uncomment if don't want page numbers
 \parskip 7.2pt           % sets spacing between paragraphs
 %\renewcommand{\baselinestretch}{1.5} % Uncomment for 1.5 spacing between lines
 \parindent 0pt		 % sets leading space for paragraphs
-
+\titleformat{\section}{\bfseries}{\thesection}{12pt}{}
 \begin{document}         
 % Start your text
 
 \section{Abstract}
 \label{Abstract}
+\doublespacing
 Stacked de-noising auto-encoders (SdAs) have shows excellent performance on machine perception tasks. In this paper I test the algorithm on a planning task, the game of Go. If it performs better than a flat network, then I believe that it lends strength to the hypothesis that SdAs are a good model of how the neocortex learns. The neocortex has a uniform structure throughout, yet it has high plasticity and performs perception, motor-control, and high-level planning with seemingly the same mechanism. I use one possible unification of the process of perception and control to make an SdA play Go. I train the network to form a hierarchical model of a dataset of several thousand completed go games, and I interpret it's expectations as plans. The network preferentially remembers games from the perspective of the winning player. This is based on the hypothesis that the self-serving bias observed in psychology is an artifact of the unification of perception and control.
 
 \section{Introduction}
 \label{Introduction}
 
-\section{0.0 Background on de-noising autoencoders}
-\label{Background on de-noising autoencoders}
 Autoencoders, or autoassociators as they are sometimes called, are a variant of the simple three-layer artificial neural network where the output is expected to equal the input and the hidden layer is smaller or sparser than than the input layer. An autoencoder takes an input $\mathbf x\in[0,1]^d$ and first maps it (with an encoder) to a hidden representation $\mathbf y\in[0,1]^{d'}$ through a deterministic mapping, e.g.:
+
 \[
 \mathbf y = s(\mathbf W\mathbf x + \mathbf b)
 \]
@@ -31,8 +31,6 @@ Where $s$ is a non-linearity such as the sigmoid. The latent representation $\ma
 \mathbf z = s(\mathbf W'\mathbf y + \mathbf b')
 \]
 $\mathbf z$ should be seen as a prediction, or {\it reconstruction}, of  $\mathbf x$ given the code  $\mathbf y$. The parameters of this model ($\mathbf W$, $\mathbf W'$, $\mathbf b$, and $\mathbf b'$) are optimized such that the average reconstruction error is minimized\cite{Bengio09}.
-
-Show figure to explain
 
 The aim of the autoencoder to learn the code $\mathbf y$ a distributed representation that captures the coordinates along the main factors of variation in the data (similarly to how principal component analysis (PCA) captures the main factors of variation in the data). Because $\mathbf y$ is viewed as a lossy compression of $\mathbf x$, it cannot be a good compression (with small loss) for all $\mathbf x$, so learning drives it to be one that is a good compression in particular for training examples, and hopefully for others as well, but not for arbitrary inputs. That is the sense in which an auto-encoder generalizes: it gives low reconstruction error to test examples from the same distribution as the training examples, but generally high reconstruction error to uniformly chosen configurations of the input vector.
 
@@ -117,16 +115,16 @@ Jeff Hawkins said in 2004, Neural networks were a genuine improvement of the AI 
 \section{3.0 Expected performance of SdA vs greedy approach}
 \label{Expected performance of SdA vs. dA}
 
-The SdA's layered heirarchy of abstraction could theorhetically allow it to outperform the greedy approach, if the problem space is decomposable into abstract levels, which from play experince, I belive it is. The situations in which a greedy approach would fail to an agorithm that has more high-level concerns besides points gained on the next turn are ones in which sacrefice is useful or more commonly, ones in which delayed capture of a group would leave open the opportunity for additional enemy mistakes, and therefore, more captures.
+The SdA's layered hierarchy of abstraction could theoretically allow it to outperform the greedy approach, if the problem space is decomposable into abstract levels, which from play experience, I believe it is. The situations in which a greedy approach would fail to an algorithm that has more high-level concerns besides points gained on the next turn are ones in which sacrifice is useful or more commonly, ones in which delayed capture of a group would leave open the opportunity for additional enemy mistakes, and therefore, more captures.
 
-A simple greedy hill climbing go engine was used as a control opponent (SimpleGo 0.1.X). It always makes the move which would maximize it's relative capture point gain on the next turn, and if that cannot be improved, maximises it's relative advantage in total liberties.
+A simple greedy hill climbing go engine was used as a control opponent (SimpleGo 0.1.X). It always makes the move which would maximize it's relative capture point gain on the next turn, and if that cannot be improved, maximizes it's relative advantage in total liberties.
 
 \section{3.1 Implementation of Go Engine}
 \label{Implementation of Go Engine}
 
-A standard go engine is a computer program which can speak the go protocol and decide on moves from game states. Through a bit of wrapper code, it connects to a go server like KGS or a local game arbitration software where it plays games against humans or other go engines.
+A standard go engine is a computer program which can speak GTP (Go Text Protocol) and decide on moves from game states. Through a bit of wrapper code, it connects to a go server like KGS or a local game arbitration software where it plays games against humans or other go engines. I used an excellent local go engine manager and go library called Gomill by Matthew Woodcraft.
 
-
+The go engines takes a game state from the current game, and creates a vector of floats from it in the same way that the dataset training examples were created. An empty space is represented as a 0.5, a stone of one's own color represented with a 0.25, a stone of the other player represented with a 0.75. Ones own last move (in the training examples) is represented with 0.0 and the opponents last move with a 1.0. There are two other numbers added. the move number / 200 and the final score from one's own color's perspective. The SdA's encoder weights are used to propagate the activations up to the highest hidden layer, and then the decoder weights are used to propagate those activations back down to the board's state. It is hoped that the resulting prediction will resemble the board state the network was primed with, plus the information about the "last move" made by the current player, which was always present in the training data. At this point, the legal board position with the minimum predicted value is taken to be the choice move and the play is made. The Gomill library handles the GTP protocol from there on.
 
 
 Why was Go chosen?
@@ -134,8 +132,19 @@ Why was Go chosen?
 * Go requires planning at different scales of time and space. Sometimes sacrifice is strategic.
 * Neither a purely greedy or purely sustainable outlook is as good as a balance between the two.
 
-\section{3.2 Implementation of SdA-based decider}
-\label{Implementation of SdA-based decider}
+\section{3.2 Training the SdA}
+\label{Training the SdA}
+
+The SdA was pre-trained on a dataset of 1,922,933 go positions from the color perspective of the winner. Only the moves in which the winner just places a stone were used. This is the sense in which the SdA preferentially remembers desirable situations, as opposed to remembering all situations in an unbiased model of reality and then deriving actions from the model and a goal. One attempt was made to modify the learning rate with respect to the game's final score on a point by point basis, but it was core-limited as it required communication between the CPU and GPU on every data point, and at the speed of one core, the training process would not have finished for several months. In order to fully take advantage of the GPU and finish in a reasonable amount of time, additional optimizations would have to be designed specifically for this application.
+
+The network topology used was [363, 250, 150, 50, 10]. Each denoising autoencoder in the SdA was trained for 100 iterations of the entire dataset. The entire SdA has about $\mathbf 2^{18}$ trainable parameters. One interesting thing we can do with the fully trained encoder is to look at each of the 10 highest level hidden units, and look at what kind of Go board it is maximally activated by. To do this, we set it's activation to 1, and set the activation of the other high-level hidden units to 0, then use the series of decoders on the lower levels to construct a low-level training example. this example can be then passed into a drawing program to represent it's weights on a go board.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[height=3.0in,width=3.0in]{screen-0204}
+\caption{A representation of the go position that would maximally activate one of the hidden units from the highest level in the SdA. Stones are either colored white or black based on the direction of the prediction, and the opacity is the confidence that a stone would be in that position rather than being empty.}
+\end{center}
+\end{figure}
 
 \section{4.0 Performance of SdA-based player against dA player and various other opponents}
 \label{Performance of SdA-based player against dA player and various other opponents}
@@ -153,6 +162,7 @@ SdA vs. online players who think they are playing a human. (definitely don't hav
 
 
 \begin{thebibliography}{99}
+\singlespacing
 
 \bibitem{Baker95} S. C. Baker, R. D. Rogers, A. M. Owen, C. D. Frith, R. J. Dolan, R. S. J. Frackowiak, T. W. Robbins. Neural systems engaged by planning: a PET study of the Tower of London task. Neuropsychologia,Vol. 34, No. 6, pp. 515-526, 1996
  
