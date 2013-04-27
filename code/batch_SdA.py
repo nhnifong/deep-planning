@@ -316,7 +316,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
     
         for epoch in xrange(pretraining_epochs):
             print "Begin pre-training epoch %i" % epoch
-
+            costs = []
             for fname in os.listdir(os.path.join(data_dir,'train')):
                 fpath = os.path.join(data_dir,'train',fname)
                 #print "Reading %s from disk" % fpath
@@ -336,7 +336,7 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
                 pretraining_fn = sda.pretraining_function( shared_x, ley, batch_size)
         
                 # go through the training set
-                costs = []
+                
                 #print "pre-training..."
                 for batch_index in xrange(n_train_batches):
                     #pretrain_lr = numpy.array(0.001*(2**(2*train_x[batch_index][362]-1)), dtype=numpy.float32)
@@ -345,15 +345,14 @@ def test_SdA(finetune_lr=0.1, pretraining_epochs=100,
                                           lr = pretrain_lr)
                     costs.append( cost )
                     
-                print "mean cost for 1Gb batch %0.5f" % (numpy.mean(costs))
                 del pretraining_fn
                 del shared_x
                 del train_x
                 del num_datapoints
                 gc.collect()
                 
-                #print "saving winners_SdA.pickle"
-                cPickle.dump(sda, open('winners_SdA.pickle', 'wb'))
+            print "mean cost for 1Gb batch %0.5f" % (numpy.mean(costs))
+            cPickle.dump(sda, open('winners_SdA.pickle', 'wb'))
 
     print "Pretraining took %0.2f seconds" % (time.clock() - start_time)
 
