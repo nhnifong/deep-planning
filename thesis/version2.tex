@@ -1,13 +1,11 @@
 \documentclass[12pt]{article}
 \usepackage{titlesec}
 \usepackage{setspace}
-\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage{graphicx} 
 \usepackage[left=1.5in,top=1in,right=1in,bottom=1in]{geometry}
 \textwidth 6in
 \textheight 9in
-%\pagestyle{empty}       % Uncomment if don't want page numbers
 \parskip 7.2pt           % sets spacing between paragraphs
-%\renewcommand{\baselinestretch}{1.5} % Uncomment for 1.5 spacing between lines
 \parindent 0pt		 % sets leading space for paragraphs
 \titleformat{\section}{\bfseries}{\thesection}{12pt}{}
 \newcommand{\sectionbreak}{\clearpage}
@@ -18,44 +16,61 @@
 \label{Abstract}
 \doublespacing
 
-In this thesis, I blabber about stuff I think is interesting and apply mountains of computer power that would have been the envy of world militaries 20 years ago to build a go engine with less skill than a drunk macaque.
+One of the most impressive qualities of the brain is it's plasticity. The neocortex has roughly the same structure throughout it's whole surface, yet it is involved in a variety of different tasks from vision to motor control, and regions which once performed one task, can learn to perform another. Any machine learning algorithm which claims to be a plausible model of the neocortex should also display this plasticity. One such candidate is the stacked de-noising autoencoder (SdA) It has shown promising results in the field of machine perception where it has been used to learn abstract features from unlabeled data. In this thesis I develop a flexible distributed implementation of an SdA and test it on simple tasks to investigate it's plasticity.
 
 \title{Application of Stacked De-Noising Auto-Encoders to Planning}
-\section{Motivation}
+\section{Criteria for a hierarchical associative memory}
 
-I was inspired by several researchers with ideas about the brain. Jeff Hawkins, who argues that the neocortex is uniform in structure yet represents a hierarchy of abstraction, and Daniel Wolpert, who stresses that the evolutionary purpose of the brain is to produce complex adaptive movements. The synthesis of these ideas leads to the hypothesis that the cortex has a unified process of perception and control where models are biased towards desirable situations and towards information relevant to action. This is somewhat consistent with Perceptual Control Theory as put forward by Bill Powers, which hypothesizes that perceptions are controlled rather than actions, and that action is the result of negative feedback systems bringing the world into agreement with perception. Observations in psychology such as the self-serving and confirmation cognitive biases support this view. We recall the world being closer to our own model than it really is, and our model is biased towards scenarios that would benefit us. This may an artifact of a beneficial adaptation: the brain's unification of perception and control in the neocortex. Under this hypothesis, we do not have a model of the world, and a set of goals from which we derive plans, as classical AI has sought to build. We have a single biased model which simultaneously represents both imperfectly. This model is hierarchically organized into levels of abstraction, and each level learns by roughly the same process. It is possible that the most abstract levels are more representative of goals than of the world, but each level is still permeated with bias to some extent. I elaborate on this model in Section~\ref{fart}. These ideas about how the brain might learn and perform perception and control seemed idealistic until Geoffrey Hinton's deep belief networks started showing successes in the field of machine vision. These unsupervised learning algorithms can build up levels of abstraction, and given enough computer power, can discover hierarchical latent structure in data. They seem like the perfect candidates for the scaffolding of a new model based on the ideas of all these scientists. 
+I was inspired by several researchers with ideas about the brain. Jeff Hawkins, who argues that although the neocortex has many specialized regions, that they all learn using roughly the same process, and Daniel Wolpert, who stresses that the evolutionary purpose of the brain is to produce complex adaptive movements. These scientists, and many others have been inching closer to a model which meets the many criteria for a plausible model of the neocortex. To be more specific, at this point, it appears we are looking for an online associative memory which can learn arbitrarily deep hierarchies of abstraction with the following criteria:
+
+1. Growable - The model must be composed of a large number of similar units, which can be grown outward according to a simple pattern to increase the size of the total network. These units could be analogous to neurons, cortical columns, or some larger structure. This is desirable because it simplifies the process by which the neocortex could be grown in animals, and in the machine learning community, it is practical, easy to understand, and economical. We know that cortices of varying sizes occur in many mammals, and that the cortex provides some adaptive benefit at any size.
+
+2. General - The model must be sufficiently general that it could be applied to video, audio, tactile, somatosensory, and other more abstract, data with minimal tuning of metaparameters for each kind of data. To measure plasticity, one might train a model on some images, and then, train it on some audio and compare it's predictive performance to a randomly initialized model of equal size trained on the same audio for the same number of epochs.
+
+3. Online - The model must learn and predict continuously and incorporate new data as it becomes available. Most researchers prefer to train model on batches of data, and then test them, partly because offline algorithms are simpler, and it affords scientifically desirable properties like repeatability, but I think that the further down the road of offline learning algorithms we go, the more our results will be irrelevant to a plausible model of the neocortex. Often however, online learning algorithms are simpler, for example, the on-line and off-line versions of k-means.
+
+4. Capable of motor control - The neocortex is involved in motor control. It's not fully in charge of motor control, but it's definitely involved, and we must reconcile how an associative memory could be part of a motor control and planning system. Can motor control be formulated as a categorically similar problem to perception? Such as in Bill Power's Perceptual Control Theory which hypothesizes that perceptions are controlled rather than actions, and that action is the result of negative feedback systems bringing the world into agreement with perception. I suggest that motor control is somehow unified with perception, such that the same process which can abstract faces and cars from lines and spots in visual cortex, could abstract waving or waterskiing from postures and cycles of motion. It could presumably use the same information pathways by which predictions are propagated downward towards the senses, to decode actions into muscle contractions. However, it may be that we overestimate the involvement of the cortex in motor control, and that the cerebellum and other brain regions do most of the work, but it is also plausible that other regions function as associative hierarchical memories as well.
+
+5. Spatial, Temporal, and beyond - We learn patterns in space, and in time, and in abstract systems that don't fit in time or space. A sufficiently general hierarchical associative memory should be able to apply a similar process to data of any type and, given sufficient time and memory, discover most of the patterns within it regardless of their dimensions. But in order to set off in the right direction, we must conceive of models that properly deal with time, which is apparently different in nature from other dimensions. Time is the one direction in which you must always go. Predictions about values in a spatial signal can be made out of order, immediately verified, and refined as needed. Predictions about values in a temporal signal can only be verified with limited certainty because they must necessarily be at least second-order predictions (predictions based on the results of other predictions). Uncertainty increases with distance from the present, as information about the past and future are inferences based on memory. My hope is that going forwards, machine learning researchers will begin to treat time as a special dimension, rather than just turning it into another spacial dimension by using sliding windows. If I had to guess, I'd say that the distance from the present could be reasonably aligned with the distance from the raw sensorimotor signals to create a single dimension of abstraction. I have a model in mind, but I suggest that this is not an answer to the question of how does the brain learn, but merely a general direction in which to look for answers.
+
+These are steep requirements, but as I will describe, it's not impossible to stay within them and still develop computer models that work, And I believe that we must absolutely stay within them in order to make discoveries relevant to achieving human-level AI as soon as possible. In this thesis, I will be investigating the possibility of building a system that meets these requirements, based on the stacked de-noising auto-encoder, a type of deep belief network.
+
+
+
+The synthesis of these ideas leads to the hypothesis that the cortex learns via a unified process of perception and control which continuously makes predictions that are desirable, parsimonious, and relevant to action. Observations in psychology such as the self-serving and confirmation cognitive biases support this view. We recall the world being closer to our own model than it really is, and our model is biased towards scenarios that would benefit us. This may an artifact of a beneficial adaptation: the brain's unification of perception and control in the neocortex. Under this hypothesis, we do not have a model of the world, and a set of goals from which we derive plans, as classical AI has sought to build. We have a single biased model which simultaneously represents both imperfectly. This model is hierarchically organized into levels of abstraction, and each level learns by roughly the same process. It is possible that the most abstract levels are more representative of goals than of the world, but each level is still permeated with bias to some extent. I elaborate on this model in Section~\ref{fart}. These ideas about how the brain might learn and perform perception and control seemed idealistic until Geoffrey Hinton's deep belief networks started showing successes in the field of machine vision. These unsupervised learning algorithms can build up levels of abstraction, and given enough computer power, can discover hierarchical latent structure in data. They seem like the perfect candidates for the scaffolding of a new model based on the ideas of all these scientists. 
+
+\section{Relevant work}
  
 	\subsection{Jeff Hawkins' ideas about the neocortex}
 	
 Jeff Hawkins, notable founder of Palm Computing, Handspring, and Numenta, has written extensively about his Memory-Prediction model of the mammalian neocortex. It can be summarized as follows: The Central Nervous System (CNS) consists of the cortex and lower brain structures. The lower brain structures produce movements by reflex with added noise. The cortex collects the signals sent out of the CNS and the sensory signals coming in from senses. It consists of sheet of functionally similar tissue, loosely subdivided into regions, each of which learns a predictive model of it's receptive field. Receptive fields can consist of sensory inflow, motor outflow, and predictions from other regions. Each region will actively predict the state of it's receptive field, passing those predictions down to those other regions in it's receptive field, and up, to any regions who's receptive field they are in. The global structure of the connections is a hierarchy, with large subtrees for each sense, and with an upper level where sensory integration occurs, containing mostly regions that predict abstract invariant representations.
 
+% EXPAND
+
 	\subsection{Daniel Wolpert's ideas about the motor-control purpose of the brain}
 	
 Daniel Wolpert studies sensorimotor integration and uses engineering methods to model how the CNS controls movement. He stresses that motor control is the adaptive purpose of the brain, because all of the brain's effects on the world are mediated through contractions of the muscles. Only organisms that move have brains, so it stands to reason that motion is closely connected to the brain's adaptive purpose. He and his team developed a model based on Kalman filters where the CNS makes simultaneous predictions of future sensory inputs and future motor outputs with the same process.
+
+% EXPAND
 	
 	\subsection{Geoffrey Hinton's Recent successes with Deep Belief Networks}
 	
 Geoffrey Hinton, while he was at the University of Toronto, and recently, at Google, has been a pioneer in the field of Deep Belief Networks. These networks feature a layered network topology and methods for training them, that out-perform flat networks with an equal number of trainable parameters. Many types of learning modules can be stacked into a deep network. Hinton and his team have focused primarily on restricted Boltzmann machines (RBMs) and Stacked de-noising auto-encoders (SdAs)
 
+% EXPAND
+
 	\subsection{Bill Powers and Perceptual Control Theory}
 
-Perceptual Control Theory is a formalized model of how an organism might control it's behavior. Specifically, It does not control it's behavior, it controls it's perceptions
+Perceptual Control Theory is a formalized model of how an organism might control it's behavior. Specifically, It does not directly control it's behavior, it directly controls it's perceptions of the world. Some of the world can be indirectly influenced by it's muscles with varying levels of noise and delay, and via a complex mapping of patterns.
 
-	\subsection{Computational growth and the promise of scalable flexible hierarchies}
-	
-It remains to be seen whether these deep learning algorithms can be applied successfully to motor control, high-level planning, and the many other functions we know the neocortex is involved in. Moving forward in the search for artificial general intelligence it is important that we test new algorithms on the same variety of tasks as we know the brain to be capable of solving, and that we test them at the same scale in realistic environments, to the extent that sufficient computer power is affordable. A scalable algorithm which has mediocre performance on a variety of tasks with today's computing power is more promising as a model of the brain than an algorithm that excels at only one task.
-	
-	\subsection{The unification of perception and planning within the framework of deep nets.}
-	\label{fart}
-
-Classical AI has a neutral model of the world and a set of goals. Plans are derived from the combination of these two elements. I'm proposing that a successful biologically inspired learning algorithm could have only one model, biased towards desirable situations, which would represent the world, and the goals, simultaneously, and imperfectly. The benefit of this is it's simplicity, scalability, and self-similarity. In this model, a deep net would would be pre-trained on observations of the world and of one's own actions which are initially random. The system would then transition to a period of fine-tuning where desirable outcomes are enforced from the top down. Sensory information propagates up the network, and desirability-biased expectations propagate down the network. Each layer performs the same task, it modifies it's weights by a gradient based on a combination of data from below, and expectations from above. At the bottom, the data is ground truth, and any data about one's own actions becomes ground truth by taking those actions. At the top, the expectations are set explicitly by the programmer. 
-
-If a modern deep belief network can be made to perform planning tasks, then I believe it lends strength to the biological plausibility of that algorithm. I am operating on the assumption for this project, that perception and planning are both part of the same process, so the most abstract representations are joint models of sensory experience and action. The model of sensory data is influenced by three main factors. The accuracy, the sparsity, and the desirability, or pleasurableness to the creature. At all levels, the representations which jointly satisfy these three metrics come to dominate. In the case of a game this last factor would be the points or wins/losses experienced by the player. The player perceives the state of the game and the state of it's own recent actions, and expects a likely, sparse, and desirable scenario next, and then is made to take any actions it expected of itself which are legal in the rules of the game. 
+% EXPAND
 		
 \section{Background}
 	\subsection{Deep belief nets}
 	
 The reason deep belief networks offer some benefit over a completely flat network with the same number of trainable parameters is that they can generalize at different levels and thus share more information. For example, a flat network which has learned a mapping between pictures of cars and labels cannot re-use any of those weights to learn a mapping between pictures of animals and labels. However, a deep network with an intermediate layer sensitive to edges could be shared between them and both classifiers could then be expressed with a far smaller number of weights, as all natural images can be more compactly represented as collections of edges. 
+
+% EXPAND
 
 	\subsection{Auto-encoders}
 	
@@ -83,30 +98,27 @@ The auto-encoder alone is not sufficient to be the basis of a deep architecture 
 	
 Stacked denoising autoencoders, canonically abbreviated SdA, are not just neural networks with additional hidden layers, but a structure with individual levels of simple three-layer denoising autoencoders. First, a single denoising autoencoder is trained on the data. It's hidden layer converges on a sparse distributed representation of the training set. This essentially replaces the step where a researcher would have to design a collection of good features. Then, a second denoising autoencoder is trained to reconstruct corrupted versions of the activation of the hidden layer of the first dA for the collection of training examples. (the first level does not learn during this time). After a sufficient number of levels have been added, if the network is to be used for classification, the encoders and decoders from each level are assembled into one long network and fine-tuned using back-propagation.
 
-	\subsection{The game of Go}
-	
-Go is a two-player strategy game, like chess but thousands of years older, simpler rules, and more difficult to master. Players alternate by placing white and black stones on the intersections of a 19 by 19 board. Stones cannot be moved after being placed, but they can be captured and removed if they are surrounded. The goal is to surround more territory than the opponent and capture his stones. The score at the end of the game is the territory surrounded plus captures. Go is known for it's simple rules, yet complex play. It takes only minutes to learn how to play, but years to master. On top of that, it has an astronomically large game-tree complexity. Typically there are between 50 and 300 legal moves available at any state in a game of go, and games typically last about 250 moves but are potentially much longer. Its game-tree complexity ranges from about $\mathbf 10^{600}$ to $\mathbf 10^{800}$. This is hundreds of orders of magnitude larger than chess, and modern supercomputers (approx. 1 PFLOP) can only exhaustively look ahead around 5 moves. It draws much attention from computer programmers because of it's numerical difficulty, and alluring simplicity. The definitions of terms and rules are as follows:
+% EXPAND
 
-A group is a set of orthogonally connected stones.
-Liberties are the unoccupied spaces bordering a group.
-Groups with no remaining liberties is considered dead.
-When you play a stone, any of your opponents groups that have zero liberties are captured and removed.
-One cannot play a dead stone or kill one's own group.
-One cannot return the board to a prior state.
-Three consecutive passes ends the game.
-The score is the sum of surrounded territory plus captures plus the komi for white (an empirically determined handicap of about 6.5 points to offset black's advantage from going first)
+\section{Meeting the above criteria with stacked de-noising auto-encoders}
+\label{fart}
 
-There is often another rule listed: a group with two eyes (surrounded empty space) is unambiguously alive. However, since this is derivable from the other rules, it's not necessarily a rule. Also, players often agree that a group without two eyes is alive, because it is extensive or well defended. The invader basically admits that he/she could not capture it and will not try. But if an opponent is trying to surround your group and capture it, you better form two eyes quick. It then becomes safe because in order to theoretically capture it, your opponent would have to totally fill in both eyes, and they would have to fill in one of them first, meaning that they would have to play a dead stone at some point, which is illegal. After you form two eyes, a rational opponent will immediately give up trying to capture your group. This leads to the strategy of fooling beginners into wasting a bunch of moves surrounding your group, only for you to form two eyes at the last second.
+It remains to be seen whether these deep learning algorithms can be applied successfully to motor control, high-level planning, and the many other functions we know the neocortex is involved in. Moving forward in the search for artificial general intelligence it is important that we test new algorithms on the same variety of tasks as we know the brain to be capable of solving, and that we test them at the same scale in realistic environments, to the extent that sufficient computer power is affordable. A scalable algorithm which has mediocre performance on a variety of tasks with today's computing power is more promising as a model of the brain than an algorithm that excels at only one task.
+
+Classical AI has a neutral model of the world and a set of goals. Plans are derived from the combination of these two elements. I'm proposing that a successful biologically inspired learning algorithm could have only one model, biased towards desirable situations, which would represent the world, and the goals, simultaneously, and imperfectly. The benefit of this is it's simplicity, scalability, and self-similarity. In this model, a deep net would would be pre-trained on observations of the world and of one's own actions which are initially random. The system would then transition to a period of fine-tuning where desirable outcomes are enforced from the top down. Sensory information propagates up the network, and desirability-biased expectations propagate down the network. Each layer performs the same task, it modifies it's weights by a gradient based on a combination of data from below, and expectations from above. At the bottom, the data is ground truth, and any data about one's own actions becomes ground truth by taking those actions. At the top, the expectations are set explicitly by the programmer. 
+
+If a modern deep belief network can be made to perform planning tasks, then I believe it lends strength to the biological plausibility of that algorithm. I am operating on the assumption for this project, that perception and planning are both part of the same process, so the most abstract representations are joint models of sensory experience and action. The model of sensory data is influenced by three main factors. The accuracy, the sparsity, and the desirability, or pleasurableness to the creature. At all levels, the representations which jointly satisfy these three metrics come to dominate. In the case of a game this last factor would be the points or wins/losses experienced by the player. The player perceives the state of the game and the state of it's own recent actions, and expects a likely, sparse, and desirable scenario next, and then is made to take any actions it expected of itself which are legal in the rules of the game. 
 
 \section{Experimental Design}
-	\subsection{Choice of Deep Belief Network}
-	
-Why I'm using SdAs
-		
-	\subsection{Choice of planning task: the game of Go}
 
-Why was Go chosen? it is a difficult game for computers, with a huge branching factor. This ensures that brute force is infeasible and rules out the possibility of it being used in-whole or in-part. Go requires planning at different scales of time and space. Sometimes sacrifice is strategic. Neither a purely greedy or purely sustainable outlook is as good as a balance between the two.
+	\subsection{Measuring the plasticity of an unsupervised learning algorithm.}
 	
+	In this thesis I set out to investigate one of the criteria I described above, plasticity. I will begin two kinds of data source, both represented as two dimensional squares in greyscale. The first, type is natural images, taken from ImageNet. The second is Discrete Fourier Transforms of speech audio snippets of the same spatial resolution. I start by training one SdA on each set, for the same number of epochs, and then test their reconstruction error. I then duplicate and swap the two networks, and train each one on the opposite dataset. this is to control for any order-sensitivity in the experiment. I then train these networks on the new data for a equal number of epochs and test their reconstruction error. un-swapped networks are also trained for another X epochs and tested. The SdA algorithm is deemed to display plasticity if the networks initialized with coherent but incorrect weights perform better than networks initialized with incorrect weights.
+	
+	\subsection{Implementation}
+	
+% EXPAND
+		
 	\subsection{Acquiring and preparing the data-set}
 	
 To construct the dataset, I first collected tens of thousands of recorded go games as SGF files from the IGS server and other sources such as professional tournaments. I then filtered out about 20 percent of those games because they were in incomplete or were played by nonstandard rules. Then each move in each games was recorded as a training example. Training examples were vectors of 363 numbers between 0 and 1. The first 361 numbers were the board positions of the 19x19 board. an empty position was represented with 0.5, while a white or black stone was represented with 0.75 or 0.25 respectively. The last moves of white and black were represented with 0 and 1 respectively. I chose not to represent the last moves as normalized coordinates because that would make them sensitive and would create a very non-smooth space for the most important parameters in the model. Finally, the last two numbers are the normalized clamped game move number and the final score for black. In each game, the moves of both players are used to create training examples but white's moves are inverted because all moves are stored from black's perspective and when the engine plays go, if it plays as white, it inverts the state to present it to the SdA.
@@ -121,54 +133,18 @@ The network topology used was [363, 250, 150, 50, 10]. Each denoising autoencode
 	
 	\subsection{Goal-oriented fine-tuning}
 
-
-	
-	\subsection{Implementation of go engine}
-
-A standard go engine is a computer program which can speak GTP (Go Text Protocol) and decide on moves from game states. Through a bit of wrapper code, it connects to a go server like KGS or a local game arbitration software where it plays games against humans or other go engines. I used an excellent local go engine manager and go library called Gomill by Matthew Woodcraft. %reference
-
-The go engines takes a game state from the current game, and creates a vector of floats from it in the same way that the dataset training examples were created. An empty space is represented as a 0.5, a stone of one's own color represented with a 0.25, a stone of the other player represented with a 0.75. Ones own last move (in the training examples) is represented with 0.0 and the opponents last move with a 1.0. There are two other numbers added. the move number / 200 and the final score from one's own color's perspective. The SdA's encoder weights are used to propagate the activations up to the highest hidden layer, and then the decoder weights are used to propagate those activations back down to the board's state. It is hoped that the resulting prediction will resemble the board state the network was primed with, plus the information about the "last move" made by the current player, which was always present in the training data. At this point, the legal board position with the minimum predicted value is taken to be the choice move and the play is made. The Gomill library handles the GTP protocol from there on.
-	
-	\subsection{Testing of go engine against various other oponents}
-	
-
 	
 \section{Results}
+
+	\subsection{Performance of twice-trained networks vs control group}
+
 	\subsection{Analysis and visualization of hidden units}
-		Did the system have abstract representations of perceptions
-		Did the system have abstract representations of actions.
-		
-By observing played games, creating visualizations of the hidden nodes in the network, we can try to get an idea of how the SdA is encoding the data, and whether it has converged on abstract representations of typical Go patterns, and whether it can be said to have "plans".
-		
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[height=3.0in,width=3.0in]{screen-0204}
-\caption{A representation of the go position that would maximally activate one of the hidden units from the highest level in the SdA. Stones are either colored white or black based on the direction of the prediction, and the opacity is the confidence that a stone would be in that position rather than being empty.}
-\end{center}
-\end{figure}
-		
-	\subsection{Performance of Go engine}
 	
-Testing the go engine against GNU Go level 1, I found that after 10,000 games, it lost every single game, even with a 10 point handicap. It is completely incapable of playing go. After playing a game with it manually, I found that while it displayed good placement and coverage at beginning of the game, it the did not try to save groups from atari (the condition of being only one turn from death) which makes it very easy to beat by hundreds of capture points. It also does not refrain from placing stones within it's own territory, needlessly reducing it's own score, and will sometimes fill a large surrounded area with stones of it's own color until only one liberty remained, leading to the capture of that group, and massive losses. It is designed to learn when to pass, but it did not appear to ever pass strategically, it would only pass when there were no more legal moves. 
+\section{Discussion}
 
-I decided to use go as a planning task because it has simple rules, a large dataset was readily available, and typical strategies can be decomposed into abstract levels. However, playing adequate go is a very difficult problem to solve programmatically, and GNU go is a very mature and widely reviewed go engine. It is possible that my representation of the game states or my method of training does not present this problem to the autoencoder in a readily digestible way. Or that the go engine does not adequately exploit the SdAs learned representation. It could be that the SdA is too small, or the dataset is too sparse. Whatever the case it is very difficult to diagnose, and much more experimentation would be needed to produce an adequate go engine with this method. This, I believe is weak evidence for the null hypothesis, that SdAs cannot engage in planning in this way. Presumable, some other configuration would be successful, but that is the problem with all AI research. It is difficult to know which methods to pursue, because you can look at any method and say, "If I could only work on that another month I could get some great results" The road ahead is always clouded by fog, and only by sending feelers out in every direction can we discover new solutions.
+	\subsection{Potential Improvements to plasticity experiment}
 	
-\section{Discussion and Potential Improvements}
-	\subsection{Other choices of problems}
-	
-A simpler problem directed at the issue of learning a sensorimotor task would be more appropriate for determining whether a deep network could plan in this way. For example, moving a limb through a two dimensional space, or solving the Towers of London task.
-	
-	\subsection{Why it didn't work}
-	
-Most likely, the search space was too vast and spiky. SdAs are not magic invariance-finding systems. While they are definitely more impressive than past algorithms on perception tasks, they apparently can not be simply pointed at any data and be expected to learn a sparse representation. A sufficiently large amount of data is needed, and sufficient computing resources must be supplied. The data must be somewhat smooth and represented in an learnable way. On top of that, an appropriate network topology must be used. All these factors make it difficult to know what wen't wrong, but still, SdAs are a step in the right direction. Maybe one day we will have learning algorithms that can simply be pointed at any data and will discover invariant representations, after all that's what the brain does.
-	
-	\subsection{Scale of the problem and difficulty of visualization}
-	
-
-	
-	\subsection{Other representations of the dataset and actions}
-	
-	
+	\subsection{Measuring other criteria}
 	
 	\subsection{Conclusion}
 
