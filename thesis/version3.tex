@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{graphicx} 
+\usepackage[left=1.5in,top=1in,right=1in,bottom=1in]{geometry}
+\textwidth 6in
+\textheight 9in
+\parskip 7.2pt           % sets spacing between paragraphs
+\parindent 0pt		 % sets leading space for paragraphs
+\titleformat{\section}{\bfseries}{\thesection}{12pt}{}
+\newcommand{\sectionbreak}{\clearpage}
+\begin{document}         
+% Start your text
+
+\title{The Neuro-Plasticity of Stacked De-Noising Auto-Encoders}
+\author{Nathan H. Nifong}
+
+\section{Abstract}
+\label{Abstract}
+\doublespacing
+
+One of the most impressive qualities of the brain is it's neuro-plasticity. The neocortex has roughly the same structure throughout it's whole surface, yet it is involved in a variety of different tasks from vision to motor control, and regions which once performed one task, can learn to perform another. Any machine learning algorithm which claims to be a plausible model of the neocortex should also display this plasticity. One such candidate is the stacked de-noising autoencoder (SdA) It has shown promising results in the field of machine perception where it has been used to learn abstract features from unlabeled data. In this thesis I develop a flexible distributed implementation of an SdA and train it on images and audio spectrograms to experimentally determine properties comparable to neuro-plasticity. I found that networks trained on one sensory modality performed [better] on the other modality than randomly initialized networks trained for an equal total number of epochs. Furthermore, the magnitude of improvement gained from this training is [greater] for SdA's than for traditional neural networks of an identical topology, leading to the conclusion that SdA's have a [greater] equivalent or neuro-plasticity than traditional neural networks.
+
+\tableofcontents
+
+\section{Introduction}
+
+	\section{Neural Plausibility}
+		The latest strides in the field of machine learning are coming from deep networks. This class of learning algorithm is inspired by the structure of the neocortex, specifically the visual area. This is in contrast to the non-neurally inspired algorithms such as Support Vector Machines that are more widely used and were leading the way in classification performance prior to deep-networks. For the most part, the driving force in machine learning has been performance, and not specifically to create a plausible model of the neocortex. But now that we are finally seeing biologically inspired algorithms leading the way, biological plausibility becomes a useful heuristic for the further development of algorithms with higher performance measures, and discoveries about the emergent properties of these algorithms may feed back into neuroscience to inform further study of the brain. 
+		One metric which defines the brain and differentiates it from other intelligent systems is it's plasticity. Areas which once specialized in a certain function can change and learn a new function if for some reason they cannot continue with their first function or if the second function is just much more demanding of computational resources.
+	\section{Heirarchical representation in the brain}
+	
+		Deep networks are like the neocortex in many ways, but the most important of them is the hierarchical structure from which they get their name. In the visual cortex, neuroscientists have found using single-neuron recording that there are cells which respond most strongly to specific stimuli. The nature of stimuli change vary along many dimensions throughout the visual cortex. One of the more salient dimensions of variation is that of \em{abstraction}. The cells in V1 are the first cells in the cortex to receive signals from the retina via the lateral gesticulate cortex. Cells here respond most actively to a particular edge at a particular angle within a small area of the visual field. As you move up V2, V3, V4, and V5 the cells respond to more and more abstract visual stimuli until you have cells that activate whenever a dog is in the visual field, when objects appear to be moving in a specific way, and even abstract visual conditions such as "currently looking at object in hand" regardless of what or where it is. 
+	\section{The reusability of hierarchical representations.}
+	
+	A hierarchical, or tree-like structure of knowledge representation allows one to construct compact representations of a massive and complex distribution of stimuli. First one learns that the data can be represented in a slightly more compact way as a finite collection of simple patterns corresponding to local, high-frequency (short-term), salient features in sensory signals. Then, one begins to apply the same process to those features to construct another set of more abstract features, which can represent the data even more compactly. Thus, one re-uses representations rather than learning a whole new set.
+	In the case of vision, the levels of a hierarchy of representation might be as follows. Images can all be represented as pixels arrays, And pixel arrays can be represented much more compactly as a collection of overlapping gradients, edges, and spots chosen from a finite set, and colored with a small finite set of colors. (this is the principle behind JPEG compression, the visual striate cortex, and the most commonly learned set of features in machine vision) More abstractly, Nearly all combinations of edges and spots seen in the wild can be represented even more compactly as a hierarchy of things, stuck to the surfaces of bigger things in roughly specified locations, illuminated from a given angle. Assuming you have a library of hundreds of thousands of things, and the texture of spots, edges, and colors that make up their surface, and the ability to calculate shadows.
+	The tricky part of course is learning the vocabularies of symbols that make up each layer and the weights on the connections that allow you to translate between them. Traditional multi-layer neural networks assume pre-set finite number of layers, and nodes at each layer, and then attempt to learn the feed-forward weights which connect layers  all at once using back-propagation. There are no weights which operate on the information feeding backwards except in some recurrent neural networks. For the most part, this doesn't work very well. On large networks (hundreds of nodes at each layers and more than 3 layers) the search will get stuck in effective local minima.
+	
+	\section{Deep networks}
+Deep networks can have the same structure as traditional neural networks (set number of layers, set number of nodes at each layer, full feed-forward connections, and sigmoid activation function) but they are trained one layer at a time in order to enforce sparse hierarchical representations, and usually employ some kind of dropout (see below) in order to alleviate over-fitting. The have been shown to be able to learn the abstract feature sets that traditional multi-layer neural networks were originally expected to be able to learn. There are several types of deep networks, but they share the property of having layers. They consist of a stack of modules, which can be increased in depth indefinitely. For each type of module, there are many variants that differ in the method used to learn the parameters. The module must meet some criteria. It must perform some limited form generalization, and must operate on the same format of data it produces, such that it can be stacked recursively. So far, most modules are feed forward only. They perform inference using only the data from the layer below, but deep networks constructed of modules which operate on information passing in both directions promise to be an interesting area of research.
+
+	\section{Stacked de-noising auto-encoders}
+The aim of the autoencoder to learn the code $\mathbf y$ a distributed representation that captures the coordinates along the main factors of variation in the data (similarly to how principal component analysis (PCA) captures the main factors of variation in the data). Because $\mathbf y$ is viewed as a lossy compression of $\mathbf x$, it cannot be a good compression (with small loss) for all $\mathbf x$, so learning drives it to be one that is a good compression in particular for training examples, and hopefully for others as well, but not for arbitrary inputs. That is the sense in which an auto-encoder generalizes: it gives low reconstruction error to test examples from the same distribution as the training examples, but generally high reconstruction error to uniformly chosen configurations of the input vector.
+
+If there is one linear hidden layer (the code) and the mean squared error criterion is used to train the network, then the  hidden units learn to project the input in the span of the first  principal components of the data. If the hidden layer is non-linear, the auto-encoder behaves differently from PCA, with the ability to capture multi-modal aspects of the input distribution. The departure from PCA becomes even more important when we consider stacking multiple encoders (and their corresponding decoders) when building a deep auto-encoder [Hinton06].
+
+The auto-encoder alone is not sufficient to be the basis of a deep architecture because it has a tendency towards over-fitting. The denoising autoencoder (dA) is an extension of a classical autoencoder introduced specifically as a building block for deep networks\cite{Vincint08}.  It attempts to re-construct a corrupted version of the input, but the error in $\mathbf z$ is still compared against the un-corrupted input. The stochastic corruption process consists in randomly setting some of the inputs (as many as half of them) to zero. Hence the denoising auto-encoder is trying to predict the corrupted (i.e. missing) values from the uncorrupted (i.e., non-missing) values, for randomly selected subsets of missing patterns. This modification allows the dA to generalize well and produces compounding benefits when the dA's are stacked into a deep network\cite{Hinton06}. Hinton (google tech talk 3) suggests that the stochastic timing of the action potentials observed in biological neurons is a similar feature evolved to moderate the potential for over-fitting, and allow neurons or neuron groups to generalize well over the range of activation patterns of their receptive fields.
+	
+Stacked denoising autoencoders, canonically abbreviated SdA, are not just neural networks with additional hidden layers, but a structure with individual levels of simple three-layer denoising autoencoders. First, a single denoising autoencoder is trained on the data. It's hidden layer converges on a sparse distributed representation of the training set. This essentially replaces the step where a researcher would have to design a collection of good features. Then, a second denoising autoencoder is trained to reconstruct corrupted versions of the activation of the hidden layer of the first dA for the collection of training examples. (the first level does not learn during this time). After a sufficient number of levels have been added, if the network is to be used for classification, the encoders and decoders from each level are assembled into one long network and fine-tuned using back-propagation.
+	
+	\section{Relevant work}
+	
+	
+\section{Experimental design and implementation}
+	\section{Datasets}
+	The image dataset comes from the MIRFLICKR-1M collection of 1 million images from Flickr, all licensed under Creative Commons. 50 by 50 pixel patches were sampled at random from the dataset, and normalized with PSA whitening (a kind of local contrast enhancement that has nothing to do with actually making the image whiter).
+	However, to the best of my knowledge there is no comparable sound dataset released under creative commons or the public domain, so for this experiment I am using a collection of talk-show broadcasts from which short clips are sampled and transformed into spectrograms of comparable dimensions to the image patches.
+	An equal number of samples will be prepared from each sensory modality, images and sounds, and each datum will be of the same dimensions, and will be normalized in the same way. This way they can all be treated interchangeably, simplifying the code, and ensuring that any differences in learning between the two datasets are due to the differences in the content of their data, and not the way it was prepared. 
+	
+	\section{SdA and neural-net implementations}
+	Both the traditional neural networks and stacked de-noising auto-encoders take input examples as a real-valued vector and can be made to produce a classification at the output, so comparing them is straightforward. 
+	
+	\section{Measuring neuro-plasticity}
+	
+	
+\section{Results and Conclusion}
+	\section{Experimental results}
+	\section{Conclusion}
+
+
+\begin{thebibliography}{99}
+\singlespacing
+
+\bibitem{Somebody09} asdasdasd
+
+\end{thebibliography}
+\end{document}
