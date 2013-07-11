@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Abstract}{1}
+\contentsline {section}{\numberline {2}Introduction}{4}
+\contentsline {section}{\numberline {3}Plasticity of learning algorithms}{4}
+\contentsline {section}{\numberline {4}Neural Plausibility}{4}
+\contentsline {section}{\numberline {5}The reusability of hierarchical representations.}{4}
+\contentsline {section}{\numberline {6}Background and recent developments in deep networks}{4}
+\contentsline {section}{\numberline {7}Deep networks}{4}
+\contentsline {section}{\numberline {8}Stacked de-noising auto-encoders}{4}
+\contentsline {section}{\numberline {9}Relevant work}{4}
+\contentsline {section}{\numberline {10}Experimental design and implementation}{4}
+\contentsline {section}{\numberline {11}Datasets}{4}
+\contentsline {section}{\numberline {12}SdA and neural-net implementations}{4}
+\contentsline {section}{\numberline {13}Measuring neuro-plasticity}{4}
+\contentsline {section}{\numberline {14}Results and Conclusion}{4}
+\contentsline {section}{\numberline {15}Experimental results}{4}
+\contentsline {section}{\numberline {16}Conclusion}{4}
+\contentsline {subsection}{\numberline {16.1}Jeff Hawkins' ideas about the neocortex}{4}
