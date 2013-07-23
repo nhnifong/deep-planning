@@ -1,0 +1,615 @@
+\section{System \F} \label{sec:f}
+\begin{figure}
+\begin{singlespace}
+\begin{minipage}{.46\textwidth}
+	\begin{center}Church style\end{center}
+\def\baselinestretch{0}
+\small
+\begin{align*}
+\textbf{term syntax} \\
+t,s ::= &~ x           & \text{variable}    \\
+      | &~ \l(x:A) . t & \text{abstraction} \\
+      | &~ t ~ s       & \text{application} \\
+      | &~ \L X    . t & \text{type abstraction} \\
+      | &~ t [A]       & \text{type application} \\
+\\
+\textbf{type syntax} \\
+A,B ::= &~ X           & \text{variable type}   \\
+      | &~ A -> B      & \text{arrow type} \\
+      | &~ \forall X.B & \text{forall type}   \\
+\end{align*}
+\[ \textbf{kinding \& typing contexts} \]\vspace*{-1em}
+\begin{align*}\quad
+\Delta ::= &~ \cdot \\
+	 | &~ \Delta, x:A & (X\notin \dom(\Delta)) \\
+\Gamma ::= &~ \cdot \\
+	 | &~ \Gamma, x:A & (x\notin \dom(\Gamma)) \\
+\end{align*}
+\[ \textbf{kinding rules} \quad \framebox{$ \Delta |- A $} \]\vspace*{-1em}
+\begin{align*}
+& \inference[\sc TVar]{X \in \Delta}{\Delta |- X} \\
+& \inference[\sc TArr]{\Delta |- A & \Delta |- B}{\Delta |- A -> B} \\
+& \inference[\sc TAll]{\Delta,X |- B}{\Delta |- \forall X.B} \\
+\end{align*}
+\[ \textbf{typing rules} \quad \framebox{$ \Delta;\Gamma |- t : A $ } \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc Var]{x:A \in \Gamma}{\Delta;\Gamma |- x:A} \\
+& \inference[\sc Abs]{\Delta |- A & \Delta;\Gamma,x:A |- t : B}
+	             {\Delta;\Gamma |- \l(x:A).t : A -> B} \\
+& \inference[\sc App]{\Delta;\Gamma |- t : A -> B & \Delta;\Gamma |- s : A}
+		     {\Delta;\Gamma |- t~s : B} \\
+& \inference[\sc TyAbs]{\Delta,X;\Gamma |- t : B}
+		       {\Delta;\Gamma |- \L X.t : \forall X.B} ~
+		       (X\notin\FV(\Gamma)) \\
+& \inference[\sc TyApp]{\Delta;\Gamma |- t : \forall X.B & \Delta |- A}
+		       {\Delta;\Gamma |- t[A] : B[A/X]}
+\end{align*}
+\end{minipage}
+\begin{minipage}{.46\textwidth}
+	\begin{center}Curry style\end{center}
+\def\baselinestretch{0}
+\small
+\begin{align*}
+\textbf{term syntax} \\
+t,s ::= &~ x           \\
+      | &~ \l x    . t \\
+      | &~ t ~ s       \\
+        &~\phantom{| \L X}  \\
+        &~\phantom{| t [A]\vspace*{.1em}} \\
+\\
+\textbf{type syntax} \\
+A,B ::= &~ X \\
+      | &~ A -> B \\
+      | &~ \forall X . B \\
+\end{align*}
+\[ \textbf{kinding \& typing contexts} \]\vspace*{-1em}
+\begin{align*}\quad
+\Delta ::= &~ \cdot \\
+	 | &~ \Delta, x:A & (X\notin \dom(\Delta)) \\
+\Gamma ::= &~ \cdot \\
+	 | &~ \Gamma, x:A & (x\notin \dom(\Gamma)) \\
+\end{align*}
+\[ \textbf{kinding rules} \quad \framebox{$ \Delta |- A $}\]\vspace*{-1em}
+\begin{align*}
+& \inference[\sc TVar]{X \in \Delta}{\Delta |- X} \\
+& \inference[\sc TArr]{\Delta |- A & \Delta |- B}{\Delta |- A -> B} \\
+& \inference[\sc TAll]{\Delta,X |- B}{\Delta |- \forall X.B} \\
+\end{align*}
+\[ \textbf{typing rules} \quad \framebox{$ \Delta;\Gamma |- t : A $ } \]
+\vspace*{-1em}
+\begin{align*}
+& \inference[\sc Var]{x:A \in \Gamma}{\Delta;\Gamma |- x:A} \\
+& \inference[\sc Abs]{\Delta |- A & \Delta;\Gamma,x:A |- t : B}
+		     {\Delta;\Gamma |- \l x   .t : A -> B} \\
+& \inference[\sc App]{\Delta;\Gamma |- t : A -> B & \Delta;\Gamma |- s : A}
+		     {\Delta;\Gamma |- t~s : B} \\
+& \inference[\sc TyAbs]{\Delta,X;\Gamma |- t : B}
+		       {\Delta;\Gamma |- t : \forall X.B} ~
+		       (X\notin\FV(\Gamma)) \\
+& \inference[\sc TyApp]{\Delta;\Gamma |- t : \forall X.B & \Delta |- A}
+		       {\Delta;\Gamma |- t : B[A/X]}
+\end{align*}
+\end{minipage}
+~\\
+\caption{System \F\ in Church style and Curry style}
+\label{fig:f}
+\end{singlespace}
+\end{figure}
+
+\begin{figure}
+\paragraph{Reduction rules for the Church-style System \F}
+\begin{align*}
+& \inference[\sc RedBeta]{}{(\l(x:A).t)~s --> t[s/x]}
+&&\inference[\sc RedTy]{}{(\L X   .t)[A] --> t[A/X]} \\
+& \inference[\sc RedAbs]{t --> t'}{\l x   .t --> \l x   .t'}
+&&\inference[\sc RedTyAbs]{t --> t'}{\L X   .t --> \L X   .t'} \\
+& \inference[\sc RedApp1]{t --> t'}{t~s --> t'~s}
+&&\inference[\sc RedTyApp]{t --> t'}{t[A] --> t'[A]} \\
+& \inference[\sc RedApp2]{s --> s'}{t~s --> t~s'}
+\end{align*}
+\paragraph{Reduction rules for the Curry-style System \F}
+\begin{align*}
+& \inference[\sc RedBeta]{}{(\l x   .t)~s --> t[s/x]} \\
+& \inference[\sc RedAbs]{t --> t'}{\l x   .t --> \l x   .t'} \\
+& \inference[\sc RedApp1]{t --> t'}{t~s --> t'~s} \\
+& \inference[\sc RedApp2]{s --> s'}{t~s --> t~s'}
+\end{align*}
+\caption{Reduction rules for System \F}
+\label{fig:redf}
+\end{figure}
+
+System \F\ extends the type syntax of STLC with type variables ($X$)
+and forall types ($\forall X.B$), which enable us to express polymorphic types
+(see Figure \ref{fig:f}). However, System \F\ does not have a dedicated syntax
+for ground types, such as the void type $\iota$ in STLC. In System \F, we can
+populate types from forall types such as $\forall X.X$. This type is, in fact,
+an encoding of the void type. We shall see that large class of datatypes are
+encodable in System \F (\S\ref{sec:f:data})
+
+Unlike in STLC, not all types constructed by the type syntax of System \F\
+make sense. Since we have type variables in System \F, we need to
+make sure that types are well-kinded. That is, we should make sure
+that all the type variables appearing in types are properly bound by
+universal quantifiers ($\forall$). For instance, consider the two types
+$\forall X.X$ and $\forall X.X'$. Under the empty kinding context,
+$\forall X.X$ is well-kinded since $X$ is bounded by $\forall$, but
+$\forall X.X'$ is ill-kinded since $X'$ is an unbound type variable.
+The kinding rules determine whether a type is well-kinded.
+In the kinding rules and typing rules, the kinding context ($\Delta$)
+keeps track of the bound type variables. The complete syntax, kinding rules,
+and typing rules of System \F are illustrated in Figure \ref{fig:f}.
+The left column describes the Church-style System \F\ and the right
+column describes the Curry-style System \F. The reduction rules are
+shown separately in Figure \ref{fig:redf}.
+
+As in STLC, the term syntax for abstractions differs between the two styles.
+The Church-style System \F\ has type annotations in abstractions but
+the Curry-style System \F\ does not. Furthermore, the Church-style System \F\
+has additional syntax for type abstractions and type applications. The syntax
+for type abstractions ($\L X.t$) makes it explicit that the type of the term
+should be generalized to a forall type. The syntax for type applications
+($t[A]$) makes it explicit that the type of the term should be instantiated to
+a specific type from a forall type. On the contrary, the Curry-style System \F\
+has neither type abstractions nor type type applications in the term syntax.
+So, it is implicit in Curry style where types are generalized and instantiated.
+The differences in typing rules and reduction rules between the two styles
+follow from this difference in the term syntax.
+
+The typing rules \rulename{Var}, \rulename{Abs}, and \rulename{App} are
+pretty much the same as in STLC except that we carry around the kinding context
+($\Delta$) along with the typing context ($\Gamma$). What is new in System \F\
+are the typing rules for type abstractions (\rulename{TyAbs}) and
+type applications (\rulename{TyApp}), which enable us to introduce
+forall types and instantiate forall types to a specific type.
+In Church style, the use of these two rules \rulename{TyAbs} and
+\rulename{TyAbs} are guided by the term syntax of type abstractions
+($\L X.t$) and type applications ($t[A]$). So, the typing rules of
+the Church-style System \F\ are syntax directed. In Curry style,
+on the contrary, there are no term syntax to guide the use of the rules
+\rulename{TyAbs} and \rulename{TyApp}. So, the typing rules of
+the Curry-style System \F\ are not syntax directed.
+
+The reduction rules for the Church-style System \F\ includes all
+the reduction rules for the Church-style STLC. In addition,  there
+are three more reduction rules (\rulename{RedTy}, \rulename{RedTyAbs},
+and \rulename{RedTyApp}) involving type abstractions and type applications.
+
+The reduction rules for the Curry-style System \F\ are exactly the same as
+the reduction rules for the Curry-style STLC (Figure \ref{fig:stlc}) since
+the terms of the Curry-style System \F\ are identical to 
+the terms of the Curry-style STLC.
+
+\subsection{Encoding datatypes in System \F}
+\label{sec:f:data}
+System \F\ is  powerful enough to encode a fairly large class of datatypes
+within its type system. Encodings of well-known datatypes are listed in
+Table \ref{tbl:dataF}. In System \F, we can encode non-recursive datatypes
+that are either simply-typed (\eg, void, unit, and booleans)
+or parametrized (\eg, pairs and sums).
+More interestingly, we can also encode recursive datatypes
+that are either simply-typed (natural numbers) or parametrized (lists).
+All of these datatypes are classified as \emph{regular datatypes}.\footnote{
+	We discuss the concept of regular datatypes,
+	in contrast to non-regular datatypes, in \S\ref{sec:fw:data}. }
+All regular datatypes that are not mutually recursive are encodable
+in System \F. Encodings of mutually recursive datatypes require
+more expressive type systems such as System \Fw\ (\S\ref{sec:fw}).
+
+\begin{table}
+\begin{tabular}{p{15mm}|lp{92mm}}
+	\hline
+void
+& encoding of type	& $\textit{Void} = \forall X.X$ \\
+& constructor		& \\
+& eliminator		& $\l x.x$
+	\\\hline
+unit
+& encoding of type	& $\textit{Unit} = \forall X.X -> X$	\\
+& constructor		& $\mathtt{Unit} = \l x.x$ \\
+& eliminator		& $\l x.\l x'.x\;x'$
+	\\\hline
+booleans
+& encoding of type	& $\textit{Bool} = \forall X.X -> X -> X$ \\
+& constructors		& $\mathtt{True} = \l x_1.\l x_2. x_1$,\quad
+			$\mathtt{False} = \l x_1.\l x_2. x_2$ \\
+& eliminator		& $\l x.\l x_1. \l x_2. x\;x_1\,x_2$ \qquad
+			(\textbf{if} $x$ \textbf{then} $x_1$ \textbf{else} $x_2$)
+	\\\hline
+pairs
+& encoding of type	& $ A_1\times A_2 = \forall X. (A_1 -> A_2 -> X) -> X$ \\
+& constructor		& $\mathtt{Pair} = \l x_1.\l x_2.\l x'.x'\,x_1\,x_2$ \\
+& eliminator		& $\l x.\l x'.x\;x'$ \par
+			(by passing appropriate values to $x'$, we get\par
+			~~$\textit{fst} = \l x.x(\l x_1.\l x_2.x_1)$,
+			$\textit{snd} = \l x.x(\l x_1.\l x_2.x_2)$ )
+	\\\hline
+sums
+& encoding of type	& $A_1+A_2 = \forall X. (A_1 -> X) -> (A_2 -> X) -> X$ \\
+& constructors		& $\mathtt{Inl} = \l x. \l x_1. \l x_2 . x_1\,x$,\quad
+			$\mathtt{Inr} = \l x. \l x_2. \l x_2 . x_2\,x$ \\
+& eliminator		& $\l x.\l x_1. \l x_2. x\;x_1\,x_2$ \par
+			(\textbf{case} $x$ \textbf{of}
+				\{$\mathtt{Inl}~x' -> x_1\;x'$;
+				  $\mathtt{Inr}~x' -> x_2\;x'$\})
+	\\\hline
+natural
+& encoding of type	& $\textit{Nat} = \forall X. (X -> X) -> X -> X$ \\
+numbers
+& constructors		& $\mathtt{Succ} = \l x. \l x_s. \l. x_z. x_s (x\;x_s\,x_z)$,\par
+			$\mathtt{Zero} = \l x_s. \l x_z. x_z$ \\
+& eliminator		& $\l x.\l x_z. \l x_s.x\;x_s\,x_z$ \quad
+			(iteration on natural num.)
+	\\\hline
+lists
+& encoding of type	& $\textit{List}\;A = \forall X. (A -> X -> X) -> X -> X$ \\
+& constructors		& $\mathtt{Cons} = \l x_a.\l x.\l x_c.\l x_n. x_c\,x_a\,(x\;x_c\,x_n)$,\par
+			$\mathtt{Nil}\;\, = \l x_c.\l x_n.\l x_n$ \\
+& eliminator		& $\l x.\l x_c. \l x_n.x\;x_c\,x_n$ \quad
+			(\textit{foldr} $x_z$ $x_c$ $x$ in Haskell)
+	\\\hline
+\end{tabular}
+\caption{Church encodings of regular datatypes being well-typed in System \F}
+\label{tbl:dataF}
+\end{table}
+
+\citet{Church41} devised an encoding for natural numbers
+in the untyped lambda calculus, based on the idea that the natural number $n$
+is represented by a higher-order function ($\l x_s.\l x_z.x_s^n~x_z$), which
+applies the first argument ($x_s$) $n$ times to the second argument ($x_z$).
+Such an encoding of natural numbers is called Church numerals, named after
+Alonzo Church. More generally, term encodings of the objects of datatypes
+based on similar a idea are called Church encodings. In System \F,
+these Church encoded terms can be well-typed by encoding the datatype
+as a polymorphic type of System \F, as illustrated in Table \label{tbl:dataF}.
+Such encodings for datatypes are called impredicative encodings
+since it rely on the impredicative polymorphism of System \F.
+
+Encodings of types, constructors, and eliminators for
+several well-known datatypes are listed in Table \ref{tbl:dataF}.
+We use the Curry-style System \F\ since the constructors and the eliminators
+are exactly the same as the Church encodings in the untyped lambda calculus.
+If we were to use the Church-style System \F, we would need to adjust
+the constructors and the eliminators by adding type abstractions and
+type applications in appropriate places. For example,
+the constructor for $\textit{Unit}$ would be
+$\mathtt{Unit} = \L X.\l x:X.x$ and the eliminator would be
+$\l(x:\textit{Unit}).\L X.x[X]\;x'$.
+
+Constructors produce objects of a datatype. Nullary constructors
+(\aka\ constants) are objects by themselves. For example,
+$\mathtt{Unit}$ (or, $\l x.x$) is a unit object,
+$\mathtt{True}$ (or, $\l x_1.\l x_2. x_1$) is a boolean object,
+$\mathtt{Zero}$ (or, $\l x_s. \l x_z. x_z$) is a natural number, and
+$\mathtt{Nil}$ (or, $\l x_c.\l x_n.\l x_n$) is a list.
+That is,
+\[
+|- \mathtt{Unit}:\textit{Unit} \qquad
+|- \mathtt{True}:\textit{Bool} \qquad
+|- \mathtt{Zero}:\textit{Nat} \qquad
+|- \mathtt{Nil}:\forall X_a.\textit{List}\;X_a
+\]
+where $\textit{Unit}$ is a shorthand notation (or, type synonym)
+for $\forall X.X -> X$, $Bool$ is for $\forall X.X -> X -> X$, and so on,
+as described in Figure \ref{tbl:dataF}.
+%%% say it is a function
+Other (non-nullary) constructors expect some arguments to produce objects.
+For example, $\mathtt{Pair}$ expects two arbitrary arguments to produce a pair,
+$\mathtt{Succ}$ expects a natural number argument to produce another
+natural number, and $\mathtt{Cons}$ expects a new element and a list as
+arguments to produce another list. That is,
+\begin{align*}
+& |- \mathtt{Pair} : \forall X_1. \forall X_2. X_1 -> X_2 -> X_1\times X_2
+&& |- \mathtt{Succ} : \textit{Nat} -> \textit{Nat} \\ &
+|- \mathtt{Cons} : \forall X_a. X_a -> \mathit{List}\;X_a -> \mathit{List}\;X_a
+\end{align*}
+where ${X_1 \times X_2}$, $\mathit{Nat}$, and $\mathit{List\,X_a}$
+are shorthand notations for encodings of the datatypes,
+as described in Figure \ref{tbl:dataF}.
+%%% maybe type syn ???
+
+We can deduce the number of constructors for a datatype and the types
+of those constructors from the impredicative encoding of the datatype.
+The general form for the encodings of the simply-typed datatypes is:
+\[D = \forall X. A_1 -> \cdots -> A_n -> X
+	\qquad\text{where}~~ A_i = A_{i1} -> \cdots -> A_{ik} -> X \]
+From the encoding of type above, we can deduce the following facts:
+\begin{itemize}
+\item $n$ is the number of constructors,
+\item $k$ is the arity of the $i$th constructor, and
+\item the type of the $i$th constructor is $A_i[D/X]$.
+\end{itemize}
+Note, $D$ is a shorthand notation for the entire encoding of the type.
+So, $A_i[D/X]$ expands to $A_i[(\forall X. A_1 -> \cdots -> A_n -> X)/ X]$.
+Here, the type variable $X$ in $A_i$ is substituted by a polymorphic type
+$D$, or $(\forall X. \cdots)$. Recall that $X$ in $A_i$ comes from
+the variable universally quantified in $D$. In System \F, we are able to
+substitute the universally quantified type variable $X$ with
+the very polymorphic type $D$ quantifying $X$. For this ability,
+we say ``System \F\ is \emph{impredicative}''. Impredicative encodings
+of datatypes rely on this impredicative nature (or, impredicativity)
+of System \F.
+
+Similarly, the general form for the encodings of the parametrized datatypes is
+$D\,X_1 \cdots X_k = \forall X. A_1 -> \cdots -> A_n -> X$. Then,
+the number of constructors is $n$ and the type of the $i$th constructor
+is $\forall X_1.\cdots\forall X_n.A_i[D/X]$.
+
+Eliminators consume objects of a datatype for computation.
+An eliminator for a datatype expects an object of the datatype
+as its first argument followed by arguments of computations
+to be performed for each of the constructors. For instance, the eliminator
+for void ($\l x.x$) expects only one argument since void has
+no constructor, the eliminator for unit ($\l x.\l x'.x\;x'$) expect
+two arguments since unit has one constructor, and the eliminator for booleans
+($\l x.\l x_1. \l x_2. x\;x_1\,x_2$) expect three arguments since there are
+two boolean constructors.
+
+Eliminators examine the shape of the object (\ie, by which constructor it is
+constructed) to perform the computation, which corresponds to the shape
+of the object. For instance, the eliminator for booleans amounts to the
+well-known if-then-else expression.
+For recursive types, computations are performed recursively due to
+the definition of the constructors that expect recursive arguments.
+For instance, note that $(x~x_s~x_z)$ appearing in the definition of
+$\mathtt{Succ}$ coincides with the body of the eliminator for natural numbers.
+Eliminators for recursive types are also known as iterators or folds.
+
+The impredicative encoding of a datatype specifies what it needs to eliminate
+an object of the datatype. Recall the general form for the encodings of
+the simply-typed datatypes:
+\[D = \forall X. A_1 -> \cdots -> A_n -> X
+	\qquad\text{where}~~ A_i = A_{i1} -> \cdots -> A_{ik} -> X \]
+We can understand this encoding as follows:
+\begin{quote}
+To compute the result of type $X$ from an object of type $D$,
+we need $n$ small computations, whose types are $A_1,\dots,A_n$.
+When the object is constructed by $i$th constructor, we use the $i$th small
+computation, whose type is $A_i$, that is, $A_{i1} -> \cdots -> A_{ik} -> X$.
+This small computation gathers all the $k$ arguments supplied to
+the $i$th constructor for the object construction, in order to
+compute the result from those argument.
+\end{quote}
+
+For constants, the eliminator simply returns the argument being passed
+to handle the constant, as it is. For example, the unit eliminator
+$(\l x .\l x'.x\;x')$ will return what is passed into $x'$. That is,
+\[   (\l x .\l x'.x\;x')~\mathtt{Unit}~s
+ --> (\l x'.\mathtt{Unit}\;x')~s
+ --> \mathtt{Unit}~s
+ --> s
+\] since $\texttt{Unit}=\l x.x$.
+Similarly, the boolean eliminator $(\l x.\l x_1.\l x_2.x~x_1\;x_2)$
+simply returns $x_1$ when $x$ is $\mathtt{True}$
+and returns $x_2$ when $x$ is $\mathtt{False}$,
+due to the definition of $\mathtt{True} = \l x_1.\l x_2. x_1$
+and $\mathtt{False} = \l x_1.\l x_2. x_2$.
+
+For non-nullary constructors, the argument being passed to the eliminator
+to handle the constructor must be a function that collects the argument used
+for the object construction. The pair eliminator $(\l x.\l x'.x\;x')$ expects
+the argument $x'$ be of type $X_1 -> X_2 -> X$ where $X$ is the result type
+you want to compute. For example, you may pass an addition function 
+($\textit{Nat} -> \textit{Nat} -> \textit{Nat}\,$) to $x'$ to compute
+the sum of the first element and the second element of a pair of
+natural numbers ($\textit{Nat}\times\textit{Nat}\,$). We can define
+selector functions $\mathit{fst}$ and $\mathit{snd}$ for pairs by
+providing an appropriate
+argument for $x'$ as described in Table \ref{tbl:dataF}.
+
+The key idea behind Church encodings is that objects are defined by
+how they will be eliminated. That is, the Church encoded objects
+are, in fact, eliminators. Readers familiar with lambda calculi may have
+noticed that all the eliminators in Table \ref{tbl:dataF} are
+$\eta$-expansions of the identity function. The formulation of eliminators
+in Table \ref{tbl:dataF} is just to emphasize how many arguments
+each eliminator expects.
+
+\subsection{Subject reduction and strong normalization}\label{sec:f:srsn}
+We discuss two important properties of System \F, which holds in both
+Church style and Curry style -- \emph{subject reduction} (\aka\
+\emph{type preservation}) and \emph{strong normalization}.
+
+\subsubsection*{Subject reduction}
+The subject reduction theorem for System \F\ can be stated as follows:
+\begin{theorem}[subject reduction]
+$\inference{\Delta;\Gamma |- t : A  & t --> t'}{\Delta;\Gamma |- t' : A}$
+\end{theorem}
+We can prove subject reduction for System \F\, in a similar fashion
+to the proof of subject reduction for STLC,
+by induction on the derivation of the reduction rules.
+
+In Church style, proof for all other cases except for the rules
+\rulename{RedBeta} and \rulename{RedTy} are simply done by applying
+the induction hypothesis. Since the typing rules in Church style are
+syntax directed, there is no ambiguity on which typing rule to be used
+in the derivation for a certain judgment. For the \rulename{RedBeta} case,
+we use the substitution lemma. For proving the \rulename{RedTy} case,
+we use the type substitution lemma. The substitution lemma and
+the type substitution lemma are stated below:
+\begin{lemma}[substitution]
+$ \inference{\Delta;\Gamma,x:A |- t : B  & \Delta;\Gamma |- s : A}
+	{\Delta;\Gamma |- t[s/x] : B} $
+\end{lemma}
+\begin{lemma}[type substitution]
+$ \inference{\Delta,X;\Gamma |- t : B  & \Delta |- A}
+	{\Delta;\Gamma |- t[A/X] : B[A/X]} ~ (X\notin\FV(\Gamma))$
+\end{lemma}
+
+In Curry style, the most interesting case is the \rulename{RedBeta} rule,
+which we the substitution lemma to prove. The other rules are basically
+done by applying the induction hypothesis, but there is a little complication
+in the proof, compared to the proof in Church style, since the typing rules
+are not syntax directed. Although we have less rules to consider than
+the Church-style STLC, we need to deal with the ambiguity of which rule
+to apply for a typing judgement. The ambiguity is due to the rules
+\rulename{TyAbs} and \rulename{TyApp}.
+
+An alternative way to prove subject reduction for the Curry-style STLC is
+by translating the subject reduction property of the Curry-style STLC into
+the subject reduction property of the Church-style STLC. That is, we extract
+a Church-style term from a typing derivation in Curry style. It is not
+difficult to see that each typing derivation in Curry style corresponds to
+a unique Church-style term, and, that a reduction step in Curry style
+corresponds to one or more reduction steps in Church style.\footnote{
+It is not always one step to one step since the reduction rules
+{\sc RedTyAbs} and {\sc RedTyApp} in Church style correspond to
+zero reduction step in Curry style.}
+
+\subsubsection*{Strong Normalization}
+\begin{figure}
+\begin{singlespace}
+\begin{description}
+\item[Interpretation of types] as saturated sets of normalizing terms
+	whose free type variables are substituted according to
+	the given type valuation ($\xi$):
+\begin{align*}
+[| X |]_\xi           &= \xi(X) \\ 
+[| A -> B |]_\xi      &= [|A|]_\xi -> [|B|]_\xi \\
+[| \forall X.B |]_\xi &= \bigcap_{\mathcal{A}\in\SAT} [|B|]_{\xi[X\mapsto\mathcal{A}]} \qquad\qquad\qquad (X\notin\dom(\xi))
+\end{align*}
+\item[Interpretation of kinding and typing contexts]
+       as sets of type valuations and term valuations ($\xi$ and $\rho$):
+\begin{align*}
+[| \Delta        |] &= \dom(\Delta) -> \SAT \\
+[| \Delta;\Gamma |] &= \{ \xi;\rho \mid \xi\in[|\Delta|], \rho\in[|\Gamma|]_\xi \} \\
+[| \Gamma        |]_\xi\ &= \{ \rho \in \dom(\Gamma) -> \SN \mid \rho(x)=[|\Gamma(x)|]_\xi ~\text{for all}~x\in\dom(\Gamma) \}
+\end{align*}
+\item[Interpretation of terms]
+	as terms themselves whose free variables are substituted according to
+	the given pair of type and term valuation ($\xi$;$\rho$):
+\begin{align*}
+[| x      |]_{\xi;\rho} &= \rho(x) \\
+[| \l x.t |]_{\xi;\rho} &= \l x . [|t|]_{\xi;\rho} \qquad (x\notin\dom(\rho)) \\
+[| t ~ s  |]_{\xi;\rho} &= [| t |]_{\xi;\rho} ~ [| s |]_{\xi;\rho}
+\end{align*}
+\end{description}
+\caption[Interpretation of System \F\ for proving strong normalization]
+	{Interpretation of types, kinding and typing contexts, and terms
+		of System \F\ for the proof of strong normalization}
+\label{fig:interpF}
+\end{singlespace}
+%% \vspace*{.3em}\hrule
+\end{figure}
+For the proof of strong normalization, we use the same proof strategy of
+interpreting types as saturated sets of normalizing terms as in the proof of
+strong normalization of STLC in \S\ref{sec:stlc:srsn}. The interpretation of
+types, contexts, and terms of System \F\ are illustrated in
+Figure \ref{fig:interpF}. Since we have type variables we need a type valuation
+($\xi$), which maps type variables to interpretations of types. So, the
+interpretation of types are indexed by the type valuation ($\xi$), and
+the interpretation of terms are indexed by the pair of term and type valuations
+($\xi;\rho$). A type valuation $\xi$ is a function from $\dom(\Delta)$,
+the set of bound type variables in $\Delta$, to $\SAT$, the set of all
+saturated sets.
+
+Any type interpretation is a saturated set. Since $\xi$ maps a type variable
+to a saturated set, $[|X|]_\xi \in \SAT$. We know $[|A -> B|]_\xi \in \SAT$
+since saturated sets are closed under the arrow operation ($->$), as we
+mentioned in \S\ref{sec:stlc:srsn}. $[|\forall X.B|]_\xi \in \SAT$ since
+it is known that saturated sets are closed under set indexed intersection.
+
+The proof of strong normalization amounts to proving the following theorem:
+\begin{theorem}[soundness of typing]
+$ \inference{\Delta;\Gamma|- t:A & \xi;\rho \in [|\Delta;\Gamma|]}
+	    {[|t|]_{\xi;\rho} \in [|A|]_\xi} $
+\end{theorem}
+\begin{proof}
+We prove by induction on the typing derivation ($\Delta;\Gamma|- t:A$).
+\paragraph{Case (\rulename{Var})}
+It is trivial to show that
+$ \inference{\Delta;\Gamma |- x:A & \xi;\rho \in [|\Delta;\Gamma|]}
+	{[|x|]_{\xi;\rho} \in [|A|]_\xi} $.
+
+We know that $x:A \in \Gamma$ from the \rulename{Var} rule.
+So, $[|x|]_{\xi;\rho} =\rho(x)\in[|\Gamma(x)|]_\xi = [|A|]_\xi$.
+
+\paragraph{Case (\rulename{Abs})}
+We need to show that
+$ \inference{\Delta;\Gamma |- \l x.t : A -> B & \xi;\rho \in [|\Delta;\Gamma|]}
+	{[|\l x.t|]_{\xi;\rho} \in [|A -> B|]_\xi} $.
+
+By induction, we know that
+$ \inference{\Delta;\Gamma,x:A |- t : B & \xi';\rho' \in [|\Delta;\Gamma,x:A|]}
+	     {[|t|]_{\xi';\rho'} \in [|B|]_\xi} $.
+
+Since this holds for all $\xi';\rho' \in [|\Delta;\Gamma,x:A|]$, it also holds
+for particular $\xi';\rho'$ such that $\xi'=\xi$ and
+$\rho' = \rho[x \mapsto s]$ for any $s \in [|A|]_\xi' = [|A|]_\xi$.
+Since saturated sets are closed under normalizing weak head expansion,
+$(\l x.[|t|]_{\xi;\rho})~s \in[|B|]_\xi$ for any $s\in[|A|]_\xi$.
+Therefore, $\l x.[|t|]_{\xi;\rho}$ is obviously in the very set,
+which we wanted it to be in. That is,
+\[
+[|\l x.t|]_{\xi;\rho} = \l x.[|t|]_{\xi;\rho}
+\in \{t\in \SN \mid t~s\in[|B|] ~\text{for all}~ s\in[|A|]\} 
+= [|A -> B|]_\xi
+\]
+
+\paragraph{Case (\rulename{App})}
+We need to show that
+$ \inference{\Delta;\Gamma |- t~s : B & \xi;\rho\in[|\Delta;\Gamma|]}{[|t~s|]_{\xi;\rho} \in [|B|]_\xi} $.
+
+By induction we know that
+\[
+\inference{\Delta;\Gamma |- t : A -> B & \xi;\rho\in[|\Delta;\Gamma|]}{[|t|]_{\xi;\rho} \in [|A -> B|]_\xi}
+\qquad
+\inference{\Delta;\Gamma |- s : A & \xi;\rho\in[|\Delta;\Gamma|]}{[|s|]_{\xi;\rho} \in [|A|]_\xi}
+\]
+Then, it is straightforward to see that $[|t~s|]_{\xi;\rho}\in[|B|]_\xi$
+by definition of $[|A -> B|]_\xi$.
+
+\paragraph{Case (\rulename{TyAbs})}
+We need to show that
+$ \inference{\Delta;\Gamma |- t : \forall X.B & \xi;\rho\in[|\Delta;\Gamma|]}
+	{[|t|]_{\xi;\rho} \in [|\forall X.B|]_\xi} $
+
+By induction, we know that
+\[ \inference{\Delta,X;\Gamma |- t : B & \xi';\rho'\in[|\Delta,X;\Gamma|]}
+	{[|t|]_{\xi';\rho'} \in [|B|]_{\xi'}} ~
+	(X\notin\FV(\Gamma))
+\]
+Since this holds for all $\xi';\rho' \in [|\Delta,X;\Gamma|]$ where
+$X\notin\FV(\Gamma)$, it also holds for particular subset such that
+$\xi' = \xi[X\mapsto\mathcal{A}]$ and $\rho'=\rho$ for all $\mathcal{A}\in\SAT$.
+That is,
+\[ [|t|]_{\xi[X\mapsto\mathcal{A}];\rho} \in [|B|]_{\xi[X\mapsto\mathcal{A}]}
+   \quad \text{for all}~\mathcal{A}\in\SAT \]
+From $X\notin\FV(\Gamma)$, we know that
+$[|t|]_{\xi[X\mapsto\mathcal{A}];\rho} = [|t|]_{\xi;\rho}$
+because $\rho$ is independent of what $X$ maps to.
+So, we know that
+\[ [|t|]_{\xi;\rho} \in [|B|]_{\xi[X\mapsto\mathcal{A}]}
+	\quad \text{for all}~\mathcal{A}\in\SAT \]
+By set theoretic definition, this is exactly what we wanted to show:
+\[ [|t|]_{\xi;\rho} \in
+	\bigcap_{\mathcal{A}\in\SAT} [|B|]_{\xi[X\mapsto\mathcal{A}]}
+	= [|\forall X.B|]_\xi
+\]
+
+\paragraph{Case (\rulename{TyApp})}
+We need to show that
+$ \inference{\Delta;\Gamma |- t : B[A/X] & \xi;\rho\in[|\Delta;\Gamma|]}
+	{[|t|]_{\xi;\rho} \in [|B[A/X]|]_\xi} $
+
+By induction, we know that
+$ \inference{\Delta;\Gamma |- t : \forall X.B & \xi';\rho'\in[|\Delta;\Gamma|]}
+	{[|t|]_{\xi';\rho'} \in [|\forall X.B|]_{\xi'}}
+$.
+
+Since this holds for all $\xi';\rho' \in [|\Delta,\Gamma|]$,
+it also holds for $\xi'=\xi$ and $\rho'=\rho$. Then, we are done:
+$ [|t|]_{\xi;\rho} \in [|\forall X.B|]_{\xi}
+	= \bigcap_{\mathcal{A}\in\SAT} [|B|]_{\xi[X\mapsto\mathcal{A}]}
+	\subseteq [|B|]_{\xi[X\mapsto[|A|]_\xi]} = [|B[A/X]|]_\xi
+$.
+\end{proof}
+\begin{corollary}[strong normalization]
+	$\inference{\Delta;\Gamma |- t : A}{t \in \SN}$
+\end{corollary}
+Once we have proved the soundness of typing with respect to interpretation,
+it is easy to see that STLC is strongly normalizing by giving a trivial term
+interpretation $\rho(x) = x$ for all the free variables.
+Note that $[|t|]_{\xi;\rho} = t \in [|A|]_\xi \subset \SN$
+under the trivial interpretation.
+

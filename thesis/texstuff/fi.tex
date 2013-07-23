@@ -1,0 +1,29 @@
+\chapter{System \Fi}\label{ch:fi} TODO
+
+I am developing a typed lambda calculus called System \Fi\, which is an
+extension of System \Fw\ with term indexed types. Term indexed types
+naturally support the Curry-Howard isomorphism, as a type constructor can be
+seen as a relation between one or more terms.  This kind of expressiveness is
+available in dependently typed languages (where there is no distinction between
+types and terms), and is also encodable using GADTs in functional languages
+such as Haskell.  GADTs in Haskell are often indexed by uninhabited types
+which are isomorphic to terms. The type indices used in GADTs in Haskell are
+often really intended to be values at term level, but are just simulations of
+such terms at type level.  For example one might introduce uninhabited type
+constructors \verb+Zero+ and \verb+Succ+ in order to simulate natural numbers
+when defining length indexed lists, as follows:
+\begin{verbatim}
+data Zero
+data Succ x
+
+data Vector a n where
+  Nil:: Vector a Zero
+  Cons:: a -> Vector a n -> Vector a (Succ n)
+\end{verbatim}  
+
+Within System \Fi, we can rigorously define types indexed by terms,
+while keeping the term level and the type level cleanly separated.
+We can also argue about the properties of the Mendler-style combinators
+over indexed types.  You can find a summary of \Fi\ in \S\ref{sec:Fi}.
+
+TODO

@@ -1,0 +1,110 @@
+\begin{thebibliography}{10}
+
+\bibitem{bengio2009learning}
+Yoshua Bengio.
+\newblock Learning deep architectures for ai.
+\newblock {\em Foundations and trends{\textregistered} in Machine Learning},
+  2(1):1--127, 2009.
+
+\bibitem{chen2012marginalized}
+Minmin Chen, Zhixiang Xu, Kilian Weinberger, and Fei Sha.
+\newblock Marginalized denoising autoencoders for domain adaptation.
+\newblock {\em arXiv preprint arXiv:1206.4683}, 2012.
+
+\bibitem{erhan2010does}
+Dumitru Erhan, Yoshua Bengio, Aaron Courville, Pierre-Antoine Manzagol, Pascal
+  Vincent, and Samy Bengio.
+\newblock Why does unsupervised pre-training help deep learning?
+\newblock {\em The Journal of Machine Learning Research}, 11:625--660, 2010.
+
+\bibitem{grubb2010boosted}
+Alexander Grubb and J~Andrew Bagnell.
+\newblock Boosted backpropagation learning for training deep modular networks.
+\newblock In {\em Proceedings of the 27th International Conference on Machine
+  Learning (ICML-10)}, pages 407--414, 2010.
+
+\bibitem{hawkins2004intelligence}
+Jeff Hawkins.
+\newblock {\em On intelligence}.
+\newblock Macmillan, 2004.
+
+\bibitem{hinton2012deep}
+Geoffrey Hinton, Li~Deng, Dong Yu, George~E Dahl, Abdel-rahman Mohamed, Navdeep
+  Jaitly, Andrew Senior, Vincent Vanhoucke, Patrick Nguyen, Tara~N Sainath,
+  et~al.
+\newblock Deep neural networks for acoustic modeling in speech recognition: The
+  shared views of four research groups.
+\newblock {\em Signal Processing Magazine, IEEE}, 29(6):82--97, 2012.
+
+\bibitem{hinton2005kind}
+Geoffrey~E Hinton.
+\newblock What kind of graphical model is the brain?
+\newblock In {\em IJCAI}, volume~5, pages 1765--1775, 2005.
+
+\bibitem{hinton2006reducing}
+Geoffrey~E Hinton and Ruslan~R Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em Science}, 313(5786):504--507, 2006.
+
+\bibitem{hinton2012improving}
+Geoffrey~E Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, and
+  Ruslan~R Salakhutdinov.
+\newblock Improving neural networks by preventing co-adaptation of feature
+  detectors.
+\newblock {\em arXiv preprint arXiv:1207.0580}, 2012.
+
+\bibitem{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in Neural Information Processing Systems 25}, pages
+  1106--1114, 2012.
+
+\bibitem{larochelle2007empirical}
+Hugo Larochelle, Dumitru Erhan, Aaron Courville, James Bergstra, and Yoshua
+  Bengio.
+\newblock An empirical evaluation of deep architectures on problems with many
+  factors of variation.
+\newblock In {\em Proceedings of the 24th international conference on Machine
+  learning}, pages 473--480. ACM, 2007.
+
+\bibitem{le2011building}
+Quoc~V Le, Marc'Aurelio Ranzato, Rajat Monga, Matthieu Devin, Kai Chen, Greg~S
+  Corrado, Jeff Dean, and Andrew~Y Ng.
+\newblock Building high-level features using large scale unsupervised learning.
+\newblock {\em arXiv preprint arXiv:1112.6209}, 2011.
+
+\bibitem{lee2009convolutional}
+Honglak Lee, Roger Grosse, Rajesh Ranganath, and Andrew~Y Ng.
+\newblock Convolutional deep belief networks for scalable unsupervised learning
+  of hierarchical representations.
+\newblock In {\em Proceedings of the 26th Annual International Conference on
+  Machine Learning}, pages 609--616. ACM, 2009.
+
+\bibitem{lee2009unsupervised}
+Honglak Lee, Yan Largman, Peter Pham, and Andrew~Y Ng.
+\newblock Unsupervised feature learning for audio classification using
+  convolutional deep belief networks.
+\newblock {\em Advances in neural information processing systems}, 2009.
+
+\bibitem{rohrer2011biologically}
+Brandon Rohrer.
+\newblock Biologically inspired feature creation for multi-sensory perception.
+\newblock In {\em BICA}, pages 305--313, 2011.
+
+\bibitem{sharma2000induction}
+Jitendra Sharma, Alessandra Angelucci, and Mriganka Sur.
+\newblock Induction of visual orientation modules in auditory cortex.
+\newblock {\em Nature}, 404(6780):841--847, 2000.
+
+\bibitem{tang2012deep}
+Yichuan Tang, Ruslan Salakhutdinov, and Geoffrey Hinton.
+\newblock Deep lambertian networks.
+\newblock {\em arXiv preprint arXiv:1206.6445}, 2012.
+
+\bibitem{vincent2008extracting}
+Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and Pierre-Antoine Manzagol.
+\newblock Extracting and composing robust features with denoising autoencoders.
+\newblock In {\em Proceedings of the 25th international conference on Machine
+  learning}, pages 1096--1103. ACM, 2008.
+
+\end{thebibliography}
