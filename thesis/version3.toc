@@ -8,8 +8,8 @@
 \contentsline {subsection}{\numberline {2.6}Relevant work}{10}
 \contentsline {section}{\numberline {3}Experimental design and implementation}{13}
 \contentsline {subsection}{\numberline {3.1}Datasets}{13}
-\contentsline {subsection}{\numberline {3.2}Implementation}{15}
-\contentsline {subsection}{\numberline {3.3}Measuring neuro-plasticity}{16}
-\contentsline {section}{\numberline {4}Results and Conclusion}{19}
-\contentsline {subsection}{\numberline {4.1}Experimental results}{19}
-\contentsline {subsection}{\numberline {4.2}Conclusion}{19}
+\contentsline {subsection}{\numberline {3.2}Implementation}{16}
+\contentsline {subsection}{\numberline {3.3}Measuring neuro-plasticity}{17}
+\contentsline {section}{\numberline {4}Results and Conclusion}{20}
+\contentsline {subsection}{\numberline {4.1}Experimental results}{20}
+\contentsline {subsection}{\numberline {4.2}Conclusion}{20}

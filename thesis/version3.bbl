@@ -53,6 +53,12 @@ Geoffrey~E Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, and
   detectors.
 \newblock {\em arXiv preprint arXiv:1207.0580}, 2012.
 
+\bibitem{huiskes08}
+Mark~J. Huiskes and Michael~S. Lew.
+\newblock The mir flickr retrieval evaluation.
+\newblock In {\em MIR '08: Proceedings of the 2008 ACM International Conference
+  on Multimedia Information Retrieval}, New York, NY, USA, 2008. ACM.
+
 \bibitem{krizhevsky2012imagenet}
 Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
