@@ -18,13 +18,17 @@
 \begin{center}
 \break \break \break \break 
 Artificial Plasticity: Measuring The Effect of Greedy, Layer-Wise Pre-Training on Visual-Auditory Generalization of Denoising Autoencoders
-\break\break\break\break \break \break \break \break \break by \break \break Nathan H. Nifong
-\break\break\break\break \break \break \break \break \break A thesis submitted in partial fulfillment of the\break
+\break\break\break\break \break \break \break \break \break 
+by \break \break Nathan H. Nifong
+\break\break\break\break \break \break \break \break \break 
+A thesis submitted in partial fulfillment of the\break
 requirements for the degree of
 \break\break\break\break 
 Master of Science \break in \break Systems Science
-\break\break\break\break \break Thesis Committee: \break Wayne Wakeland, \break Marty Zwick, \break Melanie Mitchell.
-\break\break\break\break Portland State University \break 2013
+\break\break\break\break \break 
+Thesis Committee: \break Wayne Wakeland, \break Marty Zwick, \break Melanie Mitchell.
+\break\break\break\break 
+Portland State University \break 2013
 \end{center}
 
 \begin{singlespacing}
@@ -108,6 +112,12 @@ While there has been much research into the strengths and applications of deep b
 \includegraphics[width=6in]{data_prep}
 \caption{The data from both sensory modalities is prepared to present vectors of the same width to the learning algorithms.}
 \end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{patch_arrangment}
+\caption{Patches sampled from the Flickr-1M dataset prior to whitening}
+\end{figure}
 	
 	To the best of my knowledge there is no comparably rich, large, and well packaged sound dataset released under creative commons or in the public domain, so for this experiment I am using a collection of publicly aired talk-show broadcasts from which short clips are sampled and transformed into spectrograms of comparable dimensions to the image patches. The "patches" of spectrogram are 500 milliseconds long, divided into 32 time bins. They are also divided into frequency bins of 32 peak frequencies on a logarithmic scale with the lowest frequency peak being 50 hz and the highest being 10 khz. An equal number of samples were prepared from each sensory modality, images and sounds, and each datum is of the same dimensions, and is normalized in the same way. This way they can all be treated interchangeably, simplifying the code, and ensuring that any differences in learning between the two datasets are due to the differences in the content of their data, and not, for example, a different network topology for data of different dimensions.
 	
@@ -143,6 +153,8 @@ While there has been much research into the strengths and applications of deep b
 
 \end{doublespacing}
 
+%MFLICKR Dataset
+\nocite{huiskes08}
 
 \singlespacing
 \bibliographystyle{plain}
