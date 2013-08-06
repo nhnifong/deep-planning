@@ -1,0 +1,60 @@
+pg4:   line 6 cit.
+ 
+pg.5  line 3: "called"  and ""As one moves from V1 to..."
+line 5  "one sees" instead of "you have"  and "activating"
+line 8 delete "dedicated"
+line 11 "deleting" not cap.
+next section, line 5:  chg "Then..." to "A similar process is applied to the first level features..."
+ 
+pg 6:  need to reference Fig. 1 in the text (to direct reader to it)
+line 2 cit. for Gabor filters
+line 3  "As one moves up..."
+line 5  should "things" be features or building blocks or is things really just fine??  and what does stuck to the surfaces of mean?
+line 6, "one has" rather than "you have"
+line 8 "one" rather than "you"
+para 2, line 2 cit.
+line 5  spell out SGD first time, with (SGD)
+line 9: cit.
+ 
+in general more citations, especially when you want your summary to be terse and concise.
+ 
+next section, line 3, "...in order to create an initialized..."
+line 4 explain good basin of attraction,  add "they" after "and" and explain dropout
+line 5, replace "The" with "Deep networks"
+ 
+Figure 1: give source (From .......)
+ 
+Figure 2, mention Gabor in caption
+ 
+pg 8 lines 3 and 4 cits.
+line 7 chg. "some" to "certain" ?
+line 7 chg "So far" to "To date, "
+line 8: need cit. for forward only
+line 10 need cit.
+ 
+next section, line 4-7  sentence is awkward, reword (I don't know how to fix)
+mention Fig. 3 somewhere here. and move closer??
+line 9: is uniformly correct?  or is it randomly?
+ 
+page 9 para 2, line 3 need cit.
+ 
+line 6, "." after dropout
+ 
+page 10, line 4 need cit. (I think)
+ 
+page 11  change "at. all" to "et al."   
+ 
+at the end, work in "plasticity"
+ 
+page 13, hard to tell which ideas are yours and which are from others.  Plz clarify
+line 3, cit.
+midway down, add see FIgure 4 somewhere here
+end of para.  says you or so say others?  if latter, then cit.
+ 
+pg 15 para 2, line 7, cit.
+ 
+pg. 16, top half.  this discussion simply begs for a block diagram
+ 
+pg. 17, line 5, chg. "below" to "Figure 5"
+ 
+pg. 19, bottom.  important to embed your finding back into the literature what you've add and where it fits in the scheme of things...
