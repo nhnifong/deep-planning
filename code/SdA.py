@@ -1,34 +1,3 @@
-"""
- This tutorial introduces stacked denoising auto-encoders (SdA) using Theano.
-
- Denoising autoencoders are the building blocks for SdA.
- They are based on auto-encoders as the ones used in Bengio et al. 2007.
- An autoencoder takes an input x and first maps it to a hidden representation
- y = f_{\theta}(x) = s(Wx+b), parameterized by \theta={W,b}. The resulting
- latent representation y is then mapped back to a "reconstructed" vector
- z \in [0,1]^d in input space z = g_{\theta'}(y) = s(W'y + b').  The weight
- matrix W' can optionally be constrained such that W' = W^T, in which case
- the autoencoder is said to have tied weights. The network is trained such
- that to minimize the reconstruction error (the error between x and z).
-
- For the denosing autoencoder, during training, first x is corrupted into
- \tilde{x}, where \tilde{x} is a partially destroyed version of x by means
- of a stochastic mapping. Afterwards y is computed as before (using
- \tilde{x}), y = s(W\tilde{x} + b) and z as s(W'y + b'). The reconstruction
- error is now measured between z and the uncorrupted input x, which is
- computed as the cross-entropy :
-      - \sum_{k=1}^d[ x_k \log z_k + (1-x_k) \log( 1-z_k)]
-
-
- References :
-   - P. Vincent, H. Larochelle, Y. Bengio, P.A. Manzagol: Extracting and
-   Composing Robust Features with Denoising Autoencoders, ICML'08, 1096-1103,
-   2008
-   - Y. Bengio, P. Lamblin, D. Popovici, H. Larochelle: Greedy Layer-Wise
-   Training of Deep Networks, Advances in Neural Information Processing
-   Systems 19, 2007
-
-"""
 import cPickle
 import gzip
 import os
@@ -59,7 +28,7 @@ class SdA(object):
 
     def __init__(self, numpy_rng, theano_rng=None, n_ins=784,
                  hidden_layers_sizes=[500, 500], n_outs=10,
-                 corruption_levels=[0.1, 0.1]):
+                 corruption_levels=[0.5, 0.5]):
         """ This class is made to support a variable number of layers.
 
         :type numpy_rng: numpy.random.RandomState
