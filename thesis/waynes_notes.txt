@@ -26,7 +26,7 @@ Figure 1: give source (From .......)
  
 Figure 2, mention Gabor in caption
  
-pg 8 lines 3 and 4 cits.
+pg 8 lines 3 and 4 cits. -------------------------------Cg
 line 7 chg. "some" to "certain" ?
 line 7 chg "So far" to "To date, "
 line 8: need cit. for forward only
