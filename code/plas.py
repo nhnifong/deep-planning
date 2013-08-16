@@ -1,7 +1,9 @@
 from __future__ import division
 
 import sys
+import os
 import time
+import pickle
 
 import numpy
 import theano
@@ -114,8 +116,8 @@ class SdA(object):
         while (time.clock()-began) < max_runtime and epochs < max_epochs :
             c = []
             for batch_index in xrange(n_train_batches):
-                c.append(pretraining_fns[i](index=batch_index,
-                                            corruption=corruption_levels[i],
+                c.append(pretraining_fns[layer_index](index=batch_index,
+                                            corruption=self.corruption_levels[layer_index],
                                             lr=pretrain_lr))
             print 'Pre-training layer %i, epoch %d, cost ' % (layer_index, epoch_counter),
             print numpy.mean(c)
@@ -127,9 +129,26 @@ class SdA(object):
                 layer_index = epoch_counter % self.n_layers
         print "finished %i epochs in %0.1f seconds" % (epochs, (time.clock()-began))
 
-    def test(data):
+    def test(test_set_x):
         # compute average reconstruction error on test set
-        pass
+        # test function that must be iterated over minbatches
+        test_fn = theano.function(inputs=[index,
+                                          theano.Param(corruption_level, default=0.2),
+                                          theano.Param(learning_rate, default=0.1)],
+                                  outputs=cost,
+                                  updates=updates,
+                                  givens={self.x: test_set_x[batch_begin:
+                                                                 batch_end]})
+               
+        n_train_batches = test_set_x.get_value(borrow=True).shape[0]
+        n_train_batches /= batch_size
+        
+        c = []
+        for batch_index in xrange(n_train_batches):
+            c.append(test_fn(index=batch_index,
+                             corruption=self.corruption_levels[i],
+                             lr=0.0))
+        return numpy.mean(c)
 
 def experiment():
     image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_image.npy"
