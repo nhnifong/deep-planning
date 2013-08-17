@@ -21,7 +21,7 @@ def load_data(dataset, train_prop=0.8):
     testt_set = fulldata[n_train:n_train+n_test]
     valid_set = fulldata[len(fulldata)-n_valid:]
     
-    def shared(shared_x):
-        shared_x = theano.shared(np.asarray(data_x, dtype=theano.config.floatX), borrow=borrow)
+    def shared(data_x):
+        return theano.shared(np.asarray(data_x, dtype=theano.config.floatX), borrow=True)
     
     return map(shared,[train_set, testt_set, valid_set])

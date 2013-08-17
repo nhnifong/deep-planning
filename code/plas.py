@@ -26,6 +26,7 @@ class SdA(object):
         self.params = []
         self.n_layers = len(layer_sizes)
         self.x = T.matrix('x')
+        self.numpy_rng = numpy_rng
         
         theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))
 
@@ -77,7 +78,7 @@ class SdA(object):
                               theano.Param(learning_rate, default=0.1)],
                                  outputs=cost,
                                  updates=updates,
-                                 givens={self.x: train_set_x[batch_begin:
+                                givens={self.x: train_set_x[batch_begin:
                                                              batch_end]})
             # append `fn` to the list of functions                                    
             pretrain_fns.append(fn)
@@ -94,42 +95,44 @@ class SdA(object):
         # i.e. 1234-1234-1234-1234 instead of 1111-2222-3333-4444
         pass
 
-    def train(train_set_x, max_runtime, max_epochs, layer_wise = False, batch_size=9):
+    def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=9):
+
+        pretrain_lr = 0.001
 
         # compute number of minibatches for training, validation and testing
         n_train_batches = train_set_x.get_value(borrow=True).shape[0]
-        n_train_batches /= batch_size
+        n_train_batches = int(n_train_batches / batch_size)
 
         # random seed used to reproduce experiments
-        numpy_rng = numpy.random.RandomState(72723)
+        self.numpy_rng = numpy.random.RandomState(72723)
 
         print "Creating Theano pre-training functions"
-        pretraining_fns = sda.pretraining_functions(train_set_x=train_set_x,
+        pretraining_fns = self.pretraining_functions(train_set_x=train_set_x,
                                                     batch_size=batch_size)
         
-        print "Starting the training clock now. Training will stop after %i epochs or %0.2f hours, whichever is sooner" % (max_epochs, max_runtime/3600))
+        print "Starting the training clock now. Training will stop after %i epochs or %0.2f hours, whichever is sooner" % (max_epochs, max_runtime/3600)
         began = time.clock()
         # divide the max epochs evenly between layers
         # if layer_wise, train all of a layer before the next, else interleave
         layer_index = 0
         epoch_counter = 0
-        while (time.clock()-began) < max_runtime and epochs < max_epochs :
+        while (time.clock()-began) < max_runtime and epoch_counter < max_epochs :
             c = []
             for batch_index in xrange(n_train_batches):
                 c.append(pretraining_fns[layer_index](index=batch_index,
-                                            corruption=self.corruption_levels[layer_index],
-                                            lr=pretrain_lr))
+                              corruption=self.corruption_levels[layer_index],
+                              lr=pretrain_lr))
             print 'Pre-training layer %i, epoch %d, cost ' % (layer_index, epoch_counter),
             print numpy.mean(c)
 
-            epochs += 1
+            epoch_counter += 1
             if layer_wise:
                 layer_index = (epoch_counter * self.n_layers // max_epochs)
             else:
                 layer_index = epoch_counter % self.n_layers
         print "finished %i epochs in %0.1f seconds" % (epochs, (time.clock()-began))
 
-    def test(test_set_x):
+def test(self, test_set_x):
         # compute average reconstruction error on test set
         # test function that must be iterated over minbatches
         test_fn = theano.function(inputs=[index,
@@ -141,7 +144,7 @@ class SdA(object):
                                                                  batch_end]})
                
         n_train_batches = test_set_x.get_value(borrow=True).shape[0]
-        n_train_batches /= batch_size
+        n_train_batches = int(n_train_batches / batch_size)
         
         c = []
         for batch_index in xrange(n_train_batches):
@@ -155,11 +158,13 @@ def experiment():
     spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_spect.npy"
     model_save_dir = "/media/Loonies/CrossModal/Models/"
 
+    numpy_rng = numpy.random.RandomState(89677)
+
     print ""
     print "Experiment 1: run ordinary model on images"
     ims_train, ims_test, ims_valid = load_data(image_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( ims_train, layer_wise=False, max_epochs=10000, max_runtime=7200)
+    model.train( ims_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
     save_path = os.path.join(model_save_dir, "interleaved_images_only.sda")
     print "Training complete, saving model at %s" % save_path
     pickle.dump(open(save_path,'wb'),model)
@@ -169,7 +174,7 @@ def experiment():
     print ""
     print "Experiment 2: run greedy layer-wise pre-training on images"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( ims_train, layer_wise=True, max_epochs=10000, max_runtime=7200)
+    model.train( ims_train, max_epochs=10000, max_runtime=7200, layer_wise=True)
     save_path =os.path.join(model_save_dir, "layerwise_images_only.sda")
     print "Training complete, saving model at %s" % save_path
     pickle.dump(open(save_path,'wb'),model)
@@ -180,7 +185,7 @@ def experiment():
     print "Experiment 3: run ordinary model on spectrograms"
     spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( spec_train, layer_wise=False, max_epochs=10000, max_runtime=7200)
+    model.train( spec_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
     save_path =os.path.join(model_save_dir, "interleaved_spect_only.sda")
     print "Training complete, saving model at %s" % save_path
     pickle.dump(open(save_path,'wb'),model)
@@ -190,13 +195,16 @@ def experiment():
     print ""
     print "Experiment 4: run greedy layer-wise pre-training on spectrograms"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( spec_train, layer_wise=True, max_epochs=10000, max_runtime=7200)
+    model.train( spec_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
     save_path =os.path.join(model_save_dir, "layerwise_spect_only.sda")
     print "Training complete, saving model at %s" % save_path
     pickle.dump(open(save_path,'wb'),model)
     recon_error = model.test( spec_test )
-    print "Average reconstruction error: %0.9f\n" % recon_errorprint ""
+    print "Average reconstruction error: %0.9f\n" % recon_error
+    print ""
 
     # PLASTICITY TESTS
 
     
+if __name__ == "__main__":
+    experiment()
