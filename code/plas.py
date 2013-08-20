@@ -35,7 +35,7 @@ class SdA(object):
                 input_size = n_ins
                 layer_input = self.x
             else:
-                input_size = layer_sizes[i]
+                input_size = layer_sizes[i-1]
                 layer_input = self.sigmoid_layers[-1].output
     
             sigmoid_layer = HiddenLayer(rng        = numpy_rng,
@@ -54,6 +54,7 @@ class SdA(object):
                           W          = sigmoid_layer.W,
                           bhid       = sigmoid_layer.b)
             self.dA_layers.append(dA_layer)
+            print "created dA %ix%i" % (input_size, layer_sizes[i])
 
     def pretraining_functions(self, train_set_x, batch_size):
         # index to a [mini]batch                                                      
@@ -95,7 +96,7 @@ class SdA(object):
         # i.e. 1234-1234-1234-1234 instead of 1111-2222-3333-4444
         pass
 
-    def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=9):
+    def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=128):
 
         pretrain_lr = 0.001
 
@@ -130,9 +131,9 @@ class SdA(object):
                 layer_index = (epoch_counter * self.n_layers // max_epochs)
             else:
                 layer_index = epoch_counter % self.n_layers
-        print "finished %i epochs in %0.1f seconds" % (epochs, (time.clock()-began))
+        print "finished %i epochs in %0.1f seconds" % (epoch_counter, (time.clock()-began))
 
-def test(self, test_set_x):
+    def test(self, test_set_x):
         # compute average reconstruction error on test set
         # test function that must be iterated over minbatches
         test_fn = theano.function(inputs=[index,
@@ -164,20 +165,20 @@ def experiment():
     print "Experiment 1: run ordinary model on images"
     ims_train, ims_test, ims_valid = load_data(image_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( ims_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
+    model.train( ims_train, max_epochs=1000, max_runtime=7200, layer_wise=False)
     save_path = os.path.join(model_save_dir, "interleaved_images_only.sda")
     print "Training complete, saving model at %s" % save_path
-    pickle.dump(open(save_path,'wb'),model)
+    pickle.dump(model,open(save_path,'wb'))
     recon_error = model.test( ims_test )
     print "Average reconstruction error: %0.9f\n" % recon_error
 
     print ""
     print "Experiment 2: run greedy layer-wise pre-training on images"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( ims_train, max_epochs=10000, max_runtime=7200, layer_wise=True)
+    model.train( ims_train, max_epochs=1000, max_runtime=7200, layer_wise=True)
     save_path =os.path.join(model_save_dir, "layerwise_images_only.sda")
     print "Training complete, saving model at %s" % save_path
-    pickle.dump(open(save_path,'wb'),model)
+    pickle.dump(model,open(save_path,'wb'))
     recon_error = model.test( ims_test )
     print "Average reconstruction error: %0.9f\n" % recon_error
 
@@ -185,20 +186,20 @@ def experiment():
     print "Experiment 3: run ordinary model on spectrograms"
     spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( spec_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
+    model.train( spec_train, max_epochs=1000, max_runtime=7200, layer_wise=False)
     save_path =os.path.join(model_save_dir, "interleaved_spect_only.sda")
     print "Training complete, saving model at %s" % save_path
-    pickle.dump(open(save_path,'wb'),model)
+    pickle.dump(model,open(save_path,'wb'))
     recon_error = model.test( spec_test )
     print "Average reconstruction error: %0.9f\n" % recon_error
 
     print ""
     print "Experiment 4: run greedy layer-wise pre-training on spectrograms"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( spec_train, max_epochs=10000, max_runtime=7200, layer_wise=False)
+    model.train( spec_train, max_epochs=1000, max_runtime=7200, layer_wise=False)
     save_path =os.path.join(model_save_dir, "layerwise_spect_only.sda")
     print "Training complete, saving model at %s" % save_path
-    pickle.dump(open(save_path,'wb'),model)
+    pickle.dump(model,open(save_path,'wb'))
     recon_error = model.test( spec_test )
     print "Average reconstruction error: %0.9f\n" % recon_error
     print ""
