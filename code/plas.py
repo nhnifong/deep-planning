@@ -70,9 +70,8 @@ class SdA(object):
 
         pretrain_fns = []
         for dA in self.dA_layers:
-            # get the cost and the updates list                                       
-            cost, updates = dA.get_cost_updates(corruption_level,
-                                                learning_rate)
+            # get the cost and the updates list
+            cost, updates = dA.get_cost_updates(corruption_level, learning_rate)
             # compile the theano function                                             
             fn = theano.function(inputs=[index,
                               theano.Param(corruption_level, default=0.2),
@@ -86,17 +85,7 @@ class SdA(object):
 
         return pretrain_fns
 
-    def build_full_stack_training_fn(self, train_set_x, batch_size):
-        #this function should give a single theano function that can be used to train
-        #the entire stack of dA's to reconstruct input at once. :/
-        #unfortunately I have no idea how this is supposed to work,
-        #but I have a few guesses
-        # it could return the list of pre-training functions for each layer, 
-        # but when they are trained, they are called on minibatches interleaved
-        # i.e. 1234-1234-1234-1234 instead of 1111-2222-3333-4444
-        pass
-
-    def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=128):
+    def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=16):
 
         pretrain_lr = 0.001
 
@@ -135,6 +124,14 @@ class SdA(object):
 
     def test(self, test_set_x):
         # compute average reconstruction error on test set
+        index = T.lscalar('index')
+        corruption_level = T.scalar('corruption')
+        learning_rate = T.scalar('lr')
+        batch_size = 16
+        batch_begin = index * batch_size
+        batch_end = batch_begin + batch_size
+        # get cost for last dA in list
+        cost, updates = self.dA_layers[-1].get_cost_updates(corruption_level, learning_rate)
         # test function that must be iterated over minbatches
         test_fn = theano.function(inputs=[index,
                                           theano.Param(corruption_level, default=0.2),
@@ -150,7 +147,7 @@ class SdA(object):
         c = []
         for batch_index in xrange(n_train_batches):
             c.append(test_fn(index=batch_index,
-                             corruption=self.corruption_levels[i],
+                             corruption=self.corruption_levels[-1],
                              lr=0.0))
         return numpy.mean(c)
 
