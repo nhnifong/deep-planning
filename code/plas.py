@@ -87,6 +87,8 @@ class SdA(object):
 
     def train(self, train_set_x, max_epochs=1000, max_runtime=7200, layer_wise=False, batch_size=16):
 
+        # just notices that max_runtime is broken. Some operation tool a negative amount of time. Probably for the better :/
+
         pretrain_lr = 0.001
 
         # compute number of minibatches for training, validation and testing
@@ -151,12 +153,15 @@ class SdA(object):
                              lr=0.0))
         return numpy.mean(c)
 
-def experiment():
-    image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_image.npy"
-    spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_spect.npy"
-    model_save_dir = "/media/Loonies/CrossModal/Models/"
 
-    numpy_rng = numpy.random.RandomState(89677)
+image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_image.npy"
+spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_spect.npy"
+model_save_dir = "/media/Loonies/CrossModal/Models/"
+
+numpy_rng = numpy.random.RandomState(89677) #89677
+numpy_rng = numpy.random.RandomState(89678)
+
+def controlgrp():
 
     print ""
     print "Experiment 1: run ordinary model on images"
@@ -201,8 +206,67 @@ def experiment():
     print "Average reconstruction error: %0.9f\n" % recon_error
     print ""
 
-    # PLASTICITY TESTS
 
-    
+# PLASTICITY TESTS
+def experiment():
+
+    ims_train, ims_test, ims_valid = load_data(image_dataset_path)
+    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
+
+    print ""
+    print "Experiment 5: train interleaved model on images, then spectrograms"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
+    model.train( ims_train, max_epochs=500, max_runtime=7200, layer_wise=False)
+    model.train( spec_train, max_epochs=500, max_runtime=7200, layer_wise=False)
+    save_path = os.path.join(model_save_dir, "interleaved_images_then_spec.sda")
+    print "Training complete, saving model at %s" % save_path
+    pickle.dump(model,open(save_path,'wb'))
+    recon_error = model.test( spec_test )
+    print "Average reconstruction error on spectrograms: %0.9f" % recon_error
+    recon_error = model.test( ims_test )
+    print "Average reconstruction error on images: %0.9f\n" % recon_error
+
+    print ""
+    print "Experiment 6: train interleaved model on spectrograms, then images"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
+    model.train( spec_train, max_epochs=500, max_runtime=7200, layer_wise=False)
+    model.train( ims_train, max_epochs=500, max_runtime=7200, layer_wise=False)
+    save_path = os.path.join(model_save_dir, "interleaved_spec_then_images.sda")
+    print "Training complete, saving model at %s" % save_path
+    pickle.dump(model,open(save_path,'wb'))
+    recon_error = model.test( spec_test )
+    print "Average reconstruction error on spectrograms: %0.9f" % recon_error
+    recon_error = model.test( ims_test )
+    print "Average reconstruction error on images: %0.9f\n" % recon_error
+
+    print ""
+    print "Experiment 7: train layer-wise model on images, then spectrograms"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
+    model.train( ims_train, max_epochs=500, max_runtime=7200, layer_wise=True)
+    model.train( spec_train, max_epochs=500, max_runtime=7200, layer_wise=True)
+    save_path = os.path.join(model_save_dir, "layerwise_images_then_spec.sda")
+    print "Training complete, saving model at %s" % save_path
+    pickle.dump(model,open(save_path,'wb'))
+    recon_error = model.test( spec_test )
+    print "Average reconstruction error on spectrograms: %0.9f" % recon_error
+    recon_error = model.test( ims_test )
+    print "Average reconstruction error on images: %0.9f\n" % recon_error
+
+    print ""
+    print "Experiment 8: train layer-wise model on spectrograms, then images"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
+    model.train( spec_train, max_epochs=500, max_runtime=7200, layer_wise=True)
+    model.train( ims_train, max_epochs=500, max_runtime=7200, layer_wise=True)
+    save_path = os.path.join(model_save_dir, "layerwise_spec_then_images.sda")
+    print "Training complete, saving model at %s" % save_path
+    pickle.dump(model,open(save_path,'wb'))
+    recon_error = model.test( spec_test )
+    print "Average reconstruction error on spectrograms: %0.9f" % recon_error
+    recon_error = model.test( ims_test )
+    print "Average reconstruction error on images: %0.9f\n" % recon_error
+
+
+   
 if __name__ == "__main__":
+    #controlgrp()
     experiment()
