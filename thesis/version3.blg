@@ -3,49 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: version3.aux
 The style file: plain.bst
 Database file #1: machine_learning_bibliography.bib
-Repeated entry---line 413 of file machine_learning_bibliography.bib
- : @article{sharma2000induction
- :                             ,
-I'm skipping whatever remains of this entry
-You've used 19 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            610 strings with 7876 characters,
-and the built_in function-call counts, 7679 in all, are:
-= -- 757
-> -- 403
-< -- 8
-+ -- 161
-- -- 140
-* -- 531
-:= -- 1238
-add.period$ -- 61
-call.type$ -- 19
-change.case$ -- 125
+            616 strings with 8102 characters,
+and the built_in function-call counts, 8056 in all, are:
+= -- 796
+> -- 410
+< -- 9
++ -- 164
+- -- 142
+* -- 549
+:= -- 1290
+add.period$ -- 64
+call.type$ -- 20
+change.case$ -- 129
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 298
-empty$ -- 560
-format.name$ -- 140
-if$ -- 1629
+cite$ -- 20
+duplicate$ -- 319
+empty$ -- 598
+format.name$ -- 142
+if$ -- 1718
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 20
-newline$ -- 98
-num.names$ -- 38
-pop$ -- 143
+int.to.str$ -- 20
+missing$ -- 21
+newline$ -- 103
+num.names$ -- 40
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 107
+purify$ -- 110
 quote$ -- 0
-skip$ -- 228
+skip$ -- 245
 stack$ -- 0
-substring$ -- 458
-swap$ -- 96
-text.length$ -- 8
+substring$ -- 487
+swap$ -- 105
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 78
 warning$ -- 0
-while$ -- 69
-width$ -- 21
-write$ -- 210
-(There was 1 error message)
+while$ -- 74
+width$ -- 22
+write$ -- 221

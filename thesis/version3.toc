@@ -1,15 +1,15 @@
-\contentsline {section}{\numberline {1}Abstract}{3}
-\contentsline {section}{\numberline {2}Introduction and Background}{4}
-\contentsline {subsection}{\numberline {2.1}Neural Plausibility of Machine Learning Algorithms}{4}
-\contentsline {subsection}{\numberline {2.2}Hierarchical representation in the brain}{4}
-\contentsline {subsection}{\numberline {2.3}The reusability of hierarchical representations.}{5}
-\contentsline {subsection}{\numberline {2.4}Deep networks}{6}
-\contentsline {subsection}{\numberline {2.5}Stacked denoising autoencoders}{8}
-\contentsline {subsection}{\numberline {2.6}Relevant work}{10}
-\contentsline {section}{\numberline {3}Experimental design and implementation}{13}
-\contentsline {subsection}{\numberline {3.1}Datasets}{13}
-\contentsline {subsection}{\numberline {3.2}Implementation}{16}
-\contentsline {subsection}{\numberline {3.3}Measuring neuro-plasticity}{17}
-\contentsline {section}{\numberline {4}Results and Conclusion}{20}
-\contentsline {subsection}{\numberline {4.1}Experimental results}{20}
-\contentsline {subsection}{\numberline {4.2}Conclusion}{20}
+\contentsline {section}{\numberline {1}Abstract}{3}{section.1}
+\contentsline {section}{\numberline {2}Introduction and Background}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Neural Plausibility of Machine Learning Algorithms}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Hierarchical representation in the brain}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}The reusability of hierarchical representations.}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Deep networks}{6}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Stacked denoising autoencoders}{8}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Relevant work}{10}{subsection.2.6}
+\contentsline {section}{\numberline {3}Experimental design and implementation}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Datasets}{13}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Implementation}{16}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Measuring neuro-plasticity}{17}{subsection.3.3}
+\contentsline {section}{\numberline {4}Results and Conclusion}{20}{section.4}
+\contentsline {subsection}{\numberline {4.1}Experimental results}{20}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Conclusion}{21}{subsection.4.2}
