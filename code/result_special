@@ -1,0 +1,7 @@
+Pre-training layer 2, epoch 996, cost  5.17744375
+Pre-training layer 2, epoch 997, cost  5.17076640625
+Pre-training layer 2, epoch 998, cost  5.17942421875
+Pre-training layer 2, epoch 999, cost  5.17844804688
+finished 1000 epochs in -117.7 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/layerwise_spect_only.sda
+Average reconstruction error: 5.083535645

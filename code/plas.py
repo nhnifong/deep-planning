@@ -1,3 +1,4 @@
+
 from __future__ import division
 
 import sys
@@ -195,10 +196,12 @@ def controlgrp():
     recon_error = model.test( spec_test )
     print "Average reconstruction error: %0.9f\n" % recon_error
 
+def special():
+    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
     print ""
     print "Experiment 4: run greedy layer-wise pre-training on spectrograms"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
-    model.train( spec_train, max_epochs=1000, max_runtime=7200, layer_wise=False)
+    model.train( spec_train, max_epochs=1000, max_runtime=7200, layer_wise=True)
     save_path =os.path.join(model_save_dir, "layerwise_spect_only.sda")
     print "Training complete, saving model at %s" % save_path
     pickle.dump(model,open(save_path,'wb'))
@@ -268,5 +271,6 @@ def experiment():
 
    
 if __name__ == "__main__":
+    special()
     #controlgrp()
-    experiment()
+    #experiment()
