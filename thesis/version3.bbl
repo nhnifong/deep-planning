@@ -17,6 +17,13 @@ Dumitru Erhan, Yoshua Bengio, Aaron Courville, Pierre-Antoine Manzagol, Pascal
 \newblock Why does unsupervised pre-training help deep learning?
 \newblock {\em The Journal of Machine Learning Research}, 11:625--660, 2010.
 
+\bibitem{gluckman2003kurtosis}
+Joshua Gluckman.
+\newblock Kurtosis and the phase structure of images.
+\newblock In {\em 3rd International Workshop on Statistical and Computational
+  Theories of Vision, Nice, France, October 2003 (in conjunction with
+  ICCV’03)}, pages 12--15, 2003.
+
 \bibitem{grubb2010boosted}
 Alexander Grubb and J~Andrew Bagnell.
 \newblock Boosted backpropagation learning for training deep modular networks.

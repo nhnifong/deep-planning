@@ -1,0 +1,178 @@
+Experiment 1: run ordinary model on images
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 1000 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  175.97775
+Pre-training layer 1, epoch 1, cost  145.7382875
+Pre-training layer 2, epoch 2, cost  18.6635328125
+...
+Pre-training layer 1, epoch 997, cost  46.15741875
+Pre-training layer 2, epoch 998, cost  2.71834238281
+Pre-training layer 0, epoch 999, cost  131.4341125
+finished 1000 epochs in -90.6 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/interleaved_images_only.sda
+Average reconstruction error: 2.734964111
+
+
+Experiment 2: run greedy layer-wise pre-training on images
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 1000 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  176.0701375
+Pre-training layer 0, epoch 1, cost  160.8224125
+Pre-training layer 0, epoch 2, cost  159.69125
+...
+Pre-training layer 2, epoch 997, cost  2.70657070313
+Pre-training layer 2, epoch 998, cost  2.71668417969
+Pre-training layer 2, epoch 999, cost  2.71540800781
+finished 1000 epochs in -129.9 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/layerwise_images_only.sda
+Average reconstruction error: 2.734247559
+
+
+Experiment 3: run ordinary model on spectrograms
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 1000 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  356.45705
+Pre-training layer 1, epoch 1, cost  103.7093
+Pre-training layer 2, epoch 2, cost  29.528371875
+...
+Pre-training layer 1, epoch 997, cost  51.617278125
+Pre-training layer 2, epoch 998, cost  5.18828789063
+Pre-training layer 0, epoch 999, cost  290.9881
+finished 1000 epochs in -123.3 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/interleaved_spect_only.sda
+Average reconstruction error: 5.200778809
+
+
+Experiment 4: run greedy layer-wise pre-training on spectrograms
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 1000 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  356.1804
+Pre-training layer 1, epoch 1, cost  103.51065625
+Pre-training layer 2, epoch 2, cost  29.5707625
+...
+Pre-training layer 1, epoch 997, cost  52.388121875
+Pre-training layer 2, epoch 998, cost  5.34932070312
+Pre-training layer 0, epoch 999, cost  291.02015
+finished 1000 epochs in -17.4 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/layerwise_spect_only.sda
+Average reconstruction error: 5.364645020
+
+
+Experiment 5: train interleaved model on images, then spectrograms
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 500 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  176.4803625
+Pre-training layer 1, epoch 1, cost  145.6898375
+Pre-training layer 2, epoch 2, cost  18.0246640625
+...
+Pre-training layer 0, epoch 495, cost  133.0550625
+Pre-training layer 1, epoch 496, cost  47.799453125
+Pre-training layer 2, epoch 497, cost  2.97829335937
+finished 500 epochs in -97.4 seconds
+Pre-training layer 0, epoch 0, cost  294.62205
+Pre-training layer 1, epoch 1, cost  41.24661875
+Pre-training layer 2, epoch 2, cost  4.07545
+...
+Pre-training layer 0, epoch 0, cost  294.62205
+Pre-training layer 1, epoch 1, cost  41.24661875
+Pre-training layer 2, epoch 2, cost  4.07545
+finished 500 epochs in -90.6 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/interleaved_images_then_spec.sda
+Average reconstruction error on spectrograms: 4.123111328
+Average reconstruction error on images: 2.547272461
+
+
+Experiment 6: train interleaved model on spectrograms, then images
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 500 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  356.106425
+Pre-training layer 1, epoch 1, cost  104.187
+Pre-training layer 2, epoch 2, cost  29.537146875
+...
+Pre-training layer 0, epoch 495, cost  292.097375
+Pre-training layer 1, epoch 496, cost  55.2401625
+Pre-training layer 2, epoch 497, cost  5.56465585937
+finished 500 epochs in -91.3 seconds
+Pre-training layer 0, epoch 0, cost  135.8385375
+Pre-training layer 1, epoch 1, cost  77.97341875
+Pre-training layer 2, epoch 2, cost  3.14634003906
+...
+Pre-training layer 0, epoch 495, cost  132.5862875
+Pre-training layer 1, epoch 496, cost  91.7015375
+Pre-training layer 2, epoch 497, cost  2.92993085938
+finished 500 epochs in -72.1 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/interleaved_spec_then_images.sda
+Average reconstruction error on spectrograms: 4.714270508
+Average reconstruction error on images: 2.885652588
+
+
+Experiment 7: train layer-wise model on images, then spectrograms
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 500 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  176.3614625
+Pre-training layer 0, epoch 1, cost  161.2268125
+Pre-training layer 0, epoch 2, cost  160.0494125
+...
+Pre-training layer 2, epoch 497, cost  2.90375175781
+Pre-training layer 2, epoch 498, cost  2.90602695313
+Pre-training layer 2, epoch 499, cost  2.90251152344
+finished 500 epochs in -86.4 seconds
+Pre-training layer 0, epoch 0, cost  294.60615
+Pre-training layer 0, epoch 1, cost  294.3849
+Pre-training layer 0, epoch 2, cost  294.204
+...
+Pre-training layer 2, epoch 497, cost  3.80356210938
+Pre-training layer 2, epoch 498, cost  3.81328515625
+Pre-training layer 2, epoch 499, cost  3.80850507813
+finished 500 epochs in -85.1 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/layerwise_images_then_spec.sda
+Average reconstruction error on spectrograms: 3.820817627
+Average reconstruction error on images: 2.594190674
+
+
+Experiment 8: train layer-wise model on spectrograms, then images
+created dA 1024x256
+created dA 256x64
+created dA 64x16
+Creating Theano pre-training functions
+Starting the training clock now. Training will stop after 500 epochs or 2.00 hours, whichever is sooner
+Pre-training layer 0, epoch 0, cost  356.080075
+Pre-training layer 0, epoch 1, cost  339.411375
+Pre-training layer 0, epoch 2, cost  337.586175
+...
+Pre-training layer 2, epoch 497, cost  4.98744335937
+Pre-training layer 2, epoch 498, cost  4.99267304687
+Pre-training layer 2, epoch 499, cost  4.98203945313
+finished 500 epochs in -83.7 seconds
+Pre-training layer 0, epoch 0, cost  135.6749125
+Pre-training layer 0, epoch 1, cost  135.4211375
+Pre-training layer 0, epoch 2, cost  135.258625
+...
+Pre-training layer 2, epoch 497, cost  2.88343203125
+Pre-training layer 2, epoch 498, cost  2.87466992187
+Pre-training layer 2, epoch 499, cost  2.88108476562
+finished 500 epochs in -19.0 seconds
+Training complete, saving model at /media/Loonies/CrossModal/Models/layerwise_spec_then_images.sda
+Average reconstruction error on spectrograms: 4.276527832
+Average reconstruction error on images: 2.811898682
