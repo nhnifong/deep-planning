@@ -1,9 +1,12 @@
 from __future__ import division
 import numpy as np
-import PIL
+import theano
+import theano.tensor as T
+import PIL.Image
 import sys
 import pickle
 from plas import SdA
+from utils import tile_raster_images
 
 model = pickle.load(open(sys.argv[1],'rb'))
 outname = sys.argv[2]
