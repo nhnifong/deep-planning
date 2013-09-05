@@ -157,6 +157,43 @@ While there has been much research into the strengths and applications of deep b
 		
 	These results have some interesting implications. One being that it it would be better to recycle deep networks rather than to initialize new ones. Starting with the weights from another network should yield higher performance, even if the data that network was trained on was irrelevant to the new task. This is a broader hypothesis, but reasonable considering that no natural data has a uniform distribution. The distributions of weights after training on any data is probably in a better basin of attraction than a randomly initialized set.
 	
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{graph_image_only}
+\caption{The control run, where an SdA is trained with both methods, on images. In both cases, the reconstruction error for each layer reaches about the same value. Interestingly, for images, the second level features have a higher reconstruction error than the 1st level features. One interpretation of this is that more of the information in images is encoded at this level.}
+\label{fig:graph_image_only}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{graph_spect_only}
+\caption{Second control run, with spectrograms. Unlike the images, the final normalized reconstruction error decreases with layer number. This could mean that these spectrograms have a flatter organizational structure, with more variability in the fine details, but less variability in which general structures are present.}
+\label{fig:graph_spect_only}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{graph_cross_im_spec}
+\caption{The first experimental run, in which models trained on images are switched to spectrograms on the 500th epoch. Note how the reconstruction error on spectrograms begins at roughly the value it would have stabilized at if the model were only trained on spectrograms, and deviates very little after that.}
+\label{fig:graph_cross_im_spec}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{graph_im_multi}
+\caption{This graph compares a single interleaved network trained for 1000 epochs on images (dotted line) vs an interleaved network trained for 500 epochs on spectrograms, and then switched to images. Note the discrepancies between lines of the same color on the right half of the graph. The first and third layers see almost no change, but the second layer has two notable features. It begins in an unstable position, and then approaches a higher reconstruction error and stabilizes. This indicates that the structure of layer 1 is changing underneath it and altering it's fitness landscape, even which layer one's reconstruction error is stable.}
+\label{fig:graph_im_multi}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{graph_spect_multi}
+\caption{This graph, similar to the one above, compares a single interleaved network trained for 1000 epochs on spectrograms (dotted line) vs an interleaved network trained for 500 epochs on images, and then switched to spectrograms. (the modalities are opposite) The strangest feature of this graph is that the reconstruction error for layers 2 and 3 on spectrograms is lower for the network trained on images than the one trained on spectrograms. This indicates that images make good training data, even if the test data is not images.}
+\label{fig:graph_spect_multi}
+\end{figure}
+	
+
+	
 	\subsection{Conclusion}
 	This is but one simple measurement that is analogous to neuro-plasticity, But in the brain, plasticity is far more complicated and involves both modification of weights, and the alteration of the presence of network links and neurons. Likely, other unknown factors and limitations are involved as well. However, these experiments indicate that a hierarchical representation alone is sufficient to allow a limited level of plasticity. 
 

@@ -51,10 +51,10 @@ if __name__=='__main__':
     data = read_log(sys.argv[1])
     print data.keys()
 
-    for ep,ls,method in zip([3,4],['-.','-'],['interleaved','layer-wise']):
+    for ep,ls,method in zip([3,5],['-.','-'],['single-modal','multi-modal']):
         
         target = data[ep]['layerdata']
-        for lyr,color,ix in zip(target,['magenta','purple','green'],[1,2,3]):
+        for lyr,color,ix in zip(target,['red','black','blue'],[1,2,3]):
             for k,md in enumerate(lyr):
                 line = plt.plot(md['indices'], md['values'])
                 label = method+', layer '+str(ix)
@@ -66,7 +66,10 @@ if __name__=='__main__':
                          label=label)
         plt.xlabel('Epochs')
         plt.ylabel('Normalized reconstruction error')
-        plt.title("Two methods of Training of a  three-level SdA on spectrograms")
+        plt.title("Multi-modal network (images -> spectrograms) vs. normal one (spectrograms)")
         plt.legend()
         plt.grid(True)
+#        plt.annotate('spectrograms', xy=(1,1), xytext=(250, 0.6))
+#        plt.annotate('images', xy=(1,1), xytext=(750, 0.6))
+        plt.axis([0, 1000, 0, 1.3])
     plt.show()
