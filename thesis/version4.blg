@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: version4.aux
+The style file: plain.bst
+Database file #1: machine_learning_bibliography.bib
+Warning--I didn't find a database entry for ""
+You've used 34 entries,
+            2118 wiz_defined-function locations,
+            699 strings with 10555 characters,
+and the built_in function-call counts, 13033 in all, are:
+= -- 1303
+> -- 611
+< -- 14
++ -- 245
+- -- 208
+* -- 875
+:= -- 2074
+add.period$ -- 107
+call.type$ -- 34
+change.case$ -- 203
+chr.to.int$ -- 0
+cite$ -- 34
+duplicate$ -- 514
+empty$ -- 1005
+format.name$ -- 208
+if$ -- 2789
+int.to.chr$ -- 0
+int.to.str$ -- 34
+missing$ -- 34
+newline$ -- 172
+num.names$ -- 68
+pop$ -- 233
+preamble$ -- 1
+purify$ -- 171
+quote$ -- 0
+skip$ -- 402
+stack$ -- 0
+substring$ -- 854
+swap$ -- 163
+text.length$ -- 14
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 132
+warning$ -- 0
+while$ -- 125
+width$ -- 36
+write$ -- 370
+(There was 1 warning)

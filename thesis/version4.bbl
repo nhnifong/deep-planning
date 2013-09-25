@@ -1,0 +1,207 @@
+\begin{thebibliography}{10}
+
+\bibitem{bengio2009learning}
+Yoshua Bengio.
+\newblock Learning deep architectures for ai.
+\newblock {\em Foundations and trends{\textregistered} in Machine Learning},
+  2(1):1--127, 2009.
+
+\bibitem{bengio2007greedy}
+Yoshua Bengio, Pascal Lamblin, Dan Popovici, and Hugo Larochelle.
+\newblock Greedy layer-wise training of deep networks.
+\newblock {\em Advances in neural information processing systems}, 19:153,
+  2007.
+
+\bibitem{byvatov2003comparison}
+Evgeny Byvatov, Uli Fechner, Jens Sadowski, and Gisbert Schneider.
+\newblock Comparison of support vector machine and artificial neural network
+  systems for drug/nondrug classification.
+\newblock {\em Journal of Chemical Information and Computer Sciences},
+  43(6):1882--1889, 2003.
+
+\bibitem{chen2012marginalized}
+Minmin Chen, Zhixiang Xu, Kilian Weinberger, and Fei Sha.
+\newblock Marginalized denoising autoencoders for domain adaptation.
+\newblock {\em arXiv preprint arXiv:1206.4683}, 2012.
+
+\bibitem{daugman1980two}
+John~G Daugman.
+\newblock Two-dimensional spectral analysis of cortical receptive field
+  profiles.
+\newblock {\em Vision research}, 20(10):847--856, 1980.
+
+\bibitem{daugman1988complete}
+John~G Daugman.
+\newblock Complete discrete 2-d gabor transforms by neural networks for image
+  analysis and compression.
+\newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  36(7):1169--1179, 1988.
+
+\bibitem{ding2001multi}
+Chris~HQ Ding and Inna Dubchak.
+\newblock Multi-class protein fold recognition using support vector machines
+  and neural networks.
+\newblock {\em Bioinformatics}, 17(4):349--358, 2001.
+
+\bibitem{erhan2010does}
+Dumitru Erhan, Yoshua Bengio, Aaron Courville, Pierre-Antoine Manzagol, Pascal
+  Vincent, and Samy Bengio.
+\newblock Why does unsupervised pre-training help deep learning?
+\newblock {\em The Journal of Machine Learning Research}, 11:625--660, 2010.
+
+\bibitem{erhan2009difficulty}
+Dumitru Erhan, Pierre-Antoine Manzagol, Yoshua Bengio, Samy Bengio, and Pascal
+  Vincent.
+\newblock The difficulty of training deep architectures and the effect of
+  unsupervised pre-training.
+\newblock In {\em International Conference on Artificial Intelligence and
+  Statistics}, pages 153--160, 2009.
+
+\bibitem{gluckman2003kurtosis}
+Joshua Gluckman.
+\newblock Kurtosis and the phase structure of images.
+\newblock In {\em 3rd International Workshop on Statistical and Computational
+  Theories of Vision, Nice, France, October 2003 (in conjunction with
+  ICCV’03)}, pages 12--15, 2003.
+
+\bibitem{graves2013generating}
+Alex Graves.
+\newblock Generating sequences with recurrent neural networks.
+\newblock {\em arXiv preprint arXiv:1308.0850}, 2013.
+
+\bibitem{grubb2010boosted}
+Alexander Grubb and J~Andrew Bagnell.
+\newblock Boosted backpropagation learning for training deep modular networks.
+\newblock In {\em Proceedings of the 27th International Conference on Machine
+  Learning (ICML-10)}, pages 407--414, 2010.
+
+\bibitem{hawkins2004intelligence}
+Jeff Hawkins.
+\newblock {\em On intelligence}.
+\newblock Macmillan, 2004.
+
+\bibitem{hinton2012brains}
+Geoffrey Hinton.
+\newblock Brains, sex, and machine learning.
+\newblock \url{http://www.youtube.com/watch?v=DleXA5ADG78}.
+
+\bibitem{hinton2012deep}
+Geoffrey Hinton, Li~Deng, Dong Yu, George~E Dahl, Abdel-rahman Mohamed, Navdeep
+  Jaitly, Andrew Senior, Vincent Vanhoucke, Patrick Nguyen, Tara~N Sainath,
+  et~al.
+\newblock Deep neural networks for acoustic modeling in speech recognition: The
+  shared views of four research groups.
+\newblock {\em Signal Processing Magazine, IEEE}, 29(6):82--97, 2012.
+
+\bibitem{hinton2005kind}
+Geoffrey~E Hinton.
+\newblock What kind of graphical model is the brain?
+\newblock In {\em IJCAI}, volume~5, pages 1765--1775, 2005.
+
+\bibitem{hinton1995wake}
+Geoffrey~E Hinton, Peter Dayan, Brendan~J Frey, and Radford~M Neal.
+\newblock The" wake-sleep" algorithm for unsupervised neural networks.
+\newblock {\em SCIENCE-NEW YORK THEN WASHINGTON-}, pages 1158--1158, 1995.
+
+\bibitem{hinton2006reducing}
+Geoffrey~E Hinton and Ruslan~R Salakhutdinov.
+\newblock Reducing the dimensionality of data with neural networks.
+\newblock {\em Science}, 313(5786):504--507, 2006.
+
+\bibitem{hinton2012improving}
+Geoffrey~E Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, and
+  Ruslan~R Salakhutdinov.
+\newblock Improving neural networks by preventing co-adaptation of feature
+  detectors.
+\newblock {\em arXiv preprint arXiv:1207.0580}, 2012.
+
+\bibitem{huiskes08}
+Mark~J. Huiskes and Michael~S. Lew.
+\newblock The mir flickr retrieval evaluation.
+\newblock In {\em MIR '08: Proceedings of the 2008 ACM International Conference
+  on Multimedia Information Retrieval}, New York, NY, USA, 2008. ACM.
+
+\bibitem{jain1991unsupervised}
+Anil~K Jain and Farshid Farrokhnia.
+\newblock Unsupervised texture segmentation using gabor filters.
+\newblock {\em Pattern recognition}, 24(12):1167--1186, 1991.
+
+\bibitem{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in Neural Information Processing Systems 25}, pages
+  1106--1114, 2012.
+
+\bibitem{larochelle2007empirical}
+Hugo Larochelle, Dumitru Erhan, Aaron Courville, James Bergstra, and Yoshua
+  Bengio.
+\newblock An empirical evaluation of deep architectures on problems with many
+  factors of variation.
+\newblock In {\em Proceedings of the 24th international conference on Machine
+  learning}, pages 473--480. ACM, 2007.
+
+\bibitem{le2011building}
+Quoc~V Le, Marc'Aurelio Ranzato, Rajat Monga, Matthieu Devin, Kai Chen, Greg~S
+  Corrado, Jeff Dean, and Andrew~Y Ng.
+\newblock Building high-level features using large scale unsupervised learning.
+\newblock {\em arXiv preprint arXiv:1112.6209}, 2011.
+
+\bibitem{lee2009convolutional}
+Honglak Lee, Roger Grosse, Rajesh Ranganath, and Andrew~Y Ng.
+\newblock Convolutional deep belief networks for scalable unsupervised learning
+  of hierarchical representations.
+\newblock In {\em Proceedings of the 26th Annual International Conference on
+  Machine Learning}, pages 609--616. ACM, 2009.
+
+\bibitem{lee2009unsupervised}
+Honglak Lee, Yan Largman, Peter Pham, and Andrew~Y Ng.
+\newblock Unsupervised feature learning for audio classification using
+  convolutional deep belief networks.
+\newblock {\em Advances in neural information processing systems}, 2009.
+
+\bibitem{mukkamala2002intrusion}
+Srinivas Mukkamala, Guadalupe Janoski, and Andrew Sung.
+\newblock Intrusion detection using neural networks and support vector
+  machines.
+\newblock In {\em Neural Networks, 2002. IJCNN'02. Proceedings of the 2002
+  International Joint Conference on}, volume~2, pages 1702--1707. IEEE, 2002.
+
+\bibitem{nifong13}
+Nathan~H. Nifong.
+\newblock Deep-planning codebase.
+
+\bibitem{rohrer2011biologically}
+Brandon Rohrer.
+\newblock Biologically inspired feature creation for multi-sensory perception.
+\newblock In {\em BICA}, pages 305--313, 2011.
+
+\bibitem{salakhutdinov2007restricted}
+Ruslan Salakhutdinov, Andriy Mnih, and Geoffrey Hinton.
+\newblock Restricted boltzmann machines for collaborative filtering.
+\newblock In {\em Proceedings of the 24th international conference on Machine
+  learning}, pages 791--798. ACM, 2007.
+
+\bibitem{sharma2000induction}
+Jitendra Sharma, Alessandra Angelucci, and Mriganka Sur.
+\newblock Induction of visual orientation modules in auditory cortex.
+\newblock {\em Nature}, 404(6780):841--847, 2000.
+
+\bibitem{tang2012deep}
+Yichuan Tang, Ruslan Salakhutdinov, and Geoffrey Hinton.
+\newblock Deep lambertian networks.
+\newblock {\em arXiv preprint arXiv:1206.6445}, 2012.
+
+\bibitem{vincent2008extracting}
+Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and Pierre-Antoine Manzagol.
+\newblock Extracting and composing robust features with denoising autoencoders.
+\newblock In {\em Proceedings of the 25th international conference on Machine
+  learning}, pages 1096--1103. ACM, 2008.
+
+\bibitem{vyshedskiy2008origin}
+Andrey Vyshedskiy.
+\newblock {\em On the Origin of the Human Mind: Three Theories; Uniqueness of
+  the Human Mind, Evolution of the Human Mind, and The Neurological Basis of
+  Conscious Experience}.
+\newblock MobileReference, 2008.
+
+\end{thebibliography}

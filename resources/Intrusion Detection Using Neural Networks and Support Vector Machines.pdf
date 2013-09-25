@@ -1,0 +1,8565 @@
+%PDF-1.4%‚„œ”
+1 0 obj<< /Creator (hawaii_paper_1434.doc - Microsoft Word)/CreationDate (D:20020129022824Z)/Title (Intrusion Detection Using Neural Networks and Support Vector Machines)/Author (Srinivas Mukkamala, Guadalupe Janoski and Andrew Sung)/Producer (Acrobat PDFWriter 4.0 for Windows NT)/ModDate (D:20020318145411-06'00')/Subject (IJCNN'02 Paper)/Keywords (N/A)>> endobj2 3 obj<< /S /GoTo /D [ 4 0 R /XYZ 0 792 2 ] >> endobj3 0 obj<< /Pages 5 0 R /Type /Catalog /Metadata 16 2 R /Outlines 10 3 R /PageMode /UseOutlines /ViewerPreferences << /HideToolbar false /HideMenubar false /HideWindowUI false /FitWindow false /CenterWindow false >> /OpenAction 2 3 R >> endobj4 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 6 0 R /TT1 8 0 R /TT2 12 0 R /TT3 40 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text ] >> /Contents 46 0 R >> endobj5 0 obj<< /Kids [ 4 0 R 14 0 R 19 0 R 22 0 R 29 0 R 36 0 R ] /Count 6 /Type /Pages /MediaBox [ 0 0 612 792 ] >> endobj6 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 7 0 R /BaseFont /TimesNewRoman,Bold /FirstChar 32 /LastChar 255 /Widths [ 250 333 555 500 500 1000 833 278 333 333 500 570 250 333 250 278 500 500 500 500 500 500 500 500 500 500 333 333 570 570 570 500 930 722 667 722 722 667 611 778 778 389 500 778 667 944 722 778 611 778 722 556 667 722 722 1000 722 722 667 333 278 333 581 500 333 500 556 444 556 444 333 500 556 278 333 556 278 833 556 500 556 556 444 389 333 556 500 722 500 500 444 394 220 394 520 778 500 778 333 500 500 1000 500 500 333 1000 556 333 1000 778 667 778 778 333 333 500 500 350 500 1000 333 1000 389 333 722 778 444 722 250 333 500 500 500 500 220 500 333 747 300 500 570 333 747 500 400 549 300 300 333 576 540 250 333 300 330 500 750 750 750 500 722 722 722 722 722 722 1000 722 667 667 667 667 389 389 389 389 722 722 778 778 778 778 778 570 778 722 722 722 722 722 611 556 500 500 500 500 500 500 722 444 444 444 444 444 278 278 278 278 500 556 500 500 500 500 500 549 500 556 556 556 556 500 556 500 ] /Encoding /WinAnsiEncoding >> endobj7 0 obj<< /Type /FontDescriptor /FontName /TimesNewRoman,Bold /Flags 16418 /FontBBox [ -250 -216 1175 1000 ] /MissingWidth 326 /StemV 136 /StemH 136 /ItalicAngle 0 /CapHeight 891 /XHeight 446 /Ascent 891 /Descent -216 /Leading 149 /MaxWidth 979 /AvgWidth 427 >> endobj8 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 9 0 R /BaseFont /TimesNewRoman /FirstChar 32 /LastChar 255 /Widths [ 250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 778 500 778 333 500 444 1000 500 500 333 1000 556 333 889 778 611 778 778 333 333 444 444 350 500 1000 333 980 389 333 722 778 444 722 250 333 500 500 500 500 200 500 333 760 276 500 564 333 760 500 400 549 300 300 333 576 453 250 333 300 310 500 750 750 750 444 722 722 722 722 722 722 889 667 611 611 611 611 333 333 333 333 722 722 722 722 722 722 722 564 722 722 722 722 722 722 556 500 444 444 444 444 444 444 667 444 444 444 444 444 278 278 278 278 500 500 500 500 500 500 500 549 500 500 500 500 500 500 500 500 ] /Encoding /WinAnsiEncoding >> endobj9 0 obj<< /Type /FontDescriptor /FontName /TimesNewRoman /Flags 34 /FontBBox [ -250 -216 1152 1000 ] /MissingWidth 320 /StemV 73 /StemH 73 /ItalicAngle 0 /CapHeight 891 /XHeight 446 /Ascent 891 /Descent -216 /Leading 149 /MaxWidth 960 /AvgWidth 401 >> endobj10 3 obj<< /Count 10 /Type /Outlines /First 11 1 R /Last 64 1 R >> endobj11 1 obj<< /Title (IJCNN Main Menu)/Parent 10 3 R /A 15 1 R /Next 21 1 R >> endobj12 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 13 0 R /BaseFont /TimesNewRoman,Italic /FirstChar 32 /LastChar 255 /Widths [ 250 333 420 500 500 833 778 214 333 333 500 675 250 333 250 278 500 500 500 500 500 500 500 500 500 500 333 333 675 675 675 500 920 611 611 667 722 611 611 722 722 333 444 667 556 833 667 722 611 722 611 500 556 722 611 833 611 556 556 389 278 389 422 500 333 500 500 444 500 444 278 500 500 278 278 444 278 722 500 500 500 500 389 389 278 500 444 667 444 444 389 400 275 400 541 778 500 778 333 500 556 889 500 500 333 1000 500 333 944 778 556 778 778 333 333 556 556 350 500 889 333 980 389 333 667 778 389 556 250 389 500 500 500 500 275 500 333 760 276 500 675 333 760 500 400 549 300 300 333 576 523 250 333 300 310 500 750 750 750 500 611 611 611 611 611 611 889 667 611 611 611 611 333 333 333 333 722 667 722 722 722 722 722 675 722 722 722 722 722 556 611 500 500 500 500 500 500 500 667 444 444 444 444 444 278 278 278 278 500 500 500 500 500 500 500 549 500 500 500 500 500 444 500 444 ] /Encoding /WinAnsiEncoding >> endobj13 0 obj<< /Type /FontDescriptor /FontName /TimesNewRoman,Italic /Flags 98 /FontBBox [ -250 -216 1152 1000 ] /MissingWidth 374 /StemV 73 /StemH 73 /ItalicAngle -11 /CapHeight 891 /XHeight 446 /Ascent 891 /Descent -216 /Leading 149 /MaxWidth 960 /AvgWidth 402 >> endobj14 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 12 0 R /TT1 8 0 R /TT2 6 0 R /TT3 17 0 R /TT4 40 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text ] >> /Contents 50 0 R >> endobj15 1 obj<< /S /GoToR /F 20 1 R /D [ 3 /Fit ] >> endobj16 2 obj<< /Type /Metadata /Subtype /XML /Length 1903 >> stream
+<?xpacket begin='' id='W5M0MpCehiHzreSzNTczkc9d' bytes='1903'?>
+
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+ xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+
+ <rdf:Description about=''
+  xmlns='http://ns.adobe.com/pdf/1.3/'
+  xmlns:pdf='http://ns.adobe.com/pdf/1.3/'>
+  <pdf:Creator>hawaii_paper_1434.doc - Microsoft Word</pdf:Creator>
+  <pdf:CreationDate>2002-01-29T02:28:24Z</pdf:CreationDate>
+  <pdf:Title>Intrusion Detection Using Neural Networks and Support Vector Machines</pdf:Title>
+  <pdf:Author>Srinivas Mukkamala, Guadalupe Janoski and Andrew Sung</pdf:Author>
+  <pdf:Producer>Acrobat PDFWriter 4.0 for Windows NT</pdf:Producer>
+  <pdf:ModDate>2002-03-18T14:54:11-06:00</pdf:ModDate>
+  <pdf:Subject>IJCNN&apos;02 Paper</pdf:Subject>
+  <pdf:Keywords>N/A</pdf:Keywords>
+ </rdf:Description>
+
+ <rdf:Description about=''
+  xmlns='http://ns.adobe.com/xap/1.0/'
+  xmlns:xap='http://ns.adobe.com/xap/1.0/'>
+  <xap:CreateDate>2002-01-29T02:28:24Z</xap:CreateDate>
+  <xap:Title>
+   <rdf:Alt>
+    <rdf:li xml:lang='x-default'>Intrusion Detection Using Neural Networks and Support Vector Machines</rdf:li>
+   </rdf:Alt>
+  </xap:Title>
+  <xap:Author>Srinivas Mukkamala, Guadalupe Janoski and Andrew Sung</xap:Author>
+  <xap:ModifyDate>2002-03-18T14:54:11-06:00</xap:ModifyDate>
+  <xap:MetadataDate>2002-03-18T14:54:11-06:00</xap:MetadataDate>
+  <xap:Description>
+   <rdf:Alt>
+    <rdf:li xml:lang='x-default'>IJCNN&apos;02 Paper</rdf:li>
+   </rdf:Alt>
+  </xap:Description>
+ </rdf:Description>
+
+ <rdf:Description about=''
+  xmlns='http://purl.org/dc/elements/1.1/'
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+  <dc:title>Intrusion Detection Using Neural Networks and Support Vector Machines</dc:title>
+  <dc:creator>Srinivas Mukkamala, Guadalupe Janoski and Andrew Sung</dc:creator>
+  <dc:description>IJCNN&apos;02 Paper</dc:description>
+ </rdf:Description>
+
+</rdf:RDF>
+<?xpacket end='r'?>endstreamendobj17 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 18 0 R /BaseFont /Symbol /FirstChar 30 /LastChar 255 /Widths [ 600 600 250 333 713 500 549 833 778 439 333 333 500 549 250 549 250 278 500 500 500 500 500 500 500 500 500 500 278 278 549 549 549 444 549 722 667 722 612 611 763 603 722 333 631 722 686 889 722 722 768 741 556 592 611 690 439 768 645 795 611 333 863 333 658 500 500 631 549 549 494 439 521 411 603 329 603 549 549 576 521 549 549 521 549 603 439 576 713 686 493 686 494 480 200 480 549 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 620 247 549 167 713 500 753 753 753 753 1042 987 603 987 603 400 549 411 549 549 713 494 460 549 549 549 549 1000 603 1000 658 823 686 795 987 768 768 823 768 768 713 713 713 713 713 713 713 768 713 790 790 890 823 549 250 713 603 603 1042 987 603 987 603 494 329 790 790 786 713 384 384 384 384 384 384 494 494 494 494 600 329 274 686 686 686 384 384 384 384 384 384 494 494 494 600 ] >> endobj18 0 obj<< /Type /FontDescriptor /FontName /Symbol /Flags 6 /FontBBox [ -250 -220 1241 1005 ] /MissingWidth 331 /StemV 109 /StemH 109 /ItalicAngle 0 /CapHeight 1005 /XHeight 503 /Ascent 1005 /Descent -220 /Leading 225 /MaxWidth 1034 /AvgWidth 600 >> endobj19 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 8 0 R /TT1 12 0 R /TT2 6 0 R /TT3 40 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text ] >> /Contents 54 0 R >> endobj20 1 obj<< /Type /Filespec /F (../../../Start.pdf)>> endobj21 1 obj<< /Title (IJCNN Table of Contents)/Parent 10 3 R /Prev 11 1 R /Next 31 1 R /A 23 1 R >> endobj22 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 8 0 R /TT1 12 0 R /TT2 25 0 R /TT3 27 0 R /TT4 6 0 R /TT5 40 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text ] >> /Contents 58 0 R >> endobj23 1 obj<< /S /GoToR /F 30 1 R /D [ 0 /FitH 795 ] >> endobj25 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 26 0 R /BaseFont /Arial,Bold /FirstChar 32 /LastChar 255 /Widths [ 278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 278 556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 611 975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 778 667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 556 333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 611 611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 750 556 750 278 556 500 1000 556 556 333 1000 667 333 1000 750 611 750 750 278 278 500 500 350 556 1000 333 1000 556 333 944 750 500 667 278 333 556 556 556 556 280 556 333 737 370 556 584 333 737 552 400 549 333 333 333 576 556 278 333 333 365 556 834 834 834 611 722 722 722 722 722 722 1000 722 667 667 667 667 278 278 278 278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 611 556 556 556 556 556 556 889 556 556 556 556 556 278 278 278 278 611 611 611 611 611 611 611 549 611 611 611 611 611 556 611 556 ] /Encoding /WinAnsiEncoding >> endobj26 0 obj<< /Type /FontDescriptor /FontName /Arial,Bold /Flags 16416 /FontBBox [ -250 -212 1135 1000 ] /MissingWidth 315 /StemV 153 /StemH 153 /ItalicAngle 0 /CapHeight 905 /XHeight 453 /Ascent 905 /Descent -212 /Leading 150 /MaxWidth 946 /AvgWidth 479 >> endobj27 0 obj<< /Type /Font /Subtype /TrueType /FontDescriptor 28 0 R /BaseFont /Arial /FirstChar 32 /LastChar 255 /Widths [ 278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 278 556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 556 1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 778 667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 556 333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 556 556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 750 556 750 222 556 333 1000 556 556 333 1000 667 333 1000 750 611 750 750 222 222 333 333 350 556 1000 333 1000 500 333 944 750 500 667 278 333 556 556 556 556 260 556 333 737 370 556 584 333 737 552 400 549 333 333 333 576 537 278 333 333 365 556 834 834 834 611 667 667 667 667 667 667 1000 722 667 667 667 667 278 278 278 278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 611 556 556 556 556 556 556 889 500 556 556 556 556 278 278 278 278 556 556 556 556 556 556 556 549 611 556 556 556 556 500 556 500 ] /Encoding /WinAnsiEncoding >> endobj28 0 obj<< /Type /FontDescriptor /FontName /Arial /Flags 32 /FontBBox [ -250 -212 1207 1000 ] /MissingWidth 275 /StemV 80 /StemH 80 /ItalicAngle 0 /CapHeight 905 /XHeight 453 /Ascent 905 /Descent -212 /Leading 150 /MaxWidth 1006 /AvgWidth 441 >> endobj29 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 8 0 R /TT1 12 0 R /TT2 25 0 R /TT3 27 0 R /TT4 6 0 R /TT5 40 0 R >> /XObject << /Im0 32 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text /ImageC ] >> /Contents 62 0 R >> endobj30 1 obj<< /Type /Filespec /F (../IJCNNTOC.pdf)>> endobj31 1 obj<< /Title (IJCNN Author Index)/Parent 10 3 R /Prev 21 1 R /Next 38 1 R /A 34 1 R >> endobj32 0 obj<< /Type /XObject /Subtype /Image /Name /im1 /Filter /FlateDecode /Width 269 /Height 220 /BitsPerComponent 8 /ColorSpace /DeviceRGB /Length 33 0 R >> stream
+HâÏó◊OTO«5&˛∆håW^òË≈/jT¿®Aç∆Ü^ÿTå(ä Z06à£ïµ¡≤lë.*6MD_P∞`°l}ø9N»™Ô∆=s∆w<üã…ú9≥ﬂgvŒÛù‚pAAAAAAAAAƒøª›n≥Ÿ¨V´]¬b±†éãÑΩõ*ÏmGGá‹çµ∑∑∑≥∑mmmr7ºEà÷÷V‘Õf3a?a–»Ü¡⁄Y,÷»ˇÊ‘X™#ô[ZZê’f	f4s'∞˙∞í“ﬁ≥`À&ﬂØ∆ñP¿îŸ˙ÃE”i%ÁíoêrtÆ·N˙™#ÔÚ¶√4ŸéÉvTÿ∆·ˆ∞e? £ïqO–IY¶Î£BÂ_j∫1√ˇnÿ¢™P‰w
+\“„óÌJ®^»NÜJügm©ııı}˚ˆ≈QÅ£Ê„«èΩººL&”Ò„«'OûÏ‡î6µµµ)))•••Cá≈„ú9s‚‚‚îÀÇ≠[∑~˛¸y‘®Q			<>|8éF
+5°3~¸¯√áÁÊÊ˙˙˙¢eÏÿ±WØ^u(NºIì&§ßß˚¯¯\ªvÌÚÂÀSßNU8ZPQQÂ7n$&&Œù;-É∆ßTÆ∂d…íååÃpIIIdd§øøørYëLõ6ÂÇ8jVVV˛¯Òc î)QQQ7oﬁÃœœÁ"˚ˆÌ[≠Vª|˘r‘/^úôôπb≈
+. ¯˚ÿÚ>~¸8˛¸‡‡‡> Uj~ˇ˛}¬Ñ	®,]∫_¥hV$Ë;€dﬂæ}:ùÓ˝˚˜X| 
+')ó/_û<y≤i”¶Õõ7√}òa4Œö5K°,¿Pgœû]PPÄ˙¬Ö√√√:Ñp ïÖ±~˝˙7oﬁh4éöIIIc∆åÅS6lÿp‚ƒ	,S\d„„„œú9≥m€∂¬¬¬]ªva´ZΩzµrŸÜÜooo‰¿Å±ß O“““ÿ≤Ô60¬ßOüöõõßOüé°bcE	Ÿµk◊:€.ï¿∞“ƒÆZ^^ÆD ç≥≤≤Œü?øeÀñÿÿÿààl%l¿
+9uÍ‘Ó›ª·???<B!Z[[ï+ãÑû#’’’H‡≤≤≤‚‚b,}Ná.Ï⁄œü?«˘000è111lÅRH]]r7|>ÑÄk‡á‚d∆n≤n›∫◊Ø_WUU±U˘Ú•rÂã/‚,◊‘‘Ñy¿&ÚÏŸ≥Ω{˜*d`TÿIÔﬂøˇ·√#Gé†G;XRπ2ŒáòÅ/^ +jjj≤≥≥±x:Tªı∏N∞(qö˝Â[UQ„≤Ü3´®4~ªÑíüˇÆ~tXj~/'Âééï1Æú-fí˚l¿»ÿÈ06,q]€Õf≥C≥ï∂Nò2Éó&ìÌ⁄¬EôM{◊+QvaüïÀÄùÊÅÀh©,∑(îu“·í¯-ÚñÀ≈	ú`WÆ\â
+ªE Ï‡ÿØsß£—∏c«éºº<æ 7n‹¿ïáªlff&.>òäúúæ pHHJæ≤gttÙŸ≥gq°‡´ÃÃ}ÜsssqÙ¬5π¡EŸ≈◊#∏?jµZò¢ˇ˛mmmNoız=ﬂp2\Ó?c0‘ê≈≠§ºº\eïå[Iss≥ *8??ü£÷aéj?üﬂÿ±ÛﬁΩ{˛˛˛®Ët:é·d‡«‚‚b5îŸls?ó666VWWÛ’dMò÷VCY•.**bá|.\πrÖóîlê≈£Gè“””q“p®f´t√R„ Èê˛ﬂèh±XT∫¥BŸ!ÕweïÆ±Ó3å°≤©‡Öz6¡Ô:‘c«é©é≈R„# ˜8æöTi¥4Í)3AéöÍŸ§+ÚÄU⁄MBUƒÿDﬁYƒÑ#æŒ[≤	·âêM¬%dÇp	ŸÑ \B6!óêM¬%dÇp	ŸÑ \B6!óêM¬%ÇÛVØ◊ãG\0ôL"√≈««†b∑€E∆%∑A∆j4ëŸnb6õ≠V´»∏°£—(2úNßCi≥Ÿh7!<ñ∑¬|".Œ[≤	·âêM¬%dÇp	ŸÑ \B6!óŒ[ùN'2ApApﬁ^ºx—l6£b∑€E∆%∑±Z≠………"#?~º¨¨qm6õ»∏·6•••QØ◊£ÑGh7!<£—(2ú‡´ApApﬁíMOÑlB.!õÑKÁ≠Nßé ∏êöö*2\rr≤Ÿl∂ŸlV´Ud\Çpõˆˆˆ§§$ëµZÌ≥gœ`ª›.2.A∏Õã/¢¢¢DF‘Îı(m"„ÑåF£»pÇØB¡¡yK6!<¡yk0DÜ#.òL&ë·é=z˚ˆmT¨V´»∏·6wÔﬁ›±cá»à:ùe[[õÕfó î†◊ÎEÜc6ÅGÏvª»∏°ñ∑¬|".Œ€‘‘Tîf≥ôv¬É0ç"√≈∆∆ﬁæ}€!ùª˛Ëá∞ï’j˝πésŸá îp˜Ó]çF#2"€M‹»g÷ø°°°_ø~ˇ¸Ûè∑∑wTTTZZ#""<zÙh÷sÁŒù^^^ŸŸŸaaa999˚˜ÔøvÌÔˇAt/L&ì»pJÆBgŒúÈ—£G~~æ¡`@Ê£Æ’j—éJaa·à#òÂÒà≤§§ÑU∆èÙËQ>£'∫+t7A⁄w5µüüﬂÖ&Möîîî$w`Â•Kóöööÿ„ƒâ¯åûËÆx ›ƒ—Èπp≤
+GK{{;ÎpÁŒúµ|}}Ÿ„Ñ	»&Ñ<Ën‚Ë¥	~G8µè7eff&{Ã  :x ŸÑ‡Ö‡ª	≥â{0 ((H~4h–ˆÌ€Q)//?˛<¨¡⁄´™™Nû<ôòò¯„«ŸÑ‡Åíºu‹#ZZZ“¶ßø≠≠≠≈1bƒà!CÜå9u'©éé‹z‰˛ãÂ∞a√:ƒgÙD∑‰€∑ogœûQ´’VVV"ÅˇÙn"Á?å¶◊Îew≥√Jªdô∏¨_\\\WW«Ô›éäääËËhëë·(ë√nÏ&Ò∑0"√1õÑga2ô8™±cè£Û,ÑÛ´»ƒ««ﬂ∫uÀ·÷›Ñ ˛
+çÜ£ ÛH^^ êêπE∆h4rGbHKK„®∆ˆà’´WÔŸ≥ß®®(,,Ã©√ÖÍÎÎkkk_ƒÎ◊Ø^Ω™ï@≈©EÜΩz%!ˇP~USSS/ÒV‚ç*¨ﬁVUUUVV¢¨®®@Y˝{–:ü?në¯˙ıkCCCSS”ßOüŒù;«—&†µµ544400ı≈ã;ΩÓA<Ë’´WÔﬁΩ{ˆÏ˘?˙ÙÈ”g¯·>>>(Gèçä˜ÔAá3f,[∂l’™U(.\∏fÕöyÛÊÕú9ìØMbbb<¯Ó›ªAÉ¡Ï¨~¸˛˝;*◊Ø_ÁéËÜ`¡˙Ù©^Øœ»»HII—HDIDFFÓﬁΩèqqq©©©ßOüNHHHOO˘Úe]]›\Åm›‰ãé„∑X,N-pJcc„Õõ7Ø\πÇGVˇáÿ;ÈZW¬Ô}˚ˆ-''«`0;v,::z„∆ç+WÆƒA}Ì⁄µã-BeçD†DPPêøø?é%h«ÚéûªvÌö?~bbbll,“ÈøÏWYHî_éË¢"Í¶çˆ*
+Í¢ãÇ"Í"("*”ä\2sKM\p˚Lâ¥œ\Jã©‹"5tJLÀ22s◊JKßFù1∆0g¸Á˜~ÛcÔ_MgF}5;œ≈·ºg?3øÁ<œØ≤≤ÚıÎ◊•••b/áWzº~ñ_ø~°|‡¡x-(¸˚Á@Æ À◊◊◊wÛÊMÅ”d™‚ØJ¸w(©Ö0`z©“ﬂﬂ?Ù=ΩΩΩp˚0xÛìììAƒ6"ﬂ◊◊Œ<--≠°°°∫∫öRî»>¡bû“¥`å˘7_†˙Ô¿ÇV\gS∞Zvv∂ïø¨%¿Ôìôô)ŸvñÇû51FêútVé∫”$ºè?ñ…d åw`` $¿ﬁﬁå@=   ¶(66D¿iÓ5^òËÁù…ä4€qXf ;@≠V€””«é¯t:]VVD!55˛F¡èD
+
+
+1"""ŸAtt4lÏPUUïF£v;R.zΩ•Ω´5ê8n9M¶àÉ2Ω^ﬂeDAAAXX≤$ÓÓÓ “¥Ä(/^ºòûû^___VV
+¿AFﬁNÏ‹ƒÊçÍú&ìæ« 0óŒ¢ç˘˘˘ˇ‡l“•Kó`íkjj:::îJ%≤$#£ÆÃúºòCS q.¿∆O¸Ω«
+Nìø
+údx®%<<‹’’©∂∂§ 5&˜ÑSú&ƒ	àJ•z˜Ó›È”ßÉx!fÃ˛à◊~¢¡i2e!Œ ∆Çë(ÎÍÍé?~·¬Ögœû	∆ÙÅŸ0“6Ö”D‡4ô¬`I≥˙√&ê}4Ö∏02‘jµªª{DD}“RÉ5 ¬Ñ\Ôèß…îbïH1Ú0d›››ﬂø◊h4:ùÆππYmD{{˚∑oﬂæ~˝⁄ŸŸ	sïêêêõõ{ˇ˛˝∞∞0{{˚‰‰‰ææ>IÓ1¿i2eA4AE´’¶¶¶fdd\æ|9:::**Íø&DFF:88899Ÿÿÿxxx¯˙˙=zîZBCCˇcBHHHLLå∑∑wxxx~~>HD[@D&ıä8M&£¶4¨®®»≈≈%   ))I&ìµ¥¥466~¸¯±©©	%¥£µµU©Tæ}˚≤“÷÷¶R©–Ç [cÒ˛˛~ÚZí‹ıèß…dÅRèA' !ÛÛ´©©±b}b[v(·yáô‡4ô∞¿åÅßÇwÍÈÈåúb˙¬!=$é[π\éäˇóÀ=I	+≈]ƒ∞√ÕÕ≠∂∂V0f–NìID^^ûî€%$$
+¶`ò603—jµiEWWóF£ÈÏÏD¸/'OûåÑ"∆i2Yx˛¸y``†î;*
+¡¯◊O3ö–çXZa0PÄ:äããØ_øûöözÌ⁄µ´WØ;;;ü={ˆ‹πs«èw7uGG«ÚÚrA§;”Ï˚≥êõõ+Âv”57ao>%‘àWtHJJ
+ıÙÙ<r‰àááGHHH\\\lllJJ ó/_™™™îJe[[[{{;ÍPñoF–
+úS«Ì4¶	qÑDÒÔ‡‡‡ÂÂuÎ÷-ôL÷““"ÄZ≠÷Ãô0ëßÊ0ú&ÊÄRq¬ZX/‹––p‡¿π\>ÏRà¸~#òÙL´œG¶8MFfJƒu€¶◊Î°wÔﬁµ≥≥À……°πlåx:˚chœG¶8MF3Tå√‚·√á∂∂∂7n‹»»»¿'Ù∫@—.·a9&ú&£Ç© }Ç)*ïÍõWPê∏∏∏ÙÙtggÁÍÍj6Öπ≤qTRJHï8•¡ﬂIì°π∆∞O—h42ôÃ”””«««∆∆??øÄÄÄ¨¨¨ÿÿÿ/^`bXÃ©q?6D `0à'h/1$é€ÏÏl¡Kì¯ 5p
+øaO’››]WWwÂ d˛˛˛ÌÌÌ?~lnn÷Ètjµz–`¢≠<'AàÜΩΩΩHÇfÃòëííB‚¬1°P(Rnóöö⁄⁄⁄JÒ)ÂæbàÌÑÊ«è•••111IIIó/_vww?˛<>ÎÎÎúcŸó(IıQc[Ø◊ªUﬁøø}˚vTV≠ZÖüt,ß‚x•‹1--≠≥≥S0>ºRÓ+ët–p*HÜõõõáá«ù;w≥‹∏q:ÚıÎ◊ü?“&CñÓàóa˝˙ıToiiŸ¥i’wÌ⁄µc«éÇÇÇù;w÷÷÷<xRu‡¿Å‚‚bÙÓ›ª∑©©iﬂæ}ò≤ˇ˛ÚÚr4ÓﬁΩAÂ·√sÊÃâääZ¥hëıøáËËË¿;)Âé999Rn74≈`¿›Aîmmm Ôâ'"""–q:òåπ2T,=∆ßOü`ê®"P—NïGèQeÒ‚≈ À≤eÀû<yÇœyÛÊ¡›-]∫Ù√áË***B„ÏŸ≥1?„ä+p¯≠[∑BP,=á•êÀÂRn'A*ƒ‹≥v®(ïJ‹‘«««œœ>
+'''∞Ú·‚‚"˛ƒÆå!ı±é# ¢}(M4*ê≠¨¨¨πsÁ¢e˘ÚÂ–ùíí|B&0qÕö5Pì’´Wøzı
+ç.óAñ∆∆F|¢õ∆˙ìqå	‚V‚Ì(∂ôà‰ÂÂ!π8sÊLPPPEE¢aV]]˝ÂÀxN|vuuQÜQSÛU¬hAêî—D\áé®T*ÿ*¢…í%K@X≤‰‰d|Æ[∑«ÉX†‹∏qczz:WÆ\	jÏŸ≥á>°SÛÁœØ3s¸”ï&ü»8‡··R@ÅﬂçgzA©áE{—¨ﬂ-ã.≤pü?f‘ÄÉBY	ú*ôôôHL6oﬁåÆY≥fUUUmÿ∞Ì,@©”È–à	Ï¿'Ñ%2Ω^è
+4QZtf+á“Ñ˘"A$,t„„„£££©éê¶„◊ø¡L9+ãé1¬Ò1z{{M~˛¸â∞ojjBØZ≠~˙ÙÈÀó/©K´’¢Ñ≈¬≤∞XÉœÔﬂøc$Âõ7o–KÉA|b5§3ùô√
+HLìÏÏl¡hH,}∑Å$ÄbÂ?Fà]S___dd§ùùL0=˚ˇñ¶ƒØaªËÇudÊÃôÙ¯Ø]ªñıä'“‡m€∂Å5¨ëÓ≤eÀñ‚‚b6¯Ò„ª¶uπá•»……ërªªwÔ‚¡´ò	
+ií¢µ£Ø´∑∑∑££cXXΩœ÷™1Ç.àMÀ  p$x≠   öö¡D.:π¯ËÌÈÈ°€1ë¬,BΩÇI≈®≈R‰∞Ã			RÓCÆ—h„ü>ñu0íƒU —ËÂÂÂÈÈyÍ‘©{˜ÓÅå‘NT¬Hâi¬1mÄàΩuÎñî;éEºƒÆâµ¿Á+
+¯+[[€åå÷ãıR2¬Ríq∏ «_	π\.ÂvcIÖ»c Ê°#¯DˆÍÎÎs˘P©Tlÿ†4Ñú	∑ÒVc,q+Òv‚PG\]]£¢¢ƒ¿ ±÷ppå$¶Ivv6J»Åà‚ø≠≠-33”ÕÕÌ‰…ìÇIb(∑%ép’‡wå%Y∞∑oﬂnnn0‚wcY&±@‘÷÷;v,::∫§§â≥a‚)ú&„•R'ÂéH"¥Z≠`íÜaÅÆL ô@£NßCrË–°‚‚b6]$%TgêÊ.	∫ªªe2ôî;ö#^ÃG—')óÀ˝¸¸"""† îÄp:pH	D†î€ôì
+ÅH^®ûòòËÌÌûóóG-ÃeYë›ppXs‚v°P(~◊%ŒAÄ¿¿@777ˇõ7oíO3†È-)NÃ¡!πππRnóêêPXX(EA‹N
+BçïˇoøÏzöÿ⁄0¸+¸˛åÒ–“5¡®PÑ¥Ä>Ñ#Ò#·Ñà†ÇU∞Sò°PZ¢ÙA"F—C¢Q@C,–k?ô&Û÷˝Ó∏ÎZ´ùù˚:ò¨Õs/⁄π˙<kvñöHEE∑Éc∑ÉÉ°®!è{Ω^ïâö¶—u}}=„!Áè=ıãõ7o>|∏ΩΩù7ãå@N–u]e◊‰◊^¿]à≈b≈≈≈¸`¬{]°	»9¸πUF∆ŸÑ[`âpÍ‘)üœGúA@^ë√≥	=ˇtMß”º≥–µ††‡›ªwÃ¶Œ  Á®?õ∂{6·öÆA7âÑ€Ìf¶A‰é ]œ(>õ¯˝~∫ÚbiBwVWW:çF4˘ábMÓ‹π≥∞∞¿v«*K“ßææûôé–¡öÄ¸aqqÒ∆ç*Ôﬂøø∂∂FÎ‹A^–À÷÷÷ÅÅfÍc› ¯Ò„G{{ª D~6·pMx7iiiâ≈b*w¿Ôcn†i]766¯–E–ÀØ_ø?~|ffFÂN ¯}üMöõõü>} Ã·äﬂ©©©!G∫ªªUnÄﬂ'çzΩ^·e}>]<»Ã… ˛ßûûæH•RtΩvÌ⁄È”ß?}˙ƒl‚ ê'§”iæÉ¬ãóññ∫›nö¨äää2˛tÔﬁΩ©©©D"¡ı!Gñóó˘~2Ñ õûûæ~˝∫ÿ≤?~Ùò0”∫nmmY}¯·   ““3Õ±c«òÈµ˚€ »ËY˝˛˝˚›ªw≈ñÌËËhkk[[[€ªw/¡oæ~˝˙’´W¥÷;ááá/_æÃÃöÄ|∆˛‹˛9øNÒx|~~ûdL&ìÙR”4∂€_ZZZ¯KC»[¸~ø§ 4Jmnn“∂∫∫˙ÛÁœ°°!ˆøöîóóøˇûÌL®°H⁄	 à<MÏ›¡0åææ>∂´	7¬Âr%	˛NhÚyöp®q–—√zi◊‰¿Å¸&4yélMË·ﬂŸ≈ä„kÍ&|ΩΩã‘ù ê5≤5˘qÀÀÀ%%%*£»ö\i
+ÖŒú9£2Ä¨…ï&333˚˜ÔW@÷‰JìX,ÊvªUFê5π“ƒÁÛA‡k¢i_ÜQYY©2Ä¨…ï&/^ÏËËP@÷‰JóÀïL&UFê59—dnnÓ»ë#¥H•R*”»éúh222rÈ“%Zloo´L ;k“€€K◊ññè«√†	pÜa®åknn~Ò‚E0lll§óÈtZe: YçFΩ^Ø DﬁMŒü?á4A◊uïqÅ@ÄÆ'Oû¸¸˘3√–Ç¶i*„¶¶¶
+
+
+hùJ•†	p~ø_e\(+++£ıñâ t ≤CΩ&ÖÖÖÃú∏†	pÍ5ÁC4NA±&t6ôôô©™™b∫ÄsP¨I8éD"èáô›dggGe: Ÿ°Xì¡¡¡——Q∑€MkrÑLQô@v®◊$èC‡,t]W◊⁄⁄⁄‹‹\YY…†	p—h‘Îı™LJ$µµµg‡√Pá©ı˜˜3húÉ˙≥	ôÚ¯ÒcZommA‡h¬ª7Ç4!GÜáá4ŒAÅ&‰A≤–:âtvvéåå0S∫/;Ä?G±&4qµ∑∑«„qMÄs–u]vÑ}ËÚ˘|ÖÖÖmmm÷}ŸÈ ¸!/_ælllîùbÔ&¡`∞∫∫˙√á›8zP<x ;Ö4°†T*≈Ã≥IEE≈‰‰$C7Œ!»é∞k244TUUMÄ≥˚˝≤#∏&|æÍÔÔßnã≈4ŒAç&÷ŸÑÜÆ£GènnnÚ;–8]◊eGp∏&MMMèáiﬁb »g¶ßßdßÿ5)--≠ÆÆ¶	MÄSËÍÍía∫‹n∑◊Îe¶;∫ÄS–4MvDÜ&Ë&¿q¯˝~Ÿ\nDyy9ÛR©∫	p
+∫ÆÀé‡:p#Œû=€””√ÃnB˜—M@˛è«ÎÍÍdßÿ5)**öòò‡7≠@ûcÜÏàM∆««ô9âY7»súM∏&t•µ«„ÈÓÓ¶E:ù∂nêÁÙˆˆ é ¯IÑ÷%%%]]]Ã‘Dv. Bòöö™ØØóùbÔ&≈≈≈œü?g¶;≤sÖ¶i
+RH
+ﬁ>Ël299©  Å(–Ñ˙à5të&¸¶Ï\ D°Î∫Ïàå°+â–ÇƒëùÄ¢—®◊Îïùb◊§∞∞êô3∫	pÜa»é )¨°´¢¢Bv ¬´	È@R∞›£∑cg∫s˚ˆÌ'Oû0—C◊∆∆∆‚‚¢¿Çoﬁº·ö¨ôNßø}˚ˆÂÀÅ5-ÊÊÊdî]ZZZYYëQy~~ﬁz<DAﬂ=¢æµgœû’’’	)≈·v\ΩzïÆ{ˆÏY__œxCooØ¿8{.˝/2*K⁄0=uoﬂæïQY”4eggg%y-ÈXm``@`5˛õ‡vªOú8AóÀïÒÜ¶¶&JÏÎÎ3ƒÈŸ®≠≠á√ÀëH§¨¨å ä›pˇ≠[∑Ë£ÖBÀ¥’ÚÚr⁄∂ÿ≤¥œ+WÆ–$@ﬂùÿ ¥U⁄∞Oò
+“Û–””#§Ï‡‡`MMç@Mà……Iè«s·¬-Œù;˜´DéC¯∂Öœˆ 2  F¯∂˘T#äÕÕMÅ’8$2˝º”bﬂæ}÷M⁄6M∂|V‹ë OqJeÎc[vÁﬂÏv€‰_U¶ﬂΩT*≈øÕl7¯˜ï%}¬b´	Tè>Iæ∞NOùùù£££¥˚˝¢R@N GËkM&ì\ì\o«¡¸≠ÜúGèÂjW 8:∞,,,‰z 8 ±+                  ‡?¿_këŒGendstreamendobj33 0 obj7880 endobj34 1 obj<< /S /GoToR /F 37 1 R /D [ 0 /FitH 795 ] >> endobj36 0 obj<< /Type /Page /Parent 5 0 R /Resources << /ColorSpace << /CS0 42 0 R /CS1 43 0 R >> /Font << /TT0 8 0 R /TT1 17 0 R /TT2 6 0 R /TT3 40 0 R >> /ExtGState << /GS0 41 0 R >> /ProcSet [ /PDF /Text ] >> /Contents 66 0 R >> endobj37 1 obj<< /Type /Filespec /F (../IJCNNAI.pdf)>> endobj38 1 obj<< /Title (----------------)/Parent 10 3 R /Prev 31 1 R /Next 39 1 R >> endobj39 1 obj<< /Title (Search CD-ROM)/Parent 10 3 R /Prev 38 1 R /Next 45 1 R /A 44 1 R >> endobj40 0 obj<< /Type /Font /Encoding /WinAnsiEncoding /Subtype /TrueType /BaseFont /Times-Roman >> endobj41 0 obj<< /Type /ExtGState /SA false /OP false /op false /OPM 0 /BG2 /Default /UCR2 /Default /TR2 /Default /HT /Default /CA 1 /ca 1 /SMask /None /AIS false /BM /Normal /TK true >> endobj42 0 obj/DeviceRGB endobj43 0 obj/DeviceGray endobj44 1 obj<< /S /Named /N /AcroSrch:Query >> endobj45 1 obj<< /Title (Search Results)/Parent 10 3 R /Prev 39 1 R /Next 49 1 R /A 48 1 R >> endobj46 0 obj<< /Length 47 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 13.92 Tf
+-0.0613 Tc 0.1813 Tw 86.88 707.04 Td
+(Intrusion Detection Using Neural Networks and Support Vector Machines)Tj
+0 Tc 0.12 Tw 438 0 Td
+( )Tj
+/TT1 10.08 Tf
+-218.88 -12 Td
+( )Tj
+0.0273 Tc 0.0927 Tw -113.76 -11.52 Td
+(Srinivas Mukkamala, Guadalupe Janoski, Andrew Sung)Tj
+0 Tc 0.12 Tw 227.52 0 Td
+( )Tj
+/TT1 9.12 Tf
+-183.12 -10.8 Td
+({srinivas, silfalco, sung}@cs.nmt.edu)Tj
+138.48 0 Td
+( )Tj
+-0.0376 Tc 0.1576 Tw -130.08 -10.32 Td
+(Department of Computer Science)Tj
+0 Tc 0.12 Tw 121.92 0 Td
+( )Tj
+-0.0453 Tc 0.1653 Tw -150.24 -10.32 Td
+(New Mexico Institute of Mining and Technology)Tj
+0 Tc 0.12 Tw 178.56 0 Td
+( )Tj
+-0.0797 Tc 0.1997 Tw -151.92 -10.32 Td
+(Socorro New Mexico,)Tj
+-0.03 Tc 0.15 Tw 79.92 0 Td
+( 87801 USA)Tj
+0 Tc 0.12 Tw 45.36 0 Td
+( )Tj
+/TT1 10.08 Tf
+-62.64 -11.04 Td
+( )Tj
+-255.6 -11.52 Td
+( )Tj
+/TT0 9.12 Tf
+-0.0419 Tc -0.0781 Tw 10.08 -11.04 Td
+(Abstract )Tj
+0.083 Tc 0 Tw 37.2 0 Td
+(-)Tj
+-0.082 Tc 1.552 Tw 2.88 0 Td
+( Information security is an issue of serious global)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0571 Tc 3.4685 Tw -50.16 -10.32 Td
+(concern. The complexity, accessibility, and openness of the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0802 Tc 0.5602 Tw 0 -10.32 TD
+(Internet have served to increase the security risk of information )Tj
+-0.0442 Tc 0.7642 Tw 0 -10.56 TD
+(systems tremendously. This paper concerns intrusion de)Tj
+-0.0673 Tc -0.0527 Tw 220.32 0 Td
+(tection. )Tj
+-0.0571 Tc 2.9885 Tw -220.32 -10.32 Td
+(We describe approaches to intrusion detection using neural)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0621 Tc 2.0488 Tw 0 -10.32 TD
+(networks and support vector machines. The key ideas are to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0675 Tc 0.8009 Tw T*
+(discover useful patterns or features that describe user behavior )Tj
+-0.0714 Tc 3.246 Tw T*
+(on a system, and use the set of relevant features to build)Tj
+0 Tc -0.12 Tw ( )Tj
+0 Tw T*
+(class)Tj
+-0.0698 Tc 1.5612 Tw 18 0 Td
+(ifiers that can recognize anomalies and known intrusions,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0632 Tc 1.6014 Tw -18 -10.32 Td
+(hopefully in real time. Using a set of benchmark data from a)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0735 Tc 3.7135 Tw T*
+(KDD \(Knowledge Discovery and Data Mining\) competition)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0896 Tc 0.3963 Tw 0 -10.56 TD
+(designed by DARPA, we demonstrate that efficient and accurate )Tj
+-0.0475 Tc 2.3275 Tw 0 -10.32 TD
+(classifiers can be bu)Tj
+-0.0389 Tc 2.1589 Tw 83.76 0 Td
+(ilt to detect intrusions. We compare the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0668 Tc 3.3068 Tw -83.76 -10.32 Td
+(performance of neural networks based, and support vector)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0043 Tc 0.1243 Tw T*
+(machine based, systems for intrusion detection.)Tj
+0 Tc 0.12 Tw 184.32 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0776 Tc 0.1976 Tw -91.68 -25.2 Td
+(I. Introduction)Tj
+0 Tc 0.12 Tw 63.12 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0413 Tc 0.348 Tw -145.68 -25.2 Td
+(Information assurance is an issue of serious global concern. )Tj
+-0.0676 Tc 1.3396 Tw -10.08 -11.52 Td
+(The Internet has brought about gr)Tj
+-0.0573 Tc 1.2573 Tw 140.16 0 Td
+(eat benefits to the modern)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0393 Tc 1.7993 Tw -140.16 -11.28 Td
+(society; meanwhile, the rapidly increasing connectivity and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0355 Tc 1.0855 Tw 0 -11.52 TD
+(accessibility to the Internet has posed a tremendous security)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0311 Tc 1.2911 Tw T*
+(threat. Malicious usage, attacks, and sabotage have been on)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0727 Tc 3.7127 Tw T*
+(the rise as more and more computers are put int)Tj
+-0.1193 Tc 3.8393 Tw 221.76 0 Td
+(o use.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0406 Tc 3.2806 Tw -221.76 -11.52 Td
+(Connecting information systems to networks such as the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.05 Tc 1.7129 Tw T*
+(Internet and public telephone systems further magnifies the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0013 Tc 0.1213 Tw 0 -11.76 TD
+(potential for exposure through a variety of attack channels.)Tj
+0 Tc 0.12 Tw 238.8 0 Td
+( )Tj
+-0.0279 Tc 0.2379 Tw -228.72 -25.2 Td
+(This paper concerns intrusion detection, an important issue )Tj
+-0.0572 Tc 3.2972 Tw -10.08 -11.52 Td
+(in defensive)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0463 Tc 3.2863 Tw 57.36 0 Td
+(information warfare. We present the use of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.051 Tc 1.7138 Tw -57.36 -11.52 Td
+(neural networks and support vectors machines for intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.048 Tc 0.1414 Tw 0 -11.52 TD
+(detection of information systems. Since most of the intrusions )Tj
+-0.0645 Tc 0.5925 Tw T*
+(can be located by examining patterns of user activities, many )Tj
+-0.0632 Tc 1.5752 Tw T*
+(IDSs have been built by utili)Tj
+-0.0447 Tc 1.4247 Tw 121.44 0 Td
+(zing the recognized attack and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0404 Tc 6.5204 Tw -121.44 -11.52 Td
+(misuse patterns. Using neural networks for intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.036 Tc 3.9617 Tw T*
+(detection has been done within the security community)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0383 Tc 2.2497 Tw 0 -11.28 TD
+([1,7,8,10,11]. In our experiments, the neural networks and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0587 Tc 0.5387 Tw 0 -11.52 TD
+(support vector machines are trained with normal user activi)Tj
+-0.0811 Tc -0.0389 Tw 240.72 0 Td
+(ty )Tj
+-0.0764 Tc 0.8204 Tw -240.72 -11.52 Td
+(and attack patterns. The data we used originated from MIT\222s )Tj
+-0.0535 Tc 2.8135 Tw T*
+(Lincoln Labs. It was developed for KDD competition by)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0471 Tc 0.1138 Tw T*
+(DARPA and is considered a standard benchmark for intrusion )Tj
+-0.0562 Tc 1.7662 Tw T*
+(detection evaluations. Our goal for intrusion detection is to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0543 Tc 1.2543 Tw T*
+(detect both anomal)Tj
+-0.0688 Tc 1.3202 Tw 78.48 0 Td
+(ies and misuses. The approach is to train)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.047 Tc 1.3137 Tw -78.48 -11.52 Td
+(the neural networks or support vector machines to learn the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0367 Tc 6.3567 Tw T*
+(normal behavior and attack patterns; then significant)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0476 Tc 1.3376 Tw T*
+(deviations from normal behavior are flagged as attacks. We)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.066 Tc 0.146 Tw 0 -11.76 TD
+(begin by giving basic definitions and ter)Tj
+-0.0483 Tc 0.1083 Tw 161.28 0 Td
+(ms in the next section.)Tj
+0 Tc 0.12 Tw 89.76 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0844 Tc 0.2044 Tw 109.68 519.12 Td
+(II. Intrusion)Tj
+0 Tc 0.12 Tw 52.56 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0384 Tc 0.7911 Tw -140.4 -24.96 Td
+(Intrusion can be defined as any set of actions that attempt )Tj
+-0.0448 Tc 0.7648 Tw -10.08 -11.52 Td
+(to compromise the integrity, confidentiality or availability of )Tj
+-0.0348 Tc 1.5648 Tw 0 -11.52 TD
+(a resource. In the context of information systems, intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0452 Tc 2.2652 Tw T*
+(refers to any unauthorized access)Tj
+-0.0159 Tc 2.2159 Tw 141.36 0 Td
+(, unauthorized attempt to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0373 Tc 0.5573 Tw -141.36 -11.52 Td
+(access or damage, or malicious use of information resources. )Tj
+-0.0578 Tc 4.4978 Tw T*
+(Intrusion can be categorized into two classes, anomaly)Tj
+0 Tc -0.12 Tw ( )Tj
+0.0384 Tc 0.0816 Tw 0 -11.76 TD
+(intrusions and misuse intrusions.)Tj
+0 Tc 0.12 Tw 133.92 0 Td
+( )Tj
+-0.0452 Tc 3.2052 Tw -123.84 -25.2 Td
+(Anomalies are deviations from normal usage behavior.)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0622 Tc 0.8422 Tw -10.08 -11.52 Td
+(Misuses, on the other hand,)Tj
+-0.0562 Tc 0.7362 Tw 112.56 0 Td
+( are recognized patterns of attack )Tj
+-0.0463 Tc 1.5263 Tw -112.56 -11.52 Td
+([2]. While misuse patterns are often simpler to process and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.067 Tc 0.547 Tw 0 -11.52 TD
+(locate, it is often the anomaly patterns that will help to locate )Tj
+-0.0476 Tc 0.9836 Tw T*
+(problems.  As misuses are recognized patterns of attack, the )Tj
+-0.0575 Tc 0.8975 Tw T*
+(detection system tends to fail whe)Tj
+-0.0463 Tc 0.5983 Tw 138.72 0 Td
+(n novel attack methods are )Tj
+-0.0524 Tc 12.4124 Tw -138.72 -11.52 Td
+(implemented. Detection of anomaly patterns is)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0632 Tc 5.4632 Tw T*
+(computationally expensive because of the overhead of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.043 Tc 0.1364 Tw 0 -11.28 TD
+(keeping track of, and possibly updating several system profile )Tj
+-0.0726 Tc 4.7259 Tw 0 -11.52 TD
+(metrics, as it must be tailored system to system, and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0794 Tc 0.4394 Tw T*
+(sometimes eve)Tj
+-0.0639 Tc 0.3759 Tw 59.04 0 Td
+(n user to user, due to the fact behavior patterns )Tj
+-0.0529 Tc 0.1729 Tw -59.04 -11.76 Td
+(and system usage vary greatly.)Tj
+0 Tc 0.12 Tw 123.6 0 Td
+( )Tj
+/TT2 10.08 Tf
+0.0303 Tc 0.0897 Tw -123.6 -25.44 Td
+(A. Intrusion Detection)Tj
+0 Tc 0.12 Tw 90.72 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0628 Tc 1.1188 Tw -80.64 -25.44 Td
+(The most popular way to detect intrusions is by using the)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0756 Tc 0.4116 Tw -10.08 -11.52 Td
+(audit data generated by the operating system. Since almost all )Tj
+-0.0948 Tc 0.9348 Tw T*
+(activities are logged on a syst)Tj
+-0.0661 Tc 0.7347 Tw 120.96 0 Td
+(em, it is possible that a manual )Tj
+-0.0522 Tc 0.3642 Tw -120.96 -11.28 Td
+(inspection of these logs would allow intrusions to be detected. )Tj
+-0.0303 Tc 0.9703 Tw T*
+(It is important to analyze the audit data even after an attack )Tj
+-0.0348 Tc 2.0448 Tw T*
+(has occurred to determine the extent of damage sustained;)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0515 Tc 0.8515 Tw T*
+(this analysis also helps in tracking )Tj
+0.96 Tc 0 Tw (d)Tj
+-0.0629 Tc 0.6629 Tw 148.8 0 Td
+(own the attackers and in )Tj
+-0.0601 Tc 0.3481 Tw -148.8 -11.52 Td
+(recording the attack patterns for future detection. A good IDS )Tj
+-0.065 Tc 0.385 Tw T*
+(that can be used to analyze audit data for such insights makes )Tj
+-0.035 Tc 0.155 Tw 0 -11.76 TD
+(a valuable tool for information systems.)Tj
+0 Tc 0.12 Tw 160.32 0 Td
+( )Tj
+-0.041 Tc 2.561 Tw -150.24 -25.2 Td
+(The idea behind anomaly detection is to establish each)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0511 Tc 0.3089 Tw -10.08 -11.52 Td
+(user\222s no)Tj
+-0.056 Tc 0.576 Tw 36.72 0 Td
+(rmal activity profile, and to flag deviations from the )Tj
+-0.0555 Tc 2.9869 Tw -36.72 -11.52 Td
+(established profile as possible intrusion attempts. A main)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0449 Tc 5.6164 Tw 0 -11.52 TD
+(issue concerning misuse detection is how to develop)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0591 Tc 3.2091 Tw T*
+(signatures that include all possible attacks to avoid false)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.036 Tc 1.296 Tw T*
+(negatives, and how to develop)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0263 Tc 1.2863 Tw 130.32 0 Td
+(signatures that do not match)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.24 Tc 0 Tw -130.32 -11.52 Td
+(non)Tj
+0.0034 Tc 15.12 0 Td
+(-)Tj
+-0.0589 Tc 0.7789 Tw 3.36 0 Td
+(intrusive activities to avoid false positives. Though false )Tj
+-0.0592 Tc 6.1392 Tw -18.48 -11.52 Td
+(negatives are frequently considered more serious, the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0709 Tc 0.3654 Tw 0 -11.28 TD
+(selection of threshold levels is important so that neither of the )Tj
+-0.0285 Tc 0.1485 Tw 0 -11.76 TD
+(above problems is unreasonably magnified.)Tj
+0 Tc 0.12 Tw 174.96 0 Td
+( )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 0 0 RG
+0 i 0 w 10 M 0 j 0 J []0 d 
+/RelativeColorimetric ri
+/TT3 1 Tf
+0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj47 0 obj11076 endobj48 1 obj<< /S /Named /N /AcroSrch:Results >> endobj49 1 obj<< /Title (Print)/Parent 10 3 R /Prev 45 1 R /Next 53 1 R /A 52 1 R >> endobj50 0 obj<< /Length 51 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 10.08 Tf
+0.0811 Tc 50.4 710.88 Td
+(B)Tj
+0.0205 Tc 0.0395 Tw 6.24 0 Td
+(. Intrusion Detection Systems )Tj
+0 Tc 0.12 Tw 121.68 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0601 Tc 3.9858 Tw -117.84 -25.2 Td
+(Intrusion detection systems \(IDS\) [9] are designed to)Tj
+0 Tc -0.12 Tw ( )Tj
+0.0101 Tc 0 Tw -10.08 -11.52 Td
+(identify)Tj
+0.0034 Tc 30.96 0 Td
+(-)Tj
+-0.0227 Tc 0.7027 Tw 3.36 0 Td
+(preferably in real time)Tj
+0.0034 Tc 0 Tw 91.2 0 Td
+(-)Tj
+-0.0489 Tc 0.5889 Tw 3.36 0 Td
+(unauthorized use, misuse and )Tj
+-0.0516 Tc 3.4416 Tw -128.88 -11.52 Td
+(attacks on information systems. IDSs maintains a set of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0407 Tc 1.3264 Tw 0 -11.52 TD
+(historical profiles or recorded profiles for users, )Tj
+1.2778 Tc 0 Tw (m)Tj
+-0.0482 Tc 1.3682 Tw 210.24 0 Td
+(atches an)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0437 Tc 3.4551 Tw -210.24 -11.52 Td
+(audit record with appropriate profile, updates the profile)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.033 Tc 0.693 Tw T*
+(whenever necessary, and reports any anomalies detected. An )Tj
+-0.0736 Tc 5.6836 Tw T*
+(IDS does not usually perform any action to prevent)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.062 Tc 6.602 Tw T*
+(intrusions; its main function is to alert the system)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0615 Tc 1.8615 Tw T*
+(administrators that ther)Tj
+-0.0523 Tc 1.8523 Tw 96.48 0 Td
+(e is a possible security violation; as)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.039 Tc 0.3436 Tw -96.48 -11.28 Td
+(such it is a proactive tool rather than a reactive tool. IDSs are )Tj
+-0.0554 Tc 0.9674 Tw T*
+(classified into two types: host based IDS and network based )Tj
+-0.0473 Tc 1.3018 Tw T*
+(IDS. A host based IDS monitors all the activity on a single)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.037 Tc 1.477 Tw T*
+(information system host. It ens)Tj
+-0.0625 Tc 1.5625 Tw 129.12 0 Td
+(ures none of the information)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0689 Tc 1.8389 Tw -129.12 -11.52 Td
+(system security policies are being violated. A network IDS)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0367 Tc 1.5067 Tw T*
+(monitors activities on a whole network and analyzes traffic)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0236 Tc 0.1436 Tw 0 -11.76 TD
+(for potential security breaches or violations.)Tj
+0 Tc 0.12 Tw 177.36 0 Td
+( )Tj
+-0.0631 Tc 3.0098 Tw -167.28 -25.2 Td
+(One of the main problems with IDSs is the overhead,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0583 Tc 2.8183 Tw -10.08 -11.52 Td
+(which can)Tj
+-0.0505 Tc 2.8105 Tw 43.68 0 Td
+( become unacceptably high. To analyze system)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.049 Tc 1.5747 Tw -43.68 -11.52 Td
+(logs, the operating system must keep information regarding)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0503 Tc 2.0603 Tw 0 -11.52 TD
+(all the actions performed, which invariably results in huge)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0468 Tc 2.7468 Tw T*
+(amounts of data, requiring disk space and CPU resource.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0754 Tc 5.6754 Tw T*
+(Next, the logs must be processed to)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0592 Tc 5.5792 Tw 182.64 0 Td
+(convert into a)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0323 Tc 4.1723 Tw -182.64 -11.52 Td
+(manageable format and then compared with the set of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.037 Tc 2.557 Tw T*
+(recognized misuse and attack patterns to identify possible)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0442 Tc 4.2099 Tw 0 -11.28 TD
+(security violations. Further, the stored patterns need be)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0495 Tc 2.0495 Tw 0 -11.52 TD
+(continually updated, which would normally involve human)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0706 Tc 2.9506 Tw T*
+(expertise. An in)Tj
+-0.0778 Tc 3.0778 Tw 69.36 0 Td
+(telligent, adaptable and cost)Tj
+0.0034 Tc 0 Tw 119.76 0 Td
+(-)Tj
+-0.0419 Tc 3.0419 Tw 3.36 0 Td
+(effective tool)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0406 Tc 0.5926 Tw -192.48 -11.52 Td
+(that is capable of \(mostly\) real)Tj
+0.0034 Tc 0 Tw 124.56 0 Td
+(-)Tj
+-0.0386 Tc 0.4466 Tw 3.12 0 Td
+(time intrusion detection is the )Tj
+0.0084 Tc 0 Tw -127.68 -11.76 Td
+(goal.)Tj
+0 Tc 0.12 Tw 19.92 0 Td
+( )Tj
+/TT2 10.08 Tf
+-0.0545 Tc 0.1745 Tw 16.32 -25.68 Td
+(III. DARPA Data for Intrusion Detection)Tj
+0 Tc 0.12 Tw 175.92 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.055 Tc 2.005 Tw -202.08 -25.2 Td
+(The data was acquired from the 1998 DARPA intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0235 Tc 0.5549 Tw -10.08 -11.52 Td
+(detection evaluation program. They set up an env)Tj
+-0.0561 Tc 0.4161 Tw 201.6 0 Td
+(ironment to )Tj
+-0.0693 Tc 3.515 Tw -201.6 -11.28 Td
+(acquire raw TCP/IP dump data for a local)Tj
+0.0034 Tc 0 Tw 190.08 0 Td
+(-)Tj
+-0.0341 Tc 3.2741 Tw 3.12 0 Td
+(area network)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0783 Tc 3.2917 Tw -193.2 -11.52 Td
+(\(LAN\) simulating a typical U.S. Air Force LAN.  They)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0767 Tc 0.5767 Tw T*
+(operated the LAN as if it was a true environment, but blasted )Tj
+-0.0363 Tc 4.442 Tw T*
+(with multiple attacks. For each TCP/IP connection, 41)Tj
+0 Tc 0.12 Tw ( )Tj
+0.013 Tc -0.013 Tw 0 -11.76 TD
+(various quantitative )Tj
+0 Tc 0.1196 Tw 82.8 0 Td
+(and qualitative features were extracted.)Tj
+0.12 Tw 158.64 0 Td
+( )Tj
+-0.004 Tc 0.124 Tw -231.36 -25.44 Td
+(Attacks fall into four main categories:)Tj
+0 Tc 0.12 Tw 153.84 0 Td
+( )Tj
+0.06 Tc 0 Tw -153.84 -25.44 Td
+(1.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+-0.0411 Tc 0.1611 Tw 2.4 0 Td
+(DOS: denial of service)Tj
+0 Tc 0.12 Tw 91.68 0 Td
+( )Tj
+0.06 Tc 0 Tw -101.76 -11.52 Td
+(2.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+0.0112 Tc 0.1088 Tw 2.4 0 Td
+(R2L: unauthorized access from a remote machine)Tj
+0 Tc 0.12 Tw 201.12 0 Td
+( )Tj
+0.06 Tc 0 Tw -211.2 -11.28 Td
+(3.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+-0.0189 Tc 0.1389 Tw 2.4 0 Td
+(U2R: unauthorized access to local super user \(root\) )Tj
+-0.0156 Tc 0 Tw 0 -11.52 TD
+(privileges)Tj
+0 Tc 0.12 Tw 39.6 0 Td
+( )Tj
+0.06 Tc 0 Tw -49.68 -11.52 Td
+(4.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+0.0302 Tc 0.0898 Tw 2.4 0 Td
+(Probing: surveillance and othe)Tj
+0.0706 Tc 0.0494 Tw 123.6 0 Td
+(r probing)Tj
+0 Tc 0.12 Tw 37.68 0 Td
+( )Tj
+-171.36 -11.52 Td
+( )Tj
+-0.0605 Tc 1.3325 Tw T*
+(Table 1 shows 32 different exploits that were used in the)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0483 Tc 4.4483 Tw -10.08 -11.52 Td
+(1998 DARPA intrusion detection evaluation. This table)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0495 Tc 4.1595 Tw T*
+(presents attacks broken up into categories by type and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0121 Tc 0.1321 Tw 0 -11.76 TD
+(operating system.)Tj
+0 Tc 0.12 Tw 71.04 0 Td
+( )Tj
+/TT1 7.92 Tf
+-0.0353 Tc -0.0247 Tw 223.2 637.92 Td
+(TABLE 1: ATTACKS USE)Tj
+-0.0577 Tc -0.0023 Tw 88.32 0 Td
+(D IN DARPA EVALUATIO)Tj
+0.0418 Tc 0 Tw 91.44 0 Td
+(N)Tj
+0 Tc -0.06 Tw 5.76 0 Td
+( )Tj
+ET
+0.7529 0.7529 0.7529 rg
+317.04 687.12 47.28 9.12 re
+f
+0 0 0 rg
+BT
+/TT1 7.92 Tf
+-0.0683 Tc 0.0083 Tw 317.04 689.04 Td
+(Attack class)Tj
+0 Tc -0.06 Tw 37.68 0 Td
+( )Tj
+ET
+q
+312 696.24 m
+312 687.12 l
+317.04 687.12 l
+317.04 696.24 l
+364.32 696.24 m
+364.32 687.12 l
+369.6 687.12 l
+369.6 696.24 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+312 687.12 57.6 9.12 re
+f
+Q 
+0.7529 0.7529 0.7529 rg
+375.36 687.12 53.52 9.12 re
+f
+0 0 0 rg
+BT
+/TT1 7.92 Tf
+-0.0418 Tc -0.0182 Tw 375.36 689.04 Td
+(OS: S)Tj
+-0.013 Tc 0 Tw 18.48 0 Td
+(olaris)Tj
+0 Tc -0.06 Tw 17.28 0 Td
+( )Tj
+ET
+q
+370.08 696.24 m
+370.08 687.12 l
+375.36 687.12 l
+375.36 696.24 l
+428.88 696.24 m
+428.88 687.12 l
+434.16 687.12 l
+434.16 696.24 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+370.08 687.12 64.08 9.12 re
+f
+Q 
+0.7529 0.7529 0.7529 rg
+439.68 687.12 53.52 9.12 re
+f
+0 0 0 rg
+BT
+/TT1 7.92 Tf
+0.0039 Tc -0.0639 Tw 439.68 689.04 Td
+(OS: SunOS)Tj
+0 Tc -0.06 Tw 36.48 0 Td
+( )Tj
+ET
+q
+434.64 696.24 m
+434.64 687.12 l
+439.68 687.12 l
+439.68 696.24 l
+493.2 696.24 m
+493.2 687.12 l
+498.48 687.12 l
+498.48 696.24 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+434.64 687.12 63.84 9.12 re
+f
+Q 
+0.7529 0.7529 0.7529 rg
+504 687.12 53.52 9.12 re
+f
+0 0 0 rg
+BT
+/TT1 7.92 Tf
+-0.0055 Tc -0.0545 Tw 504 689.04 Td
+(OS: Linux)Tj
+0 Tc -0.06 Tw 32.88 0 Td
+( )Tj
+ET
+q
+498.96 696.24 m
+498.96 687.12 l
+504 687.12 l
+504 696.24 l
+557.52 696.24 m
+557.52 687.12 l
+562.8 687.12 l
+562.8 696.24 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+498.96 687.12 63.84 9.12 re
+f
+Q 
+311.52 696.24 0.48 0.48 re
+f
+311.52 696.24 0.48 0.48 re
+f
+312 696.24 57.6 0.48 re
+f
+369.6 696.24 0.48 0.48 re
+f
+370.08 696.24 64.08 0.48 re
+f
+434.16 696.24 0.48 0.48 re
+f
+434.64 696.24 63.84 0.48 re
+f
+498.48 696.24 0.48 0.48 re
+f
+498.96 696.24 63.84 0.48 re
+f
+562.8 696.24 0.48 0.48 re
+f
+562.8 696.24 0.48 0.48 re
+f
+311.52 687.12 0.48 9.12 re
+f
+369.6 687.12 0.48 9.12 re
+f
+434.16 687.12 0.48 9.12 re
+f
+498.48 687.12 0.48 9.12 re
+f
+562.8 687.12 0.48 9.12 re
+f
+BT
+/TT1 7.92 Tf
+-0.074 Tc -0.106 Tw 317.04 679.44 Td
+(Denial of )Tj
+-0.1185 Tc 0 Tw 0 -9.12 TD
+(service)Tj
+0 Tc -0.06 Tw 21.6 0 Td
+( )Tj
+-0.1125 Tc 0 Tw 36.72 9.12 Td
+(Apache2)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+-0.0489 Tc 0 Tw -27.6 -9.12 Td
+(Back)Tj
+0 Tc -0.06 Tw 16.32 0 Td
+( )Tj
+-0.0753 Tc 0.0153 Tw -16.32 -9.36 Td
+(Mail bomb)Tj
+0 Tc -0.06 Tw 34.32 0 Td
+( )Tj
+-0.0619 Tc 0 Tw -34.32 -9.12 Td
+(Neptune)Tj
+0 Tc -0.06 Tw 26.4 0 Td
+( )Tj
+-0.0979 Tc 0.0379 Tw -26.4 -9.12 Td
+(Ping of death)Tj
+0 Tc -0.06 Tw 41.04 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw -41.04 -9.36 Td
+(Process table)Tj
+0 Tc -0.06 Tw 40.32 0 Td
+( )Tj
+-0.024 Tc 0 Tw -40.32 -9.12 Td
+(Smurf)Tj
+0 Tc -0.06 Tw 19.44 0 Td
+( )Tj
+-0.1152 Tc 0 Tw -19.44 -9.12 Td
+(Syslogd)Tj
+0 Tc -0.06 Tw 24.72 0 Td
+( )Tj
+-0.0652 Tc 0.0052 Tw -24.72 -9.36 Td
+(UDP storm)Tj
+0 Tc -0.06 Tw 35.04 0 Td
+( )Tj
+-0.1125 Tc 0 Tw 29.28 73.68 Td
+(Apache2)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+-0.0489 Tc 0 Tw -27.6 -9.12 Td
+(Back)Tj
+0 Tc -0.06 Tw 16.32 0 Td
+( )Tj
+-0.0753 Tc 0.0153 Tw -16.32 -9.36 Td
+(Mail bomb)Tj
+0 Tc -0.06 Tw 34.32 0 Td
+( )Tj
+-0.0619 Tc 0 Tw -34.32 -9.12 Td
+(Neptune)Tj
+0 Tc -0.06 Tw 26.4 0 Td
+( )Tj
+-0.0979 Tc 0.0379 Tw -26.4 -9.12 Td
+(Ping of death)Tj
+0 Tc -0.06 Tw 41.04 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw -41.04 -9.36 Td
+(Process table)Tj
+0 Tc -0.06 Tw 40.32 0 Td
+( )Tj
+-0.024 Tc 0 Tw -40.32 -9.12 Td
+(Smurf)Tj
+0 Tc -0.06 Tw 19.44 0 Td
+( )Tj
+-0.1152 Tc 0 Tw -19.44 -9.12 Td
+(Syslogd)Tj
+0 Tc -0.06 Tw 24.72 0 Td
+( )Tj
+-0.0652 Tc 0.0052 Tw -24.72 -9.36 Td
+(UDP storm)Tj
+0 Tc -0.06 Tw 35.04 0 Td
+( )Tj
+-0.1125 Tc 0 Tw 29.28 73.68 Td
+(Apache2)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+-0.0489 Tc 0 Tw -27.6 -9.12 Td
+(Back)Tj
+0 Tc -0.06 Tw 16.32 0 Td
+( )Tj
+-0.0753 Tc 0.0153 Tw -16.32 -9.36 Td
+(Mail bomb)Tj
+0 Tc -0.06 Tw 34.32 0 Td
+( )Tj
+-0.0619 Tc 0 Tw -34.32 -9.12 Td
+(Neptune)Tj
+0 Tc -0.06 Tw 26.4 0 Td
+( )Tj
+-0.0979 Tc 0.0379 Tw -26.4 -9.12 Td
+(Ping of death)Tj
+0 Tc -0.06 Tw 41.04 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw -41.04 -9.36 Td
+(Process table)Tj
+0 Tc -0.06 Tw 40.32 0 Td
+( )Tj
+-0.024 Tc 0 Tw -40.32 -9.12 Td
+(Smurf)Tj
+0 Tc -0.06 Tw 19.44 0 Td
+( )Tj
+-0.1152 Tc 0 Tw -19.44 -9.12 Td
+(Syslogd)Tj
+0 Tc -0.06 Tw 24.72 0 Td
+( )Tj
+-0.0652 Tc 0.0052 Tw -24.72 -9.36 Td
+(UDP storm)Tj
+0 Tc -0.06 Tw 35.04 0 Td
+( )Tj
+ET
+311.52 686.64 0.48 0.48 re
+f
+312 686.64 57.6 0.48 re
+f
+369.6 686.64 0.48 0.48 re
+f
+370.08 686.64 64.08 0.48 re
+f
+434.16 686.64 0.48 0.48 re
+f
+434.64 686.64 63.84 0.48 re
+f
+498.48 686.64 0.48 0.48 re
+f
+498.96 686.64 63.84 0.48 re
+f
+562.8 686.64 0.48 0.48 re
+f
+311.52 603.84 0.48 82.8 re
+f
+369.6 603.84 0.48 82.8 re
+f
+434.16 603.84 0.48 82.8 re
+f
+498.48 603.84 0.48 82.8 re
+f
+562.8 603.84 0.48 82.8 re
+f
+BT
+/TT1 7.92 Tf
+-0.1001 Tc 0.0401 Tw 317.04 596.16 Td
+(Remote to )Tj
+-0.1187 Tc 0 Tw T*
+(user)Tj
+0 Tc -0.06 Tw 12.96 0 Td
+( )Tj
+-0.0274 Tc 0 Tw 45.36 9.12 Td
+(Dictionary)Tj
+0 Tc -0.06 Tw 33.36 0 Td
+( )Tj
+-0.0818 Tc 0 Tw -33.36 -9.12 Td
+(Ftp)Tj
+0.0026 Tc 10.32 0 Td
+(-)Tj
+-0.0871 Tc 2.4 0 Td
+(write)Tj
+0 Tc -0.06 Tw 15.84 0 Td
+( )Tj
+-0.0955 Tc 0 Tw -28.56 -9.36 Td
+(Guest)Tj
+0 Tc -0.06 Tw 18.24 0 Td
+( )Tj
+-0.147 Tc 0 Tw -18.24 -9.12 Td
+(Phf)Tj
+0 Tc -0.06 Tw 10.56 0 Td
+( )Tj
+-0.1273 Tc 0 Tw -10.56 -9.12 Td
+(Xlock)Tj
+0 Tc -0.06 Tw 18.96 0 Td
+( )Tj
+-0.1427 Tc 0 Tw -18.96 -9.36 Td
+(Xnsnoop)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+-27.6 -9.12 Td
+( )Tj
+-0.0274 Tc 0 Tw 64.32 55.2 Td
+(Dictionary)Tj
+0 Tc -0.06 Tw 33.36 0 Td
+( )Tj
+-0.0818 Tc 0 Tw -33.36 -9.12 Td
+(Ftp)Tj
+0.0026 Tc 10.32 0 Td
+(-)Tj
+-0.0871 Tc 2.4 0 Td
+(write)Tj
+0 Tc -0.06 Tw 15.84 0 Td
+( )Tj
+-0.0955 Tc 0 Tw -28.56 -9.36 Td
+(Guest)Tj
+0 Tc -0.06 Tw 18.24 0 Td
+( )Tj
+-0.147 Tc 0 Tw -18.24 -9.12 Td
+(Phf)Tj
+0 Tc -0.06 Tw 10.56 0 Td
+( )Tj
+-0.1273 Tc 0 Tw -10.56 -9.12 Td
+(Xlock)Tj
+0 Tc -0.06 Tw 18.96 0 Td
+( )Tj
+-0.1427 Tc 0 Tw -18.96 -9.36 Td
+(Xnsnoop)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+-27.6 -9.12 Td
+( )Tj
+-0.0274 Tc 0 Tw 64.32 55.2 Td
+(Dictionary)Tj
+0 Tc -0.06 Tw 33.36 0 Td
+( )Tj
+-0.0818 Tc 0 Tw -33.36 -9.12 Td
+(Ftp)Tj
+0.0026 Tc 10.32 0 Td
+(-)Tj
+-0.0871 Tc 2.4 0 Td
+(write)Tj
+0 Tc -0.06 Tw 15.84 0 Td
+( )Tj
+-0.0955 Tc 0 Tw -28.56 -9.36 Td
+(Guest)Tj
+0 Tc -0.06 Tw 18.24 0 Td
+( )Tj
+0.0111 Tc 0 Tw -18.24 -9.12 Td
+(Imap)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+-0.0626 Tc 0 Tw -16.08 -9.12 Td
+(Named)Tj
+0 Tc -0.06 Tw 22.56 0 Td
+( )Tj
+-0.147 Tc 0 Tw -22.56 -9.36 Td
+(Phf)Tj
+0 Tc -0.06 Tw 10.56 0 Td
+( )Tj
+-0.0802 Tc 0 Tw -10.56 -9.12 Td
+(Sendmail)Tj
+0 Tc -0.06 Tw 29.28 0 Td
+( )Tj
+-0.1273 Tc 0 Tw -29.28 -9.12 Td
+(Xlock)Tj
+0 Tc -0.06 Tw 18.96 0 Td
+( )Tj
+-0.1427 Tc 0 Tw -18.96 -9.36 Td
+(Xnsnoop)Tj
+0 Tc -0.06 Tw 27.6 0 Td
+( )Tj
+ET
+311.52 603.36 0.48 0.48 re
+f
+312 603.36 57.6 0.48 re
+f
+369.6 603.36 0.48 0.48 re
+f
+370.08 603.36 64.08 0.48 re
+f
+434.16 603.36 0.48 0.48 re
+f
+434.64 603.36 63.84 0.48 re
+f
+498.48 603.36 0.48 0.48 re
+f
+498.96 603.36 63.84 0.48 re
+f
+562.8 603.36 0.48 0.48 re
+f
+311.52 520.56 0.48 82.8 re
+f
+369.6 520.56 0.48 82.8 re
+f
+434.16 520.56 0.48 82.8 re
+f
+498.48 520.56 0.48 82.8 re
+f
+562.8 520.56 0.48 82.8 re
+f
+BT
+/TT1 7.92 Tf
+-0.119 Tc 0.059 Tw 317.04 512.88 Td
+(User to super)Tj
+0.0026 Tc 0 Tw 41.04 0 Td
+(-)Tj
+-0.1187 Tc -41.04 -9.36 Td
+(user)Tj
+0 Tc -0.06 Tw 12.96 0 Td
+( )Tj
+-0.0871 Tc 0 Tw 45.36 9.36 Td
+(Eject)Tj
+0 Tc -0.06 Tw 15.84 0 Td
+( )Tj
+-0.1374 Tc 0 Tw -15.84 -9.36 Td
+(Ffbconfig)Tj
+0 Tc -0.06 Tw 30 0 Td
+( )Tj
+-0.0548 Tc 0 Tw -30 -9.12 Td
+(Fdformat)Tj
+0 Tc -0.06 Tw 28.8 0 Td
+( )Tj
+-0.1422 Tc 0 Tw -28.8 -9.12 Td
+(Ps)Tj
+0 Tc -0.06 Tw 7.2 0 Td
+( )Tj
+-0.0676 Tc 0.0076 Tw 57.12 27.6 Td
+(Load module)Tj
+0 Tc -0.06 Tw 41.28 0 Td
+( )Tj
+-0.1422 Tc 0 Tw -41.28 -9.36 Td
+(Ps)Tj
+0 Tc -0.06 Tw 7.2 0 Td
+( )Tj
+-0.0698 Tc 0 Tw 57.12 9.36 Td
+(Perl)Tj
+0 Tc -0.06 Tw 12.48 0 Td
+( )Tj
+-0.0631 Tc 0 Tw -12.48 -9.36 Td
+(Xterm)Tj
+0 Tc -0.06 Tw 19.68 0 Td
+( )Tj
+ET
+311.52 520.08 0.48 0.48 re
+f
+312 520.08 57.6 0.48 re
+f
+369.6 520.08 0.48 0.48 re
+f
+370.08 520.08 64.08 0.48 re
+f
+434.16 520.08 0.48 0.48 re
+f
+434.64 520.08 63.84 0.48 re
+f
+498.48 520.08 0.48 0.48 re
+f
+498.96 520.08 63.84 0.48 re
+f
+562.8 520.08 0.48 0.48 re
+f
+311.52 483.12 0.48 36.96 re
+f
+369.6 483.12 0.48 36.96 re
+f
+434.16 483.12 0.48 36.96 re
+f
+498.48 483.12 0.48 36.96 re
+f
+562.8 483.12 0.48 36.96 re
+f
+BT
+/TT1 7.92 Tf
+-0.0861 Tc 0 Tw 317.04 475.44 Td
+(Probing)Tj
+0 Tc -0.06 Tw 24.48 0 Td
+( )Tj
+-0.1356 Tc 0.0756 Tw 33.84 0 Td
+(Ip sweep)Tj
+0 Tc -0.06 Tw 27.36 0 Td
+( )Tj
+-0.0469 Tc 0 Tw -27.36 -9.12 Td
+(Mscan)Tj
+0 Tc -0.06 Tw 20.64 0 Td
+( )Tj
+0.0209 Tc 0 Tw -20.64 -9.12 Td
+(Nmap)Tj
+0 Tc -0.06 Tw 19.2 0 Td
+( )Tj
+-0.0407 Tc 0 Tw -19.2 -9.36 Td
+(Saint)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+0.0324 Tc 0 Tw -16.08 -9.12 Td
+(Satan)Tj
+0 Tc -0.06 Tw 17.52 0 Td
+( )Tj
+-0.1356 Tc 0.0756 Tw 46.8 36.72 Td
+(Ip sweep)Tj
+0 Tc -0.06 Tw 27.36 0 Td
+( )Tj
+-0.0469 Tc 0 Tw -27.36 -9.12 Td
+(Mscan)Tj
+0 Tc -0.06 Tw 20.64 0 Td
+( )Tj
+0.0209 Tc 0 Tw -20.64 -9.12 Td
+(Nmap)Tj
+0 Tc -0.06 Tw 19.2 0 Td
+( )Tj
+-0.0407 Tc 0 Tw -19.2 -9.36 Td
+(Saint)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+0.0324 Tc 0 Tw -16.08 -9.12 Td
+(Satan)Tj
+0 Tc -0.06 Tw 17.52 0 Td
+( )Tj
+-0.1356 Tc 0.0756 Tw 46.8 36.72 Td
+(Ip sweep)Tj
+0 Tc -0.06 Tw 27.36 0 Td
+( )Tj
+-0.0469 Tc 0 Tw -27.36 -9.12 Td
+(Mscan)Tj
+0 Tc -0.06 Tw 20.64 0 Td
+( )Tj
+0.0209 Tc 0 Tw -20.64 -9.12 Td
+(Nmap)Tj
+0 Tc -0.06 Tw 19.2 0 Td
+( )Tj
+-0.0407 Tc 0 Tw -19.2 -9.36 Td
+(Saint)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+0.0324 Tc 0 Tw -16.08 -9.12 Td
+(Satan)Tj
+0 Tc -0.06 Tw 17.52 0 Td
+( )Tj
+ET
+311.52 482.64 0.48 0.48 re
+f
+312 482.64 57.6 0.48 re
+f
+369.6 482.64 0.48 0.48 re
+f
+370.08 482.64 64.08 0.48 re
+f
+434.16 482.64 0.48 0.48 re
+f
+434.64 482.64 63.84 0.48 re
+f
+498.48 482.64 0.48 0.48 re
+f
+498.96 482.64 63.84 0.48 re
+f
+562.8 482.64 0.48 0.48 re
+f
+311.52 436.8 0.48 45.84 re
+f
+311.52 436.32 0.48 0.48 re
+f
+311.52 436.32 0.48 0.48 re
+f
+312 436.32 57.6 0.48 re
+f
+369.6 436.8 0.48 45.84 re
+f
+369.6 436.32 0.48 0.48 re
+f
+370.08 436.32 64.08 0.48 re
+f
+434.16 436.8 0.48 45.84 re
+f
+434.16 436.32 0.48 0.48 re
+f
+434.64 436.32 63.84 0.48 re
+f
+498.48 436.8 0.48 45.84 re
+f
+498.48 436.32 0.48 0.48 re
+f
+498.96 436.32 63.84 0.48 re
+f
+562.8 436.8 0.48 45.84 re
+f
+562.8 436.32 0.48 0.48 re
+f
+562.8 436.32 0.48 0.48 re
+f
+BT
+/TT1 10.08 Tf
+0.12 Tw 313.2 427.44 Td
+( )Tj
+/TT0 10.08 Tf
+0.0558 Tc 0.0642 Tw 0 -11.76 TD
+(A. Denial of Service Attacks)Tj
+0 Tc 0.12 Tw 114.96 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0755 Tc 0.8232 Tw -104.88 -25.44 Td
+(A denial of service attack is a class of attacks in which an )Tj
+-0.033 Tc 0.153 Tw -10.08 -11.28 Td
+(attacker makes some computing)Tj
+-0.0547 Tc 0.0947 Tw 128.64 0 Td
+( or memory resource too busy )Tj
+-0.0403 Tc 0.8083 Tw -128.64 -11.52 Td
+(or too full to handle legitimate requests, or denies legitimate )Tj
+-0.0532 Tc 2.7532 Tw 0 -11.52 TD
+(users access to a machine. Examples are Apache2, Back,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.049 Tc 1.609 Tw T*
+(Land, Mailbomb, SYN Flood, Ping of death, Process table,)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0097 Tc 0.1297 Tw 0 -11.76 TD
+(Smurf, Syslogd, Teardrop, Udpstorm.)Tj
+0 Tc 0.12 Tw 152.64 0 Td
+( )Tj
+/TT0 10.08 Tf
+0.0186 Tc 0.1014 Tw -152.64 -25.44 Td
+(B.  User to Roo)Tj
+0.0803 Tc 0.0397 Tw 63.12 0 Td
+(t Attacks)Tj
+0 Tc 0.12 Tw 35.52 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0737 Tc 2.2664 Tw -88.56 -25.44 Td
+(User to root exploits are a class of attacks in which an)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0713 Tc 0.3513 Tw -10.08 -11.52 Td
+(attacker starts out with access to a normal user account on the )Tj
+-0.051 Tc 0.5201 Tw 0 -11.28 TD
+(system and is able to exploit vulnerability to gain root access )Tj
+-0.0344 Tc 3.4802 Tw 0 -11.52 TD
+(to the system. Examples are Eject, Ffbconfig, Fdformat,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0473 Tc 0 Tw 0 -11.76 TD
+(Loadm)Tj
+0.0122 Tc 0.1078 Tw 28.32 0 Td
+(odule, Perl, Ps, Xterm.)Tj
+0 Tc 0.12 Tw 92.16 0 Td
+( )Tj
+/TT0 10.08 Tf
+0.0406 Tc 0.0794 Tw -120.48 -25.68 Td
+(C. Remote to User Attacks)Tj
+0 Tc 0.12 Tw 107.76 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0736 Tc 1.5936 Tw -97.68 -25.2 Td
+(A remote to user attack is a class of attacks in which an)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0614 Tc 0.8114 Tw -10.08 -12.48 Td
+(attacker sends packets to a machine over a network)Tj
+/TT3 10.08 Tf
+0.0845 Tc 0 Tw 209.76 0 Td
+(?)Tj
+/TT1 10.08 Tf
+-0.08 Tc 0.56 Tw 5.52 0 Td
+(but who )Tj
+-0.0672 Tc 2.5338 Tw -215.28 -11.28 Td
+(does not have an account on that machine; exploits some)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0599 Tc 1.4999 Tw 0 -11.52 TD
+(vulnerability to gain local acces)Tj
+-0.0843 Tc 1.6043 Tw 132.24 0 Td
+(s as a user of that machine.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0441 Tc 2.5641 Tw -132.24 -11.52 Td
+(Examples are Dictionary, Ftp_write, Guest, Imap, Named,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.003 Tc 0.123 Tw T*
+(Phf, Sendmail, Xlock, Xsnoop.)Tj
+0 Tc 0.12 Tw 126 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0133 Tc 0.1333 Tw -126 -25.68 Td
+(D. Probing)Tj
+0 Tc 0.12 Tw 45.36 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0585 Tc 1.3349 Tw -35.28 -25.2 Td
+(Probing is a class of attacks in which an attacker scans a)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0376 Tc 1.7776 Tw -10.08 -11.52 Td
+(network of computers to gather information or find known)Tj
+0 Tc 0.12 Tw ( )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 0 0 RG
+0 i 0 w 10 M 0 j 0 J []0 d 
+/RelativeColorimetric ri
+/TT4 1 Tf
+0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj51 0 obj19296 endobj52 1 obj<< /S /Named /N /Print >> endobj53 1 obj<< /Title (----------------)/Parent 10 3 R /Prev 49 1 R /Next 56 1 R >> endobj54 0 obj<< /Length 55 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 10.08 Tf
+50.4 711.12 Td
+(vulnerabilitie)Tj
+-0.0582 Tc 3.2082 Tw 53.52 0 Td
+(s. An attacker with a map of machines and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0351 Tc 4.6351 Tw -53.52 -11.52 Td
+(services that are available on a network can use this)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0477 Tc 3.6648 Tw 0 -11.52 TD
+(information to look for exploits. Examples are Ipsweep,)Tj
+0 Tc -0.12 Tw ( )Tj
+0.07 Tc 0.05 Tw 0 -11.76 TD
+(Mscan, Nmap, Saint, Satan.)Tj
+0 Tc 0.12 Tw 114 0 Td
+( )Tj
+/TT1 10.08 Tf
+0.0272 Tc 0.0928 Tw -114 -25.44 Td
+(E. List of Features)Tj
+0 Tc 0.12 Tw 75.6 0 Td
+( )Tj
+/TT0 7.92 Tf
+-0.033 Tc -0.027 Tw -4.32 -23.52 Td
+(TABLE 2)Tj
+-0.0297 Tc -0.0303 Tw 31.44 0 Td
+(: LIST OF FEATURES)Tj
+0 Tc -0.06 Tw 74.4 0 Td
+( )Tj
+-0.028 Tc 0 Tw -123.84 -9.36 Td
+(\(KDD)Tj
+0.0026 Tc 19.68 0 Td
+(-)Tj
+-0.0948 Tc 2.4 0 Td
+(CUP)Tj
+0.0026 Tc 15.12 0 Td
+(-)Tj
+-0.0133 Tc -0.0467 Tw 2.4 0 Td
+(99 TASK DES)Tj
+0.0324 Tc -0.0924 Tw 47.28 0 Td
+(CRIPTION [1)Tj
+0.0418 Tc 0 Tw 45.36 0 Td
+(6]\))Tj
+/TT0 10.08 Tf
+0 Tc 0.12 Tw 9.36 0 Td
+( )Tj
+ET
+0.7529 0.7529 0.7529 rg
+54.24 592.32 86.16 9.36 re
+f
+0 0 0 rg
+BT
+/TT0 7.92 Tf
+-0.0533 Tc -0.0067 Tw 54.24 594.48 Td
+(Feature name)Tj
+0 Tc -0.06 Tw 42.24 0 Td
+( )Tj
+ET
+q
+49.2 601.68 m
+49.2 592.56 l
+54.24 592.56 l
+54.24 601.68 l
+140.4 601.68 m
+140.4 592.56 l
+145.68 592.56 l
+145.68 601.68 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+49.2 592.56 96.48 9.12 re
+f
+Q 
+0.7529 0.7529 0.7529 rg
+151.44 592.32 71.28 9.36 re
+f
+0 0 0 rg
+BT
+/TT0 7.92 Tf
+-0.0868 Tc 0 Tw 151.44 594.48 Td
+(Description)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+ET
+q
+146.16 601.68 m
+146.16 592.56 l
+151.44 592.56 l
+151.44 601.68 l
+222.72 601.68 m
+222.72 592.56 l
+227.76 592.56 l
+227.76 601.68 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+146.16 592.56 81.6 9.12 re
+f
+Q 
+0.7529 0.7529 0.7529 rg
+233.52 592.32 61.44 9.36 re
+f
+0 0 0 rg
+BT
+/TT0 7.92 Tf
+-0.0489 Tc 0 Tw 233.52 594.48 Td
+(Type)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+ET
+q
+228.24 601.68 m
+228.24 592.56 l
+233.52 592.56 l
+233.52 601.68 l
+294.96 601.68 m
+294.96 592.56 l
+300 592.56 l
+300 601.68 l
+h
+W* n
+0.7529 0.7529 0.7529 rg
+228.24 592.56 71.76 9.12 re
+f
+Q 
+48.72 601.68 0.48 0.48 re
+f
+48.72 601.68 0.48 0.48 re
+f
+49.2 601.68 96.48 0.48 re
+f
+145.68 601.68 0.48 0.48 re
+f
+146.16 601.68 81.6 0.48 re
+f
+227.76 601.68 0.48 0.48 re
+f
+228.24 601.68 71.76 0.48 re
+f
+300 601.68 0.48 0.48 re
+f
+300 601.68 0.48 0.48 re
+f
+48.72 592.32 0.48 9.36 re
+f
+145.68 592.32 0.48 9.36 re
+f
+227.76 592.32 0.48 9.36 re
+f
+300 592.32 0.48 9.36 re
+f
+BT
+/TT0 7.92 Tf
+-0.0095 Tc 0 Tw 54.24 584.64 Td
+(Duration)Tj
+0 Tc -0.06 Tw 28.08 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0925 Tc -0.0475 Tw 67.2 0 Td
+(Length \(number of )Tj
+-0.1344 Tc 0.0744 Tw 0 -9.12 TD
+(seconds\) of the )Tj
+-0.1153 Tc 0 Tw T*
+(connection)Tj
+0 Tc -0.06 Tw 33.6 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 46.56 18.24 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 591.84 0.48 0.48 re
+f
+49.2 591.84 96.48 0.48 re
+f
+145.68 591.84 0.48 0.48 re
+f
+146.16 591.84 81.6 0.48 re
+f
+227.76 591.84 0.48 0.48 re
+f
+228.24 591.84 71.76 0.48 re
+f
+300 591.84 0.48 0.48 re
+f
+48.72 564.24 0.48 27.6 re
+f
+145.68 564.24 0.48 27.6 re
+f
+227.76 564.24 0.48 27.6 re
+f
+300 564.24 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0933 Tc 0.0333 Tw 54.24 556.56 Td
+(Protocol type)Tj
+0 Tc -0.06 Tw 41.28 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0916 Tc 0.0316 Tw 54 0 Td
+(Type of the protocol, )Tj
+-0.0856 Tc 0.0256 Tw T*
+(e.g. tcp, udp, etc.)Tj
+0 Tc -0.06 Tw 52.56 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 27.6 9.12 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 563.76 0.48 0.48 re
+f
+49.2 563.76 96.48 0.48 re
+f
+145.68 563.76 0.48 0.48 re
+f
+146.16 563.76 81.6 0.48 re
+f
+227.76 563.76 0.48 0.48 re
+f
+228.24 563.76 71.76 0.48 re
+f
+300 563.76 0.48 0.48 re
+f
+48.72 545.52 0.48 18.24 re
+f
+145.68 545.52 0.48 18.24 re
+f
+227.76 545.52 0.48 18.24 re
+f
+300 545.52 0.48 18.24 re
+f
+BT
+/TT0 7.92 Tf
+-0.1017 Tc 0 Tw 54.24 537.84 Td
+(Service)Tj
+0 Tc -0.06 Tw 23.04 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0888 Tc 0.0288 Tw 72.24 0 Td
+(Network service on )Tj
+-0.0878 Tc 0.0278 Tw 0 -9.36 TD
+(the destination, e.g., )Tj
+-0.0885 Tc 0.0285 Tw 0 -9.12 TD
+(http, telnet, etc.)Tj
+0 Tc -0.06 Tw 47.52 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 32.64 18.48 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 545.04 0.48 0.48 re
+f
+49.2 545.04 96.48 0.48 re
+f
+145.68 545.04 0.48 0.48 re
+f
+146.16 545.04 81.6 0.48 re
+f
+227.76 545.04 0.48 0.48 re
+f
+228.24 545.04 71.76 0.48 re
+f
+300 545.04 0.48 0.48 re
+f
+48.72 517.2 0.48 27.84 re
+f
+145.68 517.2 0.48 27.84 re
+f
+227.76 517.2 0.48 27.84 re
+f
+300 517.2 0.48 27.84 re
+f
+BT
+/TT0 7.92 Tf
+0.0009 Tc 0 Tw 54.24 509.52 Td
+(Src)Tj
+-0.0865 Tc 10.32 0 Td
+(_bytes)Tj
+0 Tc -0.06 Tw 20.16 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0744 Tc -0.0456 Tw 64.8 0 Td
+(Number of data bytes )Tj
+-0.0991 Tc 0.0391 Tw T*
+(from source to )Tj
+-0.0837 Tc 0 Tw T*
+(destination)Tj
+0 Tc -0.06 Tw 33.84 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 46.32 18.24 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 516.72 0.48 0.48 re
+f
+49.2 516.72 96.48 0.48 re
+f
+145.68 516.72 0.48 0.48 re
+f
+146.16 516.72 81.6 0.48 re
+f
+227.76 516.72 0.48 0.48 re
+f
+228.24 516.72 71.76 0.48 re
+f
+300 516.72 0.48 0.48 re
+f
+48.72 489.12 0.48 27.6 re
+f
+145.68 489.12 0.48 27.6 re
+f
+227.76 489.12 0.48 27.6 re
+f
+300 489.12 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.08 Tc 0 Tw 54.24 481.44 Td
+(Dst_bytes)Tj
+0 Tc -0.06 Tw 30.96 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0744 Tc -0.0456 Tw 64.32 0 Td
+(Number of data bytes )Tj
+-0.0941 Tc 0.0341 Tw T*
+(from destination to )Tj
+-0.0852 Tc 0 Tw T*
+(source)Tj
+0 Tc -0.06 Tw 20.16 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 60 18.24 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 488.64 0.48 0.48 re
+f
+49.2 488.64 96.48 0.48 re
+f
+145.68 488.64 0.48 0.48 re
+f
+146.16 488.64 81.6 0.48 re
+f
+227.76 488.64 0.48 0.48 re
+f
+228.24 488.64 71.76 0.48 re
+f
+300 488.64 0.48 0.48 re
+f
+48.72 461.04 0.48 27.6 re
+f
+145.68 461.04 0.48 27.6 re
+f
+227.76 461.04 0.48 27.6 re
+f
+300 461.04 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+0.0196 Tc 0 Tw 54.24 453.36 Td
+(Flag)Tj
+0 Tc -0.06 Tw 13.92 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0454 Tc -0.0746 Tw 81.36 0 Td
+(Normal or error status )Tj
+-0.1219 Tc 0.0619 Tw T*
+(of the connection)Tj
+0 Tc -0.06 Tw 53.04 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 27.12 9.12 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+ET
+48.72 460.56 0.48 0.48 re
+f
+49.2 460.56 96.48 0.48 re
+f
+145.68 460.56 0.48 0.48 re
+f
+146.16 460.56 81.6 0.48 re
+f
+227.76 460.56 0.48 0.48 re
+f
+228.24 460.56 71.76 0.48 re
+f
+300 460.56 0.48 0.48 re
+f
+48.72 442.32 0.48 18.24 re
+f
+145.68 442.32 0.48 18.24 re
+f
+227.76 442.32 0.48 18.24 re
+f
+300 442.32 0.48 18.24 re
+f
+BT
+/TT0 7.92 Tf
+-0.0489 Tc 0 Tw 54.24 434.64 Td
+(Land)Tj
+0 Tc -0.06 Tw 16.08 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1036 Tc -0.0164 Tw 79.2 0 Td
+(1 if connection is )Tj
+-0.1053 Tc 0.0453 Tw 0 -9.36 TD
+(from/to the same )Tj
+-0.0659 Tc 0.1259 Tw 0 -9.12 TD
+(host/port; 0 )Tj
+0.12 Tc 0 Tw T*
+(o)Tj
+-0.1141 Tc 3.84 0 Td
+(therwise)Tj
+0 Tc -0.06 Tw 25.92 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 50.4 27.6 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 441.84 0.48 0.48 re
+f
+49.2 441.84 96.48 0.48 re
+f
+145.68 441.84 0.48 0.48 re
+f
+146.16 441.84 81.6 0.48 re
+f
+227.76 441.84 0.48 0.48 re
+f
+228.24 441.84 71.76 0.48 re
+f
+300 441.84 0.48 0.48 re
+f
+48.72 404.88 0.48 36.96 re
+f
+145.68 404.88 0.48 36.96 re
+f
+227.76 404.88 0.48 36.96 re
+f
+300 404.88 0.48 36.96 re
+f
+BT
+/TT0 7.92 Tf
+-0.0732 Tc 0 Tw 54.24 397.2 Td
+(Wrong_fragment)Tj
+0 Tc -0.06 Tw 53.52 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1243 Tc -0.0157 Tw 41.76 0 Td
+(Number of ``wrong'' )Tj
+-0.0791 Tc 0 Tw T*
+(fragments)Tj
+0 Tc -0.06 Tw 30.72 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 49.44 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 404.4 0.48 0.48 re
+f
+49.2 404.4 96.48 0.48 re
+f
+145.68 404.4 0.48 0.48 re
+f
+146.16 404.4 81.6 0.48 re
+f
+227.76 404.4 0.48 0.48 re
+f
+228.24 404.4 71.76 0.48 re
+f
+300 404.4 0.48 0.48 re
+f
+48.72 385.92 0.48 18.48 re
+f
+145.68 385.92 0.48 18.48 re
+f
+227.76 385.92 0.48 18.48 re
+f
+300 385.92 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.1056 Tc 0 Tw 54.24 378.24 Td
+(Urgent)Tj
+0 Tc -0.06 Tw 21.36 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0676 Tc 0.0076 Tw 73.92 0 Td
+(Number of urgent )Tj
+-0.0332 Tc 0 Tw T*
+(packets)Tj
+0 Tc -0.06 Tw 23.28 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 56.88 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 385.44 0.48 0.48 re
+f
+49.2 385.44 96.48 0.48 re
+f
+145.68 385.44 0.48 0.48 re
+f
+146.16 385.44 81.6 0.48 re
+f
+227.76 385.44 0.48 0.48 re
+f
+228.24 385.44 71.76 0.48 re
+f
+300 385.44 0.48 0.48 re
+f
+48.72 367.2 0.48 18.24 re
+f
+145.68 367.2 0.48 18.24 re
+f
+227.76 367.2 0.48 18.24 re
+f
+300 367.2 0.48 18.24 re
+f
+BT
+/TT0 7.92 Tf
+-0.04 Tc 0 Tw 54.24 359.52 Td
+(Hot)Tj
+0 Tc -0.06 Tw 11.76 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1226 Tc -0.0174 Tw 83.52 0 Td
+(Number of ``hot'' )Tj
+-0.0516 Tc 0 Tw 0 -9.36 TD
+(indicators)Tj
+0 Tc -0.06 Tw 30.48 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 51.6 9.36 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 366.72 0.48 0.48 re
+f
+49.2 366.72 96.48 0.48 re
+f
+145.68 366.72 0.48 0.48 re
+f
+146.16 366.72 81.6 0.48 re
+f
+227.76 366.72 0.48 0.48 re
+f
+228.24 366.72 71.76 0.48 re
+f
+300 366.72 0.48 0.48 re
+f
+48.72 348.24 0.48 18.48 re
+f
+145.68 348.24 0.48 18.48 re
+f
+227.76 348.24 0.48 18.48 re
+f
+300 348.24 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.054 Tc 0 Tw 54.24 340.56 Td
+(Num_failed_logins)Tj
+0 Tc -0.06 Tw 60.24 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0818 Tc 0.0218 Tw 35.04 0 Td
+(Number of failed )Tj
+-0.068 Tc 0.008 Tw 0 -9.12 TD
+(login attempts)Tj
+0 Tc -0.06 Tw 43.92 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 36.24 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 347.76 0.48 0.48 re
+f
+49.2 347.76 96.48 0.48 re
+f
+145.68 347.76 0.48 0.48 re
+f
+146.16 347.76 81.6 0.48 re
+f
+227.76 347.76 0.48 0.48 re
+f
+228.24 347.76 71.76 0.48 re
+f
+300 347.76 0.48 0.48 re
+f
+48.72 329.28 0.48 18.48 re
+f
+145.68 329.28 0.48 18.48 re
+f
+227.76 329.28 0.48 18.48 re
+f
+300 329.28 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.1047 Tc 0.0447 Tw 54.24 321.6 Td
+(Logged in)Tj
+0 Tc -0.06 Tw 31.44 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0.0287 Tw 63.84 0 Td
+(1 if succe)Tj
+-0.1032 Tc 0.0432 Tw 29.52 0 Td
+(ssfully )Tj
+-0.0762 Tc 0.0962 Tw -29.52 -9.12 Td
+(logged in; 0 )Tj
+-0.1148 Tc 0 Tw T*
+(otherwise)Tj
+0 Tc -0.06 Tw 29.76 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 50.4 18.24 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 328.8 0.48 0.48 re
+f
+49.2 328.8 96.48 0.48 re
+f
+145.68 328.8 0.48 0.48 re
+f
+146.16 328.8 81.6 0.48 re
+f
+227.76 328.8 0.48 0.48 re
+f
+228.24 328.8 71.76 0.48 re
+f
+300 328.8 0.48 0.48 re
+f
+48.72 301.2 0.48 27.6 re
+f
+145.68 301.2 0.48 27.6 re
+f
+227.76 301.2 0.48 27.6 re
+f
+300 301.2 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0824 Tc 0 Tw 54.24 293.52 Td
+(Num_compromised)Tj
+0 Tc -0.06 Tw 61.68 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0789 Tc -0.1011 Tw 33.6 0 Td
+(Number of )Tj
+-0.1522 Tc -0.1478 Tw T*
+(``compromised'' )Tj
+-0.1083 Tc 0 Tw 0 -9.36 TD
+(conditions)Tj
+0 Tc -0.06 Tw 31.92 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 48.24 18.48 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 300.72 0.48 0.48 re
+f
+49.2 300.72 96.48 0.48 re
+f
+145.68 300.72 0.48 0.48 re
+f
+146.16 300.72 81.6 0.48 re
+f
+227.76 300.72 0.48 0.48 re
+f
+228.24 300.72 71.76 0.48 re
+f
+300 300.72 0.48 0.48 re
+f
+48.72 273.12 0.48 27.6 re
+f
+145.68 273.12 0.48 27.6 re
+f
+227.76 273.12 0.48 27.6 re
+f
+300 273.12 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0725 Tc 0 Tw 54.24 265.44 Td
+(Root_shell)Tj
+0 Tc -0.06 Tw 33.6 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc -0.0193 Tw 61.68 0 Td
+(1 if root shell is )Tj
+-0.0837 Tc 0.0237 Tw 0 -9.12 TD
+(obtained; 0 otherwise)Tj
+0 Tc -0.06 Tw 66.48 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 13.68 9.12 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 272.64 0.48 0.48 re
+f
+49.2 272.64 96.48 0.48 re
+f
+145.68 272.64 0.48 0.48 re
+f
+146.16 272.64 81.6 0.48 re
+f
+227.76 272.64 0.48 0.48 re
+f
+228.24 272.64 71.76 0.48 re
+f
+300 272.64 0.48 0.48 re
+f
+48.72 254.16 0.48 18.48 re
+f
+145.68 254.16 0.48 18.48 re
+f
+227.76 254.16 0.48 18.48 re
+f
+300 254.16 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0765 Tc 0 Tw 54.24 246.48 Td
+(SU_attempted)Tj
+0 Tc -0.06 Tw 44.4 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1112 Tc -0.0088 Tw 50.88 0 Td
+(1 if ``su root'' )Tj
+-0.0915 Tc 0.0315 Tw T*
+(command attempted; )Tj
+-0.0913 Tc 0.0313 Tw T*
+(0 otherwise)Tj
+0 Tc -0.06 Tw 35.76 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 44.4 18.24 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 253.68 0.48 0.48 re
+f
+49.2 253.68 96.48 0.48 re
+f
+145.68 253.68 0.48 0.48 re
+f
+146.16 253.68 81.6 0.48 re
+f
+227.76 253.68 0.48 0.48 re
+f
+228.24 253.68 71.76 0.48 re
+f
+300 253.68 0.48 0.48 re
+f
+48.72 226.08 0.48 27.6 re
+f
+145.68 226.08 0.48 27.6 re
+f
+227.76 226.08 0.48 27.6 re
+f
+300 226.08 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0199 Tc 0 Tw 54.24 218.4 Td
+(Num_root)Tj
+0 Tc -0.06 Tw 32.4 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1148 Tc -0.0252 Tw 62.88 0 Td
+(Number of ``root'' )Tj
+-0.1431 Tc 0 Tw T*
+(accesses)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 54.48 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 225.6 0.48 0.48 re
+f
+49.2 225.6 96.48 0.48 re
+f
+145.68 225.6 0.48 0.48 re
+f
+146.16 225.6 81.6 0.48 re
+f
+227.76 225.6 0.48 0.48 re
+f
+228.24 225.6 71.76 0.48 re
+f
+300 225.6 0.48 0.48 re
+f
+48.72 207.12 0.48 18.48 re
+f
+145.68 207.12 0.48 18.48 re
+f
+227.76 207.12 0.48 18.48 re
+f
+300 207.12 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0549 Tc 0 Tw 54.24 199.44 Td
+(Num_file_creations)Tj
+0 Tc -0.06 Tw 61.92 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0924 Tc 0.0324 Tw 33.36 0 Td
+(Number of file )Tj
+-0.0769 Tc 0.0169 Tw T*
+(creation operations)Tj
+0 Tc -0.06 Tw 59.04 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 21.12 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 206.64 0.48 0.48 re
+f
+49.2 206.64 96.48 0.48 re
+f
+145.68 206.64 0.48 0.48 re
+f
+146.16 206.64 81.6 0.48 re
+f
+227.76 206.64 0.48 0.48 re
+f
+228.24 206.64 71.76 0.48 re
+f
+300 206.64 0.48 0.48 re
+f
+48.72 188.4 0.48 18.24 re
+f
+145.68 188.4 0.48 18.24 re
+f
+227.76 188.4 0.48 18.24 re
+f
+300 188.4 0.48 18.24 re
+f
+BT
+/TT0 7.92 Tf
+-0.0402 Tc 0 Tw 54.24 180.72 Td
+(Num_shells)Tj
+0 Tc -0.06 Tw 37.2 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0917 Tc 0.0317 Tw 58.08 0 Td
+(Number of shell )Tj
+-0.0745 Tc 0 Tw 0 -9.36 TD
+(prompts)Tj
+0 Tc -0.06 Tw 25.2 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 54.96 9.36 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 187.92 0.48 0.48 re
+f
+49.2 187.92 96.48 0.48 re
+f
+145.68 187.92 0.48 0.48 re
+f
+146.16 187.92 81.6 0.48 re
+f
+227.76 187.92 0.48 0.48 re
+f
+228.24 187.92 71.76 0.48 re
+f
+300 187.92 0.48 0.48 re
+f
+48.72 169.44 0.48 18.48 re
+f
+145.68 169.44 0.48 18.48 re
+f
+227.76 169.44 0.48 18.48 re
+f
+300 169.44 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0766 Tc 0 Tw 54.24 161.76 Td
+(Num_access_files)Tj
+0 Tc -0.06 Tw 56.4 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0814 Tc -0.0586 Tw 38.88 0 Td
+(Number of operations )Tj
+-0.1083 Tc 0.0483 Tw 0 -9.12 TD
+(on access control )Tj
+-0.1356 Tc 0 Tw 0 -9.36 TD
+(files)Tj
+0 Tc -0.06 Tw 12.96 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0441 Tc 0 Tw 67.2 18.48 Td
+(continuous)Tj
+0 Tc -0.06 Tw 34.08 0 Td
+( )Tj
+ET
+48.72 168.96 0.48 0.48 re
+f
+49.2 168.96 96.48 0.48 re
+f
+145.68 168.96 0.48 0.48 re
+f
+146.16 168.96 81.6 0.48 re
+f
+227.76 168.96 0.48 0.48 re
+f
+228.24 168.96 71.76 0.48 re
+f
+300 168.96 0.48 0.48 re
+f
+48.72 141.36 0.48 27.6 re
+f
+145.68 141.36 0.48 27.6 re
+f
+227.76 141.36 0.48 27.6 re
+f
+300 141.36 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0471 Tc 0 Tw 54.24 133.68 Td
+(Num_outbound_cmds)Tj
+0 Tc -0.06 Tw 69.6 0 Td
+( )Tj
+-0.03 Tc 0 Tw 27.6 0 Td
+(Numb)Tj
+-0.0761 Tc 0.0161 Tw 19.68 0 Td
+(er of outbound )Tj
+-0.1036 Tc 0.0436 Tw -19.68 -9.12 Td
+(commands in an ftp )Tj
+-0.1487 Tc 0 Tw T*
+(session)Tj
+0 Tc -0.06 Tw 21.84 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 58.32 18.48 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+48.72 140.88 0.48 0.48 re
+f
+49.2 140.88 96.48 0.48 re
+f
+145.68 140.88 0.48 0.48 re
+f
+146.16 140.88 81.6 0.48 re
+f
+227.76 140.88 0.48 0.48 re
+f
+228.24 140.88 71.76 0.48 re
+f
+300 140.88 0.48 0.48 re
+f
+48.72 113.28 0.48 27.6 re
+f
+145.68 113.28 0.48 27.6 re
+f
+227.76 113.28 0.48 27.6 re
+f
+300 113.28 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.057 Tc 0 Tw 54.24 105.6 Td
+(Is_hot_login)Tj
+0 Tc -0.06 Tw 39.36 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1 Tc -0.008 Tw 55.92 0 Td
+(1 if the login belongs )Tj
+-0.1075 Tc 0.0955 Tw 0 -9.12 TD
+(to the ``hot'' list; 0 )Tj
+-0.1148 Tc 0 Tw 0 -9.36 TD
+(otherwise)Tj
+0 Tc -0.06 Tw 29.76 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 50.4 18.48 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 112.8 0.48 0.48 re
+f
+49.2 112.8 96.48 0.48 re
+f
+145.68 112.8 0.48 0.48 re
+f
+146.16 112.8 81.6 0.48 re
+f
+227.76 112.8 0.48 0.48 re
+f
+228.24 112.8 71.76 0.48 re
+f
+300 112.8 0.48 0.48 re
+f
+48.72 85.2 0.48 27.6 re
+f
+145.68 85.2 0.48 27.6 re
+f
+227.76 85.2 0.48 27.6 re
+f
+300 85.2 0.48 27.6 re
+f
+BT
+/TT0 7.92 Tf
+-0.0572 Tc 0 Tw 54.24 77.52 Td
+(Is_guest_login)Tj
+0 Tc -0.06 Tw 45.84 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0771 Tc 0.0571 Tw 49.44 0 Td
+(1 if the login is a )Tj
+-0.0824 Tc 0.1024 Tw T*
+(``guest\222 login; 0 )Tj
+-0.1148 Tc 0 Tw 0 -9.12 TD
+(otherwise)Tj
+0 Tc -0.06 Tw 29.76 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0887 Tc 0 Tw 50.4 18.48 Td
+(Discrete)Tj
+0 Tc -0.06 Tw 25.68 0 Td
+( )Tj
+ET
+48.72 84.72 0.48 0.48 re
+f
+49.2 84.72 96.48 0.48 re
+f
+145.68 84.72 0.48 0.48 re
+f
+146.16 84.72 81.6 0.48 re
+f
+227.76 84.72 0.48 0.48 re
+f
+228.24 84.72 71.76 0.48 re
+f
+300 84.72 0.48 0.48 re
+f
+48.72 57.12 0.48 27.6 re
+f
+48.72 56.64 0.48 0.48 re
+f
+48.72 56.64 0.48 0.48 re
+f
+49.2 56.64 96.48 0.48 re
+f
+145.68 57.12 0.48 27.6 re
+f
+145.68 56.64 0.48 0.48 re
+f
+146.16 56.64 81.6 0.48 re
+f
+227.76 57.12 0.48 27.6 re
+f
+227.76 56.64 0.48 0.48 re
+f
+228.24 56.64 71.76 0.48 re
+f
+300 57.12 0.48 27.6 re
+f
+300 56.64 0.48 0.48 re
+f
+300 56.64 0.48 0.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0329 Tc 0 Tw 317.04 712.32 Td
+(Count)Tj
+0 Tc -0.06 Tw 19.2 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0789 Tc -0.1011 Tw 76.08 0 Td
+(Number of )Tj
+-0.1146 Tc 0.0546 Tw T*
+(connections to the )Tj
+-0.1448 Tc 0.0848 Tw 0 -9.36 TD
+(same host)Tj
+-0.0871 Tc 0.0271 Tw 30.48 0 Td
+( as the )Tj
+-0.0876 Tc 0.0276 Tw -30.48 -9.12 Td
+(current connection in )Tj
+-0.1195 Tc 0.0595 Tw 0 -9.12 TD
+(the past two seconds)Tj
+0 Tc -0.06 Tw 63.12 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 17.04 36.72 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 719.52 0.48 0.48 re
+f
+311.52 719.52 0.48 0.48 re
+f
+312 719.52 96.48 0.48 re
+f
+408.48 719.52 0.48 0.48 re
+f
+408.96 719.52 81.6 0.48 re
+f
+490.56 719.52 0.48 0.48 re
+f
+491.04 719.52 71.76 0.48 re
+f
+562.8 719.52 0.48 0.48 re
+f
+562.8 719.52 0.48 0.48 re
+f
+311.52 673.44 0.48 46.08 re
+f
+408.48 673.44 0.48 46.08 re
+f
+490.56 673.44 0.48 46.08 re
+f
+562.8 673.44 0.48 46.08 re
+f
+BT
+/TT0 7.92 Tf
+-0.0313 Tc 0 Tw 317.04 665.76 Td
+(Serror_rate)Tj
+0 Tc -0.06 Tw 35.28 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw 60 0 Td
+(% Of connections that )Tj
+-0.0864 Tc 0.0264 Tw T*
+(have ``SYN'' errors)Tj
+0 Tc -0.06 Tw 59.52 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 20.64 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 672.96 0.48 0.48 re
+f
+312 672.96 96.48 0.48 re
+f
+408.48 672.96 0.48 0.48 re
+f
+408.96 672.96 81.6 0.48 re
+f
+490.56 672.96 0.48 0.48 re
+f
+491.04 672.96 71.76 0.48 re
+f
+562.8 672.96 0.48 0.48 re
+f
+311.52 654.72 0.48 18.24 re
+f
+408.48 654.72 0.48 18.24 re
+f
+490.56 654.72 0.48 18.24 re
+f
+562.8 654.72 0.48 18.24 re
+f
+BT
+/TT0 7.92 Tf
+-0.0239 Tc 0 Tw 317.04 647.04 Td
+(Rerror_rate)Tj
+0 Tc -0.06 Tw 36.24 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw 59.04 0 Td
+(% Of connections that )Tj
+-0.0865 Tc 0.0265 Tw 0 -9.36 TD
+(have ``REJ'' errors)Tj
+0 Tc -0.06 Tw 56.88 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 23.28 9.36 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 654.24 0.48 0.48 re
+f
+312 654.24 96.48 0.48 re
+f
+408.48 654.24 0.48 0.48 re
+f
+408.96 654.24 81.6 0.48 re
+f
+490.56 654.24 0.48 0.48 re
+f
+491.04 654.24 71.76 0.48 re
+f
+562.8 654.24 0.48 0.48 re
+f
+311.52 635.76 0.48 18.48 re
+f
+408.48 635.76 0.48 18.48 re
+f
+490.56 635.76 0.48 18.48 re
+f
+562.8 635.76 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0391 Tc 0 Tw 317.04 628.08 Td
+(Same_srv_rate)Tj
+0 Tc -0.06 Tw 46.56 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1143 Tc 0.0543 Tw 48.72 0 Td
+(% Of connections to )Tj
+-0.1131 Tc 0.0531 Tw T*
+(the same service)Tj
+0 Tc -0.06 Tw 50.64 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0809 Tc 0 Tw 29.52 9.36 Td
+(Con)Tj
+-0.0063 Tc 12.96 0 Td
+(tinuous)Tj
+0 Tc -0.06 Tw 23.04 0 Td
+( )Tj
+ET
+311.52 635.28 0.48 0.48 re
+f
+312 635.28 96.48 0.48 re
+f
+408.48 635.28 0.48 0.48 re
+f
+408.96 635.28 81.6 0.48 re
+f
+490.56 635.28 0.48 0.48 re
+f
+491.04 635.28 71.76 0.48 re
+f
+562.8 635.28 0.48 0.48 re
+f
+311.52 616.8 0.48 18.48 re
+f
+408.48 616.8 0.48 18.48 re
+f
+490.56 616.8 0.48 18.48 re
+f
+562.8 616.8 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0512 Tc 0 Tw 317.04 609.12 Td
+(Diff_srv_rate)Tj
+0 Tc -0.06 Tw 42 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1143 Tc 0.0543 Tw 53.28 0 Td
+(% Of connections to )Tj
+-0.1258 Tc 0.0658 Tw 0 -9.12 TD
+(different services)Tj
+0 Tc -0.06 Tw 52.56 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 27.6 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 616.32 0.48 0.48 re
+f
+312 616.32 96.48 0.48 re
+f
+408.48 616.32 0.48 0.48 re
+f
+408.96 616.32 81.6 0.48 re
+f
+490.56 616.32 0.48 0.48 re
+f
+491.04 616.32 71.76 0.48 re
+f
+562.8 616.32 0.48 0.48 re
+f
+311.52 597.84 0.48 18.48 re
+f
+408.48 597.84 0.48 18.48 re
+f
+490.56 597.84 0.48 18.48 re
+f
+562.8 597.84 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0443 Tc 0 Tw 317.04 590.16 Td
+(Srv_count)Tj
+0 Tc -0.06 Tw 32.16 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0789 Tc -0.1011 Tw 63.12 0 Td
+(Number of )Tj
+-0.1146 Tc 0.0546 Tw T*
+(connections to the )Tj
+-0.1063 Tc 0.0463 Tw T*
+(same service as the )Tj
+-0.0876 Tc 0.0276 Tw 0 -9.36 TD
+(current connection in )Tj
+-0.1195 Tc 0.0595 Tw 0 -9.12 TD
+(the past two seconds)Tj
+0 Tc -0.06 Tw 63.12 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 17.04 36.72 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 597.36 0.48 0.48 re
+f
+312 597.36 96.48 0.48 re
+f
+408.48 597.36 0.48 0.48 re
+f
+408.96 597.36 81.6 0.48 re
+f
+490.56 597.36 0.48 0.48 re
+f
+491.04 597.36 71.76 0.48 re
+f
+562.8 597.36 0.48 0.48 re
+f
+311.52 551.52 0.48 45.84 re
+f
+408.48 551.52 0.48 45.84 re
+f
+490.56 551.52 0.48 45.84 re
+f
+562.8 551.52 0.48 45.84 re
+f
+BT
+/TT0 7.92 Tf
+-0.0362 Tc 0 Tw 317.04 543.84 Td
+(Srv_serror_rate)Tj
+0 Tc -0.06 Tw 48.72 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw 46.56 0 Td
+(% Of connections that )Tj
+-0.0864 Tc 0.0264 Tw 0 -9.36 TD
+(have ``SYN'' errors)Tj
+0 Tc -0.06 Tw 59.52 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0711 Tc 0 Tw 20.64 9.36 Td
+(Cont)Tj
+0 Tc 15.12 0 Td
+(inuous)Tj
+-0.06 Tw 20.88 0 Td
+( )Tj
+ET
+311.52 551.04 0.48 0.48 re
+f
+312 551.04 96.48 0.48 re
+f
+408.48 551.04 0.48 0.48 re
+f
+408.96 551.04 81.6 0.48 re
+f
+490.56 551.04 0.48 0.48 re
+f
+491.04 551.04 71.76 0.48 re
+f
+562.8 551.04 0.48 0.48 re
+f
+311.52 532.56 0.48 18.48 re
+f
+408.48 532.56 0.48 18.48 re
+f
+490.56 532.56 0.48 18.48 re
+f
+562.8 532.56 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0226 Tc 0 Tw 317.04 524.88 Td
+(Srv_rerror_rate)Tj
+0 Tc -0.06 Tw 48.48 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0993 Tc 0.0393 Tw 46.8 0 Td
+(% Of connections that )Tj
+-0.0865 Tc 0.0265 Tw T*
+(have ``REJ'' errors)Tj
+0 Tc -0.06 Tw 56.88 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 23.28 9.36 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+ET
+311.52 532.08 0.48 0.48 re
+f
+312 532.08 96.48 0.48 re
+f
+408.48 532.08 0.48 0.48 re
+f
+408.96 532.08 81.6 0.48 re
+f
+490.56 532.08 0.48 0.48 re
+f
+491.04 532.08 71.76 0.48 re
+f
+562.8 532.08 0.48 0.48 re
+f
+311.52 513.6 0.48 18.48 re
+f
+408.48 513.6 0.48 18.48 re
+f
+490.56 513.6 0.48 18.48 re
+f
+562.8 513.6 0.48 18.48 re
+f
+BT
+/TT0 7.92 Tf
+-0.0596 Tc 0 Tw 317.04 505.92 Td
+(Srv_diff_host_rate)Tj
+0 Tc -0.06 Tw 58.32 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.1143 Tc 0.0543 Tw 36.96 0 Td
+(% Of connections to )Tj
+-0.1109 Tc 0.0509 Tw 0 -9.12 TD
+(different hosts)Tj
+0 Tc -0.06 Tw 43.68 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+-0.0287 Tc 0 Tw 36.48 9.12 Td
+(Continuous)Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+1.92 0 Td
+( )Tj
+ET
+311.52 513.12 0.48 0.48 re
+f
+312 513.12 96.48 0.48 re
+f
+408.48 513.12 0.48 0.48 re
+f
+408.96 513.12 81.6 0.48 re
+f
+490.56 513.12 0.48 0.48 re
+f
+491.04 513.12 71.76 0.48 re
+f
+562.8 513.12 0.48 0.48 re
+f
+311.52 494.64 0.48 18.48 re
+f
+311.52 494.16 0.48 0.48 re
+f
+311.52 494.16 0.48 0.48 re
+f
+312 494.16 96.48 0.48 re
+f
+408.48 494.64 0.48 18.48 re
+f
+408.48 494.16 0.48 0.48 re
+f
+408.96 494.16 81.6 0.48 re
+f
+490.56 494.64 0.48 18.48 re
+f
+490.56 494.16 0.48 0.48 re
+f
+491.04 494.16 71.76 0.48 re
+f
+562.8 494.64 0.48 18.48 re
+f
+562.8 494.16 0.48 0.48 re
+f
+562.8 494.16 0.48 0.48 re
+f
+BT
+/TT0 10.08 Tf
+0.12 Tw 313.2 485.28 Td
+( )Tj
+/TT2 10.08 Tf
+-0.0369 Tc 0.1569 Tw 47.76 -24 Td
+(IV. SVM Intusion Detection System)Tj
+0 Tc 0.12 Tw 152.88 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0658 Tc 4.0258 Tw -200.64 -24.96 Td
+(The construction of an SVM intrusion detection system)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0313 Tc 0.1513 Tw 0 -11.52 TD
+(consists of three)Tj
+-0.0222 Tc 0.1422 Tw 65.28 0 Td
+( phases:)Tj
+0 Tc 0.12 Tw 32.4 0 Td
+( )Tj
+0 Tw -87.6 -11.52 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+-0.0009 Tc 0.0867 Tw 5.04 0 Td
+(Preprocessing: using automated parsers to process the )Tj
+-0.0017 Tc 0.0917 Tw T*
+(randomly selected raw TCP/IP dump data in to )Tj
+0.127 Tc 0 Tw T*
+(machine)Tj
+0.0034 Tc 34.56 0 Td
+(-)Tj
+-0.0074 Tc 0.1274 Tw 3.36 0 Td
+(readable form.)Tj
+0 Tc 0.12 Tw 58.8 0 Td
+( )Tj
+0 Tw -106.8 -11.28 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+0.0324 Tc 0.0876 Tw 5.04 0 Td
+(Training: in this process SVM is trained on different )Tj
+-0.1289 Tc 0.2489 Tw T*
+(types of a)Tj
+0.0778 Tc 0 Tw 38.4 0 Td
+(t)Tj
+0.045 Tc 0.075 Tw 2.88 0 Td
+(tacks and normal data. The data have 41 )Tj
+0.0183 Tc 0.1017 Tw -41.28 -11.52 Td
+(input features a)Tj
+0.0055 Tc 0.1145 Tw 62.64 0 Td
+(nd fall into two classes: normal \(+1\) )Tj
+0.0497 Tc 0.0703 Tw -62.64 -11.52 Td
+(and attack \()Tj
+0.0034 Tc 0 Tw 47.76 0 Td
+(-)Tj
+0.0411 Tc 3.36 0 Td
+(1\).)Tj
+0 Tc 0.12 Tw 11.04 0 Td
+( )Tj
+0 Tw -72.24 -11.52 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+0.0242 Tc 0.0958 Tw 5.04 0 Td
+(Testing: measure the performance on testing data.)Tj
+0 Tc 0.12 Tw 203.04 0 Td
+( )Tj
+-223.2 -11.52 Td
+( )Tj
+/TT1 10.08 Tf
+0.0267 Tc 0.0933 Tw 0 -11.76 TD
+(A. Support Vector Machines)Tj
+0 Tc 0.12 Tw 114.96 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0525 Tc 0.7125 Tw -104.88 -25.2 Td
+(Support vector machines, or SVMs, are learning machines )Tj
+-0.0266 Tc 3.1866 Tw -10.08 -11.52 Td
+(that plot the trai)Tj
+0 Tc 0 Tw 73.2 0 Td
+(n)Tj
+-0.0499 Tc 3.2099 Tw 5.28 0 Td
+(ing vectors in high)Tj
+0.0034 Tc 0 Tw 84.48 0 Td
+(-)Tj
+-0.0524 Tc 3.2924 Tw 3.36 0 Td
+(dimensional feature)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0713 Tc 0 Tw -166.32 -11.52 Td
+(space,)Tj
+-0.0863 Tc 3.2997 Tw 24.72 0 Td
+( labeling each vector by its class. SVMs view the)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0444 Tc 2.0044 Tw -24.72 -11.52 Td
+(classification problem as a quadratic optimization pro)Tj
+0 Tc 0 Tw 225.84 0 Td
+(b)Tj
+0.03 Tc -0.15 Tw 4.8 0 Td
+(lem. )Tj
+-0.0459 Tc 3.2516 Tw -230.64 -11.52 Td
+(They combine generalization control with a technique to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0673 Tc 3.3073 Tw 0 -11.52 TD
+(avoid the \223curse of dimensionality\224 by placing an upper)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0365 Tc 0.5565 Tw T*
+(bound on the margin between the di)Tj
+-0.0461 Tc 0.4661 Tw 147.12 0 Td
+(fferent classes, making it )Tj
+-0.0302 Tc 3.4568 Tw -147.12 -11.52 Td
+(a practical tool for large and dynamic data sets. SVMs)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0612 Tc 1.3812 Tw 0 -11.28 TD
+(classify data by determining a set of support vectors, which)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.026 Tc 0.526 Tw 0 -11.52 TD
+(are members of the set of training inputs that outline a hyper )Tj
+0.0101 Tc 0.1099 Tw 0 -11.76 TD
+(plane in feature space [12].)Tj
+0 Tc 0.12 Tw 110.16 0 Td
+( )Tj
+-0.0787 Tc 4.5187 Tw -100.08 -25.44 Td
+(The SVMs are based on)Tj
+-0.0304 Tc 4.4224 Tw 113.76 0 Td
+( the idea of structural risk)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0517 Tc 1.4917 Tw -123.84 -11.28 Td
+(minimization, which min)Tj
+0.0778 Tc 0 Tw 103.68 0 Td
+(i)Tj
+-0.05 Tc 1.55 Tw 2.88 0 Td
+(mizes the generalization error, i.e.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0677 Tc 5.8877 Tw -106.56 -11.52 Td
+(true error on unseen examples. The number of free)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0509 Tc 2.3042 Tw 0 -11.52 TD
+(parameters used in the SVMs depends on the margin that)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0586 Tc 2.7706 Tw T*
+(separates the data points but not on the number of input)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0575 Tc 0 Tw T*
+(feat)Tj
+-0.0263 Tc 0.2773 Tw 14.88 0 Td
+(ures, thus SVMs do not require a reduction in the number )Tj
+-0.0467 Tc 2.5134 Tw -14.88 -11.52 Td
+(of features in order to avoid overfitting. SVMs provide a)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0396 Tc 0.3196 Tw T*
+(generic mechanism to fit the surface of the hyper plane to the )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 0 0 RG
+0 i 0 w 10 M 0 j 0 J []0 d 
+/RelativeColorimetric ri
+/TT3 1 Tf
+0 Tc 0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj55 0 obj28588 endobj56 1 obj<< /Title (WCCI CD-ROM Help)/Parent 10 3 R /Prev 53 1 R /Next 64 1 R /A 57 1 R >> endobj57 1 obj<< /S /Launch /F 61 1 R >> endobj58 0 obj<< /Length 59 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 10.08 Tf
+-0.046 Tc 2.782 Tw 50.4 711.12 Td
+(data through the use of a kernel function. The user may)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0604 Tc 1.3804 Tw 0 -11.52 TD
+(provide a function, su)Tj
+-0.0646 Tc 1.3047 Tw 90.72 0 Td
+(ch as a linear, polynomial, or sigmoid)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0327 Tc 0.3584 Tw -90.72 -11.52 Td
+(curve, to the SVMs during the training pro)Tj
+0.0845 Tc 0 Tw 172.56 0 Td
+(c)Tj
+-0.0367 Tc 0.2367 Tw 4.32 0 Td
+(ess, which selects )Tj
+-0.0652 Tc 3.9652 Tw -176.88 -11.52 Td
+(support vectors along the surface of this function. This)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0648 Tc 0 Tw T*
+(capabi)Tj
+0.0778 Tc 26.16 0 Td
+(l)Tj
+-0.0491 Tc 2.5006 Tw 2.88 0 Td
+(ity allows classifying a broader range of problems.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0525 Tc 1.1325 Tw -29.04 -11.52 Td
+(The primary advantage of SVMs is binary)Tj
+-0.0322 Tc 0.7122 Tw 174.24 0 Td
+( classification and )Tj
+-0.0314 Tc 2.0181 Tw -174.24 -11.28 Td
+(regression that they provide to a classifier with a minimal)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0406 Tc 0 Tw T*
+(VC)Tj
+0.0034 Tc 13.92 0 Td
+(-)Tj
+-0.0471 Tc 1.2871 Tw 3.36 0 Td
+(dimension [12], which implies low expected probability)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0418 Tc 4.7218 Tw -17.28 -11.52 Td
+(of generaliz)Tj
+0.0845 Tc 0 Tw 52.32 0 Td
+(a)Tj
+-0.0335 Tc 4.6449 Tw 4.32 0 Td
+(tion errors. In our case all intrusions are)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0297 Tc 0.523 Tw -56.64 -11.52 Td
+(classified as +1, and normal data are classified as )Tj
+0 Tc 0 Tw 204.96 0 Td
+(\226)Tj
+0.0459 Tc 0.5541 Tw 5.04 0 Td
+(1. All t)Tj
+-0.0778 Tc 0.1978 Tw 29.04 0 Td
+(he )Tj
+-0.0481 Tc 0.1681 Tw -239.04 -11.52 Td
+(SVMs experiments described below use the freeware package )Tj
+0.0274 Tc 0.0926 Tw 0 -11.76 TD
+(SVM light [13].)Tj
+0 Tc 0.12 Tw 65.28 0 Td
+( )Tj
+-0.0425 Tc 0.0665 Tw -55.2 -25.2 Td
+(There are two main reasons that we experiment with SVMs )Tj
+-0.0194 Tc 3.4994 Tw -10.08 -11.52 Td
+(for intrusion dete)Tj
+0.0845 Tc 0 Tw 75.84 0 Td
+(c)Tj
+-0.0097 Tc 3.4211 Tw 4.32 0 Td
+(tion.  The first is speed: as real)Tj
+0.0034 Tc 0 Tw 147.36 0 Td
+(-)Tj
+-0.0406 Tc 0.1606 Tw 3.12 0 Td
+(time )Tj
+-0.0469 Tc 1.3669 Tw -230.64 -11.52 Td
+(performance is of primary importance to intrusion detection)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.1411 Tc 0 Tw 0 -11.52 TD
+(syst)Tj
+-0.0461 Tc 3.4918 Tw 15.36 0 Td
+(ems, any classifier that can potentially outrun neural)Tj
+0 Tc 0.12 Tw ( )Tj
+0.2822 Tc 0 Tw -15.36 -11.52 Td
+(ne)Tj
+0.0778 Tc 9.6 0 Td
+(t)Tj
+-0.0509 Tc 5.6566 Tw 2.88 0 Td
+(works is worth considering. The second reason is)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0524 Tc 0.9724 Tw -12.48 -11.52 Td
+(scalability: SVMs are relatively insensitive to the number of )Tj
+-0.0689 Tc 0.5889 Tw T*
+(data points and the classification complexity does not depend )Tj
+-0.0686 Tc 1.3886 Tw T*
+(on the dimensionality of)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0549 Tc 1.3749 Tw 104.64 0 Td
+(the feature space [14], so they can)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0404 Tc 0.9804 Tw -104.64 -11.52 Td
+(potentially learn a larger set of patterns and be able to scale )Tj
+0.0191 Tc 1.1409 Tw 0 -11.28 TD
+(better than neural ne)Tj
+0.0778 Tc 0 Tw 85.92 0 Td
+(t)Tj
+-0.0441 Tc 1.3641 Tw 2.88 0 Td
+(works. Once the data is classified into)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0595 Tc 1.8595 Tw -88.8 -11.52 Td
+(two classes, a suitable optimizing algorithm can be used if)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0674 Tc 0.9674 Tw 0 -11.52 TD
+(necessary for further feature iden)Tj
+-0.0428 Tc 0.7028 Tw 136.08 0 Td
+(tification, depending on the )Tj
+0.0282 Tc 0.0918 Tw -136.08 -11.76 Td
+(application [14].)Tj
+0 Tc 0.12 Tw 67.2 0 Td
+( )Tj
+-67.2 -25.2 Td
+( )Tj
+/TT1 10.08 Tf
+0.0194 Tc 0.1006 Tw 0 -11.76 TD
+(B. The development of SVM IDS)Tj
+0 Tc 0.12 Tw 131.52 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0355 Tc 1.5421 Tw -121.44 -25.44 Td
+(The data is first partitioned into two classes: normal and)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0593 Tc 2.2793 Tw -10.08 -11.52 Td
+(attack, where attack represents a collection of 22 different)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0569 Tc 0.6269 Tw 0 -11.28 TD
+(attacks belonging to the four classes described in section)Tj
+-0.06 Tc 0.3 Tw 230.4 0 Td
+( 3.1. )Tj
+-0.0276 Tc 2.2276 Tw -230.4 -11.52 Td
+(The objective is to separate normal \(1\) and intrusive )Tj
+2.1634 Tc 0 Tw (\()Tj
+0 Tc 234.96 0 Td
+(\226)Tj
+0.0017 Tc 0.1183 Tw 5.04 0 Td
+(1\) )Tj
+0.0407 Tc 0 Tw -240 -11.76 Td
+(patterns.)Tj
+0 Tc 0.12 Tw 35.04 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0221 Tc 3.9821 Tw -24.96 -25.44 Td
+(1\) Training:)Tj
+/TT0 10.08 Tf
+0 Tc 0.12 Tw 53.04 0 Td
+( )Tj
+-0.0551 Tc 3.8551 Tw 6.24 0 Td
+(The SVMs are trained with normal and)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0604 Tc 2.8204 Tw -69.36 -11.28 Td
+(intrusive data. Our processed data consists of 14292 data)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0554 Tc 2.9754 Tw 0 -11.52 TD
+(points: 7312 for training, 6980 for testing. Each point is)Tj
+0 Tc -0.12 Tw ( )Tj
+0.0141 Tc 3.2259 Tw T*
+(located in the)Tj
+3.12 Tc -0.12 Tw 60.48 0 Td
+( n)Tj
+0.0034 Tc 0 Tw 10.56 0 Td
+(-)Tj
+-0.0477 Tc 3.2877 Tw 3.36 0 Td
+(dimensional space, with each dimension)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0441 Tc 2.9961 Tw -74.4 -11.52 Td
+(corresponding to a feature of the data point. We used a)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0641 Tc 1.6241 Tw T*
+(training set of 7312 data points with 41 features [16]. Data)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0331 Tc 0.4997 Tw T*
+(points contain actual attacks and normal usage patterns. Data )Tj
+-0.0298 Tc 3.7018 Tw T*
+(points are used for training using)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0563 Tc 3.7763 Tw 156.72 0 Td
+(the RBF \(radial bias)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0615 Tc 3.2115 Tw -156.72 -11.52 Td
+(function\) kernel option; an important point of the kernel)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0223 Tc 2.6623 Tw T*
+(function is that it defines the fe)Tj
+0.0845 Tc 0 Tw 140.64 0 Td
+(a)Tj
+-0.0409 Tc 2.8009 Tw 4.56 0 Td
+(ture space in which the)Tj
+0 Tc 0.12 Tw ( )Tj
+0.1204 Tw -145.2 -11.76 Td
+(training set examples will be classified [13].)Tj
+0.12 Tw 179.04 0 Td
+( )Tj
+-0.0358 Tc 4.3958 Tw -168.96 -25.2 Td
+(During the training process the default regularization)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0444 Tc 0.4044 Tw -10.08 -11.52 Td
+(parameter is set)Tj
+-0.0477 Tc 0.3357 Tw 63.6 0 Td
+( to c = 1000, with optimization done for 2733 )Tj
+-0.046 Tc 1.3127 Tw -63.6 -11.52 Td
+(iterations. During training only 6 data points from the 7312)Tj
+0 Tc 0.12 Tw 248.4 0 Td
+( )Tj
+-0.0554 Tc 2.0654 Tw -248.4 -11.52 Td
+(training set are misclassified. A difference of 0.00072 was)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0775 Tc 3.5042 Tw T*
+(achieved with the CPU run time of 17.77 seconds. The)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0554 Tc 1.1354 Tw 0 -11.28 TD
+(number of support vectors used in th)Tj
+-0.0705 Tc 1.2305 Tw 153.12 0 Td
+(e training process were)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0332 Tc 0.5132 Tw -153.12 -11.52 Td
+(204, including 29 at the upper bound.  Linear loss during the )Tj
+-0.0549 Tc 3.9463 Tw 0 -11.52 TD
+(process was 17.78295. The normalization of the weight)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.1978 Tc 0 Tw 262.8 644.88 Td
+(ve)Tj
+0.0845 Tc 9.36 0 Td
+(c)Tj
+-0.0386 Tc 5.8843 Tw 4.32 0 Td
+(tor \(w\) during the training process is 126.10847;)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0279 Tc 2.0679 Tw -13.68 -11.52 Td
+(normalization of the longest exa)Tj
+0.0778 Tc 0 Tw 137.04 0 Td
+(m)Tj
+-0.0488 Tc 2.0888 Tw 7.92 0 Td
+(ple vector \(x\) is 1.0000.)Tj
+0 Tc -0.12 Tw (  )Tj
+0.1352 Tc 0 Tw -144.96 -11.52 Td
+(The)Tj
+-0.0581 Tc 0.7647 Tw 15.6 0 Td
+( number of kernel evaluations is 3148450. The estimated )Tj
+-0.0406 Tc 0 Tw -15.6 -11.52 Td
+(VC)Tj
+0.0034 Tc 13.92 0 Td
+(-)Tj
+-0.0516 Tc 1.6116 Tw 3.36 0 Td
+(dimension [12] of the class)Tj
+0.0778 Tc 0 Tw 114.24 0 Td
+(i)Tj
+-0.0758 Tc 1.6358 Tw 2.88 0 Td
+(fier is less than or equal to)Tj
+0 Tc 0.12 Tw ( )Tj
+0.02 Tc 0 Tw -134.4 -11.76 Td
+(31807.69124.)Tj
+0 Tc 0.12 Tw 55.68 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0159 Tc 1.5759 Tw -45.6 -25.2 Td
+(2\) Testing:)Tj
+/TT0 10.08 Tf
+-0.0794 Tc 1.6394 Tw 45.12 0 Td
+( We apply SVMs to a set of intrusion data as)Tj
+0 Tc -0.36 Tw ( )Tj
+-0.059 Tc 0.8251 Tw -55.2 -11.52 Td
+(described in Section 3 above.  In our case we use the SVMs )Tj
+-0.0865 Tc 1.8865 Tw T*
+(to differen)Tj
+-0.0397 Tc 1.6397 Tw 43.68 0 Td
+(tiate intrusions and normal activities. The tes)Tj
+0.0778 Tc 0 Tw 189.12 0 Td
+(t)Tj
+-0.0541 Tc 0.1741 Tw 2.88 0 Td
+(ing )Tj
+-0.0522 Tc 0.7962 Tw -235.68 -11.52 Td
+(set, consisting of 6980 data points with 41 features, received )Tj
+-0.0416 Tc 2.7296 Tw T*
+(99.50% accuracy, with a total runtime of 1.63 sec.  The)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.2383 Tc 0 Tw T*
+(fo)Tj
+0.0778 Tc 7.92 0 Td
+(l)Tj
+0.0018 Tc 0.1182 Tw 2.88 0 Td
+(lowing graph shows the results.)Tj
+0 Tc 0.12 Tw 128.16 0 Td
+( )Tj
+ET
+1 1 1 rg
+317.52 424.8 240 136.32 re
+f
+0 0 0 RG
+0.24 w 10 M 1 j 1 J []0 d 
+317.28 424.8 240.24 136.56 re
+S
+0.7529 0.7529 0.7529 rg
+358.08 528.48 m
+551.76 528.48 l
+551.76 463.2 l
+358.08 463.2 l
+358.08 528.48 l
+h
+f*
+q
+358.08 475.92 193.68 0.24 re
+h
+W n
+358.08 476.16 m
+551.76 476.16 l
+S
+Q 
+q
+358.08 489.12 193.68 0.24 re
+h
+W n
+358.08 489.36 m
+551.76 489.36 l
+S
+Q 
+q
+358.08 502.08 193.68 0.24 re
+h
+W n
+358.08 502.32 m
+551.76 502.32 l
+S
+Q 
+q
+358.08 515.04 193.68 0.24 re
+h
+W n
+358.08 515.28 m
+551.76 515.28 l
+S
+Q 
+q
+358.08 528.24 193.68 0.24 re
+h
+W n
+358.08 528.48 m
+551.76 528.48 l
+S
+Q 
+q
+347.28 517.44 214.32 21.84 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+358.08 528.48 m
+551.76 528.48 l
+S
+Q 
+q
+540.96 452.16 20.64 87.12 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+551.76 528.48 m
+551.76 463.2 l
+S
+Q 
+q
+347.28 452.16 214.32 21.84 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+551.76 463.2 m
+358.08 463.2 l
+S
+Q 
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+358.08 463.2 m
+358.08 528.48 l
+S
+0 0 0 RG
+0.24 w 1 j 1 J 
+358.08 528.48 m
+358.08 463.2 l
+S
+355.68 463.2 m
+358.08 463.2 l
+S
+355.68 476.16 m
+358.08 476.16 l
+S
+355.68 489.36 m
+358.08 489.36 l
+S
+355.68 502.32 m
+358.08 502.32 l
+S
+355.68 515.28 m
+358.08 515.28 l
+S
+355.68 528.48 m
+358.08 528.48 l
+S
+358.08 463.2 m
+551.76 463.2 l
+S
+358.08 460.8 m
+358.08 463.2 l
+S
+364.56 460.8 m
+364.56 463.2 l
+S
+371.04 460.8 m
+371.04 463.2 l
+S
+377.28 460.8 m
+377.28 463.2 l
+S
+383.76 460.8 m
+383.76 463.2 l
+S
+390.24 460.8 m
+390.24 463.2 l
+S
+396.72 460.8 m
+396.72 463.2 l
+S
+403.2 460.8 m
+403.2 463.2 l
+S
+409.68 460.8 m
+409.68 463.2 l
+S
+416.16 460.8 m
+416.16 463.2 l
+S
+422.64 460.8 m
+422.64 463.2 l
+S
+428.88 460.8 m
+428.88 463.2 l
+S
+435.36 460.8 m
+435.36 463.2 l
+S
+441.84 460.8 m
+441.84 463.2 l
+S
+448.32 460.8 m
+448.32 463.2 l
+S
+454.8 460.8 m
+454.8 463.2 l
+S
+461.28 460.8 m
+461.28 463.2 l
+S
+467.76 460.8 m
+467.76 463.2 l
+S
+474.24 460.8 m
+474.24 463.2 l
+S
+480.72 460.8 m
+480.72 463.2 l
+S
+486.96 460.8 m
+486.96 463.2 l
+S
+493.44 460.8 m
+493.44 463.2 l
+S
+499.92 460.8 m
+499.92 463.2 l
+S
+506.4 460.8 m
+506.4 463.2 l
+S
+512.88 460.8 m
+512.88 463.2 l
+S
+519.36 460.8 m
+519.36 463.2 l
+S
+525.84 460.8 m
+525.84 463.2 l
+S
+532.32 460.8 m
+532.32 463.2 l
+S
+538.56 460.8 m
+538.56 463.2 l
+S
+545.04 460.8 m
+545.04 463.2 l
+S
+551.76 460.8 m
+551.76 463.2 l
+S
+q
+355.44 478.32 23.28 21.84 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+361.2 489.36 m
+367.68 489.36 l
+S
+Q 
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+367.68 489.36 m
+374.16 489.36 l
+S
+374.16 489.36 m
+380.64 489.36 l
+S
+380.64 489.36 m
+387.12 489.36 l
+S
+387.12 489.36 m
+393.6 489.36 l
+S
+393.6 489.36 m
+399.84 489.36 l
+S
+399.84 489.36 m
+406.32 489.36 l
+S
+406.32 489.36 m
+412.8 489.36 l
+S
+412.8 489.36 m
+419.28 489.36 l
+S
+419.28 489.36 m
+425.76 489.36 l
+S
+425.76 489.36 m
+432.24 489.36 l
+S
+432.24 489.36 m
+438.72 489.36 l
+S
+438.72 489.36 m
+445.2 489.36 l
+S
+445.2 489.36 m
+451.68 489.36 l
+S
+451.68 489.36 m
+457.92 489.36 l
+S
+457.92 489.36 m
+464.4 489.36 l
+S
+464.4 489.36 m
+470.88 489.36 l
+S
+470.88 489.36 m
+477.36 515.28 l
+S
+477.36 515.28 m
+483.84 515.28 l
+S
+483.84 515.28 m
+490.32 489.36 l
+S
+490.32 489.36 m
+496.8 489.36 l
+S
+496.8 489.36 m
+503.28 489.36 l
+S
+503.28 489.36 m
+509.76 489.36 l
+S
+509.76 489.36 m
+516 489.36 l
+S
+516 489.36 m
+522.48 515.28 l
+S
+522.48 515.28 m
+528.96 489.36 l
+S
+528.96 489.36 m
+535.44 515.28 l
+S
+535.44 515.28 m
+541.92 515.28 l
+S
+q
+531.12 504.24 23.28 21.84 re
+h
+W n
+541.92 515.28 m
+548.4 515.28 l
+S
+Q 
+q
+355.44 478.32 23.28 21.84 re
+h
+W n
+0.2 0.2 0.2 RG
+361.2 489.36 m
+367.68 489.36 l
+S
+Q 
+0.2 0.2 0.2 RG
+367.68 489.36 m
+374.16 489.36 l
+S
+374.16 489.36 m
+380.64 489.36 l
+S
+380.64 489.36 m
+387.12 489.36 l
+S
+387.12 489.36 m
+393.6 489.36 l
+S
+393.6 489.36 m
+399.84 489.36 l
+S
+399.84 489.36 m
+406.32 489.36 l
+S
+406.32 489.36 m
+412.8 489.36 l
+S
+412.8 489.36 m
+419.28 489.36 l
+S
+419.28 489.36 m
+425.76 489.36 l
+S
+425.76 489.36 m
+432.24 489.36 l
+S
+432.24 489.36 m
+438.72 489.36 l
+S
+438.72 489.36 m
+445.2 489.36 l
+S
+445.2 489.36 m
+451.68 489.36 l
+S
+451.68 489.36 m
+457.92 489.36 l
+S
+457.92 489.36 m
+464.4 489.36 l
+S
+464.4 489.36 m
+470.88 489.36 l
+S
+470.88 489.36 m
+477.36 515.28 l
+S
+477.36 515.28 m
+483.84 515.28 l
+S
+483.84 515.28 m
+490.32 515.28 l
+S
+490.32 515.28 m
+496.8 515.28 l
+S
+496.8 515.28 m
+503.28 515.28 l
+S
+503.28 515.28 m
+509.76 515.28 l
+S
+509.76 515.28 m
+516 515.28 l
+S
+516 515.28 m
+522.48 515.28 l
+S
+522.48 515.28 m
+528.96 515.28 l
+S
+528.96 515.28 m
+535.44 515.28 l
+S
+535.44 515.28 m
+541.92 515.28 l
+S
+q
+531.12 504.24 23.28 21.84 re
+h
+W n
+541.92 515.28 m
+548.4 515.28 l
+S
+Q 
+q
+355.44 475.68 19.44 26.88 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+361.2 491.76 m
+363.84 486.72 l
+358.8 486.72 l
+361.2 491.76 l
+h
+h
+B*
+Q 
+q
+355.44 475.68 25.92 26.88 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+367.68 491.76 m
+370.32 486.72 l
+365.28 486.72 l
+367.68 491.76 l
+h
+h
+B*
+Q 
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+374.16 491.76 m
+376.56 486.72 l
+371.52 486.72 l
+374.16 491.76 l
+h
+h
+B*
+380.64 491.76 m
+383.04 486.72 l
+378 486.72 l
+380.64 491.76 l
+h
+h
+B*
+387.12 491.76 m
+389.52 486.72 l
+384.48 486.72 l
+387.12 491.76 l
+h
+h
+B*
+393.6 491.76 m
+396 486.72 l
+390.96 486.72 l
+393.6 491.76 l
+h
+h
+B*
+399.84 491.76 m
+402.48 486.72 l
+397.44 486.72 l
+399.84 491.76 l
+h
+h
+B*
+406.32 491.76 m
+408.96 486.72 l
+403.92 486.72 l
+406.32 491.76 l
+h
+h
+B*
+412.8 491.76 m
+415.44 486.72 l
+410.4 486.72 l
+412.8 491.76 l
+h
+h
+B*
+419.28 491.76 m
+421.92 486.72 l
+416.88 486.72 l
+419.28 491.76 l
+h
+h
+B*
+425.76 491.76 m
+428.4 486.72 l
+423.36 486.72 l
+425.76 491.76 l
+h
+h
+B*
+432.24 491.76 m
+434.64 486.72 l
+429.6 486.72 l
+432.24 491.76 l
+h
+h
+B*
+438.72 491.76 m
+441.12 486.72 l
+436.08 486.72 l
+438.72 491.76 l
+h
+h
+B*
+445.2 491.76 m
+447.6 486.72 l
+442.56 486.72 l
+445.2 491.76 l
+h
+h
+B*
+451.68 491.76 m
+454.08 486.72 l
+449.04 486.72 l
+451.68 491.76 l
+h
+h
+B*
+457.92 491.76 m
+460.56 486.72 l
+455.52 486.72 l
+457.92 491.76 l
+h
+h
+B*
+464.4 491.76 m
+467.04 486.72 l
+462 486.72 l
+464.4 491.76 l
+h
+h
+B*
+470.88 491.76 m
+473.52 486.72 l
+468.48 486.72 l
+470.88 491.76 l
+h
+h
+B*
+477.36 517.92 m
+480 512.88 l
+474.96 512.88 l
+477.36 517.92 l
+h
+h
+B*
+483.84 517.92 m
+486.24 512.88 l
+481.2 512.88 l
+483.84 517.92 l
+h
+h
+B*
+490.32 491.76 m
+492.72 486.72 l
+487.68 486.72 l
+490.32 491.76 l
+h
+h
+B*
+496.8 491.76 m
+499.2 486.72 l
+494.16 486.72 l
+496.8 491.76 l
+h
+h
+B*
+503.28 491.76 m
+505.68 486.72 l
+500.64 486.72 l
+503.28 491.76 l
+h
+h
+B*
+509.76 491.76 m
+512.16 486.72 l
+507.12 486.72 l
+509.76 491.76 l
+h
+h
+B*
+516 491.76 m
+518.64 486.72 l
+513.6 486.72 l
+516 491.76 l
+h
+h
+B*
+522.48 517.92 m
+525.12 512.88 l
+520.08 512.88 l
+522.48 517.92 l
+h
+h
+B*
+528.96 491.76 m
+531.6 486.72 l
+526.56 486.72 l
+528.96 491.76 l
+h
+h
+B*
+535.44 517.92 m
+538.08 512.88 l
+533.04 512.88 l
+535.44 517.92 l
+h
+h
+B*
+q
+528.48 501.84 25.92 26.88 re
+h
+W n
+541.92 517.92 m
+544.32 512.88 l
+539.28 512.88 l
+541.92 517.92 l
+h
+h
+B*
+Q 
+q
+534.96 501.84 19.44 26.88 re
+h
+W n
+548.4 517.92 m
+551.04 512.88 l
+545.76 512.88 l
+548.4 517.92 l
+h
+h
+B*
+Q 
+q
+355.44 475.68 19.44 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+361.2 491.76 m
+363.84 489.36 l
+361.2 486.72 l
+358.8 489.36 l
+361.2 491.76 l
+h
+h
+B*
+Q 
+q
+355.44 475.68 25.92 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+367.68 491.76 m
+370.32 489.36 l
+367.68 486.72 l
+365.28 489.36 l
+367.68 491.76 l
+h
+h
+B*
+Q 
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+374.16 491.76 m
+376.56 489.36 l
+374.16 486.72 l
+371.52 489.36 l
+374.16 491.76 l
+h
+h
+B*
+380.64 491.76 m
+383.04 489.36 l
+380.64 486.72 l
+378 489.36 l
+380.64 491.76 l
+h
+h
+B*
+387.12 491.76 m
+389.52 489.36 l
+387.12 486.72 l
+384.48 489.36 l
+387.12 491.76 l
+h
+h
+B*
+393.6 491.76 m
+396 489.36 l
+393.6 486.72 l
+390.96 489.36 l
+393.6 491.76 l
+h
+h
+B*
+399.84 491.76 m
+402.48 489.36 l
+399.84 486.72 l
+397.44 489.36 l
+399.84 491.76 l
+h
+h
+B*
+406.32 491.76 m
+408.96 489.36 l
+406.32 486.72 l
+403.92 489.36 l
+406.32 491.76 l
+h
+h
+B*
+412.8 491.76 m
+415.44 489.36 l
+412.8 486.72 l
+410.4 489.36 l
+412.8 491.76 l
+h
+h
+B*
+419.28 491.76 m
+421.92 489.36 l
+419.28 486.72 l
+416.88 489.36 l
+419.28 491.76 l
+h
+h
+B*
+425.76 491.76 m
+428.4 489.36 l
+425.76 486.72 l
+423.36 489.36 l
+425.76 491.76 l
+h
+h
+B*
+432.24 491.76 m
+434.64 489.36 l
+432.24 486.72 l
+429.6 489.36 l
+432.24 491.76 l
+h
+h
+B*
+438.72 491.76 m
+441.12 489.36 l
+438.72 486.72 l
+436.08 489.36 l
+438.72 491.76 l
+h
+h
+B*
+445.2 491.76 m
+447.6 489.36 l
+445.2 486.72 l
+442.56 489.36 l
+445.2 491.76 l
+h
+h
+B*
+451.68 491.76 m
+454.08 489.36 l
+451.68 486.72 l
+449.04 489.36 l
+451.68 491.76 l
+h
+h
+B*
+457.92 491.76 m
+460.56 489.36 l
+457.92 486.72 l
+455.52 489.36 l
+457.92 491.76 l
+h
+h
+B*
+464.4 491.76 m
+467.04 489.36 l
+464.4 486.72 l
+462 489.36 l
+464.4 491.76 l
+h
+h
+B*
+470.88 491.76 m
+473.52 489.36 l
+470.88 486.72 l
+468.48 489.36 l
+470.88 491.76 l
+h
+h
+B*
+477.36 517.92 m
+480 515.28 l
+477.36 512.88 l
+474.96 515.28 l
+477.36 517.92 l
+h
+h
+B*
+483.84 517.92 m
+486.24 515.28 l
+483.84 512.88 l
+481.2 515.28 l
+483.84 517.92 l
+h
+h
+B*
+490.32 517.92 m
+492.72 515.28 l
+490.32 512.88 l
+487.68 515.28 l
+490.32 517.92 l
+h
+h
+B*
+496.8 517.92 m
+499.2 515.28 l
+496.8 512.88 l
+494.16 515.28 l
+496.8 517.92 l
+h
+h
+B*
+503.28 517.92 m
+505.68 515.28 l
+503.28 512.88 l
+500.64 515.28 l
+503.28 517.92 l
+h
+h
+B*
+509.76 517.92 m
+512.16 515.28 l
+509.76 512.88 l
+507.12 515.28 l
+509.76 517.92 l
+h
+h
+B*
+516 517.92 m
+518.64 515.28 l
+516 512.88 l
+513.6 515.28 l
+516 517.92 l
+h
+h
+B*
+522.48 517.92 m
+525.12 515.28 l
+522.48 512.88 l
+520.08 515.28 l
+522.48 517.92 l
+h
+h
+B*
+528.96 517.92 m
+531.6 515.28 l
+528.96 512.88 l
+526.56 515.28 l
+528.96 517.92 l
+h
+h
+B*
+535.44 517.92 m
+538.08 515.28 l
+535.44 512.88 l
+533.04 515.28 l
+535.44 517.92 l
+h
+h
+B*
+q
+528.48 501.84 25.92 26.88 re
+h
+W n
+541.92 517.92 m
+544.32 515.28 l
+541.92 512.88 l
+539.28 515.28 l
+541.92 517.92 l
+h
+h
+B*
+Q 
+q
+534.96 501.84 19.44 26.88 re
+h
+W n
+548.4 517.92 m
+551.04 515.28 l
+548.4 512.88 l
+545.76 515.28 l
+548.4 517.92 l
+h
+h
+B*
+Q 
+0 0 0 rg
+BT
+/TT2 8.28 Tf
+-0.0023 Tc -0.1396 Tw 408.96 548.88 Td
+(SVM detection)Tj
+/TT3 8.04 Tf
+0.0898 Tc 0 Tw -61.44 -88.32 Td
+(0)Tj
+-0.0452 Tc -6.72 12.96 Td
+(0.5)Tj
+0.0898 Tc 6.72 13.2 Td
+(1)Tj
+-0.0452 Tc -6.72 12.96 Td
+(1.5)Tj
+0.0898 Tc 6.72 12.96 Td
+(2)Tj
+-0.0452 Tc -6.72 13.2 Td
+(2.5)Tj
+0.0898 Tc 0 1 -1 0 363.6 452.64 Tm
+(1)Tj
+0 1 -1 0 383.04 452.64 Tm
+(4)Tj
+0 1 -1 0 402.24 452.64 Tm
+(7)Tj
+0 1 -1 0 421.68 448.32 Tm
+(10)Tj
+0 1 -1 0 441.12 448.32 Tm
+(13)Tj
+0 1 -1 0 460.32 448.32 Tm
+(16)Tj
+0 1 -1 0 479.76 448.32 Tm
+(19)Tj
+0 1 -1 0 499.2 448.32 Tm
+(22)Tj
+0 1 -1 0 518.4 448.32 Tm
+(25)Tj
+0 1 -1 0 537.84 448.32 Tm
+(28)Tj
+/TT2 8.04 Tf
+-0.0263 Tc -0.0489 Tw 1 0 0 1 0 0 Tm
+419.76 437.04 Td
+(Data points)Tj
+0.0299 Tc 0 Tw 0 1 -1 0 334.56 485.04 Tm
+(Class)Tj
+ET
+1 1 1 rg
+491.76 540.48 62.88 18.72 re
+f
+0 0 0 RG
+0.24 w 1 j 1 J 
+491.52 540.48 63.12 18.96 re
+S
+q
+491.76 543.84 31.68 15.6 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+493.92 554.88 m
+512.4 554.88 l
+S
+Q 
+q
+491.76 542.16 24.24 17.28 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+503.28 556.8 m
+504.96 553.2 l
+501.36 553.2 l
+503.28 556.8 l
+h
+h
+B*
+Q 
+0 0 0 rg
+BT
+/TT3 5.52 Tf
+-0.0101 Tc 0.1555 Tw 513.84 552.72 Td
+(SVM prediction)Tj
+ET
+q
+491.76 540.48 31.68 15.6 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+493.92 545.28 m
+512.4 545.28 l
+S
+Q 
+q
+491.76 540.48 24.24 17.52 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+503.28 547.2 m
+504.96 545.28 l
+503.28 543.6 l
+501.36 545.28 l
+503.28 547.2 l
+h
+h
+B*
+Q 
+BT
+/TT3 5.52 Tf
+0.0033 Tc 0 Tw 513.84 543.12 Td
+(Actual)Tj
+ET
+317.28 424.8 240.24 136.56 re
+S
+BT
+/TT0 10.08 Tf
+0 Tc 0.12 Tw 561.6 420.72 Td
+( )Tj
+-124.32 -8.88 Td
+( )Tj
+/TT0 7.92 Tf
+-0.06 Tw -124.08 -9.84 Td
+( )Tj
+-0.0851 Tc 0.0251 Tw 1.92 0 Td
+(Fig.  1)Tj
+-0.066 Tc 0.006 Tw 20.16 0 Td
+(. SVMs resul)Tj
+-0.0695 Tc 0.0095 Tw 40.56 0 Td
+(ts on KDD intrusion detection \(outputs 1 denote 1 or )Tj
+-0.0609 Tc 0.0009 Tw -62.64 -9.12 Td
+(normal; outputs 2 denote )Tj
+0.12 Tc 0 Tw 79.44 0 Td
+(\226)Tj
+0.0052 Tc -0.0652 Tw 4.08 0 Td
+(1 or attack\))Tj
+0 Tc -0.06 Tw 36 0 Td
+( )Tj
+/TT4 10.08 Tf
+-0.0251 Tc 0.1451 Tw -105.6 -25.44 Td
+(V. The Neural Network Intrusion Detection System)Tj
+0 Tc 0.12 Tw 220.32 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0283 Tc 0.9283 Tw -224.16 -24.96 Td
+(The neural network intrusion detection system consists of )Tj
+0.0079 Tc 0.1121 Tw -10.08 -11.76 Td
+(three phases:)Tj
+0 Tc 0.12 Tw 52.8 0 Td
+( )Tj
+0 Tw -42.72 -25.2 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+0.0079 Tc 0.1121 Tw 5.04 0 Td
+(Using automated parsers to process the ra)Tj
+-0.0468 Tc 0.0468 Tw 168.72 0 Td
+(w TCP/IP )Tj
+0.0721 Tc 0.0479 Tw -168.72 -11.52 Td
+(dump data in to machine)Tj
+0.0034 Tc 0 Tw 101.04 0 Td
+(-)Tj
+-0.0074 Tc 0.1274 Tw 3.36 0 Td
+(readable form.)Tj
+0 Tc 0.12 Tw 58.8 0 Td
+( )Tj
+0 Tw -173.28 -11.52 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+0.0264 Tc 0.0636 Tw 5.04 0 Td
+(Training: neural network is trained on different types )Tj
+-0.1307 Tc 0.2507 Tw T*
+(of a)Tj
+0.0778 Tc 0 Tw 15.12 0 Td
+(t)Tj
+0.042 Tc 0.0513 Tw 2.88 0 Td
+(tacks and normal data. The input has 41 features )Tj
+-0.0316 Tc 0.1516 Tw -18 -11.52 Td
+(and the output assumes one of two values: i)Tj
+0 Tc 0 Tw 175.68 0 Td
+(n)Tj
+0.0454 Tc 0.3146 Tw 5.28 0 Td
+(trusion )Tj
+0.0176 Tc 0.1024 Tw -180.96 -11.28 Td
+(\(22 different attack types\), and normal data.)Tj
+0 Tc 0.12 Tw 178.32 0 Td
+( )Tj
+0 Tw -188.4 -11.52 Td
+(*)Tj
+0.12 Tw 5.04 0 Td
+( )Tj
+0.0153 Tc 0.1047 Tw 5.04 0 Td
+(Testing: performed on the test set containing 6980 )Tj
+0.0733 Tc 0 Tw T*
+(data.)Tj
+0 Tc 0.12 Tw 19.68 0 Td
+( )Tj
+-39.84 -11.52 Td
+( )Tj
+/TT1 10.08 Tf
+0.0089 Tc 0.1111 Tw 0 -11.76 TD
+(A. Experiments Using Neural Networks)Tj
+0 Tc 0.12 Tw 159.84 0 Td
+( )Tj
+/TT0 10.08 Tf
+0.0304 Tc 0 Tw -149.76 -25.2 Td
+(Multi)Tj
+0.0034 Tc 22.32 0 Td
+(-)Tj
+-0.1138 Tc 2.3938 Tw 3.36 0 Td
+(layer, feed)Tj
+0.0034 Tc 0 Tw 43.92 0 Td
+(-)Tj
+-0.0445 Tc 2.2285 Tw 3.6 0 Td
+(forward networks are used. The scaled)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0543 Tc 3.9743 Tw -83.28 -11.52 Td
+(conjugate gradient descent algorithm, available from the)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0034 Tc 0.1166 Tw T*
+(MATLAB package, is used for training.)Tj
+0 Tc 0.12 Tw 162.24 0 Td
+( )Tj
+-0.0254 Tc 0.3854 Tw -152.16 -25.2 Td
+(Our dat)Tj
+-0.0709 Tc 0.3654 Tw 30.48 0 Td
+(a consists of the same set of 14292 data points. The )Tj
+-0.0609 Tc 0.8009 Tw -40.56 -11.52 Td
+(set of 7312 training data is divided in to two classes: normal )Tj
+-0.0603 Tc 2.0523 Tw 0 -11.52 TD
+(and attack, where the attack is a collection of 22 different)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0596 Tc 0.5942 Tw T*
+(types of instances that belong to the four classes described in )Tj
+0.0173 Tc 0.1027 Tw 0 -11.76 TD
+(section 3, and )Tj
+0.0557 Tc 0.0643 Tw 58.8 0 Td
+(the other is the normal data.)Tj
+0 Tc 0.12 Tw 114.48 0 Td
+( )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 i 0 w 0 j 0 J 
+/RelativeColorimetric ri
+/TT5 1 Tf
+0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj59 0 obj23040 endobj61 1 obj<< /Type /Filespec /F (../../../PDFFiles/CECHelp.pdf)>> endobj62 0 obj<< /Length 63 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 10.08 Tf
+-0.0737 Tc 2.6279 Tw 60.48 711.12 Td
+(In the study we use three different feed)Tj
+0.0034 Tc 0 Tw 173.28 0 Td
+(-)Tj
+-0.0164 Tc 2.2964 Tw 3.36 0 Td
+(forward neural)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0099 Tc 0.1299 Tw -186.72 -11.76 Td
+(networks with the following architectures:)Tj
+0 Tc 0.12 Tw 171.12 0 Td
+( )Tj
+-0.023 Tc 0.143 Tw -161.04 -25.2 Td
+(Network A:   4)Tj
+0.0034 Tc 0 Tw 60.48 0 Td
+(-)Tj
+-0.0137 Tc 0.1337 Tw 3.36 0 Td
+(layer,  41)Tj
+0.0034 Tc 0 Tw 37.92 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(20)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(20)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(20)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0.06 Tc 3.36 0 Td
+(1.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+-0.0396 Tc 0.1596 Tw -153.12 -11.52 Td
+(Network B:   3)Tj
+0.0034 Tc 0 Tw 59.76 0 Td
+(-)Tj
+-0.0137 Tc 0.1337 Tw 3.36 0 Td
+(layer, 41)Tj
+0.0034 Tc 0 Tw 35.28 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(40)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(40)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0.06 Tc 3.36 0 Td
+(1.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+-0.0156 Tc 0.1356 Tw -136.32 -11.52 Td
+(Network C:   3)Tj
+0.0034 Tc 0 Tw 60 0 Td
+(-)Tj
+-0.0137 Tc 0.1337 Tw 3.36 0 Td
+(layer, 41)Tj
+0.0034 Tc 0 Tw 35.28 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(25)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(20)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0.06 Tc 3.36 0 Td
+(1.)Tj
+0 Tc 0.12 Tw 7.68 0 Td
+( )Tj
+-136.56 -11.52 Td
+( )Tj
+-0.0843 Tc 2.0043 Tw 0 -11.52 TD
+(We use an initial tr)Tj
+-0.0637 Tc 2.0557 Tw 83.52 0 Td
+(aining set of 7312 normalized input)Tj
+0.0034 Tc 0 Tw 151.68 0 Td
+(-)Tj
+-0.0623 Tc 4.228 Tw -245.28 -11.52 Td
+(output pairs consisting attack patterns, and normal user)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0422 Tc 0 Tw 0 -11.76 TD
+(pa)Tj
+0.0778 Tc 9.6 0 Td
+(t)Tj
+0.0341 Tc 2.88 0 Td
+(terns.)Tj
+0 Tc 0.12 Tw 22.56 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0515 Tc 1.8515 Tw -24.96 -25.2 Td
+(1\) Training Neural Networks:)Tj
+/TT0 10.08 Tf
+-0.0353 Tc 1.7873 Tw 124.8 0 Td
+( The training of the neural)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0473 Tc 0.1673 Tw -134.88 -11.52 Td
+(networks was conducted using feed forward back propagation )Tj
+-0.0559 Tc 0.8959 Tw 0 -11.52 TD
+(algorithm using scaled conjugate gradi)Tj
+-0.0789 Tc 0.7749 Tw 157.92 0 Td
+(ent decent or SCG for )Tj
+-0.0251 Tc 0.516 Tw -157.92 -11.52 Td
+(learning. The network was set to train until the desired mean )Tj
+-0.0544 Tc 0.1525 Tw T*
+(square error of 0.001 was met. During the training process the )Tj
+-0.0623 Tc 5.3823 Tw 0 -11.28 TD
+(goal was met at 394 epochs with a performance of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0506 Tc 0.3573 Tw 0 -11.52 TD
+(0.0009962988, Fig 2 shows the training process. The purpose )Tj
+-0.0584 Tc 7.2584 Tw T*
+(of having multiple networks is to find a suitable)Tj
+0 Tc 0 Tw (      )Tj
+-0.0471 Tc 1.5591 Tw T*
+(architecture that can detect at a faster speed with low error)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0344 Tc 0.1304 Tw T*
+(rate, minimizing false positives and false negatives. Out of all )Tj
+-0.049 Tc 0.5423 Tw T*
+(the networks architectures used, network B performs the best )Tj
+-0.033 Tc 0.153 Tw 0 -11.76 TD
+(detection wit)Tj
+-0.0332 Tc 0.1532 Tw 52.08 0 Td
+(h 99.25% accuracy.)Tj
+0 Tc 0.12 Tw 79.68 0 Td
+( )Tj
+-0.0561 Tc 0.6561 Tw -121.68 -25.2 Td
+(Figure 2 below demonstrates extremely good r)Tj
+0.0845 Tc 0 Tw 189.36 0 Td
+(e)Tj
+-0.0801 Tc 0.4401 Tw 4.32 0 Td
+(sults of the )Tj
+-0.0735 Tc 2.0602 Tw -203.76 -11.52 Td
+(training of network B that converges in 394 epochs, while)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0485 Tc 3.2199 Tw 0 -11.52 TD
+(other methods we tried \(Gradient Descent with Ada)Tj
+0 Tc 0 Tw 228.48 0 Td
+(p)Tj
+-0.06 Tc 0.18 Tw 5.04 0 Td
+(tive )Tj
+-0.0529 Tc 6.6529 Tw -233.52 -11.52 Td
+(Linear Back Propagation and Gradient Descent with)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0623 Tc 3.5423 Tw T*
+(Momentum and Ada)Tj
+0 Tc 0 Tw 89.52 0 Td
+(p)Tj
+-0.0606 Tc 3.4806 Tw 4.8 0 Td
+(tive Linear Back Propagation\) took)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0751 Tc 0 Tw -94.32 -11.76 Td
+(longer.)Tj
+0 Tc 0.12 Tw 28.56 0 Td
+( )Tj
+ET
+q
+206.64 0 0 -168.96 71.28 353.52 cm
+/Im0 Do
+Q
+BT
+/TT0 10.08 Tf
+277.92 184.56 Td
+( )Tj
+-103.44 -8.88 Td
+( )Tj
+/TT0 7.92 Tf
+-0.0851 Tc 0.0251 Tw -124.08 -9.84 Td
+(Fig.  2)Tj
+-0.0619 Tc 0.0019 Tw 20.16 0 Td
+(. Neural network training on KDD intrusion detection data)Tj
+0.0026 Tc 0 Tw 182.16 0 Td
+(-)Tj
+-0.1 Tc 2.4 0 Td
+(subset)Tj
+0 Tc -0.06 Tw 19.2 0 Td
+( )Tj
+/TT1 10.08 Tf
+-0.0462 Tc 1.0662 Tw -213.84 -24.96 Td
+(2\) Testing the Neural Network:)Tj
+/TT0 10.08 Tf
+-0.0789 Tc 1.1589 Tw 128.88 0 Td
+( The tes)Tj
+0.0778 Tc 0 Tw 33.6 0 Td
+(t)Tj
+-0.0539 Tc 0.8339 Tw 2.88 0 Td
+(ing set, as before, )Tj
+-0.0648 Tc 2.5582 Tw -175.44 -11.52 Td
+(consisting of 6980 data points with 41 features. We have)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0779 Tc 5.2379 Tw T*
+(three different feed)Tj
+0.0034 Tc 0 Tw 86.4 0 Td
+(-)Tj
+3.36 0 Td
+(f)Tj
+-0.063 Tc 5.223 Tw 3.36 0 Td
+(orward, multi)Tj
+0.0034 Tc 0 Tw 59.52 0 Td
+(-)Tj
+-0.0473 Tc 4.9673 Tw 3.36 0 Td
+(layer neural network)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0679 Tc 0.9079 Tw -156 -11.52 Td
+(architectures. The fo)Tj
+0.0778 Tc 0 Tw 83.52 0 Td
+(l)Tj
+-0.0699 Tc 0.7728 Tw 2.88 0 Td
+(lowing figure shows the results of three )Tj
+-0.0595 Tc 5.8995 Tw -86.4 -11.52 Td
+(different architectures: Network A performed with an)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0595 Tc 2.9995 Tw 0 -11.28 TD
+(accuracy of 99.05%; network B achieved an accuracy of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0182 Tc 0.1382 Tw 0 -11.76 TD
+(99.25%; network C performed with an accuracy of 99%)Tj
+0.12 Tc 0 Tw 226.08 0 Td
+(.)Tj
+0 Tc 0.12 Tw 2.64 0 Td
+( )Tj
+ET
+1 1 1 rg
+317.52 552.24 243.12 163.44 re
+f
+0 0 0 RG
+0.24 w 10 M 1 j 1 J []0 d 
+317.28 552.24 243.36 163.68 re
+S
+359.52 678.96 m
+550.32 678.96 l
+550.32 612.96 l
+359.52 612.96 l
+359.52 678.96 l
+h
+f*
+q
+359.52 625.92 190.8 0.24 re
+h
+W n
+359.52 626.16 m
+550.32 626.16 l
+S
+Q 
+q
+359.52 639.12 190.8 0.24 re
+h
+W n
+359.52 639.36 m
+550.32 639.36 l
+S
+Q 
+q
+359.52 652.32 190.8 0.24 re
+h
+W n
+359.52 652.56 m
+550.32 652.56 l
+S
+Q 
+q
+359.52 665.52 190.8 0.24 re
+h
+W n
+359.52 665.76 m
+550.32 665.76 l
+S
+Q 
+q
+359.52 678.72 190.8 0.24 re
+h
+W n
+359.52 678.96 m
+550.32 678.96 l
+S
+Q 
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+359.52 678.96 m
+550.32 678.96 l
+S
+550.32 678.96 m
+550.32 612.96 l
+S
+550.32 612.96 m
+359.52 612.96 l
+S
+359.52 612.96 m
+359.52 678.96 l
+S
+0 0 0 RG
+0.24 w 1 j 1 J 
+359.52 678.96 m
+359.52 612.96 l
+S
+357.12 612.96 m
+359.52 612.96 l
+S
+357.12 626.16 m
+359.52 626.16 l
+S
+357.12 639.36 m
+359.52 639.36 l
+S
+357.12 652.56 m
+359.52 652.56 l
+S
+357.12 665.76 m
+359.52 665.76 l
+S
+357.12 678.96 m
+359.52 678.96 l
+S
+359.52 612.96 m
+550.32 612.96 l
+S
+359.52 610.56 m
+359.52 612.96 l
+S
+366 610.56 m
+366 612.96 l
+S
+372.24 610.56 m
+372.24 612.96 l
+S
+378.72 610.56 m
+378.72 612.96 l
+S
+384.96 610.56 m
+384.96 612.96 l
+S
+391.44 610.56 m
+391.44 612.96 l
+S
+397.68 610.56 m
+397.68 612.96 l
+S
+404.16 610.56 m
+404.16 612.96 l
+S
+410.4 610.56 m
+410.4 612.96 l
+S
+416.88 610.56 m
+416.88 612.96 l
+S
+423.12 610.56 m
+423.12 612.96 l
+S
+429.6 610.56 m
+429.6 612.96 l
+S
+435.84 610.56 m
+435.84 612.96 l
+S
+442.32 610.56 m
+442.32 612.96 l
+S
+448.56 610.56 m
+448.56 612.96 l
+S
+455.04 610.56 m
+455.04 612.96 l
+S
+461.28 610.56 m
+461.28 612.96 l
+S
+467.52 610.56 m
+467.52 612.96 l
+S
+474 610.56 m
+474 612.96 l
+S
+480.24 610.56 m
+480.24 612.96 l
+S
+486.72 610.56 m
+486.72 612.96 l
+S
+492.96 610.56 m
+492.96 612.96 l
+S
+499.44 610.56 m
+499.44 612.96 l
+S
+505.68 610.56 m
+505.68 612.96 l
+S
+512.16 610.56 m
+512.16 612.96 l
+S
+518.4 610.56 m
+518.4 612.96 l
+S
+524.88 610.56 m
+524.88 612.96 l
+S
+531.12 610.56 m
+531.12 612.96 l
+S
+537.6 610.56 m
+537.6 612.96 l
+S
+543.84 610.56 m
+543.84 612.96 l
+S
+550.32 610.56 m
+550.32 612.96 l
+S
+q
+357.12 654.72 23.04 21.84 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+362.64 665.76 m
+369.12 665.76 l
+S
+Q 
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+369.12 665.76 m
+375.36 665.76 l
+S
+375.36 665.76 m
+381.84 639.36 l
+S
+381.84 639.36 m
+388.08 665.76 l
+S
+388.08 665.76 m
+394.56 665.76 l
+S
+394.56 665.76 m
+400.8 639.36 l
+S
+400.8 639.36 m
+407.28 665.76 l
+S
+407.28 665.76 m
+413.52 639.36 l
+S
+413.52 639.36 m
+420 665.76 l
+S
+420 665.76 m
+426.24 665.76 l
+S
+426.24 665.76 m
+432.72 665.76 l
+S
+432.72 665.76 m
+438.96 665.76 l
+S
+438.96 665.76 m
+445.44 639.36 l
+S
+445.44 639.36 m
+451.68 665.76 l
+S
+451.68 665.76 m
+458.16 665.76 l
+S
+458.16 665.76 m
+464.4 665.76 l
+S
+464.4 665.76 m
+470.88 665.76 l
+S
+470.88 665.76 m
+477.12 665.76 l
+S
+477.12 665.76 m
+483.6 665.76 l
+S
+483.6 665.76 m
+489.84 639.36 l
+S
+489.84 639.36 m
+496.32 639.36 l
+S
+496.32 639.36 m
+502.56 639.36 l
+S
+502.56 639.36 m
+509.04 639.36 l
+S
+509.04 639.36 m
+515.28 665.76 l
+S
+515.28 665.76 m
+521.76 639.36 l
+S
+521.76 639.36 m
+528 665.76 l
+S
+528 665.76 m
+534.48 665.76 l
+S
+534.48 665.76 m
+540.72 665.76 l
+S
+q
+529.92 654.72 23.04 21.84 re
+h
+W n
+540.72 665.76 m
+547.2 665.76 l
+S
+Q 
+q
+357.12 654.72 23.04 21.84 re
+h
+W n
+0.502 0.502 0.502 RG
+362.64 665.76 m
+369.12 665.76 l
+S
+Q 
+0.502 0.502 0.502 RG
+369.12 665.76 m
+375.36 665.76 l
+S
+375.36 665.76 m
+381.84 665.76 l
+S
+381.84 665.76 m
+388.08 665.76 l
+S
+388.08 665.76 m
+394.56 665.76 l
+S
+394.56 665.76 m
+400.8 639.36 l
+S
+400.8 639.36 m
+407.28 665.76 l
+S
+407.28 665.76 m
+413.52 665.76 l
+S
+413.52 665.76 m
+420 665.76 l
+S
+420 665.76 m
+426.24 639.36 l
+S
+426.24 639.36 m
+432.72 639.36 l
+S
+432.72 639.36 m
+438.96 639.36 l
+S
+438.96 639.36 m
+445.44 639.36 l
+S
+445.44 639.36 m
+451.68 639.36 l
+S
+451.68 639.36 m
+458.16 665.76 l
+S
+458.16 665.76 m
+464.4 665.76 l
+S
+464.4 665.76 m
+470.88 665.76 l
+S
+470.88 665.76 m
+477.12 665.76 l
+S
+477.12 665.76 m
+483.6 665.76 l
+S
+483.6 665.76 m
+489.84 639.36 l
+S
+489.84 639.36 m
+496.32 639.36 l
+S
+496.32 639.36 m
+502.56 639.36 l
+S
+502.56 639.36 m
+509.04 665.76 l
+S
+509.04 665.76 m
+515.28 665.76 l
+S
+515.28 665.76 m
+521.76 639.36 l
+S
+521.76 639.36 m
+528 665.76 l
+S
+528 665.76 m
+534.48 665.76 l
+S
+534.48 665.76 m
+540.72 665.76 l
+S
+q
+529.92 654.72 23.04 21.84 re
+h
+W n
+540.72 665.76 m
+547.2 665.76 l
+S
+Q 
+q
+357.12 654.72 23.04 21.84 re
+h
+W n
+0.5882 0.5882 0.5882 RG
+362.64 665.76 m
+369.12 665.76 l
+S
+Q 
+0.5882 0.5882 0.5882 RG
+369.12 665.76 m
+375.36 665.76 l
+S
+375.36 665.76 m
+381.84 665.76 l
+S
+381.84 665.76 m
+388.08 665.76 l
+S
+388.08 665.76 m
+394.56 665.76 l
+S
+394.56 665.76 m
+400.8 639.36 l
+S
+400.8 639.36 m
+407.28 665.76 l
+S
+407.28 665.76 m
+413.52 665.76 l
+S
+413.52 665.76 m
+420 665.76 l
+S
+420 665.76 m
+426.24 665.76 l
+S
+426.24 665.76 m
+432.72 665.76 l
+S
+432.72 665.76 m
+438.96 665.76 l
+S
+438.96 665.76 m
+445.44 665.76 l
+S
+445.44 665.76 m
+451.68 665.76 l
+S
+451.68 665.76 m
+458.16 665.76 l
+S
+458.16 665.76 m
+464.4 665.76 l
+S
+464.4 665.76 m
+470.88 665.76 l
+S
+470.88 665.76 m
+477.12 665.76 l
+S
+477.12 665.76 m
+483.6 665.76 l
+S
+483.6 665.76 m
+489.84 639.36 l
+S
+489.84 639.36 m
+496.32 639.36 l
+S
+496.32 639.36 m
+502.56 639.36 l
+S
+502.56 639.36 m
+509.04 665.76 l
+S
+509.04 665.76 m
+515.28 665.76 l
+S
+515.28 665.76 m
+521.76 639.36 l
+S
+521.76 639.36 m
+528 665.76 l
+S
+528 665.76 m
+534.48 665.76 l
+S
+534.48 665.76 m
+540.72 665.76 l
+S
+q
+529.92 654.72 23.04 21.84 re
+h
+W n
+540.72 665.76 m
+547.2 665.76 l
+S
+Q 
+q
+357.12 628.32 23.04 21.84 re
+h
+W n
+0.7529 0.7529 0.7529 RG
+362.64 639.36 m
+369.12 639.36 l
+S
+Q 
+0.7529 0.7529 0.7529 RG
+369.12 639.36 m
+375.36 639.36 l
+S
+375.36 639.36 m
+381.84 639.36 l
+S
+381.84 639.36 m
+388.08 639.36 l
+S
+388.08 639.36 m
+394.56 639.36 l
+S
+394.56 639.36 m
+400.8 639.36 l
+S
+400.8 639.36 m
+407.28 639.36 l
+S
+407.28 639.36 m
+413.52 639.36 l
+S
+413.52 639.36 m
+420 639.36 l
+S
+420 639.36 m
+426.24 639.36 l
+S
+426.24 639.36 m
+432.72 639.36 l
+S
+432.72 639.36 m
+438.96 639.36 l
+S
+438.96 639.36 m
+445.44 639.36 l
+S
+445.44 639.36 m
+451.68 639.36 l
+S
+451.68 639.36 m
+458.16 639.36 l
+S
+458.16 639.36 m
+464.4 639.36 l
+S
+464.4 639.36 m
+470.88 639.36 l
+S
+470.88 639.36 m
+477.12 665.76 l
+S
+477.12 665.76 m
+483.6 665.76 l
+S
+483.6 665.76 m
+489.84 665.76 l
+S
+489.84 665.76 m
+496.32 665.76 l
+S
+496.32 665.76 m
+502.56 665.76 l
+S
+502.56 665.76 m
+509.04 665.76 l
+S
+509.04 665.76 m
+515.28 665.76 l
+S
+515.28 665.76 m
+521.76 665.76 l
+S
+521.76 665.76 m
+528 665.76 l
+S
+528 665.76 m
+534.48 665.76 l
+S
+534.48 665.76 m
+540.72 665.76 l
+S
+q
+529.92 654.72 23.04 21.84 re
+h
+W n
+540.72 665.76 m
+547.2 665.76 l
+S
+Q 
+q
+357.12 652.32 19.2 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+362.64 668.4 m
+365.28 665.76 l
+362.64 663.36 l
+360.24 665.76 l
+362.64 668.4 l
+h
+h
+B*
+Q 
+q
+357.12 652.32 25.44 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+369.12 668.4 m
+371.52 665.76 l
+369.12 663.36 l
+366.48 665.76 l
+369.12 668.4 l
+h
+h
+B*
+Q 
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+375.36 668.4 m
+378 665.76 l
+375.36 663.36 l
+372.96 665.76 l
+375.36 668.4 l
+h
+h
+B*
+381.84 641.76 m
+384.24 639.36 l
+381.84 636.72 l
+379.2 639.36 l
+381.84 641.76 l
+h
+h
+B*
+388.08 668.4 m
+390.72 665.76 l
+388.08 663.36 l
+385.68 665.76 l
+388.08 668.4 l
+h
+h
+B*
+394.56 668.4 m
+396.96 665.76 l
+394.56 663.36 l
+391.92 665.76 l
+394.56 668.4 l
+h
+h
+B*
+400.8 641.76 m
+403.44 639.36 l
+400.8 636.72 l
+398.4 639.36 l
+400.8 641.76 l
+h
+h
+B*
+407.28 668.4 m
+409.68 665.76 l
+407.28 663.36 l
+404.64 665.76 l
+407.28 668.4 l
+h
+h
+B*
+413.52 641.76 m
+416.16 639.36 l
+413.52 636.72 l
+411.12 639.36 l
+413.52 641.76 l
+h
+h
+B*
+420 668.4 m
+422.4 665.76 l
+420 663.36 l
+417.36 665.76 l
+420 668.4 l
+h
+h
+B*
+426.24 668.4 m
+428.88 665.76 l
+426.24 663.36 l
+423.84 665.76 l
+426.24 668.4 l
+h
+h
+B*
+432.72 668.4 m
+435.12 665.76 l
+432.72 663.36 l
+430.08 665.76 l
+432.72 668.4 l
+h
+h
+B*
+438.96 668.4 m
+441.6 665.76 l
+438.96 663.36 l
+436.56 665.76 l
+438.96 668.4 l
+h
+h
+B*
+445.44 641.76 m
+447.84 639.36 l
+445.44 636.72 l
+442.8 639.36 l
+445.44 641.76 l
+h
+h
+B*
+451.68 668.4 m
+454.32 665.76 l
+451.68 663.36 l
+449.28 665.76 l
+451.68 668.4 l
+h
+h
+B*
+458.16 668.4 m
+460.56 665.76 l
+458.16 663.36 l
+455.52 665.76 l
+458.16 668.4 l
+h
+h
+B*
+464.4 668.4 m
+467.04 665.76 l
+464.4 663.36 l
+462 665.76 l
+464.4 668.4 l
+h
+h
+B*
+470.88 668.4 m
+473.28 665.76 l
+470.88 663.36 l
+468.24 665.76 l
+470.88 668.4 l
+h
+h
+B*
+477.12 668.4 m
+479.76 665.76 l
+477.12 663.36 l
+474.72 665.76 l
+477.12 668.4 l
+h
+h
+B*
+483.6 668.4 m
+486 665.76 l
+483.6 663.36 l
+480.96 665.76 l
+483.6 668.4 l
+h
+h
+B*
+489.84 641.76 m
+492.48 639.36 l
+489.84 636.72 l
+487.44 639.36 l
+489.84 641.76 l
+h
+h
+B*
+496.32 641.76 m
+498.72 639.36 l
+496.32 636.72 l
+493.68 639.36 l
+496.32 641.76 l
+h
+h
+B*
+502.56 641.76 m
+505.2 639.36 l
+502.56 636.72 l
+500.16 639.36 l
+502.56 641.76 l
+h
+h
+B*
+509.04 641.76 m
+511.44 639.36 l
+509.04 636.72 l
+506.4 639.36 l
+509.04 641.76 l
+h
+h
+B*
+515.28 668.4 m
+517.92 665.76 l
+515.28 663.36 l
+512.88 665.76 l
+515.28 668.4 l
+h
+h
+B*
+521.76 641.76 m
+524.16 639.36 l
+521.76 636.72 l
+519.12 639.36 l
+521.76 641.76 l
+h
+h
+B*
+528 668.4 m
+530.64 665.76 l
+528 663.36 l
+525.6 665.76 l
+528 668.4 l
+h
+h
+B*
+534.48 668.4 m
+536.88 665.76 l
+534.48 663.36 l
+531.84 665.76 l
+534.48 668.4 l
+h
+h
+B*
+q
+527.52 652.32 25.44 26.88 re
+h
+W n
+540.72 668.4 m
+543.36 665.76 l
+540.72 663.36 l
+538.32 665.76 l
+540.72 668.4 l
+h
+h
+B*
+Q 
+q
+533.76 652.32 19.2 26.88 re
+h
+W n
+547.2 668.4 m
+549.6 665.76 l
+547.2 663.36 l
+544.56 665.76 l
+547.2 668.4 l
+h
+h
+B*
+Q 
+q
+357.12 652.56 18.96 26.64 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+360.24 663.6 4.8 4.8 re
+h
+B*
+Q 
+q
+357.12 652.56 25.2 26.64 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+366.48 663.6 4.8 4.8 re
+h
+B*
+Q 
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+372.96 663.6 4.8 4.8 re
+h
+B*
+379.2 663.6 4.8 4.8 re
+h
+B*
+385.68 663.6 4.8 4.8 re
+h
+B*
+391.92 663.6 4.8 4.8 re
+h
+B*
+398.4 636.96 4.8 4.8 re
+h
+B*
+404.64 663.6 4.8 4.8 re
+h
+B*
+411.12 663.6 4.8 4.8 re
+h
+B*
+417.36 663.6 4.8 4.8 re
+h
+B*
+423.84 636.96 4.8 4.8 re
+h
+B*
+430.08 636.96 4.8 4.8 re
+h
+B*
+436.56 636.96 4.8 4.8 re
+h
+B*
+442.8 636.96 4.8 4.8 re
+h
+B*
+449.28 636.96 4.8 4.8 re
+h
+B*
+455.52 663.6 4.8 4.8 re
+h
+B*
+462 663.6 4.8 4.8 re
+h
+B*
+468.24 663.6 4.8 4.8 re
+h
+B*
+474.72 663.6 4.8 4.8 re
+h
+B*
+480.96 663.6 4.8 4.8 re
+h
+B*
+487.44 636.96 4.8 4.8 re
+h
+B*
+493.68 636.96 4.8 4.8 re
+h
+B*
+500.16 636.96 4.8 4.8 re
+h
+B*
+506.4 663.6 4.8 4.8 re
+h
+B*
+512.88 663.6 4.8 4.8 re
+h
+B*
+519.12 636.96 4.8 4.8 re
+h
+B*
+525.6 663.6 4.8 4.8 re
+h
+B*
+531.84 663.6 4.8 4.8 re
+h
+B*
+q
+527.52 652.56 25.44 26.64 re
+h
+W n
+538.32 663.6 4.8 4.8 re
+h
+B*
+Q 
+q
+533.76 652.56 19.2 26.64 re
+h
+W n
+544.56 663.6 4.8 4.8 re
+h
+B*
+Q 
+q
+357.12 652.32 19.2 26.88 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.2 0.2 0.2 RG
+362.64 668.4 m
+365.28 663.36 l
+360.24 663.36 l
+362.64 668.4 l
+h
+h
+B*
+Q 
+q
+357.12 652.32 25.44 26.88 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.2 0.2 0.2 RG
+369.12 668.4 m
+371.52 663.36 l
+366.48 663.36 l
+369.12 668.4 l
+h
+h
+B*
+Q 
+0.5882 0.5882 0.5882 rg
+0.2 0.2 0.2 RG
+375.36 668.4 m
+378 663.36 l
+372.96 663.36 l
+375.36 668.4 l
+h
+h
+B*
+381.84 668.4 m
+384.24 663.36 l
+379.2 663.36 l
+381.84 668.4 l
+h
+h
+B*
+388.08 668.4 m
+390.72 663.36 l
+385.68 663.36 l
+388.08 668.4 l
+h
+h
+B*
+394.56 668.4 m
+396.96 663.36 l
+391.92 663.36 l
+394.56 668.4 l
+h
+h
+B*
+400.8 641.76 m
+403.44 636.72 l
+398.4 636.72 l
+400.8 641.76 l
+h
+h
+B*
+407.28 668.4 m
+409.68 663.36 l
+404.64 663.36 l
+407.28 668.4 l
+h
+h
+B*
+413.52 668.4 m
+416.16 663.36 l
+411.12 663.36 l
+413.52 668.4 l
+h
+h
+B*
+420 668.4 m
+422.4 663.36 l
+417.36 663.36 l
+420 668.4 l
+h
+h
+B*
+426.24 668.4 m
+428.88 663.36 l
+423.84 663.36 l
+426.24 668.4 l
+h
+h
+B*
+432.72 668.4 m
+435.12 663.36 l
+430.08 663.36 l
+432.72 668.4 l
+h
+h
+B*
+438.96 668.4 m
+441.6 663.36 l
+436.56 663.36 l
+438.96 668.4 l
+h
+h
+B*
+445.44 668.4 m
+447.84 663.36 l
+442.8 663.36 l
+445.44 668.4 l
+h
+h
+B*
+451.68 668.4 m
+454.32 663.36 l
+449.28 663.36 l
+451.68 668.4 l
+h
+h
+B*
+458.16 668.4 m
+460.56 663.36 l
+455.52 663.36 l
+458.16 668.4 l
+h
+h
+B*
+464.4 668.4 m
+467.04 663.36 l
+462 663.36 l
+464.4 668.4 l
+h
+h
+B*
+470.88 668.4 m
+473.28 663.36 l
+468.24 663.36 l
+470.88 668.4 l
+h
+h
+B*
+477.12 668.4 m
+479.76 663.36 l
+474.72 663.36 l
+477.12 668.4 l
+h
+h
+B*
+483.6 668.4 m
+486 663.36 l
+480.96 663.36 l
+483.6 668.4 l
+h
+h
+B*
+489.84 641.76 m
+492.48 636.72 l
+487.44 636.72 l
+489.84 641.76 l
+h
+h
+B*
+496.32 641.76 m
+498.72 636.72 l
+493.68 636.72 l
+496.32 641.76 l
+h
+h
+B*
+502.56 641.76 m
+505.2 636.72 l
+500.16 636.72 l
+502.56 641.76 l
+h
+h
+B*
+509.04 668.4 m
+511.44 663.36 l
+506.4 663.36 l
+509.04 668.4 l
+h
+h
+B*
+515.28 668.4 m
+517.92 663.36 l
+512.88 663.36 l
+515.28 668.4 l
+h
+h
+B*
+521.76 641.76 m
+524.16 636.72 l
+519.12 636.72 l
+521.76 641.76 l
+h
+h
+B*
+528 668.4 m
+530.64 663.36 l
+525.6 663.36 l
+528 668.4 l
+h
+h
+B*
+534.48 668.4 m
+536.88 663.36 l
+531.84 663.36 l
+534.48 668.4 l
+h
+h
+B*
+q
+527.52 652.32 25.44 26.88 re
+h
+W n
+540.72 668.4 m
+543.36 663.36 l
+538.32 663.36 l
+540.72 668.4 l
+h
+h
+B*
+Q 
+q
+533.76 652.32 19.2 26.88 re
+h
+W n
+547.2 668.4 m
+549.6 663.36 l
+544.56 663.36 l
+547.2 668.4 l
+h
+h
+B*
+Q 
+1 1 1 rg
+360 636.72 5.28 5.28 re
+f
+q
+357.12 628.32 16.56 24.24 re
+h
+W n
+362.64 639.36 m
+360.24 641.76 l
+S
+Q 
+q
+357.12 625.68 19.2 24.48 re
+h
+W n
+362.64 639.36 m
+365.28 636.72 l
+S
+Q 
+q
+357.12 625.68 16.56 24.48 re
+h
+W n
+362.64 639.36 m
+360.24 636.72 l
+S
+Q 
+q
+357.12 628.32 19.2 24.24 re
+h
+W n
+362.64 639.36 m
+365.28 641.76 l
+S
+Q 
+366.48 636.72 5.28 5.28 re
+f
+q
+357.12 628.32 23.04 24.24 re
+h
+W n
+369.12 639.36 m
+366.48 641.76 l
+S
+Q 
+369.12 639.36 m
+371.52 636.72 l
+S
+q
+357.12 625.68 23.04 24.48 re
+h
+W n
+369.12 639.36 m
+366.48 636.72 l
+S
+Q 
+369.12 639.36 m
+371.52 641.76 l
+S
+372.72 636.72 5.28 5.28 re
+f
+375.36 639.36 m
+372.96 641.76 l
+S
+375.36 639.36 m
+378 636.72 l
+S
+375.36 639.36 m
+372.96 636.72 l
+S
+375.36 639.36 m
+378 641.76 l
+S
+379.2 636.72 5.28 5.28 re
+f
+381.84 639.36 m
+379.2 641.76 l
+S
+381.84 639.36 m
+384.24 636.72 l
+S
+381.84 639.36 m
+379.2 636.72 l
+S
+381.84 639.36 m
+384.24 641.76 l
+S
+385.44 636.72 5.28 5.28 re
+f
+388.08 639.36 m
+385.68 641.76 l
+S
+388.08 639.36 m
+390.72 636.72 l
+S
+388.08 639.36 m
+385.68 636.72 l
+S
+388.08 639.36 m
+390.72 641.76 l
+S
+391.92 636.72 5.28 5.28 re
+f
+394.56 639.36 m
+391.92 641.76 l
+S
+394.56 639.36 m
+396.96 636.72 l
+S
+394.56 639.36 m
+391.92 636.72 l
+S
+394.56 639.36 m
+396.96 641.76 l
+S
+398.16 636.72 5.28 5.28 re
+f
+400.8 639.36 m
+398.4 641.76 l
+S
+400.8 639.36 m
+403.44 636.72 l
+S
+400.8 639.36 m
+398.4 636.72 l
+S
+400.8 639.36 m
+403.44 641.76 l
+S
+404.64 636.72 5.28 5.28 re
+f
+407.28 639.36 m
+404.64 641.76 l
+S
+407.28 639.36 m
+409.68 636.72 l
+S
+407.28 639.36 m
+404.64 636.72 l
+S
+407.28 639.36 m
+409.68 641.76 l
+S
+410.88 636.72 5.28 5.28 re
+f
+413.52 639.36 m
+411.12 641.76 l
+S
+413.52 639.36 m
+416.16 636.72 l
+S
+413.52 639.36 m
+411.12 636.72 l
+S
+413.52 639.36 m
+416.16 641.76 l
+S
+417.36 636.72 5.28 5.28 re
+f
+420 639.36 m
+417.36 641.76 l
+S
+420 639.36 m
+422.4 636.72 l
+S
+420 639.36 m
+417.36 636.72 l
+S
+420 639.36 m
+422.4 641.76 l
+S
+423.6 636.72 5.28 5.28 re
+f
+426.24 639.36 m
+423.84 641.76 l
+S
+426.24 639.36 m
+428.88 636.72 l
+S
+426.24 639.36 m
+423.84 636.72 l
+S
+426.24 639.36 m
+428.88 641.76 l
+S
+430.08 636.72 5.28 5.28 re
+f
+432.72 639.36 m
+430.08 641.76 l
+S
+432.72 639.36 m
+435.12 636.72 l
+S
+432.72 639.36 m
+430.08 636.72 l
+S
+432.72 639.36 m
+435.12 641.76 l
+S
+436.32 636.72 5.28 5.28 re
+f
+438.96 639.36 m
+436.56 641.76 l
+S
+438.96 639.36 m
+441.6 636.72 l
+S
+438.96 639.36 m
+436.56 636.72 l
+S
+438.96 639.36 m
+441.6 641.76 l
+S
+442.8 636.72 5.28 5.28 re
+f
+445.44 639.36 m
+442.8 641.76 l
+S
+445.44 639.36 m
+447.84 636.72 l
+S
+445.44 639.36 m
+442.8 636.72 l
+S
+445.44 639.36 m
+447.84 641.76 l
+S
+449.04 636.72 5.28 5.28 re
+f
+451.68 639.36 m
+449.28 641.76 l
+S
+451.68 639.36 m
+454.32 636.72 l
+S
+451.68 639.36 m
+449.28 636.72 l
+S
+451.68 639.36 m
+454.32 641.76 l
+S
+455.52 636.72 5.28 5.28 re
+f
+458.16 639.36 m
+455.52 641.76 l
+S
+458.16 639.36 m
+460.56 636.72 l
+S
+458.16 639.36 m
+455.52 636.72 l
+S
+458.16 639.36 m
+460.56 641.76 l
+S
+461.76 636.72 5.28 5.28 re
+f
+464.4 639.36 m
+462 641.76 l
+S
+464.4 639.36 m
+467.04 636.72 l
+S
+464.4 639.36 m
+462 636.72 l
+S
+464.4 639.36 m
+467.04 641.76 l
+S
+468.24 636.72 5.28 5.28 re
+f
+470.88 639.36 m
+468.24 641.76 l
+S
+470.88 639.36 m
+473.28 636.72 l
+S
+470.88 639.36 m
+468.24 636.72 l
+S
+470.88 639.36 m
+473.28 641.76 l
+S
+474.48 663.12 5.28 5.28 re
+f
+477.12 665.76 m
+474.72 668.4 l
+S
+477.12 665.76 m
+479.76 663.36 l
+S
+477.12 665.76 m
+474.72 663.36 l
+S
+477.12 665.76 m
+479.76 668.4 l
+S
+480.96 663.12 5.28 5.28 re
+f
+483.6 665.76 m
+480.96 668.4 l
+S
+483.6 665.76 m
+486 663.36 l
+S
+483.6 665.76 m
+480.96 663.36 l
+S
+483.6 665.76 m
+486 668.4 l
+S
+487.2 663.12 5.28 5.28 re
+f
+489.84 665.76 m
+487.44 668.4 l
+S
+489.84 665.76 m
+492.48 663.36 l
+S
+489.84 665.76 m
+487.44 663.36 l
+S
+489.84 665.76 m
+492.48 668.4 l
+S
+493.68 663.12 5.28 5.28 re
+f
+496.32 665.76 m
+493.68 668.4 l
+S
+496.32 665.76 m
+498.72 663.36 l
+S
+496.32 665.76 m
+493.68 663.36 l
+S
+496.32 665.76 m
+498.72 668.4 l
+S
+499.92 663.12 5.28 5.28 re
+f
+502.56 665.76 m
+500.16 668.4 l
+S
+502.56 665.76 m
+505.2 663.36 l
+S
+502.56 665.76 m
+500.16 663.36 l
+S
+502.56 665.76 m
+505.2 668.4 l
+S
+506.4 663.12 5.28 5.28 re
+f
+509.04 665.76 m
+506.4 668.4 l
+S
+509.04 665.76 m
+511.44 663.36 l
+S
+509.04 665.76 m
+506.4 663.36 l
+S
+509.04 665.76 m
+511.44 668.4 l
+S
+512.64 663.12 5.28 5.28 re
+f
+515.28 665.76 m
+512.88 668.4 l
+S
+515.28 665.76 m
+517.92 663.36 l
+S
+515.28 665.76 m
+512.88 663.36 l
+S
+515.28 665.76 m
+517.92 668.4 l
+S
+519.12 663.12 5.28 5.28 re
+f
+521.76 665.76 m
+519.12 668.4 l
+S
+521.76 665.76 m
+524.16 663.36 l
+S
+521.76 665.76 m
+519.12 663.36 l
+S
+521.76 665.76 m
+524.16 668.4 l
+S
+525.36 663.12 5.28 5.28 re
+f
+528 665.76 m
+525.6 668.4 l
+S
+528 665.76 m
+530.64 663.36 l
+S
+528 665.76 m
+525.6 663.36 l
+S
+528 665.76 m
+530.64 668.4 l
+S
+531.84 663.12 5.28 5.28 re
+f
+534.48 665.76 m
+531.84 668.4 l
+S
+534.48 665.76 m
+536.88 663.36 l
+S
+534.48 665.76 m
+531.84 663.36 l
+S
+534.48 665.76 m
+536.88 668.4 l
+S
+538.08 663.12 5.28 5.28 re
+f
+540.72 665.76 m
+538.32 668.4 l
+S
+q
+529.92 652.32 23.04 24.24 re
+h
+W n
+540.72 665.76 m
+543.36 663.36 l
+S
+Q 
+540.72 665.76 m
+538.32 663.36 l
+S
+q
+529.92 654.72 23.04 24.48 re
+h
+W n
+540.72 665.76 m
+543.36 668.4 l
+S
+Q 
+544.56 663.12 5.28 5.28 re
+f
+q
+533.76 654.72 19.2 24.48 re
+h
+W n
+547.2 665.76 m
+544.56 668.4 l
+S
+Q 
+q
+536.4 652.32 16.56 24.24 re
+h
+W n
+547.2 665.76 m
+549.6 663.36 l
+S
+Q 
+q
+533.76 652.32 19.2 24.24 re
+h
+W n
+547.2 665.76 m
+544.56 663.36 l
+S
+Q 
+q
+536.4 654.72 16.56 24.48 re
+h
+W n
+547.2 665.76 m
+549.6 668.4 l
+S
+Q 
+0 0 0 rg
+BT
+/TT2 8.5141 Tf
+0.0019 Tc 0.0312 Tw 412.8 702.96 Td
+(NN detection)Tj
+/TT3 8.0344 Tf
+0.0929 Tc 0 Tw -63.6 -92.64 Td
+(0)Tj
+0.0374 Tc -6.72 13.2 Td
+(0.5)Tj
+0.0929 Tc 6.72 13.2 Td
+(1)Tj
+0.0374 Tc -6.72 13.2 Td
+(1.5)Tj
+0.0929 Tc 6.72 13.2 Td
+(2)Tj
+0.0374 Tc -6.72 13.2 Td
+(2.5)Tj
+0.0929 Tc 0 1 -1 0 365.04 602.4 Tm
+(1)Tj
+0 1 -1 0 384.24 602.4 Tm
+(4)Tj
+0 1 -1 0 403.2 602.4 Tm
+(7)Tj
+0 1 -1 0 422.4 598.08 Tm
+(10)Tj
+0 1 -1 0 441.36 598.08 Tm
+(13)Tj
+0 1 -1 0 460.56 598.08 Tm
+(16)Tj
+0 1 -1 0 479.52 598.08 Tm
+(19)Tj
+0 1 -1 0 498.72 598.08 Tm
+(22)Tj
+0 1 -1 0 517.68 598.08 Tm
+(25)Tj
+0 1 -1 0 536.88 598.08 Tm
+(28)Tj
+/TT2 8.0344 Tf
+-0.0234 Tc 0.1898 Tw 1 0 0 1 0 0 Tm
+420 587.76 Td
+(Data points)Tj
+0.0328 Tc 0 Tw 0 1 -1 0 336.24 635.28 Tm
+(Class)Tj
+ET
+1 1 1 rg
+323.04 554.16 232.56 27.6 re
+f
+0 0 0 RG
+0.24 w 1 j 1 J 
+322.8 554.16 232.8 27.84 re
+S
+q
+326.16 564.24 41.76 17.76 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+336.96 575.28 m
+356.88 575.28 l
+S
+Q 
+q
+333.6 561.84 26.64 20.16 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+346.8 577.68 m
+349.2 575.28 l
+346.8 572.88 l
+344.4 575.28 l
+346.8 577.68 l
+h
+h
+B*
+Q 
+0 0 0 rg
+BT
+/TT3 8.0344 Tf
+0.0143 Tc -0.0879 Tw 358.8 572.16 Td
+(NN [41,40,40,1])Tj
+ET
+q
+442.56 564.24 41.76 17.76 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+453.36 575.28 m
+473.28 575.28 l
+S
+Q 
+q
+450.24 562.08 26.4 19.92 re
+h
+W n
+0.502 0.502 0.502 rg
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+461.04 573.12 4.56 4.56 re
+h
+B*
+Q 
+BT
+/TT3 8.0344 Tf
+0.0043 Tc 0.1622 Tw 475.2 572.16 Td
+(NN [41,20,20,20,1])Tj
+ET
+q
+326.16 554.16 41.76 18 re
+h
+W n
+0.5882 0.5882 0.5882 RG
+0.96 w 2 j 0 J 
+336.96 561.36 m
+356.88 561.36 l
+S
+Q 
+q
+333.6 554.16 26.64 20.4 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+346.8 563.76 m
+349.2 558.96 l
+344.4 558.96 l
+346.8 563.76 l
+h
+h
+B*
+Q 
+BT
+/TT3 8.0344 Tf
+0.0143 Tc -0.0879 Tw 358.8 558.24 Td
+(NN [41,25,20,1])Tj
+ET
+q
+442.56 554.16 41.76 18 re
+h
+W n
+0.7529 0.7529 0.7529 RG
+0.96 w 2 j 0 J 
+453.36 561.36 m
+473.28 561.36 l
+S
+Q 
+1 1 1 rg
+460.8 558.72 5.04 5.04 re
+f
+q
+450.24 554.16 24.24 20.4 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+463.44 561.36 m
+461.04 563.76 l
+S
+Q 
+q
+452.64 554.16 24.24 18 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+463.44 561.36 m
+465.84 558.96 l
+S
+Q 
+q
+450.24 554.16 24.24 18 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+463.44 561.36 m
+461.04 558.96 l
+S
+Q 
+q
+452.64 554.16 24.24 20.4 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+463.44 561.36 m
+465.84 563.76 l
+S
+Q 
+0 0 0 rg
+BT
+/TT3 8.0344 Tf
+-0.0013 Tc 0 Tw 475.2 558.24 Td
+(Actual)Tj
+ET
+317.28 552.24 243.36 163.68 re
+S
+BT
+/TT0 10.08 Tf
+0 Tc 0.12 Tw 313.2 539.28 Td
+( )Tj
+/TT0 7.92 Tf
+-0.0851 Tc 0.0251 Tw 0 -9.84 TD
+(Fig.  3)Tj
+-0.0709 Tc 0.0109 Tw 20.16 0 Td
+(. Neural network testing on KDD intrusion detection)Tj
+0 Tc -0.06 Tw 163.2 0 Td
+( )Tj
+/TT4 10.08 Tf
+-0.0497 Tc 0.1354 Tw -160.8 -25.44 Td
+(VI. Comparison of SVMs and Neural Networks )Tj
+0 Tc 0.12 Tw 205.68 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0793 Tc 1.3753 Tw -218.16 -24.96 Td
+(Figure 4 below shows a comparison of the results of \(the)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0482 Tc 0.2882 Tw -10.08 -11.52 Td
+(best performing\) neural network and support vector machines )Tj
+-0.1006 Tc 0.4606 Tw 0 -11.52 TD
+(on th)Tj
+-0.0641 Tc 0.3841 Tw 20.88 0 Td
+(e KDD data subset selected for testing.  Due to the large )Tj
+-0.0447 Tc 0.5847 Tw -20.88 -11.52 Td
+(size of the testing set, only thirty data points are shown here. )Tj
+-0.0676 Tc 1.5876 Tw T*
+(As can be seen, the SVM IDS has a slightly higher rate of)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0149 Tc 0.1051 Tw 0 -11.76 TD
+(making the correct detection. )Tj
+0 Tc 0.12 Tw 120.96 0 Td
+( )Tj
+ET
+1 1 1 rg
+317.52 249.12 240 151.44 re
+f
+317.28 249.12 240.24 151.68 re
+S
+0.7529 0.7529 0.7529 rg
+346.56 373.68 m
+549.12 373.68 l
+549.12 304.08 l
+346.56 304.08 l
+346.56 373.68 l
+h
+f*
+q
+346.56 317.76 202.56 0.24 re
+h
+W n
+346.56 318 m
+549.12 318 l
+S
+Q 
+q
+346.56 331.68 202.56 0.24 re
+h
+W n
+346.56 331.92 m
+549.12 331.92 l
+S
+Q 
+q
+346.56 345.6 202.56 0.24 re
+h
+W n
+346.56 345.84 m
+549.12 345.84 l
+S
+Q 
+q
+346.56 359.52 202.56 0.24 re
+h
+W n
+346.56 359.76 m
+549.12 359.76 l
+S
+Q 
+q
+346.56 373.44 202.56 0.24 re
+h
+W n
+346.56 373.68 m
+549.12 373.68 l
+S
+Q 
+1 1 1 RG
+0.96 w 2 j 0 J 
+346.56 373.68 m
+549.12 373.68 l
+S
+549.12 373.68 m
+549.12 304.08 l
+S
+549.12 304.08 m
+346.56 304.08 l
+S
+346.56 304.08 m
+346.56 373.68 l
+S
+0 0 0 RG
+0.24 w 1 j 1 J 
+346.56 373.68 m
+346.56 304.08 l
+S
+344.16 304.08 m
+346.56 304.08 l
+S
+344.16 318 m
+346.56 318 l
+S
+344.16 331.92 m
+346.56 331.92 l
+S
+344.16 345.84 m
+346.56 345.84 l
+S
+344.16 359.76 m
+346.56 359.76 l
+S
+344.16 373.68 m
+346.56 373.68 l
+S
+346.56 304.08 m
+549.12 304.08 l
+S
+346.56 301.68 m
+346.56 304.08 l
+S
+353.28 301.68 m
+353.28 304.08 l
+S
+360 301.68 m
+360 304.08 l
+S
+366.72 301.68 m
+366.72 304.08 l
+S
+373.44 301.68 m
+373.44 304.08 l
+S
+380.4 301.68 m
+380.4 304.08 l
+S
+387.12 301.68 m
+387.12 304.08 l
+S
+393.84 301.68 m
+393.84 304.08 l
+S
+400.56 301.68 m
+400.56 304.08 l
+S
+407.28 301.68 m
+407.28 304.08 l
+S
+414 301.68 m
+414 304.08 l
+S
+420.72 301.68 m
+420.72 304.08 l
+S
+427.68 301.68 m
+427.68 304.08 l
+S
+434.4 301.68 m
+434.4 304.08 l
+S
+441.12 301.68 m
+441.12 304.08 l
+S
+447.84 301.68 m
+447.84 304.08 l
+S
+454.56 301.68 m
+454.56 304.08 l
+S
+461.28 301.68 m
+461.28 304.08 l
+S
+468 301.68 m
+468 304.08 l
+S
+474.96 301.68 m
+474.96 304.08 l
+S
+481.68 301.68 m
+481.68 304.08 l
+S
+488.4 301.68 m
+488.4 304.08 l
+S
+495.12 301.68 m
+495.12 304.08 l
+S
+501.84 301.68 m
+501.84 304.08 l
+S
+508.56 301.68 m
+508.56 304.08 l
+S
+515.52 301.68 m
+515.52 304.08 l
+S
+522.24 301.68 m
+522.24 304.08 l
+S
+528.96 301.68 m
+528.96 304.08 l
+S
+535.68 301.68 m
+535.68 304.08 l
+S
+542.4 301.68 m
+542.4 304.08 l
+S
+549.12 301.68 m
+549.12 304.08 l
+S
+q
+343.92 348.72 23.76 21.84 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+349.92 359.76 m
+356.64 359.76 l
+S
+Q 
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+356.64 359.76 m
+363.36 359.76 l
+S
+363.36 359.76 m
+370.08 331.92 l
+S
+370.08 331.92 m
+376.8 359.76 l
+S
+376.8 359.76 m
+383.76 359.76 l
+S
+383.76 359.76 m
+390.48 331.92 l
+S
+390.48 331.92 m
+397.2 359.76 l
+S
+397.2 359.76 m
+403.92 331.92 l
+S
+403.92 331.92 m
+410.64 359.76 l
+S
+410.64 359.76 m
+417.36 359.76 l
+S
+417.36 359.76 m
+424.08 359.76 l
+S
+424.08 359.76 m
+431.04 359.76 l
+S
+431.04 359.76 m
+437.76 331.92 l
+S
+437.76 331.92 m
+444.48 359.76 l
+S
+444.48 359.76 m
+451.2 359.76 l
+S
+451.2 359.76 m
+457.92 359.76 l
+S
+457.92 359.76 m
+464.64 359.76 l
+S
+464.64 359.76 m
+471.6 359.76 l
+S
+471.6 359.76 m
+478.32 359.76 l
+S
+478.32 359.76 m
+485.04 331.92 l
+S
+485.04 331.92 m
+491.76 331.92 l
+S
+491.76 331.92 m
+498.48 331.92 l
+S
+498.48 331.92 m
+505.2 331.92 l
+S
+505.2 331.92 m
+511.92 359.76 l
+S
+511.92 359.76 m
+518.88 331.92 l
+S
+518.88 331.92 m
+525.6 359.76 l
+S
+525.6 359.76 m
+532.32 359.76 l
+S
+532.32 359.76 m
+539.04 359.76 l
+S
+q
+528.24 348.72 23.52 21.84 re
+h
+W n
+539.04 359.76 m
+545.76 359.76 l
+S
+Q 
+q
+343.92 320.88 23.76 21.84 re
+h
+W n
+0.5882 0.5882 0.5882 RG
+349.92 331.92 m
+356.64 331.92 l
+S
+Q 
+0.5882 0.5882 0.5882 RG
+356.64 331.92 m
+363.36 331.92 l
+S
+363.36 331.92 m
+370.08 331.92 l
+S
+370.08 331.92 m
+376.8 331.92 l
+S
+376.8 331.92 m
+383.76 331.92 l
+S
+383.76 331.92 m
+390.48 331.92 l
+S
+390.48 331.92 m
+397.2 331.92 l
+S
+397.2 331.92 m
+403.92 331.92 l
+S
+403.92 331.92 m
+410.64 331.92 l
+S
+410.64 331.92 m
+417.36 331.92 l
+S
+417.36 331.92 m
+424.08 331.92 l
+S
+424.08 331.92 m
+431.04 331.92 l
+S
+431.04 331.92 m
+437.76 331.92 l
+S
+437.76 331.92 m
+444.48 331.92 l
+S
+444.48 331.92 m
+451.2 331.92 l
+S
+451.2 331.92 m
+457.92 331.92 l
+S
+457.92 331.92 m
+464.64 331.92 l
+S
+464.64 331.92 m
+471.6 359.76 l
+S
+471.6 359.76 m
+478.32 359.76 l
+S
+478.32 359.76 m
+485.04 331.92 l
+S
+485.04 331.92 m
+491.76 331.92 l
+S
+491.76 331.92 m
+498.48 331.92 l
+S
+498.48 331.92 m
+505.2 331.92 l
+S
+505.2 331.92 m
+511.92 331.92 l
+S
+511.92 331.92 m
+518.88 359.76 l
+S
+518.88 359.76 m
+525.6 331.92 l
+S
+525.6 331.92 m
+532.32 359.76 l
+S
+532.32 359.76 m
+539.04 359.76 l
+S
+q
+528.24 348.72 23.52 21.84 re
+h
+W n
+539.04 359.76 m
+545.76 359.76 l
+S
+Q 
+q
+343.92 320.88 23.76 21.84 re
+h
+W n
+0.502 0.502 0.502 RG
+349.92 331.92 m
+356.64 331.92 l
+S
+Q 
+0.502 0.502 0.502 RG
+356.64 331.92 m
+363.36 331.92 l
+S
+363.36 331.92 m
+370.08 331.92 l
+S
+370.08 331.92 m
+376.8 331.92 l
+S
+376.8 331.92 m
+383.76 331.92 l
+S
+383.76 331.92 m
+390.48 331.92 l
+S
+390.48 331.92 m
+397.2 331.92 l
+S
+397.2 331.92 m
+403.92 331.92 l
+S
+403.92 331.92 m
+410.64 331.92 l
+S
+410.64 331.92 m
+417.36 331.92 l
+S
+417.36 331.92 m
+424.08 331.92 l
+S
+424.08 331.92 m
+431.04 331.92 l
+S
+431.04 331.92 m
+437.76 331.92 l
+S
+437.76 331.92 m
+444.48 331.92 l
+S
+444.48 331.92 m
+451.2 331.92 l
+S
+451.2 331.92 m
+457.92 331.92 l
+S
+457.92 331.92 m
+464.64 331.92 l
+S
+464.64 331.92 m
+471.6 359.76 l
+S
+471.6 359.76 m
+478.32 359.76 l
+S
+478.32 359.76 m
+485.04 359.76 l
+S
+485.04 359.76 m
+491.76 359.76 l
+S
+491.76 359.76 m
+498.48 359.76 l
+S
+498.48 359.76 m
+505.2 359.76 l
+S
+505.2 359.76 m
+511.92 359.76 l
+S
+511.92 359.76 m
+518.88 359.76 l
+S
+518.88 359.76 m
+525.6 359.76 l
+S
+525.6 359.76 m
+532.32 359.76 l
+S
+532.32 359.76 m
+539.04 359.76 l
+S
+q
+528.24 348.72 23.52 21.84 re
+h
+W n
+539.04 359.76 m
+545.76 359.76 l
+S
+Q 
+q
+343.92 346.08 19.44 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+349.92 362.16 m
+352.32 359.76 l
+349.92 357.12 l
+347.28 359.76 l
+349.92 362.16 l
+h
+h
+B*
+Q 
+q
+343.92 346.08 26.16 26.88 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+356.64 362.16 m
+359.04 359.76 l
+356.64 357.12 l
+354 359.76 l
+356.64 362.16 l
+h
+h
+B*
+Q 
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+363.36 362.16 m
+366 359.76 l
+363.36 357.12 l
+360.96 359.76 l
+363.36 362.16 l
+h
+h
+B*
+370.08 334.32 m
+372.72 331.92 l
+370.08 329.28 l
+367.68 331.92 l
+370.08 334.32 l
+h
+h
+B*
+376.8 362.16 m
+379.44 359.76 l
+376.8 357.12 l
+374.4 359.76 l
+376.8 362.16 l
+h
+h
+B*
+383.76 362.16 m
+386.16 359.76 l
+383.76 357.12 l
+381.12 359.76 l
+383.76 362.16 l
+h
+h
+B*
+390.48 334.32 m
+392.88 331.92 l
+390.48 329.28 l
+387.84 331.92 l
+390.48 334.32 l
+h
+h
+B*
+397.2 362.16 m
+399.6 359.76 l
+397.2 357.12 l
+394.56 359.76 l
+397.2 362.16 l
+h
+h
+B*
+403.92 334.32 m
+406.56 331.92 l
+403.92 329.28 l
+401.52 331.92 l
+403.92 334.32 l
+h
+h
+B*
+410.64 362.16 m
+413.28 359.76 l
+410.64 357.12 l
+408.24 359.76 l
+410.64 362.16 l
+h
+h
+B*
+417.36 362.16 m
+420 359.76 l
+417.36 357.12 l
+414.96 359.76 l
+417.36 362.16 l
+h
+h
+B*
+424.08 362.16 m
+426.72 359.76 l
+424.08 357.12 l
+421.68 359.76 l
+424.08 362.16 l
+h
+h
+B*
+431.04 362.16 m
+433.44 359.76 l
+431.04 357.12 l
+428.4 359.76 l
+431.04 362.16 l
+h
+h
+B*
+437.76 334.32 m
+440.16 331.92 l
+437.76 329.28 l
+435.12 331.92 l
+437.76 334.32 l
+h
+h
+B*
+444.48 362.16 m
+446.88 359.76 l
+444.48 357.12 l
+441.84 359.76 l
+444.48 362.16 l
+h
+h
+B*
+451.2 362.16 m
+453.84 359.76 l
+451.2 357.12 l
+448.8 359.76 l
+451.2 362.16 l
+h
+h
+B*
+457.92 362.16 m
+460.56 359.76 l
+457.92 357.12 l
+455.52 359.76 l
+457.92 362.16 l
+h
+h
+B*
+464.64 362.16 m
+467.28 359.76 l
+464.64 357.12 l
+462.24 359.76 l
+464.64 362.16 l
+h
+h
+B*
+471.6 362.16 m
+474 359.76 l
+471.6 357.12 l
+468.96 359.76 l
+471.6 362.16 l
+h
+h
+B*
+478.32 362.16 m
+480.72 359.76 l
+478.32 357.12 l
+475.68 359.76 l
+478.32 362.16 l
+h
+h
+B*
+485.04 334.32 m
+487.44 331.92 l
+485.04 329.28 l
+482.4 331.92 l
+485.04 334.32 l
+h
+h
+B*
+491.76 334.32 m
+494.16 331.92 l
+491.76 329.28 l
+489.12 331.92 l
+491.76 334.32 l
+h
+h
+B*
+498.48 334.32 m
+501.12 331.92 l
+498.48 329.28 l
+496.08 331.92 l
+498.48 334.32 l
+h
+h
+B*
+505.2 334.32 m
+507.84 331.92 l
+505.2 329.28 l
+502.8 331.92 l
+505.2 334.32 l
+h
+h
+B*
+511.92 362.16 m
+514.56 359.76 l
+511.92 357.12 l
+509.52 359.76 l
+511.92 362.16 l
+h
+h
+B*
+518.88 334.32 m
+521.28 331.92 l
+518.88 329.28 l
+516.24 331.92 l
+518.88 334.32 l
+h
+h
+B*
+525.6 362.16 m
+528 359.76 l
+525.6 357.12 l
+522.96 359.76 l
+525.6 362.16 l
+h
+h
+B*
+532.32 362.16 m
+534.72 359.76 l
+532.32 357.12 l
+529.68 359.76 l
+532.32 362.16 l
+h
+h
+B*
+q
+525.84 346.08 25.92 26.88 re
+h
+W n
+539.04 362.16 m
+541.68 359.76 l
+539.04 357.12 l
+536.64 359.76 l
+539.04 362.16 l
+h
+h
+B*
+Q 
+q
+532.56 346.08 19.2 26.88 re
+h
+W n
+545.76 362.16 m
+548.4 359.76 l
+545.76 357.12 l
+543.36 359.76 l
+545.76 362.16 l
+h
+h
+B*
+Q 
+q
+343.92 318.48 19.2 26.64 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.5882 0.5882 0.5882 RG
+347.28 329.52 4.8 4.8 re
+h
+B*
+Q 
+q
+343.92 318.48 25.92 26.64 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.5882 0.5882 0.5882 RG
+354 329.52 4.8 4.8 re
+h
+B*
+Q 
+0.5882 0.5882 0.5882 rg
+0.5882 0.5882 0.5882 RG
+360.96 329.52 4.8 4.8 re
+h
+B*
+367.68 329.52 4.8 4.8 re
+h
+B*
+374.4 329.52 4.8 4.8 re
+h
+B*
+381.12 329.52 4.8 4.8 re
+h
+B*
+387.84 329.52 4.8 4.8 re
+h
+B*
+394.56 329.52 4.8 4.8 re
+h
+B*
+401.52 329.52 4.8 4.8 re
+h
+B*
+408.24 329.52 4.8 4.8 re
+h
+B*
+414.96 329.52 4.8 4.8 re
+h
+B*
+421.68 329.52 4.8 4.8 re
+h
+B*
+428.4 329.52 4.8 4.8 re
+h
+B*
+435.12 329.52 4.8 4.8 re
+h
+B*
+441.84 329.52 4.8 4.8 re
+h
+B*
+448.8 329.52 4.8 4.8 re
+h
+B*
+455.52 329.52 4.8 4.8 re
+h
+B*
+462.24 329.52 4.8 4.8 re
+h
+B*
+468.96 357.36 4.8 4.8 re
+h
+B*
+475.68 357.36 4.8 4.8 re
+h
+B*
+482.4 329.52 4.8 4.8 re
+h
+B*
+489.12 329.52 4.8 4.8 re
+h
+B*
+496.08 329.52 4.8 4.8 re
+h
+B*
+502.8 329.52 4.8 4.8 re
+h
+B*
+509.52 329.52 4.8 4.8 re
+h
+B*
+516.24 357.36 4.8 4.8 re
+h
+B*
+522.96 329.52 4.8 4.8 re
+h
+B*
+529.68 357.36 4.8 4.8 re
+h
+B*
+q
+525.84 346.32 25.92 26.64 re
+h
+W n
+536.64 357.36 4.8 4.8 re
+h
+B*
+Q 
+q
+532.56 346.32 19.2 26.64 re
+h
+W n
+543.36 357.36 4.8 4.8 re
+h
+B*
+Q 
+q
+343.92 318.24 19.44 26.88 re
+h
+W n
+0.502 0.502 0.502 rg
+0.2 0.2 0.2 RG
+349.92 334.32 m
+352.32 329.28 l
+347.28 329.28 l
+349.92 334.32 l
+h
+h
+B*
+Q 
+q
+343.92 318.24 26.16 26.88 re
+h
+W n
+0.502 0.502 0.502 rg
+0.2 0.2 0.2 RG
+356.64 334.32 m
+359.04 329.28 l
+354 329.28 l
+356.64 334.32 l
+h
+h
+B*
+Q 
+0.502 0.502 0.502 rg
+0.2 0.2 0.2 RG
+363.36 334.32 m
+366 329.28 l
+360.96 329.28 l
+363.36 334.32 l
+h
+h
+B*
+370.08 334.32 m
+372.72 329.28 l
+367.68 329.28 l
+370.08 334.32 l
+h
+h
+B*
+376.8 334.32 m
+379.44 329.28 l
+374.4 329.28 l
+376.8 334.32 l
+h
+h
+B*
+383.76 334.32 m
+386.16 329.28 l
+381.12 329.28 l
+383.76 334.32 l
+h
+h
+B*
+390.48 334.32 m
+392.88 329.28 l
+387.84 329.28 l
+390.48 334.32 l
+h
+h
+B*
+397.2 334.32 m
+399.6 329.28 l
+394.56 329.28 l
+397.2 334.32 l
+h
+h
+B*
+403.92 334.32 m
+406.56 329.28 l
+401.52 329.28 l
+403.92 334.32 l
+h
+h
+B*
+410.64 334.32 m
+413.28 329.28 l
+408.24 329.28 l
+410.64 334.32 l
+h
+h
+B*
+417.36 334.32 m
+420 329.28 l
+414.96 329.28 l
+417.36 334.32 l
+h
+h
+B*
+424.08 334.32 m
+426.72 329.28 l
+421.68 329.28 l
+424.08 334.32 l
+h
+h
+B*
+431.04 334.32 m
+433.44 329.28 l
+428.4 329.28 l
+431.04 334.32 l
+h
+h
+B*
+437.76 334.32 m
+440.16 329.28 l
+435.12 329.28 l
+437.76 334.32 l
+h
+h
+B*
+444.48 334.32 m
+446.88 329.28 l
+441.84 329.28 l
+444.48 334.32 l
+h
+h
+B*
+451.2 334.32 m
+453.84 329.28 l
+448.8 329.28 l
+451.2 334.32 l
+h
+h
+B*
+457.92 334.32 m
+460.56 329.28 l
+455.52 329.28 l
+457.92 334.32 l
+h
+h
+B*
+464.64 334.32 m
+467.28 329.28 l
+462.24 329.28 l
+464.64 334.32 l
+h
+h
+B*
+471.6 362.16 m
+474 357.12 l
+468.96 357.12 l
+471.6 362.16 l
+h
+h
+B*
+478.32 362.16 m
+480.72 357.12 l
+475.68 357.12 l
+478.32 362.16 l
+h
+h
+B*
+485.04 362.16 m
+487.44 357.12 l
+482.4 357.12 l
+485.04 362.16 l
+h
+h
+B*
+491.76 362.16 m
+494.16 357.12 l
+489.12 357.12 l
+491.76 362.16 l
+h
+h
+B*
+498.48 362.16 m
+501.12 357.12 l
+496.08 357.12 l
+498.48 362.16 l
+h
+h
+B*
+505.2 362.16 m
+507.84 357.12 l
+502.8 357.12 l
+505.2 362.16 l
+h
+h
+B*
+511.92 362.16 m
+514.56 357.12 l
+509.52 357.12 l
+511.92 362.16 l
+h
+h
+B*
+518.88 362.16 m
+521.28 357.12 l
+516.24 357.12 l
+518.88 362.16 l
+h
+h
+B*
+525.6 362.16 m
+528 357.12 l
+522.96 357.12 l
+525.6 362.16 l
+h
+h
+B*
+532.32 362.16 m
+534.72 357.12 l
+529.68 357.12 l
+532.32 362.16 l
+h
+h
+B*
+q
+525.84 346.08 25.92 26.88 re
+h
+W n
+539.04 362.16 m
+541.68 357.12 l
+536.64 357.12 l
+539.04 362.16 l
+h
+h
+B*
+Q 
+q
+532.56 346.08 19.2 26.88 re
+h
+W n
+545.76 362.16 m
+548.4 357.12 l
+543.36 357.12 l
+545.76 362.16 l
+h
+h
+B*
+Q 
+0 0 0 rg
+BT
+/TT2 8.2738 Tf
+-0.0019 Tc -0.0782 Tw 379.2 387.12 Td
+(Comparison of NN's and SVM's)Tj
+/TT3 8.034 Tf
+0.0931 Tc 0 Tw -43.2 -85.68 Td
+(0)Tj
+-0.0424 Tc -6.72 13.92 Td
+(0.5)Tj
+0.0931 Tc 6.72 13.92 Td
+(1)Tj
+-0.0424 Tc -6.72 13.92 Td
+(1.5)Tj
+0.0931 Tc 6.72 13.92 Td
+(2)Tj
+-0.0424 Tc -6.72 13.92 Td
+(2.5)Tj
+0.0931 Tc 0 1 -1 0 352.32 293.52 Tm
+(1)Tj
+0 1 -1 0 372.48 293.52 Tm
+(4)Tj
+0 1 -1 0 392.88 293.52 Tm
+(7)Tj
+0 1 -1 0 413.04 289.2 Tm
+(10)Tj
+0 1 -1 0 433.44 289.2 Tm
+(13)Tj
+0 1 -1 0 453.6 289.2 Tm
+(16)Tj
+0 1 -1 0 474 289.2 Tm
+(19)Tj
+0 1 -1 0 494.16 289.2 Tm
+(22)Tj
+0 1 -1 0 514.32 289.2 Tm
+(25)Tj
+0 1 -1 0 534.72 289.2 Tm
+(28)Tj
+/TT2 8.034 Tf
+-0.0232 Tc -0.0503 Tw 1 0 0 1 0 0 Tm
+418.56 278.88 Td
+(Data points)Tj
+0.0331 Tc 0 Tw 0 1 -1 0 326.64 328.08 Tm
+(Class)Tj
+ET
+1 1 1 rg
+329.28 252.72 216.48 18.48 re
+f
+0 0 0 RG
+0.24 w 1 j 1 J 
+329.04 252.72 216.72 18.72 re
+S
+q
+329.28 252.72 35.76 18.72 re
+h
+W n
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+334.08 262.32 m
+354 262.32 l
+S
+Q 
+q
+330.72 252.72 26.64 18.72 re
+h
+W n
+0.2 0.2 0.2 rg
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+343.92 264.72 m
+346.32 262.32 l
+343.92 259.92 l
+341.52 262.32 l
+343.92 264.72 l
+h
+h
+B*
+Q 
+0 0 0 rg
+BT
+/TT3 8.034 Tf
+0.011 Tc -0.0844 Tw 355.92 259.2 Td
+(NN prediction)Tj
+ET
+q
+402.24 252.72 41.76 18.72 re
+h
+W n
+0.5882 0.5882 0.5882 RG
+0.96 w 2 j 0 J 
+413.04 262.32 m
+432.96 262.32 l
+S
+Q 
+q
+409.92 252.72 26.4 18.72 re
+h
+W n
+0.5882 0.5882 0.5882 rg
+0.5882 0.5882 0.5882 RG
+0.96 w 2 j 0 J 
+420.72 260.16 4.56 4.56 re
+h
+B*
+Q 
+BT
+/TT3 8.034 Tf
+0.0249 Tc -0.0983 Tw 434.88 259.2 Td
+(SVM prediction)Tj
+ET
+q
+487.2 252.72 41.76 18.72 re
+h
+W n
+0.502 0.502 0.502 RG
+0.96 w 2 j 0 J 
+498 262.32 m
+517.92 262.32 l
+S
+Q 
+q
+494.88 252.72 26.64 18.72 re
+h
+W n
+0.502 0.502 0.502 rg
+0.2 0.2 0.2 RG
+0.96 w 2 j 0 J 
+508.08 264.72 m
+510.48 259.92 l
+505.68 259.92 l
+508.08 264.72 l
+h
+h
+B*
+Q 
+BT
+/TT3 8.034 Tf
+-0.0011 Tc 0 Tw 519.84 259.2 Td
+(Actual)Tj
+ET
+317.28 249.12 240.24 151.68 re
+S
+BT
+/TT4 12 Tf
+0 Tc 0.12 Tw 437.28 233.76 Td
+( )Tj
+/TT0 7.92 Tf
+0.0037 Tc -0.0637 Tw -124.08 -9.84 Td
+(Fig.  4. Neural)Tj
+-0.0803 Tc 0.0203 Tw 45.6 0 Td
+( network and SVMs testing on two classes attack/normal data)Tj
+0 Tc -0.06 Tw 190.8 0 Td
+( )Tj
+/TT4 10.08 Tf
+-0.0895 Tc 0.2095 Tw -145.92 -25.44 Td
+(VII. Conclusion)Tj
+0 Tc 0.12 Tw 67.44 0 Td
+( )Tj
+/TT0 10.08 Tf
+-0.0488 Tc 3.2888 Tw -147.84 -24.96 Td
+(We have constructed intrusion detection systems using)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0602 Tc 0.3135 Tw -10.08 -11.52 Td
+(neural networks and support vector machines, and tested their )Tj
+-0.0435 Tc 3.5235 Tw 0 -11.52 TD
+(performance on a set of benchmark DARPA data. It is)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0206 Tc 2.3006 Tw T*
+(observed tha)Tj
+-0.0416 Tc 2.253 Tw 53.28 0 Td
+(t both the neural networks and SVMs deliver)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0364 Tc 0.5564 Tw -53.28 -11.52 Td
+(highly accurate results \(greater than 99% accuracy on testing )Tj
+-0.0374 Tc 0.7707 Tw T*
+(set\) and show compatible level of performance. The training )Tj
+-0.0482 Tc 0.3209 Tw 0 -11.28 TD
+(time for SVMs is significantly shorter \(17.77 sec vs. 18 min\), )Tj
+-0.0532 Tc 3.2932 Tw 0 -11.52 TD
+(an advantage that becomes )Tj
+3.1234 Tc 0 Tw (r)Tj
+-0.0277 Tc 3.1877 Tw 126.24 0 Td
+(ather important in situations)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0579 Tc 1.7779 Tw -126.24 -11.52 Td
+(where retraining needs to be done quickly \(e.g., when new)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0517 Tc 0.5077 Tw T*
+(attack patterns are discovered\). The running time of SVMs is )Tj
+-0.0744 Tc 0.3472 Tw T*
+(also notably shorter. On the other hand, SVMs can only make )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 i 0 w 0 j 0 J 
+/RelativeColorimetric ri
+/TT5 1 Tf
+0 Tc 0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj63 0 obj42463 endobj64 1 obj<< /Title (----------------)/Parent 10 3 R /Prev 56 1 R >> endobj66 0 obj<< /Length 67 0 R >> stream
+0 0 0 rg
+1 i 
+/RelativeColorimetric ri
+BT
+/TT0 10.08 Tf
+-0.047 Tc 1.367 Tw 50.4 711.12 Td
+(binary classifications, which is a severe disad)Tj
+-0.0645 Tc 1.3845 Tw 189.36 0 Td
+(vantage where)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0314 Tc 7.1114 Tw -189.36 -11.52 Td
+(the intrusion detection system requires multiple)Tj
+0.0034 Tc 0 Tw 225.6 0 Td
+(-)Tj
+-0.0311 Tc -0.0889 Tw 3.36 0 Td
+(class )Tj
+-0.0538 Tc 1.2938 Tw -228.96 -11.52 Td
+(identifications \(e.g., all 22 different types of attacks need to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0185 Tc 0.1385 Tw 0 -11.76 TD
+(be differentiated\).)Tj
+0 Tc 0.12 Tw 72 0 Td
+( )Tj
+-0.0419 Tc 5.9219 Tw -61.92 -25.2 Td
+(Statistical learning techniques are being used more)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0396 Tc 2.0316 Tw -10.08 -11.52 Td
+(extensively in recent intrusion detection systems,)Tj
+-0.0575 Tc 2.0975 Tw 206.64 0 Td
+( owing to)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0557 Tc 0.3471 Tw -206.64 -11.52 Td
+(their adaptability and their generalization capability regarding )Tj
+-0.0468 Tc 4.4868 Tw 0 -11.52 TD
+(new attack signatures that would need to be \221learned\222)Tj
+0 Tc 0.12 Tw ( )Tj
+0 Tw 0 -12.48 TD
+(quickly)Tj
+/TT1 10.08 Tf
+0.0845 Tc 29.76 0 Td
+(?)Tj
+/TT0 10.08 Tf
+-0.0727 Tc 1.3927 Tw 5.76 0 Td
+(once discovered)Tj
+/TT1 10.08 Tf
+0.0845 Tc 0 Tw 65.76 0 Td
+(?)Tj
+/TT0 10.08 Tf
+-0.0643 Tc 1.3843 Tw 5.52 0 Td
+(by an IDS. Whether to use SVMs)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0403 Tc 2.9717 Tw -106.8 -11.28 Td
+(or neural networks in implementing an intrusion detector)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0792 Tc 3.7992 Tw 0 -11.52 TD
+(depends on the)Tj
+0 Tc -0.36 Tw ( )Tj
+-0.0701 Tc 3.7421 Tw 73.2 0 Td
+(particular type of intrusion \(anomaly or)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0409 Tc 1.0969 Tw -73.2 -11.52 Td
+(misuse\) that is under watch, as well as other security policy)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0336 Tc 0.7536 Tw 0 -11.28 TD
+(requirements. SVMs have great potential to be used in place )Tj
+-0.0561 Tc 1.2801 Tw 0 -11.52 TD
+(of neural networks due to its scalability \(large data sets and)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0433 Tc 2.0833 Tw T*
+(large number of features in pa)Tj
+-0.0456 Tc 2.0856 Tw 130.56 0 Td
+(tterns can easily overwhelm)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0214 Tc -0.0113 Tw -130.56 -11.52 Td
+(neural networks\) and faster training and running time.  On the )Tj
+-0.0419 Tc 0.4739 Tw T*
+(other hand, neural networks have already proven to be useful )Tj
+-0.055 Tc 2.035 Tw T*
+(in many IDSs, and are especially suited for multi)Tj
+0.0034 Tc 0 Tw 210.72 0 Td
+(-)Tj
+-0.0482 Tc -0.0718 Tw 3.36 0 Td
+(category )Tj
+-0.0221 Tc 0 Tw -214.08 -11.76 Td
+(classifications.)Tj
+0 Tc 0.12 Tw 59.52 0 Td
+( )Tj
+/TT2 10.08 Tf
+-0.0283 Tc 0.1483 Tw 9.84 -25.68 Td
+(VIII.  Acknowledgements)Tj
+0 Tc 0.12 Tw 109.68 0 Td
+( )Tj
+/TT0 10.08 Tf
+0.0203 Tc 0 Tw -168.96 -24.96 Td
+(Part)Tj
+-0.0427 Tc 3.1798 Tw 16.32 0 Td
+(ial support for this research received from ICASA)Tj
+0 Tc -0.12 Tw ( )Tj
+0.5997 Tw -26.4 -11.52 Td
+(\(Institute for Complex A)Tj
+0 Tw 101.04 0 Td
+(d)Tj
+-0.0481 Tc 0.5521 Tw 5.04 0 Td
+(ditive Systems Analysis, a division )Tj
+-0.0809 Tc 3.5209 Tw -106.08 -11.52 Td
+(of New Mexico Tech\) is gratefully acknow)Tj
+0.0778 Tc 0 Tw 192 0 Td
+(l)Tj
+-0.0562 Tc 3.4162 Tw 2.88 0 Td
+(edged.  The)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0577 Tc 0.5377 Tw -194.88 -11.52 Td
+(second author also acknowledges her partial support received )Tj
+-0.042 Tc 3.042 Tw T*
+(from Sandia National Laboratori)Tj
+-0.0662 Tc 3.0662 Tw 139.68 0 Td
+(es under the Rio Grande)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0385 Tc 2.0442 Tw -139.68 -11.52 Td
+(Educational Initiative. We would also like to acknowledge)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0469 Tc 2.3269 Tw T*
+(many insightful conversations with Dr. Jean)Tj
+0.0034 Tc 0 Tw 187.92 0 Td
+(-)Tj
+-0.0492 Tc 2.3292 Tw 3.36 0 Td
+(Louis Lassez,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0595 Tc 1.1737 Tw -191.28 -11.52 Td
+(David Duggan, and Bob Hutchinson that contributed greatly)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0353 Tc 0.1553 Tw 0 -11.76 TD
+(to our work.)Tj
+0 Tc 0.12 Tw 49.44 0 Td
+( )Tj
+/TT2 10.08 Tf
+0.036 Tc 0.084 Tw 41.52 -25.68 Td
+(IX.  References)Tj
+0 Tc 0.12 Tw 66.24 0 Td
+( )Tj
+/TT0 10.08 Tf
+0.0022 Tc 0 Tw -147.12 -24.96 Td
+([1])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0223 Tc 2.5423 Tw 8.4 0 Td
+(Ryan J, Lin )Tj
+2.5589 Tc 0 Tw (M)Tj
+0.0034 Tc 65.52 0 Td
+(-)Tj
+-0.1059 Tc 2.6259 Tw 3.36 0 Td
+(J, Miikkulainen)Tj
+-0.0547 Tc 2.5747 Tw 65.04 0 Td
+( R \(1998\) Intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0415 Tc 0.5387 Tw -133.92 -11.52 Td
+(Detection with Neural Networks. Advances in Neural )Tj
+-0.0416 Tc 0.5216 Tw 0 -11.52 TD
+(Information Processing Systems 10, Cambridge, MA: )Tj
+-0.0306 Tc 0.1506 Tw T*
+(MIT Press.)Tj
+0 Tc 0.12 Tw 44.88 0 Td
+( )Tj
+0.0022 Tc 0 Tw -65.04 -11.52 Td
+([2])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0571 Tc 3.2971 Tw 8.4 0 Td
+(Kumar S, Spafford EH \(1994\) An Application of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0465 Tc 2.9985 Tw T*
+(Pattern Matching in Intrusion Detection. Technical)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0537 Tc 0.1737 Tw T*
+(Report CSD)Tj
+0.0034 Tc 0 Tw 49.2 0 Td
+(-)Tj
+0.0389 Tc 3.36 0 Td
+(TR)Tj
+0.0034 Tc 12.72 0 Td
+(-)Tj
+0 Tc 3.36 0 Td
+(94)Tj
+0.0034 Tc 10.08 0 Td
+(-)Tj
+0.031 Tc 0.089 Tw 3.36 0 Td
+(013. Purdu)Tj
+-0.0894 Tc 0.2094 Tw 44.64 0 Td
+(e University.)Tj
+0 Tc 0.12 Tw 51.6 0 Td
+( )Tj
+0.0022 Tc 0 Tw -198.48 -11.52 Td
+([3])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0656 Tc 0.8156 Tw 8.4 0 Td
+(Luo J, Bridges SM \(2000\) Mining Fuzzy Association )Tj
+-0.066 Tc 2.826 Tw 0 -11.28 TD
+(Rules and Fuzzy Frequency Episodes for Intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0435 Tc 0.3635 Tw 0 -11.52 TD
+(Detection. International Journal of Intelligent Systems, )Tj
+-0.0264 Tc 0.1464 Tw T*
+(John Wiley & Sons, pp 15:687)Tj
+0.0034 Tc 0 Tw 124.32 0 Td
+(-)Tj
+0.03 Tc 3.36 0 Td
+(703.)Tj
+0 Tc 0.12 Tw 17.76 0 Td
+( )Tj
+0.0022 Tc 0 Tw -165.6 -11.52 Td
+([4])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.07 Tc 0.79 Tw 8.4 0 Td
+(Demuth H, Beale M \(2000\) Neural Network Toolbox )Tj
+-0.1978 Tc 0 Tw T*
+(User)Tj
+0.0122 Tc 0.1078 Tw 18.72 0 Td
+(\222s Guide. MathWorks, Inc. Natick, MA .)Tj
+0 Tc 0.12 Tw 164.88 0 Td
+( )Tj
+0.0022 Tc 0 Tw -203.76 -11.52 Td
+([5])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.057 Tc 5.217 Tw 8.4 0 Td
+(Sung AH \(1998\) Ranking Importance Of Input)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0527 Tc 0.4127 Tw T*
+(Parameters Of Neural Networks. Expert Systems with )Tj
+0.0133 Tc 0.1067 Tw T*
+(Applications, pp 15:405)Tj
+0.0034 Tc 0 Tw 97.68 0 Td
+(-)Tj
+0.03 Tc 3.36 0 Td
+(411.)Tj
+0 Tc 0.12 Tw 17.76 0 Td
+( )Tj
+0.0022 Tc 0 Tw -138.96 -11.52 Td
+([6])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0248 Tc 1.5848 Tw 8.4 0 Td
+(Cramer M, et. al.)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0526 Tc 1.6126 Tw 77.28 0 Td
+(\(1995\) New Methods of Intrusion)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0533 Tc 12.8933 Tw -77.28 -11.52 Td
+(Detection using Control)Tj
+0.0034 Tc 0 Tw 121.68 0 Td
+(-)Tj
+-0.0565 Tc 12.8965 Tw 3.36 0 Td
+(Loop Measurement.)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0406 Tc 0 Tw -125.04 -11.52 Td
+(Pr)Tj
+-0.0468 Tc 6.6468 Tw 9.12 0 Td
+(oceedings of the Technology in Information)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0158 Tc 0.1358 Tw -9.12 -11.52 Td
+(Security Conference \(TISC\) \22295. pp 1)Tj
+0.0034 Tc 0 Tw 152.16 0 Td
+(-)Tj
+0.04 Tc 3.36 0 Td
+(10.)Tj
+0 Tc 0.12 Tw 12.72 0 Td
+( )Tj
+0.0022 Tc 0 Tw 74.4 634.32 Td
+([7])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0553 Tc 4.2553 Tw 8.4 0 Td
+(Debar H, Becke M, Siboni D \(1992\) A Neural)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0403 Tc 5.6323 Tw T*
+(Network Component for an Intrusion Detection)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0558 Tc 1.8558 Tw T*
+(System. Proceedings of the IEEE Computer Society)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0317 Tc 0.1517 Tw T*
+(Symposium on Research in Security a)Tj
+-0.0674 Tc 0.1874 Tw 153.36 0 Td
+(nd Privacy.)Tj
+0 Tc 0.12 Tw 45.84 0 Td
+( )Tj
+0.0022 Tc 0 Tw -219.36 -11.52 Td
+([8])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0756 Tc 3.7956 Tw 8.4 0 Td
+(Debar H, Dorizzi B \(1992\) An Application of a)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0482 Tc 0.7853 Tw T*
+(Recurrent Network to an Intrusion Detection System. )Tj
+-0.0548 Tc 1.3748 Tw 0 -11.28 TD
+(Proceedings of the International Joint Conference on)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0136 Tc 0.1336 Tw 0 -11.52 TD
+(Neural Networks. pp 78)Tj
+0.0034 Tc 0 Tw 96.96 0 Td
+(-)Tj
+0.03 Tc 3.36 0 Td
+(483.)Tj
+0 Tc 0.12 Tw 17.76 0 Td
+( )Tj
+0.0022 Tc 0 Tw -138.24 -11.52 Td
+([9])Tj
+0 Tc 0.12 Tw 11.76 0 Td
+( )Tj
+-0.0768 Tc 5.9088 Tw 8.4 0 Td
+(Denning D \(FEB 1987\) An Intrusion)Tj
+0.0034 Tc 0 Tw 176.16 0 Td
+(-)Tj
+-0.0612 Tc 0.1812 Tw 3.36 0 Td
+(Detection )Tj
+-0.0305 Tc 1.4705 Tw -179.52 -11.52 Td
+(Model. IEEE Transacti)Tj
+-0.0648 Tc 1.5448 Tw 95.52 0 Td
+(ons on Software Engineering,)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.03 Tc 0.15 Tw -95.52 -11.52 Td
+(Vol. )Tj
+-0.1217 Tc 0 Tw 20.16 0 Td
+(SE)Tj
+0.0034 Tc 11.76 0 Td
+(-)Tj
+0.0053 Tc 0.1147 Tw 3.36 0 Td
+(13, No 2..)Tj
+0 Tc 0.12 Tw 40.32 0 Td
+( )Tj
+0.0017 Tc 0 Tw -95.76 -11.52 Td
+([10])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+-0.0543 Tc 5.4543 Tw 3.6 0 Td
+(Ghosh AK.)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0617 Tc 5.4617 Tw 58.8 0 Td
+(\(1999\). Learning Program Behavior)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0231 Tc 0.1431 Tw -58.8 -11.52 Td
+(Profiles for Intrusion Detection. USENIX.)Tj
+0 Tc 0.12 Tw 170.64 0 Td
+( )Tj
+0.0017 Tc 0 Tw -190.8 -11.52 Td
+([11])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+-0.0551 Tc 3.5351 Tw 3.6 0 Td
+(Cannady J. \(1998\) Artificial Neural Networks for)Tj
+0 Tc 0.36 Tw ( )Tj
+-0.0425 Tc 5.6825 Tw T*
+(Misuse Detection. National Information Systems)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0513 Tc 0.1713 Tw T*
+(Security Conference.)Tj
+0 Tc 0.12 Tw 84.48 0 Td
+( )Tj
+0.0017 Tc 0 Tw -104.64 -11.52 Td
+([12])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+0.0324 Tc 0 Tw 3.6 0 Td
+(Vladi)Tj
+-0.0671 Tc 6.1071 Tw 22.32 0 Td
+(mir VN \(1995\) The Nature of Statistical)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0528 Tc 2.7648 Tw -22.32 -11.52 Td
+(Learning Theory. Springer, Berlin Heidelberg New)Tj
+0 Tc -0.12 Tw ( )Tj
+0.0091 Tc 0 Tw 0 -11.28 TD
+(York.)Tj
+0 Tc 0.12 Tw 23.28 0 Td
+( )Tj
+0.0017 Tc 0 Tw -43.44 -11.52 Td
+([13])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+-0.052 Tc 0.562 Tw 3.6 0 Td
+(Joachims T \(2000\) SVMlight is an implementation of )Tj
+-0.0473 Tc 11.8313 Tw 0 -11.52 TD
+(Support Vector Machines \(SVMs\) in C.)Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0343 Tc 1.5143 Tw T*
+(http://ais.gmd.de/~thorsten/svm_light/ . University of)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0588 Tc 9.2988 Tw T*
+(Dortmund. Collabor)Tj
+-0.052 Tc 9.292 Tw 90.48 0 Td
+(ative Research Center on)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0478 Tc 10.1878 Tw -90.48 -11.52 Td
+('Complexity Reduction in Multivariate Data')Tj
+0 Tc -0.12 Tw ( )Tj
+-0.0317 Tc 0 Tw T*
+(\(SFB475\).)Tj
+0 Tc 0.12 Tw 42 0 Td
+( )Tj
+0.0017 Tc 0 Tw -62.16 -11.52 Td
+([14])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+-0.0514 Tc 7.1314 Tw 3.6 0 Td
+(Joachims T \(1998\) Making Large)Tj
+0.0034 Tc 0 Tw 162.24 0 Td
+(-)Tj
+-0.0896 Tc 7.1696 Tw 3.36 0 Td
+(Scale SVM)Tj
+0 Tc -0.36 Tw ( )Tj
+-0.0468 Tc 8.8068 Tw -165.6 -11.52 Td
+(Learning Practical. LS8)Tj
+0.0034 Tc 0 Tw 112.56 0 Td
+(-)Tj
+-0.0649 Tc 8.8249 Tw 3.36 0 Td
+(Report, University of)Tj
+0 Tc 0.12 Tw ( )Tj
+0.0087 Tc 0.1113 Tw -115.92 -11.52 Td
+(Dortmund, LS VIII)Tj
+0.0034 Tc 0 Tw 78.48 0 Td
+(-)Tj
+-0.0283 Tc 3.36 0 Td
+(Report.)Tj
+0 Tc 0.12 Tw 29.76 0 Td
+( )Tj
+0.0017 Tc 0 Tw -131.76 -11.52 Td
+([15])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+-0.0489 Tc 4.3929 Tw 3.6 0 Td
+(Joachims T \(2000\) Estimating the Generalization)Tj
+0 Tc 0.12 Tw ( )Tj
+-0.0551 Tc 0.1751 Tw 0 -11.28 TD
+(Performance of a)Tj
+-0.0445 Tc 0.1245 Tw 68.88 0 Td
+( SVM Efficiently. Proceedings of the )Tj
+-0.0602 Tc 7.1402 Tw -68.88 -11.52 Td
+(International Conference on Machine Learning,)Tj
+0 Tc -0.12 Tw ( )Tj
+0.0556 Tc 0.0644 Tw 0 -11.52 TD
+(Morgan Kaufman.)Tj
+0 Tc 0.12 Tw 75.12 0 Td
+( )Tj
+0.0017 Tc 0 Tw -95.28 -11.76 Td
+([16])Tj
+0 Tc 0.12 Tw 16.56 0 Td
+( )Tj
+0.0239 Tc 0 Tw 3.6 0 Td
+(http://kdd.ics.uci.edu/databases/kddcup99/task.html.)Tj
+0 Tc 0.12 Tw 212.64 0 Td
+( )Tj
+/TT0 7.92 Tf
+-0.06 Tw -242.88 -23.52 Td
+( )Tj
+/SPI_Paginator BMC
+EMC
+/SPI_Paginator BMC
+0 0 0 RG
+0 i 0 w 10 M 0 j 0 J []0 d 
+/RelativeColorimetric ri
+/TT3 1 Tf
+0 Tw 2 Tr 10 0 0 10 60 32 Tm
+(0-7803-7278-6/02/$10.00 \2512002 IEEE)Tj
+EMC
+ET
+endstreamendobj67 0 obj11796 endobjxref0 69 0000000024 65535 f
+0000000016 00000 n
+0000000392 00003 n
+0000000452 00000 n
+0000000706 00000 n
+0000000947 00000 n
+0000001073 00000 n
+0000002172 00000 n
+0000002459 00000 n
+0000003547 00000 n
+0000003824 00003 n
+0000003905 00001 n
+0000003995 00000 n
+0000005090 00000 n
+0000005377 00000 n
+0000005631 00001 n
+0000005692 00002 n
+0000007680 00000 n
+0000008745 00000 n
+0000009020 00000 n
+0000009262 00001 n
+0000009327 00001 n
+0000009439 00000 n
+0000009705 00001 n
+0000000035 00002 f
+0000009771 00000 n
+0000010861 00000 n
+0000011141 00000 n
+0000012227 00000 n
+0000012498 00000 n
+0000012799 00001 n
+0000012861 00001 n
+0000012968 00000 n
+0000021035 00000 n
+0000021057 00001 n
+0000000060 00002 f
+0000021123 00000 n
+0000021365 00001 n
+0000021426 00001 n
+0000021520 00001 n
+0000021622 00000 n
+0000021731 00000 n
+0000021937 00000 n
+0000021965 00000 n
+0000021994 00001 n
+0000022049 00001 n
+0000022152 00000 n
+0000033284 00000 n
+0000033307 00001 n
+0000033364 00001 n
+0000033458 00000 n
+0000052810 00000 n
+0000052833 00001 n
+0000052879 00001 n
+0000052973 00000 n
+0000081617 00000 n
+0000081640 00001 n
+0000081745 00001 n
+0000081792 00000 n
+0000104888 00000 n
+0000000065 00002 f
+0000104911 00001 n
+0000104987 00000 n
+0000147506 00000 n
+0000147529 00001 n
+0000000068 00002 f
+0000147609 00000 n
+0000159461 00000 n
+0000000000 00001 f
+trailer<</Size 69/Info 1 0 R /Root 3 0 R /ID[<8e78989425615754b2c54f8fd8f678fc><80f87e5efb13988edc8a3694dc2eab8f>]>>startxref159484%%EOF
