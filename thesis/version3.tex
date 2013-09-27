@@ -191,11 +191,21 @@ While there has been much research into the strengths and applications of deep b
 \caption{This graph, similar to the one above, compares a single interleaved network trained for 1000 epochs on spectrograms (dotted line) vs an interleaved network trained for 500 epochs on images, and then switched to spectrograms. (the modalities are opposite) The strangest feature of this graph is that the reconstruction error for layers 2 and 3 on spectrograms is lower for the network trained on images than the one trained on spectrograms. This indicates that images make good training data, even if the test data is not images.}
 \label{fig:graph_spect_multi}
 \end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{feature_comparison}
+\caption{These grids of feature detectors are created by working backwards from the weights in the first-level denoising autoencoder to obtain the image which would maximally activate each node. If we compare visual representations of the first level features of the pure image network and the pure spectrogram network, we see that there are two main differences. In the image network, more of the features converge on smooth edge and spot detectors, whereas in the spectrogram network, fewer of the features are utilized. Any feature resembling uniform noise is basically not being used. The other difference is that the spectrograms appear stretched, because their vertical axis is frequency and the horizontal axis is time, the scale of features on these axes could be adjusted to be more like the images if desired.}
+\label{fig:feature_comparison}
+\end{figure}
 	
 
 	
 	\subsection{Conclusion}
-	This is but one simple measurement that is analogous to neuro-plasticity, But in the brain, plasticity is far more complicated and involves both modification of weights, and the alteration of the presence of network links and neurons. Likely, other unknown factors and limitations are involved as well. However, these experiments indicate that a hierarchical representation alone is sufficient to allow a limited level of plasticity. 
+	
+	When training any unsupervised learning algorithm, it is difficult to know whether the network has succeeded in learning the representations one expects, measuring reconstruction error on test data gives an indication of how lossless the compression performed by the network is, but the goal is not perfectly lossless compression, it is generalizability and the discovery of interesting salient features that are useful to higher levels and similar networks. This is why it is crucial to visualize the features in the network. By working backwards from the weights, one can reconstruct an image that would maximally activate each node in a layer (figure ~\ref{fig:feature_comparison}). After performing this analysis on my networks, it seems that in all cases, about half of the nodes remain unused. Their weights show no spatial correlation, so any reasonable combination of nodes will have a near-zero weight for such a noisy node.
+		
+	This is but one simple measurement that is analogous to neuro-plasticity, But in the brain, plasticity is far more complicated and involves both modification of weights, and the alteration of the presence of network links and neurons. Likely, other unknown factors and limitations are involved as well. However, these experiments indicate that a hierarchical representation alone is sufficient to allow a limited level of plasticity.
 
 \end{doublespacing}
 
