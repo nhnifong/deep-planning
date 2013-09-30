@@ -161,7 +161,19 @@ While there has been much research into the strengths and applications of deep b
 	
 	For the second hypothesis, I run the four experiments just described using greedy layer-wise pre-training and without. The magnitude of the difference in reconstruction accuracy described in hypothesis 1 is expected to be greater for SDA's trained with greedy layer-wise pre-training. I refer to the control for hypothesis 2 as the interleaved models because the layers are trained in the following order: \{123123...\} Each time one layer is trained, it is called an epoch. During any given epoch, only one layer's weights are optimized. Every datum in the training set is used once during each epoch. The experimental models, also called the layer-wise models, the layers are trained in the following order: \{111...222...333...\}. The number of epochs for each layer (166), and in total (498), is the same between the control and experimental models. For layer-wise models which are trained on both sensory modalities, all three layers are trained for each modality, totaling six groups of 83 epochs, three for one modality, then three for the other.
 	
-		To summarize the experiment design, there are two types of training procedure needed to test hypothesis 2 (layer-wise and interleaved), there are two data source groups to test hypothesis 1 (single modality, and multiple modality), and there must be two experiments to control for the advantage given by training order (sound or images last). This gives 8 total models trained, as tabulated in Figure~\ref{fig:table_of_models}. 
+		To summarize the experiment design, there are two types of training procedure needed to test hypothesis 2 (layer-wise and interleaved), there are two data source groups to test hypothesis 1 (single modality, and multiple modality), and there must be two experiments to control for the advantage given by training order (sound or images last). This gives 8 total models trained, as tabulated below and in Figure~\ref{fig:table_of_models}. 
+	
+	Summary of Experiments
+\begin{enumerate}
+\item Interleaved model on images only
+\item Interleaved model on audio, then images
+\item Layer-wise on images only
+\item Layer-wise model on audio, then images
+\item Interleaved model on audio only
+\item Interleaved model on images, then audio
+\item Layer-wise on  on audio only
+\item Layer-wise model on images, then audio
+\end{enumerate}
 	
 	% Expectations
 	
@@ -208,17 +220,20 @@ While there has been much research into the strengths and applications of deep b
 \section{Results and Conclusion}
 	\subsection{Experimental results}
 	% re-state hypothesis
-	% give evidence for training overfit by comparing training recons. error with test recons. error.
-	Both parts of the two-part hypothesis are confirmed. Networks pre-trained on one sensory modality performed better on the other modality than randomly initialized networks trained for an equal total number of epochs. This is most likely because the single-modality network begins to over-fit the training set, while the multi modality network is forced to generalize a bit more, and thus performs better on the test set. The second part of the hypothesis is also confirmed. The magnitude of improvement gained from this pre-training is greater when GLWPT is applied than when it is not. This is good news for greedy layer-wise pre-training, and deep networks in general. This technique is known to discover better high-level abstract features than other algorithms on similar network topologies, and these results indicate that abstract feature discovery helps with cross-modal generalization. 
-	% cite after topologies
-		
-	% explain reasoning for expected value for recons. error.
-	However, the magnitude of difference between the reconstruction errors was much smaller than expected across all models. For example, the performance gain on single-modal reconstruction error achieved by GLWPT vs. SGD is only 0.1 percent. It is difficult to find a comparable study, but based on my experience with the performance of GLWPT on other tasks, I estimate that this is about an order of magnitude too small. Additionally, the improvement given by GLWPT on average in the multi-modal tests is about the same order of magnitude as the difference caused by modality order (images first or audio first). This indicates that the multi-modal tests are also suffering from over-fitting. I tested the reconstruction error on both modalities for for all four multi-modal models and found that the second modality trained always received more improvement on test-set reconstruction error. 
-		
-	These results have some interesting implications. First, the results indicate that it would be better to recycle deep networks rather than to initialize new ones. Starting with the weights from another network should yield higher performance, even if the data that network was trained on was irrelevant to the new task. This is a broader hypothesis, but reasonable considering that no natural data has a uniform distribution. The distributions of weights after training on any data is probably in a better basin of attraction than a randomly initialized set.\
+	Hypothesis 1 is that networks pre-trained on one sensory modality performed better on the other modality than randomly initialized networks trained for an equal total number of epochs. To determine whether this has been confirmed I compare the reconstruction error from pairs of experiments where one was single-modal and the other was multi-modal, but the other variables were constant. There are four pairs: (1,2), (3,4), (5,6), and (7,8). The reconstruction errors are plotted in figure~\ref{fig:boxplots}. Cross modal initialization seems to have helped for models which were tested on audio, but actually hindered performance on models which were tested on images. For each pair in the figure, the second box plot (multi-modal models) is expected to lie completely to the left of it's single modal counterpart.
+
+The second hypothesis is that the magnitude of improvement gained from cross-modal initialization is greater when GLWPT is applied than when it is not. I found that it was only greater for models tested on audio. For models tested on audio (Experiments 5,6,7, and 8), layer-wise pre-training increased the improvement from cross-modal initialization, and in the case where cross-modal initialization hindered performance (Experiments 1,2,3 and 4) layer-wise pre-training lessened the amount it hindered.  
+	
+	
+\begin{figure}[p]
+\centering
+\includegraphics[width=6in]{boxplot}
+\caption{Box plots of the reconstruction error for each of the 8 experiments. Lower reconstruction error means better performance. A reconstruction error of about }
+\label{fig:boxplots}
+\end{figure}
 	
 	% mention the training error over time figures
-	When training any unsupervised learning algorithm, it is difficult to know whether the network has succeeded in learning the representations one expects. Measuring reconstruction error on test data gives an indication of how lossless the compression performed by the network is, but the goal is not perfectly lossless compression, it is generalizability and the discovery of interesting salient features that are useful to higher levels and similar networks. This is why it is crucial to visualize the features in the network. By working backwards from the weights, one can reconstruct an image that would maximally activate each node in a layer (figure ~\ref{fig:feature_comparison}). After performing this analysis on my networks, it seems that in all cases, about half of the nodes remain unused. Their weights show no spatial correlation, so any reasonable combination of nodes will have a near-zero weight for such a noisy node.
+	When training any unsupervised learning algorithm, it is difficult to know whether the network has succeeded in learning the representations one expects. Measuring reconstruction error on test data gives an indication of how lossless the compression performed by the network is, but the goal is not perfectly lossless compression, it is generalizability and the discovery of interesting salient features that are useful to higher levels and similar networks. This is why it is crucial to visualize the features in the network. By working backwards from the weights, one can reconstruct an image that would maximally activate each node in a layer (figure ~\ref{fig:feature_comparison}). After performing this analysis on my networks, it seems that in all cases, about half of the nodes remain unused because they show no spatial correlation. 
 	
 \begin{figure}[p]
 \centering

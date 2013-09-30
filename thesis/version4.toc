@@ -11,9 +11,9 @@
 \contentsline {subsection}{\numberline {2.1}Experiment Design}{18}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Network Architecture}{19}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Learning methods}{20}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Implementation}{20}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Implementation}{21}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Data Preparation}{21}{subsection.2.5}
-\contentsline {section}{\numberline {3}Results and Conclusion}{26}{section.3}
-\contentsline {subsection}{\numberline {3.1}Experimental results}{26}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Conclusion}{27}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Future Work}{34}{subsection.3.3}
+\contentsline {section}{\numberline {3}Results and Conclusion}{27}{section.3}
+\contentsline {subsection}{\numberline {3.1}Experimental results}{27}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Conclusion}{29}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Future Work}{29}{subsection.3.3}
