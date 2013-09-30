@@ -11,8 +11,13 @@ from utils import tile_raster_images
 model = pickle.load(open(sys.argv[1],'rb'))
 outname = sys.argv[2]
 
-layern = 0
-image = PIL.Image.fromarray(tile_raster_images(X=da.W.get_value(borrow=True).T,
-             img_shape=(32, 32), tile_shape=(16, 16),
-             tile_spacing=(1, 1)))
-image.save('%s_%i.png'%(outname,layern))
+sizes = [[(32,32),(16,16)],
+         [(16,16),(8,8)],
+         [(8,8),(4,4)]]
+
+for layern in range(3):
+    da = model.dA_layers[layern]
+    image = PIL.Image.fromarray(tile_raster_images(X=da.W.get_value(borrow=True).T,
+                      img_shape=sizes[layern][0], tile_shape=sizes[layern][1],
+                      tile_spacing=(1, 1)))
+    image.save('%s_%i.png'%(outname,layern))
