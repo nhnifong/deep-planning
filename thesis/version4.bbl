@@ -37,6 +37,11 @@ John~G Daugman.
 \newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
   36(7):1169--1179, 1988.
 
+\bibitem{imagenet_cvpr09}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
 \bibitem{ding2001multi}
 Chris~HQ Ding and Inna Dubchak.
 \newblock Multi-class protein fold recognition using support vector machines
@@ -56,6 +61,12 @@ Dumitru Erhan, Pierre-Antoine Manzagol, Yoshua Bengio, Samy Bengio, and Pascal
   unsupervised pre-training.
 \newblock In {\em International Conference on Artificial Intelligence and
   Statistics}, pages 153--160, 2009.
+
+\bibitem{timit}
+J.~S. Garofolo, L.~F. Lamel, W.~M. Fisher, J.~G. Fiscus, D.~S. Pallett, and
+  N.~L. Dahlgren.
+\newblock {DARPA} {TIMIT} acoustic phonetic continuous speech corpus {CDROM},
+  1993.
 
 \bibitem{gluckman2003kurtosis}
 Joshua Gluckman.
