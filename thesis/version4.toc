@@ -2,18 +2,16 @@
 \contentsline {subsection}{\numberline {1.1}Introduction}{4}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Neural Plausibility of Machine Learning Algorithms}{5}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Hierarchical representation in the brain}{6}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}The reusability of hierarchical representations.}{7}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}Deep networks}{8}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}Stacked denoising autoencoders}{9}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}Greedy layer-wise pre-training}{13}{subsection.1.7}
-\contentsline {subsection}{\numberline {1.8}Relevant work}{13}{subsection.1.8}
-\contentsline {section}{\numberline {2}Experiment design and implementation}{18}{section.2}
-\contentsline {subsection}{\numberline {2.1}Experiment Design}{18}{subsection.2.1}
+\contentsline {subsection}{\numberline {1.4}The reusability of hierarchical representations.}{8}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Deep networks}{10}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Stacked denoising autoencoders}{11}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}Relevant work}{15}{subsection.1.7}
+\contentsline {section}{\numberline {2}Experiment design and implementation}{17}{section.2}
+\contentsline {subsection}{\numberline {2.1}Experiment Design}{17}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Network Architecture}{19}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Learning methods}{20}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Implementation}{21}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Implementation}{20}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Data Preparation}{21}{subsection.2.5}
-\contentsline {section}{\numberline {3}Results and Conclusion}{27}{section.3}
-\contentsline {subsection}{\numberline {3.1}Experimental results}{27}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Conclusion}{29}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Future Work}{29}{subsection.3.3}
+\contentsline {section}{\numberline {3}Results and Conclusion}{25}{section.3}
+\contentsline {subsection}{\numberline {3.1}Experimental results}{25}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Conclusion and future work}{31}{subsection.3.2}
