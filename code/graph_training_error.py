@@ -51,6 +51,7 @@ if __name__=='__main__':
     data = read_log(sys.argv[1])
     print data.keys()
 
+    # some of these constants are used to control which series are compared and how they are labeled.
     for ep,ls,method in zip([3,5],['-.','-'],['single-modal','multi-modal']):
         
         target = data[ep]['layerdata']

@@ -6,12 +6,6 @@ Yoshua Bengio.
 \newblock {\em Foundations and trends{\textregistered} in Machine Learning},
   2(1):1--127, 2009.
 
-\bibitem{bengio2007greedy}
-Yoshua Bengio, Pascal Lamblin, Dan Popovici, and Hugo Larochelle.
-\newblock Greedy layer-wise training of deep networks.
-\newblock {\em Advances in neural information processing systems}, 19:153,
-  2007.
-
 \bibitem{byvatov2003comparison}
 Evgeny Byvatov, Uli Fechner, Jens Sadowski, and Gisbert Schneider.
 \newblock Comparison of support vector machine and artificial neural network
@@ -37,6 +31,11 @@ John~G Daugman.
 \newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
   36(7):1169--1179, 1988.
 
+\bibitem{imagenet_cvpr09}
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei.
+\newblock {ImageNet: A Large-Scale Hierarchical Image Database}.
+\newblock In {\em CVPR09}, 2009.
+
 \bibitem{ding2001multi}
 Chris~HQ Ding and Inna Dubchak.
 \newblock Multi-class protein fold recognition using support vector machines
@@ -57,6 +56,12 @@ Dumitru Erhan, Pierre-Antoine Manzagol, Yoshua Bengio, Samy Bengio, and Pascal
 \newblock In {\em International Conference on Artificial Intelligence and
   Statistics}, pages 153--160, 2009.
 
+\bibitem{timit}
+J.~S. Garofolo, L.~F. Lamel, W.~M. Fisher, J.~G. Fiscus, D.~S. Pallett, and
+  N.~L. Dahlgren.
+\newblock {DARPA} {TIMIT} acoustic phonetic continuous speech corpus {CDROM},
+  1993.
+
 \bibitem{gluckman2003kurtosis}
 Joshua Gluckman.
 \newblock Kurtosis and the phase structure of images.
@@ -74,6 +79,11 @@ Alexander Grubb and J~Andrew Bagnell.
 \newblock Boosted backpropagation learning for training deep modular networks.
 \newblock In {\em Proceedings of the 27th International Conference on Machine
   Learning (ICML-10)}, pages 407--414, 2010.
+
+\bibitem{gyllensten1966growth}
+Lars Gyllensten, Torbj{\"o}rn Malmfors, and Marie-Louise Norrlin.
+\newblock Growth alteration in the auditory cortex of visually deprived mice.
+\newblock {\em Journal of Comparative Neurology}, 126(3):463--469, 1966.
 
 \bibitem{hawkins2004intelligence}
 Jeff Hawkins.
@@ -174,6 +184,12 @@ Nathan~H. Nifong.
 Brandon Rohrer.
 \newblock Biologically inspired feature creation for multi-sensory perception.
 \newblock In {\em BICA}, pages 305--313, 2011.
+
+\bibitem{ryugo1975increased}
+David~K Ryugo, Rebecca Ryugo, Albert Globus, and Herbert~P Killackey.
+\newblock Increased spine density in auditory cortex following visual or
+  somatic deafferentation.
+\newblock {\em Brain research}, 90(1):143--146, 1975.
 
 \bibitem{salakhutdinov2007restricted}
 Ruslan Salakhutdinov, Andriy Mnih, and Geoffrey Hinton.

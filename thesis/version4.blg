@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: version4.aux
 The style file: plain.bst
 Database file #1: machine_learning_bibliography.bib
-Warning--I didn't find a database entry for ""
-You've used 34 entries,
+You've used 37 entries,
             2118 wiz_defined-function locations,
-            699 strings with 10555 characters,
-and the built_in function-call counts, 13033 in all, are:
-= -- 1303
-> -- 611
+            717 strings with 11177 characters,
+and the built_in function-call counts, 14204 in all, are:
+= -- 1407
+> -- 695
 < -- 14
-+ -- 245
-- -- 208
-* -- 875
-:= -- 2074
-add.period$ -- 107
-call.type$ -- 34
-change.case$ -- 203
++ -- 278
+- -- 238
+* -- 971
+:= -- 2271
+add.period$ -- 115
+call.type$ -- 37
+change.case$ -- 227
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 514
-empty$ -- 1005
-format.name$ -- 208
-if$ -- 2789
+cite$ -- 37
+duplicate$ -- 546
+empty$ -- 1087
+format.name$ -- 238
+if$ -- 3022
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 34
-newline$ -- 172
-num.names$ -- 68
-pop$ -- 233
+int.to.str$ -- 37
+missing$ -- 36
+newline$ -- 186
+num.names$ -- 74
+pop$ -- 264
 preamble$ -- 1
-purify$ -- 171
+purify$ -- 192
 quote$ -- 0
-skip$ -- 402
+skip$ -- 424
 stack$ -- 0
-substring$ -- 854
-swap$ -- 163
+substring$ -- 910
+swap$ -- 167
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 132
+type$ -- 144
 warning$ -- 0
-while$ -- 125
-width$ -- 36
-write$ -- 370
-(There was 1 warning)
+while$ -- 134
+width$ -- 39
+write$ -- 399
