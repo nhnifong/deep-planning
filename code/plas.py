@@ -159,15 +159,16 @@ image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_image.npy"
 spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_spect.npy"
 model_save_dir = "/media/Loonies/CrossModal/Models/"
 
-numpy_rng = numpy.random.RandomState(89677) #89677
-numpy_rng = numpy.random.RandomState(89678)
+#numpy_rng = numpy.random.RandomState(89677) #89677
 
-def controlgrp():
+def combined(numpy_rng):
     recon = []
+
+    ims_train, ims_test, ims_valid = load_data(image_dataset_path)
+    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
 
     print ""
     print "Experiment 1: run ordinary model on images"
-    ims_train, ims_test, ims_valid = load_data(image_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
     model.train( ims_train, max_epochs=200, max_runtime=7200, layer_wise=False)
     save_path = os.path.join(model_save_dir, "interleaved_images_only.sda")
@@ -190,7 +191,6 @@ def controlgrp():
 
     print ""
     print "Experiment 3: run ordinary model on spectrograms"
-    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
     model.train( spec_train, max_epochs=200, max_runtime=7200, layer_wise=False)
     save_path =os.path.join(model_save_dir, "interleaved_spect_only.sda")
@@ -200,7 +200,6 @@ def controlgrp():
     print "Average reconstruction error: %0.9f\n" % recon_error
     recon.append(recon_error)
 
-    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
     print ""
     print "Experiment 4: run greedy layer-wise pre-training on spectrograms"
     model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3] )
@@ -212,16 +211,6 @@ def controlgrp():
     print "Average reconstruction error: %0.9f\n" % recon_error
     print ""
     recon.append(recon_error)
-
-    return recon
-
-# PLASTICITY TESTS
-def experiment():
-
-    ims_train, ims_test, ims_valid = load_data(image_dataset_path)
-    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
-
-    recon = []
 
     print ""
     print "Experiment 5: train interleaved model on images, then spectrograms"
@@ -284,9 +273,8 @@ def experiment():
 if __name__ == "__main__":
     xra = [[],[],[],[],[],[],[],[]] #8
     for run in range(40):
-        ra1 = controlgrp()
-        ra2 = experiment()
-        ra1.extend(ra2)
-        for i,e in enumerate(ra1):
+        numpy_rng = numpy.random.RandomState(89888 + run*1231)
+        ra = combined(numpy_rng)
+        for i,e in enumerate(ra):
             xra[i].append(e)
         print repr(xra)
