@@ -1,0 +1,71 @@
+
+@1 Welcome to my thesis defense, Learning Abstract Features from Images and Audio with stacked denoising autoencoders. 
+
+@2 I'll be showing you some experiments where I've taken SDAs trained on images, and switched them to audio to see how they perform, and vice versa.
+
+-- Motivation --
+@3 The mammalian neocortex performs an incredible service to the rest of the brain. It builds a model of both sensory inflow and motor outflow produced by other parts of the brain. It learns a general model of "what happens" in very short term - to the very long term, and eventually overrides our observations and our instincts with predictions of it's own. The neocortex is a generalized pattern finder and controller, which can and will learn to make the best of anything you throw at it. It's uniform structure and the speed which with select areas adapt to new tasks suggests that it is using a similar process throughout it's extent.
+
+@4 Connect a robotic arm to the neocortex and it will be assimilated like your own limb. The brain learns the associations between the signals it produces and the results in the world.
+
+@5 Place an array of electrodes on your tongue, connect them to a camera, and you can learn to see without your eyes. 
+
+@6 Wire up the auditory nerve from a rat's ear to it's primary visual cortex, and it can learn to hear with a part of its cotex that did not evolve for hearing. We need to find this algorithm. I believe we will find it, and deep networks are very close. We are going to find out whatever the cortex is doing, replicate it, and turn it up to eleven.
+
+@7 That's the motive for learning about stacked denoising autoencoders. In this thesis presentation I'll show you two experiments which tell us something about the plasticity of stacked denoising autoencoders. I'll go ahead and tell you up front, I didn't find what I expected, but that happens in science. While I say we are close, Human level intelligence is still a really far-off goal, There's also no good consensus on how to define intelligence, although there are some workable definitions out there. What I find more useful in the short term are the idiosyncracies of the brain that help us frame the problem.
+
+@8 For example, our way of perceiving things mixes together our wishes, our predictions, and our observations, giving us a biased picture of the world that is never entirely true. The behavior of existing unsupervised learning algorithms suggest that this is not a flaw, but a fundamental part of perception.
+
+@9 Another idiosyncracy is that we dream. For reasons poorly understood, our brain needs to periodically change modes. This may be an insightful design constriant which leads us in the right direction, or it may be a dead end, but at least it's an easier constraint to meet than "having intelligence"
+
+@10 In this thesis, I am considering the plasticity of the neocortex with regards to it's behavior when switched from one sensory modality to another to be an idiosyncracy worth studying. I believe that a learning algorithm which is mediocre at a variety of tasks is more brain-like than a specialized system with near human-level performance on only one task. This is a diagram of the learning algorithms available the scikit-learn python library. They're all very good at what they do, but what we really need is a killer algorithm that goes right here, in this "tough luck" section, that can find the hidden structure in data of arbitrary complexity, given sufficient resources and time, and without requiring a googol of training examples. 
+
+-- Experiment Design --
+
+@11 I'm using an unsupervised learning algorithm called stacked denoising autoencoders, recently improved upon and brought into the spotlight by Geoffrey Hinton, Yoshua Bengio, and Google. Deep networks in general have been making huge gains thanks to these researchers and their laboratories. The SDA can be understood in three parts, I'll talk about them in the reverse order they are referred to in the acronym: Autoencoder, Denoising, and Stacked. 
+
+@12 An autoencoder is a classical three-layer neural network which learns the identity function. This means that it is given a vector on its input and the weights are optimized to produce the same vector on the output. The reason this is non-trivial and useful is that the number of hidden nodes is less than the size of the input and output, so the autoencoder must perform some lossy compression. Alternatively, more hidden nodes can be used if a sparsity term is used in the cost function.
+
+@13 A *denoising* autoencoder is a slight improvement on an autoencoder that generalizes better. By randomly setting some of the values in each input vector to zero, it reconstructs corrupted versions of training examples. To do this, it must learn the correlations that exist between the values in the input distribution. The code is expected to converge on a sparse distributed representation of any given input vector.
+
+@14 Here you can see what dropout does to the smoothness, sparsity, and generality of the features learned by the network. These are visualizations of the hidden nodes in a network trained on the MNIST digit recognition dataset.
+
+@15 Finally, A stacked denoising autoencoder, is a stack of denoising autoencoders where each one takes as input the activations of the hidden nodes from the one below. The innovation that allows these deep architectures to be trained is called greedy layer-wise pre-training. If you train the layers one at a time from the bottom up, adding a new layer each time the highest one converges, you can create a deep network that finds a much better solution than you could get if you started with a classical neural network of the same topology.
+
+@16 Now that I've covered the algorithm I'll be using, I'll explain how I'm going to explore it's plasticity. I prepared two datasets of identical size and dimensionality. One of images from flickr, and one of audio from NPR and several college radio stations. I wanted to observe the effects of changing the dataset from one sensory modality to the other mid-training.
+
+@17 The Image dataset is a collection of 1 million images from Flickr released under any Creative Commons license by their original authors. I am using set of ten-thousand patches that I sampled from subset of this dataset. I don't have enough GPUs to use the whole thing, but I'd love to give if a try eventually!
+
+@18 The audio comes from NPR talk shows, and a favorite college radio station of mine called WKNC. periodically, two-second audio clips are captured from these streams, and transformed into spectrograms like this using open source software available on ubuntu. I collected a few thousand of these spectrograms, and then sampled patches from them, just like the images. 
+
+@19 Here are some examples of those patches.
+
+@20 I set up 8 different experiments to fully explore the combinations of three different binary variables. These are: interleaved or layer-wise training, single-modal or multi-modal, and audio or images as the test data. I'll explain each of these binary variables in the next two slides.
+
+@21 Interleaved vs. layer-wise training is the difference between training the individual DAs in an SDA like this {000...111...222} vs. like this {012...012...012}. Since layer-wise training is known to help the higher layers of SDAs converge on better features, I hypothesised that it would improve adaptability in the case of multi-modal data as well. 
+
+@22 Single-modal vs. multi-modal refers to whether I use the same dataset thru-out the experiment or swap out the dataset half-way. the term "modal" comes from the term "sensory modality". To control for the advantage given by training order, I run multi modal experiments with audio first, and images first. I run single-modal experiments with either just audio or just images. 
+
+@23 Each of these 8 experiments is run 20 times, using random seeds, to obtain a distribution of results. I compare the recontruction error on the test data from each dataset to isolate the effect of multi-modal, and layer-wise training.
+
+-- Results and Interpretation --
+@24 Here are the reconstruction error distributions for each experiment. Better performance is to the left. By comparing these values, we can learn whether layer-wise training, the supposed magic bullet of deep networks, has an effect on the plasticity of SDAs. In other words, do the layer-wise multi-modal experiments (highlight) have a lower reconstruction error than their interleaved counterparts. (highlight, indicate association) An improved (smaller) reconstruction error would indicate that the model is sucsessfully adapting to the new sensory modality. The answer is that yes, it did help a little bit for both modality orders. The distribution for experiment 4 lies entirely to the left of experiment 2, and the distribution for experiment 8 lies not entirely, but signifigantly to the left of experiment 6. (highlight or point) There are some unexpected differences though. The error distributions for models trained on audio only are way over on the right. Something went wrong with those models, and in the next few slides I'll show some graphs that explain that a little better, but the truth is I don't know why they do that, all I can say is that it reliably happens every time and we're talking about the same code that worked fine on images. If the audio-only models were like the image-only models, we would expect them to be here.
+
+@25 Another way to get an idea of what your network has learned is to visualize the features in each layer. These are the hypothetical input examples that would maximally activate each node. This gives an approximation of what the node is sensitive to. In this visualization of the interleaved image-only model, the 1st layer's 256 hidden nodes are on the left, the second layer's 64 hidden nodes are in the middle, and the third layer's 16 hidden nodes are at the bottom right. Note what fraction of the available nodes have converged on a smooth, spatially correlated pattern, vs. nodes which still display uniformly distributed noise. Also, note how the smoothness, the size, and the redundancy of the features changes from layer one to three.
+
+@26 In the next model, interleaved audio-only, we get a clue as to why the reconstruction error for audio only models was worse than expected. Layer two has not converged on spatially correlated patterns. But even more strangely, layer three has. At first I looked at this and thought, "that's impossible, something is broken."  But there is nothing in the cost function of the interleaved training method that demands spatially correlated patterns in individual layers (only layer-wise training demands that) the interleaved training method only asks for a decent reconstruction from the whole network. Additionally, the weakness of this visualization is that it does not give a clear idea of what a node is coding for, only what the hypothetical input that would produce an activation of 1 for that node and an activation of 0 for all others in the same layer, a condition that is unlikely to ever happen in practice.
+
+@27 In the next two slides we can see layer-wise pre-training doing its job: enforcing every layer to converge on a sparse distributed representation of the one below.  The resulting features are more noisy, but they also allow the network to generalize better and thus achieve better reconstruction error on the test set. 
+
+@28 Back on the audio dataset, layer-wise pre-training has helped with the lack of spatially correlated patterns in layer two, but it still displays a strange tendency for that second layer to be noisier than usual.
+
+@29 Next we have the four models that were trained on one dataset, and switched to another one halfway through.  This is the Interleaved model trained on images, then switched to audio. It retains a high ratio of smooth nodes to noisy nodes, and this probably contributes to it's higher performance. Note that the features have begun to take on the appearace of the spectrogram patches.
+
+@30 Here we have the interleaved model that was trained on audio, then switched to images. It also retains the ratio of smooth to noisy nodes that it originally had, and it has mostly retained the lack of spatially correlated second layer features that afflicts the interleaved audio only model, except that they have all begun to start moving towards the same "vignette" appearance. 
+
+@31 The next model show the layer-wise model trained on images, then audio. It is very similar to the interleaved model two slides back. It has higher performance, but only by a little bit, and it's not viusally apparent just by looking at the features.
+
+@32 However, over on the layer-wise audio then images model, we can see that the layer-wise training has helped the second and third layers start to converge on sparse distributed representations, which is a healthier thing to see. The performance of this model is better than it's interleaved counterpart which is what I would expect just looking at these features. 
+
+
+
