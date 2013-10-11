@@ -19,6 +19,8 @@ outdir = "features"
 
 for fname in os.listdir(indir):
 
+    if not fname.startswith('perlin'): continue
+
     model = pickle.load(open(os.path.join(indir,fname),'rb'))
     outname = fname[:-4]
     

@@ -34,11 +34,11 @@ import theano.tensor as T
 
 
 from logistic_sgd import LogisticRegression, load_data
-
+from utils import sweep_perlin
 
 class HiddenLayer(object):
     def __init__(self, rng, input, n_in, n_out, W=None, b=None,
-                 activation=T.tanh):
+                 activation=T.tanh, perlin=False):
         """
         Typical hidden layer of a MLP: units are fully-connected and have
         sigmoidal activation function. Weight matrix W is of shape (n_in,n_out)
@@ -79,12 +79,16 @@ class HiddenLayer(object):
         #        We have no info for other function, so we use the same as
         #        tanh.
         if W is None:
-            W_values = numpy.asarray(rng.uniform(
-                    low=-numpy.sqrt(6. / (n_in + n_out)),
-                    high=numpy.sqrt(6. / (n_in + n_out)),
-                    size=(n_in, n_out)), dtype=theano.config.floatX)
-            if activation == theano.tensor.nnet.sigmoid:
-                W_values *= 4
+            if perlin:
+                W_values = sweep_perlin( (n_in, n_out), octaves=20, persistence=0.7,
+                                         base=rng.randint(100000) )
+            else:
+                W_values = numpy.asarray(rng.uniform(
+                        low=-numpy.sqrt(6. / (n_in + n_out)),
+                        high=numpy.sqrt(6. / (n_in + n_out)),
+                        size=(n_in, n_out)), dtype=theano.config.floatX)
+                if activation == theano.tensor.nnet.sigmoid:
+                    W_values *= 4
 
             W = theano.shared(value=W_values, name='W', borrow=True)
 

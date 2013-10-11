@@ -5,9 +5,43 @@ processing the outputs into a more understandable way.
 For example ``tile_raster_images`` helps in generating a easy to grasp
 image from a set of samples or weights.
 """
-
+from __future__ import division
 
 import numpy
+import noise
+
+def sweep_perlin(shape, **params):
+    """ Generate a 2 dimensional matrix with perlin noise normalized between -1 and 1 
+    Available parameters
+
+    octaves -- specifies the number of passes, defaults to 1 (simple noise).
+    
+    persistence -- specifies the amplitude of each successive octave relative
+    to the one below it. Defaults to 0.5 (each higher octave's amplitude
+    is halved). Note the amplitude of the first pass is always 1.0.
+    
+    lacunarity -- specifies the frequency of each successive octave relative
+    to the one below it, similar to persistence. Defaults to 2.0.
+    
+    repeatx, repeaty -- specifies the interval along each axis when 
+    the noise values repeat. This can be used as the tile size for creating 
+    tileable textures
+    
+    base -- specifies a fixed offset for the noise coordinates. Useful for
+    generating different noise textures with the same repeat interval
+    """
+    print repr(params)
+    target = numpy.zeros(shape)
+    print "weight matrix " + str(target.shape)
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            target[i,j] = noise.pnoise2( i/shape[0], j/shape[1], **params )
+    
+    #target -= target.min()
+    #target /= target.max()
+    #target = target*2-1
+
+    return target
 
 
 def scale_to_unit_interval(ndar, eps=1e-8):

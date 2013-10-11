@@ -20,7 +20,7 @@ class SdA(object):
     Stacked denoising autoencoder
     layer-sizes: a list of integers indicating the width of each hidden layer
     """
-    def __init__(self,numpy_rng, n_ins, layer_sizes, corruption_levels=[0.5, 0.5]):
+    def __init__(self,numpy_rng, n_ins, layer_sizes, corruption_levels=[0.5, 0.5], perlin=False):
         self.corruption_levels = corruption_levels
         self.sigmoid_layers = []
         self.dA_layers = []
@@ -28,6 +28,7 @@ class SdA(object):
         self.n_layers = len(layer_sizes)
         self.x = T.matrix('x')
         self.numpy_rng = numpy_rng
+        self.perlin = perlin
         
         theano_rng = RandomStreams(numpy_rng.randint(2 ** 30))
 
@@ -43,7 +44,9 @@ class SdA(object):
                                         input      = layer_input,
                                         n_in       = input_size,
                                         n_out      = layer_sizes[i],
-                                        activation = T.nnet.sigmoid)
+                                        activation = T.nnet.sigmoid,
+                                        perlin     = self.perlin)
+            
             self.sigmoid_layers.append(sigmoid_layer)
             self.params.extend(sigmoid_layer.params)
             
@@ -270,11 +273,44 @@ def combined(numpy_rng):
 
     return recon
 
+def perlin_experiment(numpy_rng,run_index):
+    recon = []
+
+    ims_train, ims_test, ims_valid = load_data(image_dataset_path)
+    spec_train, spec_test, spec_valid = load_data(spect_dataset_path)
+
+    print ""
+    print "Experiment 9: layer-wise model on images, initialized with perlin noise"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3], perlin=True )
+    model.train( ims_train, max_epochs=200, max_runtime=7200, layer_wise=True)
+    save_path = os.path.join(model_save_dir, "perlin_layerwise_images_only_%i.sda"%run_index)
+    print "Training complete, saving model at %s" % save_path                                            
+    pickle.dump(model,open(save_path,'wb'))                                                              
+    recon_error = model.test( ims_test )
+    print "Average reconstruction error: %0.9f\n" % recon_error
+    recon.append(recon_error)
+
+    print ""
+    print "Experiment 10: layer-wise model on audio, initialized with perlin noise"
+    model = SdA( numpy_rng, 1024, [256,64,16], [0.3,0.3,0.3], perlin=True )
+    model.train( spec_train, max_epochs=200, max_runtime=7200, layer_wise=False)
+    save_path =os.path.join(model_save_dir, "perlin_layerwise_audio_only_%i.sda"%run_index)
+    print "Training complete, saving model at %s" % save_path
+    pickle.dump(model,open(save_path,'wb'))
+    recon_error = model.test( spec_test )
+    print "Average reconstruction error: %0.9f\n" % recon_error
+    recon.append(recon_error)
+
+    return recon
+
 if __name__ == "__main__":
-    xra = [[],[],[],[],[],[],[],[]] #8
+    xra = [[] for i in range(2)]
     for run in range(40):
-        numpy_rng = numpy.random.RandomState(89888 + run*1231)
-        ra = combined(numpy_rng)
+        numpy_rng = numpy.random.RandomState(89228 + run*121)
+        ra = perlin_experiment(numpy_rng, run)
         for i,e in enumerate(ra):
             xra[i].append(e)
         print repr(xra)
+        fout = open('population_models_perlin','w')
+        fout.write(repr(xra)+'\n')
+        fout.close()

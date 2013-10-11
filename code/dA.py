@@ -64,7 +64,7 @@ class dA(object):
 
         \tilde{x} ~ q_D(\tilde{x}|x)                                     (1)
 
-        y = s(W \tilde{x} + b)                                           (2)
+        Y = s(W \tilde{x} + b)                                           (2)
 
         x = s(W' y  + b')                                                (3)
 
@@ -205,7 +205,8 @@ class dA(object):
         hidden layer
 
         """
-        return  T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)
+        ss = T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)
+        return ss
 
     def get_cost_updates(self, corruption_level, learning_rate):
         """ This function computes the cost and the updates for one trainng
