@@ -158,8 +158,8 @@ class SdA(object):
         return numpy.mean(c)
 
 
-image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_image.npy"
-spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/patches_spect.npy"
+image_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/true_patches_image.npy"
+spect_dataset_path = "/media/Loonies/CrossModal/NumpyArrays/true_patches_spect.npy"
 model_save_dir = "/media/Loonies/CrossModal/Models/"
 
 #numpy_rng = numpy.random.RandomState(89677) #89677
@@ -304,13 +304,13 @@ def perlin_experiment(numpy_rng,run_index):
     return recon
 
 if __name__ == "__main__":
-    xra = [[] for i in range(2)]
-    for run in range(40):
-        numpy_rng = numpy.random.RandomState(89228 + run*121)
-        ra = perlin_experiment(numpy_rng, run)
+    xra = [[] for i in range(8)]
+    for run in range(20):
+        numpy_rng = numpy.random.RandomState(89231 + run*121)
+        ra = combined(numpy_rng)
         for i,e in enumerate(ra):
             xra[i].append(e)
         print repr(xra)
-        fout = open('population_models_perlin','w')
+        fout = open('population_models_true_data','w')
         fout.write(repr(xra)+'\n')
         fout.close()
